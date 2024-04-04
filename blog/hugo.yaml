@@ -1,0 +1,6 @@
+baseURL: https://mandlcho.github.io/
+languageCode: en-us
+title: ramblings of a lazy game dev
+theme: ['PaperMod']
+enableEmoji: true
+

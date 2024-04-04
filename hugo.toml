@@ -1,0 +1,5 @@
+baseURL = 'https://mandlcho.github.io/'
+languageCode = 'en-us'
+title = 'ramblings of a technical animator'
+theme = 'PaperMod'
+enableEmoji = true

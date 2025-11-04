@@ -115,9 +115,9 @@ a {
 
 .hero__links {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
 }
 
 .hero__links a {

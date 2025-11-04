@@ -6,11 +6,8 @@ description: "Developer, experimenter, chronic tinkerer."
 
 <section class="hero">
   <h1 class="hero__title">Building in public.</h1>
-  <p class="hero__subtitle">
-    Notes on software, automation, and whatever else is currently on the workbench.
-  </p>
+  <p class="hero__subtitle">game developer . product . bitcoin</p>
   <nav class="hero__links">
-    <a href="{{ '/blog/' | relative_url }}">Read the blog</a>
-    <a href="{{ '/about/' | relative_url }}">About me</a>
+    <a href="{{ '/blog/' | relative_url }}">Projects</a>
   </nav>
 </section>

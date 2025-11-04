@@ -7,8 +7,31 @@ $brand-color: #2b6cb0;
 
 @import "minima";
 
+:root {
+  color-scheme: light;
+  --bg-color: #ffffff;
+  --text-color: #1a202c;
+  --muted-text: #4a5568;
+  --border-color: #e2e8f0;
+  --button-bg: #2b6cb0;
+  --button-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-color: #0f172a;
+  --text-color: #e2e8f0;
+  --muted-text: #94a3b8;
+  --border-color: #1e293b;
+  --button-bg: #63b3ed;
+  --button-text: #0f172a;
+}
+
 body {
+  background-color: var(--bg-color);
   font-family: $base-font-family;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -22,4 +45,118 @@ a {
 .lead {
   font-size: 1.1rem;
   margin-top: 1.5rem;
+}
+
+.landing {
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+.landing__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.landing__brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.landing__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 640px;
+}
+
+.theme-toggle {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(148, 163, 184, 0.15);
+  transform: translateY(-1px);
+}
+
+.hero {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero__title {
+  font-size: clamp(2.75rem, 6vw, 3.75rem);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero__subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-text);
+  margin: 0;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(43, 108, 176, 0.2);
+}
+
+.button--ghost {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  box-shadow: none;
+}
+
+.button--ghost:hover {
+  background-color: rgba(148, 163, 184, 0.15);
+}
+
+@media (max-width: 600px) {
+  .landing {
+    padding: 1.5rem;
+  }
+
+  .landing__header {
+    margin-bottom: 2.5rem;
+  }
 }

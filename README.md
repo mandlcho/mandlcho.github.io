@@ -4,6 +4,8 @@ GitHub Pages blog powered by Jekyll and the minima theme.
 
 ## Local development
 
+> Always run `bundle install` (or `bundle update` when you need fresh gems) followed by `bundle exec jekyll build` after pulling changes so the site and dependencies stay in sync.
+
 1. Ensure you have Ruby (>= 3.0 recommended) and Bundler installed.
 2. Install dependencies:
 
@@ -11,13 +13,20 @@ GitHub Pages blog powered by Jekyll and the minima theme.
    bundle install
    ```
 
-3. Run the development server:
+3. Run the development server with livereload so changes rebuild automatically:
 
    ```bash
-   bundle exec jekyll serve
+   bundle exec jekyll serve --livereload
    ```
 
 4. Open <http://localhost:4000> to preview changes. The site will reload when you edit files.
+
+5. Before committing, rebuild to catch issues:
+
+   ```bash
+   bundle exec jekyll build
+   bundle exec jekyll doctor
+   ```
 
 ## Publishing
 

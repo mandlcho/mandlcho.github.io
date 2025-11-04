@@ -1,0 +1,83 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}
+    </title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  </head>
+  <body>
+    <div class="landing">
+      <header class="landing__header">
+        <span class="landing__brand">{{ site.title | default: "Site" }}</span>
+        <button
+          type="button"
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Switch to dark mode"
+        >
+          <span aria-hidden="true" class="theme-toggle__icon">☀️</span>
+        </button>
+      </header>
+      <main class="landing__content">
+        {{ content }}
+      </main>
+    </div>
+    <script>
+      (function () {
+        var storageKey = "preferred-theme";
+        var toggle = document.getElementById("theme-toggle");
+
+        function applyTheme(theme) {
+          document.documentElement.setAttribute("data-theme", theme);
+          var isDark = theme === "dark";
+          toggle.setAttribute(
+            "aria-label",
+            isDark ? "Switch to light mode" : "Switch to dark mode"
+          );
+          toggle.querySelector(".theme-toggle__icon").textContent = isDark
+            ? "🌙"
+            : "☀️";
+        }
+
+        function getStoredTheme() {
+          return localStorage.getItem(storageKey);
+        }
+
+        function getPreferredTheme() {
+          var stored = getStoredTheme();
+          if (stored) return stored;
+          return window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+
+        var currentTheme = getPreferredTheme();
+        applyTheme(currentTheme);
+
+        toggle.addEventListener("click", function () {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          localStorage.setItem(storageKey, currentTheme);
+          applyTheme(currentTheme);
+        });
+
+        if (window.matchMedia) {
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", function (event) {
+              if (!getStoredTheme()) {
+                currentTheme = event.matches ? "dark" : "light";
+                applyTheme(currentTheme);
+              }
+            });
+        }
+      })();
+    </script>
+  </body>
+</html>

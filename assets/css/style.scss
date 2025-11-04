@@ -1,0 +1,25 @@
+---
+# Styling overrides for minima
+---
+
+$base-font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+$brand-color: #2b6cb0;
+
+@import "minima";
+
+body {
+  font-family: $base-font-family;
+}
+
+a {
+  color: $brand-color;
+
+  &:hover {
+    color: darken($brand-color, 10%);
+  }
+}
+
+.lead {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}

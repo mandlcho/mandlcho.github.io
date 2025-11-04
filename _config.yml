@@ -1,0 +1,18 @@
+title: Mandl Cho
+description: Personal blog and project notes
+url: "" # Set to your domain, e.g. https://mandlcho.github.io
+baseurl: "" # Leave empty for user/organization GitHub Pages
+
+theme: minima
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+author:
+  name: Mandl Cho
+  email: mandlcho@example.com
+
+social_links:
+  - { platform: github,  user_url: "https://github.com/mandlcho" }

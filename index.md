@@ -9,8 +9,8 @@ description: "Developer, experimenter, chronic tinkerer."
   <p class="hero__subtitle">
     Notes on software, automation, and whatever else is currently on the workbench.
   </p>
-  <div class="hero__actions">
-    <a class="button" href="{{ '/blog/' | relative_url }}">Read the blog</a>
-    <a class="button button--ghost" href="{{ '/about/' | relative_url }}">About me</a>
-  </div>
+  <nav class="hero__links">
+    <a href="{{ '/blog/' | relative_url }}">Read the blog</a>
+    <a href="{{ '/about/' | relative_url }}">About me</a>
+  </nav>
 </section>

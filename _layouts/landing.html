@@ -14,7 +14,6 @@ layout: null
   <body>
     <div class="landing">
       <header class="landing__header">
-        <span class="landing__brand">{{ site.title | default: "Site" }}</span>
         <button
           type="button"
           class="theme-toggle"
@@ -25,22 +24,11 @@ layout: null
         </button>
       </header>
 
-      <main>
-        <section class="landing__content">
-          {{ content }}
-        </section>
-
-        <section class="landing__section">
-          <h2 class="landing__section-title">Header</h2>
-          <p class="landing__section-body">
-            Body placeholder text. Body placeholder text. Body placeholder text.
-          </p>
-        </section>
+      <main class="landing__content">
+        {{ content }}
       </main>
 
-      <footer class="landing__footer">
-        Footer placeholder text. Footer placeholder text. Footer placeholder text.
-      </footer>
+      <footer class="landing__footer"></footer>
     </div>
     <script>
       (function () {

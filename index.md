@@ -5,10 +5,36 @@ description: "Developer, experimenter, chronic tinkerer."
 ---
 
 <section class="hero">
-  <h1 class="hero__title">build scratchpad</h1>
-  <nav class="hero__links">
-    <a href="{{ '/projects/' | relative_url }}">projects</a>
-    <a href="#experiments">experiments</a>
-    <a href="#bitcoin">bitcoin</a>
+  <h1 class="hero__title">builder's foundry</h1>
+  <nav class="hero__menu" aria-label="primary">
+    <ul class="menu">
+      <li class="menu__item">
+        <a class="menu__trigger" href="{{ '/projects/' | relative_url }}">projects</a>
+        <ul class="menu__submenu">
+          <li><a href="{{ '/projects/project-a/' | relative_url }}">project a</a></li>
+          <li>
+            <a href="{{ '/projects/project-a/' | relative_url }}#process">process + videos</a>
+          </li>
+          <li><a href="{{ '/projects/project-b/' | relative_url }}">project b</a></li>
+          <li>
+            <a href="{{ '/projects/project-b/' | relative_url }}#process">process + videos</a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu__item">
+        <a class="menu__trigger" href="{{ '/experiments/' | relative_url }}">experiments</a>
+        <ul class="menu__submenu">
+          <li><a href="{{ '/experiments/lab-notes/' | relative_url }}">lab notes</a></li>
+          <li><a href="{{ '/experiments/prototypes/' | relative_url }}">playable prototypes</a></li>
+        </ul>
+      </li>
+      <li class="menu__item">
+        <a class="menu__trigger" href="{{ '/bitcoin/' | relative_url }}">bitcoin</a>
+        <ul class="menu__submenu">
+          <li><a href="{{ '/bitcoin/research/' | relative_url }}">research log</a></li>
+          <li><a href="{{ '/bitcoin/tools/' | relative_url }}">tools + resources</a></li>
+        </ul>
+      </li>
+    </ul>
   </nav>
 </section>

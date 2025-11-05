@@ -8,9 +8,17 @@ description: "Developer, experimenter, chronic tinkerer."
   <h1 class="hero__title">mandl.projects</h1>
   <nav class="hero__menu" aria-label="primary">
     <ul class="menu">
-      <li class="menu__item">
-        <a class="menu__trigger" href="{{ '/projects/' | relative_url }}">projects</a>
-        <ul class="menu__submenu">
+      <li class="menu__item menu__item--accordion">
+        <button
+          type="button"
+          class="menu__trigger"
+          data-accordion-trigger
+          aria-expanded="false"
+          aria-controls="projects-submenu"
+        >
+          projects
+        </button>
+        <ul class="menu__submenu" id="projects-submenu" hidden>
           <li>
             <a
               href="{{ '/projects/the-kanban/' | relative_url }}"

@@ -155,6 +155,31 @@ layout: null
             }, 360);
           });
         });
+
+        var accordionTriggers = document.querySelectorAll(
+          "[data-accordion-trigger]"
+        );
+
+        accordionTriggers.forEach(function (trigger) {
+          var item = trigger.closest(".menu__item");
+          var submenuId = trigger.getAttribute("aria-controls");
+          var submenu = submenuId ? document.getElementById(submenuId) : null;
+
+          if (!item || !submenu) {
+            return;
+          }
+
+          trigger.addEventListener("click", function () {
+            var isOpen = item.classList.toggle("is-open");
+            trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+            if (isOpen) {
+              submenu.removeAttribute("hidden");
+            } else if (!submenu.hasAttribute("hidden")) {
+              submenu.setAttribute("hidden", "");
+            }
+          });
+        });
       })();
     </script>
   </body>

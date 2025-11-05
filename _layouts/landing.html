@@ -160,6 +160,8 @@ layout: null
           "[data-accordion-trigger]"
         );
 
+        var accordionItems = [];
+
         accordionTriggers.forEach(function (trigger) {
           var item = trigger.closest(".menu__item");
           var submenuId = trigger.getAttribute("aria-controls");
@@ -169,7 +171,19 @@ layout: null
             return;
           }
 
+          accordionItems.push({ item: item, trigger: trigger, submenu: submenu });
+
           trigger.addEventListener("click", function () {
+            var willOpen = !item.classList.contains("is-open");
+
+            if (willOpen) {
+              accordionItems.forEach(function (entry) {
+                if (entry.item !== item) {
+                  closeAccordion(entry);
+                }
+              });
+            }
+
             var isOpen = item.classList.toggle("is-open");
             trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
@@ -177,6 +191,34 @@ layout: null
               submenu.removeAttribute("hidden");
             } else if (!submenu.hasAttribute("hidden")) {
               submenu.setAttribute("hidden", "");
+            }
+          });
+        });
+
+        function closeAccordion(entry) {
+          entry.item.classList.remove("is-open");
+          entry.trigger.setAttribute("aria-expanded", "false");
+          if (!entry.submenu.hasAttribute("hidden")) {
+            entry.submenu.setAttribute("hidden", "");
+          }
+        }
+
+        document.addEventListener("click", function (event) {
+          accordionItems.forEach(function (entry) {
+            if (
+              entry.item.classList.contains("is-open") &&
+              !entry.item.contains(event.target)
+            ) {
+              closeAccordion(entry);
+            }
+          });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key !== "Escape") return;
+          accordionItems.forEach(function (entry) {
+            if (entry.item.classList.contains("is-open")) {
+              closeAccordion(entry);
             }
           });
         });

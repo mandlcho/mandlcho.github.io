@@ -168,14 +168,11 @@ a {
   padding: 0.75rem 1.25rem 0.75rem 0;
 }
 
-.menu__item--accordion {
-  padding-right: 0;
-}
-
 .menu__trigger {
   position: relative;
   color: var(--text-color);
   text-decoration: none;
+  font: inherit;
   font-weight: 400;
   padding: 0.2rem 0.6rem;
   border-radius: 0.25rem;
@@ -183,28 +180,15 @@ a {
   align-items: center;
   justify-content: flex-start;
   min-width: 6rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .menu__trigger:hover,
 .menu__trigger:focus {
   background-color: rgba(148, 163, 184, 0.15);
   outline: none;
-}
-
-.menu__item--accordion .menu__trigger {
-  width: 100%;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.menu__item--accordion .menu__trigger::after {
-  content: "▾";
-  font-size: 0.8rem;
-  transition: transform 0.18s ease;
-}
-
-.menu__item--accordion.is-open .menu__trigger::after {
-  transform: rotate(180deg);
 }
 
 .menu__submenu {
@@ -226,29 +210,14 @@ a {
   z-index: 10;
 }
 
-.menu__item--accordion .menu__submenu {
-  position: static;
-  left: auto;
-  top: auto;
-  min-width: 0;
-  margin: 0.65rem 0 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  opacity: 1;
-  pointer-events: auto;
-  transform: none;
-  transition: none;
-  display: none;
-}
-
 .menu__item--accordion .menu__submenu[hidden] {
   display: none;
 }
 
-.menu__item--accordion.is-open .menu__submenu {
-  display: block;
+.menu__item--accordion.is-open > .menu__submenu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0, -50%);
 }
 
 .menu__submenu li {
@@ -342,10 +311,6 @@ a {
     padding: 0.6rem 0;
   }
 
-  .menu__item--accordion .menu__trigger {
-    gap: 0.5rem;
-  }
-
   .menu__submenu {
     position: relative;
     top: auto;
@@ -357,10 +322,8 @@ a {
     box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
   }
 
-  .menu__item--accordion .menu__submenu {
-    margin: 0.5rem 0 0;
-    box-shadow: none;
-    border: none;
+  .menu__item--accordion.is-open > .menu__submenu {
+    transform: none;
   }
 
   .project-page {

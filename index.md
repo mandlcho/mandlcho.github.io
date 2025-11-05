@@ -13,6 +13,7 @@ description: "Developer, experimenter, chronic tinkerer."
           type="button"
           class="menu__trigger"
           data-accordion-trigger
+          aria-haspopup="true"
           aria-expanded="false"
           aria-controls="projects-submenu"
         >

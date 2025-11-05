@@ -14,7 +14,13 @@ layout: null
   <body>
     <div class="project-page">
       <header class="project-page__header">
-        <a class="project-page__home" href="{{ '/' | relative_url }}">← home</a>
+        <a
+          class="project-page__home"
+          href="{{ '/' | relative_url }}"
+          aria-label="Back to home"
+        >
+          &lt;
+        </a>
         {% if page.project_meta %}
         <div class="project-page__meta">
           {{ page.project_meta }}

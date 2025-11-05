@@ -19,7 +19,16 @@ layout: null
           href="{{ '/' | relative_url }}"
           aria-label="Back to home"
         >
-          <span class="project-page__home-icon" aria-hidden="true">&lt;</span>
+          <svg
+            class="project-page__home-icon"
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M12.5 4.5a.75.75 0 0 1 0 1.06L8.06 10l4.44 4.44a.75.75 0 1 1-1.06 1.06l-5-5a.75.75 0 0 1 0-1.06l5-5a.75.75 0 0 1 1.06 0Z"
+            />
+          </svg>
           <span class="sr-only">Back to home</span>
         </a>
         {% if page.project_meta %}

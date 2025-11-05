@@ -187,7 +187,9 @@ a {
 
 .menu__trigger:hover,
 .menu__trigger:focus {
-  background-color: rgba(148, 163, 184, 0.15);
+  background-color: transparent;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
   outline: none;
 }
 

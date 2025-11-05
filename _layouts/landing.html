@@ -21,7 +21,7 @@ layout: null
           aria-label="Switch to dark mode"
         >
           <svg
-            class="theme-toggle__icon theme-toggle__icon--bulb-on is-visible"
+            class="theme-toggle__icon theme-toggle__icon--sun is-visible"
             aria-hidden="true"
             focusable="false"
             viewBox="0 0 24 24"
@@ -31,17 +31,18 @@ layout: null
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M12 3a6 6 0 0 0-3.7 10.9l.8.8a2.6 2.6 0 0 1 .9 1.9V17h4v-1.4a2.6 2.6 0 0 1 .9-1.9l.8-.8A6 6 0 0 0 12 3Z" />
-            <path d="M9 18h6" />
-            <path d="M10 21h4" />
-            <path d="M12 1v1.6" />
-            <path d="M5.4 5.4 6.9 6.9" />
-            <path d="M18.6 5.4 17.1 6.9" />
-            <path d="M4 12h1.6" />
-            <path d="M20 12h1.6" />
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 3v2" />
+            <path d="M12 19v2" />
+            <path d="M5.22 5.22 6.64 6.64" />
+            <path d="M17.36 17.36 18.78 18.78" />
+            <path d="M3 12h2" />
+            <path d="M19 12h2" />
+            <path d="M5.22 18.78 6.64 17.36" />
+            <path d="M17.36 6.64 18.78 5.22" />
           </svg>
           <svg
-            class="theme-toggle__icon theme-toggle__icon--bulb-off"
+            class="theme-toggle__icon theme-toggle__icon--moon"
             aria-hidden="true"
             focusable="false"
             viewBox="0 0 24 24"
@@ -51,11 +52,9 @@ layout: null
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M12 3a6 6 0 0 0-3.7 10.9l.8.8a2.6 2.6 0 0 1 .9 1.9V17h4v-1.4a2.6 2.6 0 0 1 .9-1.9l.8-.8A6 6 0 0 0 12 3Z" />
-            <path d="M9 18h6" />
-            <path d="M10 21h4" />
-            <path d="m8 5 8 8" />
-            <path d="m16 5-8 8" />
+            <path
+              d="M21 12.79A9 9 0 0 1 11.21 3 6.5 6.5 0 1 0 21 12.79Z"
+            />
           </svg>
         </button>
       </header>
@@ -70,12 +69,12 @@ layout: null
       (function () {
         var storageKey = "preferred-theme";
         var toggle = document.getElementById("theme-toggle");
-        var bulbOn = toggle.querySelector(".theme-toggle__icon--bulb-on");
-        var bulbOff = toggle.querySelector(".theme-toggle__icon--bulb-off");
+        var sunIcon = toggle.querySelector(".theme-toggle__icon--sun");
+        var moonIcon = toggle.querySelector(".theme-toggle__icon--moon");
 
         function updateIcons(isDark) {
-          bulbOn.classList.toggle("is-visible", !isDark);
-          bulbOff.classList.toggle("is-visible", isDark);
+          sunIcon.classList.toggle("is-visible", !isDark);
+          moonIcon.classList.toggle("is-visible", isDark);
         }
 
         function applyTheme(theme) {

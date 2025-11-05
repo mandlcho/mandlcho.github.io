@@ -2,9 +2,9 @@
 # Styling overrides for minima
 ---
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
 
-$base-font-family: "JetBrains Mono", "Consolas", "Menlo", monospace;
+$base-font-family: "DM Mono", "JetBrains Mono", "Consolas", "Menlo", monospace;
 $brand-color: #2b6cb0;
 
 @import "minima";

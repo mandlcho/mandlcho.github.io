@@ -19,7 +19,8 @@ layout: null
           href="{{ '/' | relative_url }}"
           aria-label="Back to home"
         >
-          &lt;
+          <span class="project-page__home-icon" aria-hidden="true">&lt;</span>
+          <span class="sr-only">Back to home</span>
         </a>
         {% if page.project_meta %}
         <div class="project-page__meta">

@@ -281,6 +281,12 @@ a {
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
+.project-page__home-icon {
+  display: inline-block;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
 .project-page__home:hover,
 .project-page__home:focus {
   color: $brand-color;
@@ -337,6 +343,18 @@ a {
 [data-theme="dark"] .project-info {
   background-color: rgba(148, 163, 184, 0.16);
   border-color: rgba(148, 163, 184, 0.35);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 600px) {

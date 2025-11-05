@@ -158,8 +158,8 @@ a {
 
 .menu__submenu {
   position: absolute;
-  top: calc(100% + 0.4rem);
-  left: 0;
+  top: 0;
+  left: calc(100% + 0.75rem);
   min-width: 220px;
   list-style: none;
   padding: 0.5rem 0;
@@ -170,7 +170,7 @@ a {
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-6px);
+  transform: translateX(-6px);
   transition: opacity 0.15s ease, transform 0.15s ease;
   z-index: 10;
 }

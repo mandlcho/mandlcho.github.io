@@ -2,7 +2,9 @@
 # Styling overrides for minima
 ---
 
-$base-font-family: "Consolas", "Menlo", monospace;
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+$base-font-family: "JetBrains Mono", "Consolas", "Menlo", monospace;
 $brand-color: #2b6cb0;
 
 @import "minima";
@@ -132,7 +134,7 @@ a {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.25rem;
 }
 
 .menu__item {
@@ -143,7 +145,7 @@ a {
   position: relative;
   color: var(--text-color);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
 }

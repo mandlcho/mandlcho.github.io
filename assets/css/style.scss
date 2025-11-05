@@ -112,7 +112,11 @@ a {
   width: 1.5rem;
   height: 1.5rem;
   display: none;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .theme-toggle__icon.is-visible {
@@ -139,7 +143,7 @@ a {
 .hero__menu {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .menu {
@@ -147,13 +151,32 @@ a {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 1.375rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 4rem);
 }
 
 .menu__item {
   position: relative;
-  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 3rem 1rem 1rem;
+}
+
+.menu__item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  width: 2.5rem;
+  height: 2px;
+  background-color: var(--border-color);
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
 }
 
 .menu__trigger {
@@ -163,6 +186,11 @@ a {
   font-weight: 400;
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 6rem;
+  text-align: center;
 }
 
 .menu__trigger:hover,
@@ -173,21 +201,34 @@ a {
 
 .menu__submenu {
   position: absolute;
-  top: 0;
-  left: 100%;
-  min-width: 220px;
+  top: 50%;
+  left: calc(100% + 0.25rem);
+  min-width: 240px;
   list-style: none;
-  padding: 0.5rem 0;
-  margin: 0 0 0 0.25rem;
+  padding: 1rem 1.25rem 1rem 1.75rem;
+  margin: 0;
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+  border-radius: 0.75rem;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-8px);
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transform: translate(-12px, -50%) scale(0.97);
+  transition: opacity 0.18s ease, transform 0.18s ease;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.menu__submenu::before {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 1.5px;
+  background-color: var(--border-color);
 }
 
 .menu__submenu li {
@@ -195,24 +236,41 @@ a {
 }
 
 .menu__submenu a {
+  position: relative;
   display: block;
-  padding: 0.4rem 1rem;
+  padding: 0.2rem 0.5rem 0.2rem 1.25rem;
   text-decoration: none;
   color: var(--text-color);
 }
 
+.menu__submenu a::before {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  left: 0.5rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background-color: var(--border-color);
+}
+
 .menu__submenu a:hover,
 .menu__submenu a:focus {
-  background-color: rgba(148, 163, 184, 0.15);
+  background-color: rgba(148, 163, 184, 0.12);
   outline: none;
+}
+
+.menu__item:hover::after,
+.menu__item:focus-within::after {
+  opacity: 1;
 }
 
 .menu__item:hover > .menu__submenu,
 .menu__item:focus-within > .menu__submenu {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(0);
-  transition-delay: 0s;
+  transform: translate(-2px, -50%) scale(1);
 }
 
 @media (max-width: 600px) {
@@ -225,6 +283,50 @@ a {
 
   .landing__content {
     padding: 1.5rem 0;
+  }
+
+  .hero__menu {
+    align-items: flex-start;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .menu__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0;
+  }
+
+  .menu__item::after {
+    display: none;
+  }
+
+  .menu__submenu {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0.5rem 0 0 1.25rem;
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  }
+
+  .menu__submenu::before {
+    left: 0.5rem;
+  }
+
+  .menu__submenu a {
+    padding-left: 1.5rem;
+  }
+
+  .menu__submenu a::before {
+    left: 0.5rem;
   }
 }
 

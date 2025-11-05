@@ -21,24 +21,41 @@ layout: null
           aria-label="Switch to dark mode"
         >
           <svg
-            class="theme-toggle__icon theme-toggle__icon--sun is-visible"
+            class="theme-toggle__icon theme-toggle__icon--bulb-on is-visible"
             aria-hidden="true"
             focusable="false"
             viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            <path
-              d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0 4a1 1 0 0 0 1-1v-2a1 1 0 1 0-2 0v2a1 1 0 0 0 1 1Zm0-20a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1Zm10 9h-2a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2Zm-18 0H2a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2Zm15.071 7.071-1.414-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414Zm-12.728-12.728L4.93 6.343a1 1 0 0 0 1.414 1.414L7.758 5.93a1 1 0 0 0-1.414-1.414Zm12.728 0a1 1 0 0 0-1.414-1.414L15.243 5.93a1 1 0 1 0 1.414 1.414ZM7.757 18.071a1 1 0 0 0-1.414-1.414L4.93 18.07a1 1 0 1 0 1.414 1.415Z"
-            />
+            <path d="M12 3a6 6 0 0 0-3.7 10.9l.8.8a2.6 2.6 0 0 1 .9 1.9V17h4v-1.4a2.6 2.6 0 0 1 .9-1.9l.8-.8A6 6 0 0 0 12 3Z" />
+            <path d="M9 18h6" />
+            <path d="M10 21h4" />
+            <path d="M12 1v1.6" />
+            <path d="M5.4 5.4 6.9 6.9" />
+            <path d="M18.6 5.4 17.1 6.9" />
+            <path d="M4 12h1.6" />
+            <path d="M20 12h1.6" />
           </svg>
           <svg
-            class="theme-toggle__icon theme-toggle__icon--moon"
+            class="theme-toggle__icon theme-toggle__icon--bulb-off"
             aria-hidden="true"
             focusable="false"
             viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            <path
-              d="M21 12.79A9 9 0 0 1 11.21 3 7 7 0 1 0 21 12.79Zm-8.21 6.21a7 7 0 0 1-6.15-10.5 9 9 0 0 0 9.44 9.44 6.96 6.96 0 0 1-3.29 1.06Z"
-            />
+            <path d="M12 3a6 6 0 0 0-3.7 10.9l.8.8a2.6 2.6 0 0 1 .9 1.9V17h4v-1.4a2.6 2.6 0 0 1 .9-1.9l.8-.8A6 6 0 0 0 12 3Z" />
+            <path d="M9 18h6" />
+            <path d="M10 21h4" />
+            <path d="m8 5 8 8" />
+            <path d="m16 5-8 8" />
           </svg>
         </button>
       </header>
@@ -53,12 +70,12 @@ layout: null
       (function () {
         var storageKey = "preferred-theme";
         var toggle = document.getElementById("theme-toggle");
-        var sunIcon = toggle.querySelector(".theme-toggle__icon--sun");
-        var moonIcon = toggle.querySelector(".theme-toggle__icon--moon");
+        var bulbOn = toggle.querySelector(".theme-toggle__icon--bulb-on");
+        var bulbOff = toggle.querySelector(".theme-toggle__icon--bulb-off");
 
         function updateIcons(isDark) {
-          sunIcon.classList.toggle("is-visible", !isDark);
-          moonIcon.classList.toggle("is-visible", isDark);
+          bulbOn.classList.toggle("is-visible", !isDark);
+          bulbOff.classList.toggle("is-visible", isDark);
         }
 
         function applyTheme(theme) {

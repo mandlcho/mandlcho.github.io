@@ -63,8 +63,47 @@ a {
   gap: 3rem;
   box-sizing: border-box;
   overflow: hidden;
+  position: relative;
 }
 
+.landing::before,
+.landing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-color);
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.65s ease;
+}
+
+.landing::before {
+  clip-path: inset(0 50% 0 0);
+  box-shadow: inset -1px 0 0 rgba(148, 163, 184, 0.35);
+  transform: translateX(0);
+}
+
+.landing::after {
+  clip-path: inset(0 0 0 50%);
+  box-shadow: inset 1px 0 0 rgba(148, 163, 184, 0.35);
+  transform: translateX(0);
+}
+
+.landing.is-slicing::before,
+.landing.is-slicing::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.landing.is-slicing::before {
+  transform: translateX(-115%);
+}
+
+.landing.is-slicing::after {
+  transform: translateX(115%);
+}
 .landing__header {
   display: flex;
   justify-content: flex-end;

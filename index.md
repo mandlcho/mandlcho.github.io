@@ -11,13 +11,13 @@ description: "Developer, experimenter, chronic tinkerer."
       <li class="menu__item">
         <a class="menu__trigger" href="{{ '/projects/' | relative_url }}">projects</a>
         <ul class="menu__submenu">
-          <li><a href="{{ '/projects/project-a/' | relative_url }}">project a</a></li>
           <li>
-            <a href="{{ '/projects/project-a/' | relative_url }}#process">process + videos</a>
-          </li>
-          <li><a href="{{ '/projects/project-b/' | relative_url }}">project b</a></li>
-          <li>
-            <a href="{{ '/projects/project-b/' | relative_url }}#process">process + videos</a>
+            <a
+              href="{{ '/projects/the-kanban/' | relative_url }}"
+              data-slice-link="true"
+            >
+              the kanban
+            </a>
           </li>
         </ul>
       </li>

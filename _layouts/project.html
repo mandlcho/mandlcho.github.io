@@ -1,0 +1,54 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}
+    </title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  </head>
+  <body>
+    <div class="project-page">
+      <header class="project-page__header">
+        <a class="project-page__home" href="{{ '/' | relative_url }}">← home</a>
+        {% if page.project_meta %}
+        <div class="project-page__meta">
+          {{ page.project_meta }}
+        </div>
+        {% endif %}
+      </header>
+      <main class="project-page__content">
+        {{ content }}
+      </main>
+    </div>
+    <script>
+      (function () {
+        var storageKey = "preferred-theme";
+
+        function getStoredTheme() {
+          try {
+            return localStorage.getItem(storageKey);
+          } catch (error) {
+            return null;
+          }
+        }
+
+        function getPreferredTheme() {
+          var stored = getStoredTheme();
+          if (stored) return stored;
+          return window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+
+        var currentTheme = getPreferredTheme();
+        document.documentElement.setAttribute("data-theme", currentTheme);
+      })();
+    </script>
+  </body>
+</html>

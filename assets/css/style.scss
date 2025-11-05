@@ -205,7 +205,7 @@ a {
 .hero__menu {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .menu {
@@ -213,32 +213,14 @@ a {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(2rem, 6vw, 4rem);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.45rem;
 }
 
 .menu__item {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1rem 3rem 1rem 1rem;
-}
-
-.menu__item::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0.75rem;
-  width: 2.5rem;
-  height: 2px;
-  background-color: var(--border-color);
-  transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  pointer-events: none;
+  padding: 0.75rem 1.25rem 0.75rem 0;
 }
 
 .menu__trigger {
@@ -246,13 +228,12 @@ a {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 400;
-  padding: 0.2rem 0.4rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 0.25rem;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 6rem;
-  text-align: center;
 }
 
 .menu__trigger:hover,
@@ -264,33 +245,20 @@ a {
 .menu__submenu {
   position: absolute;
   top: 50%;
-  left: calc(100% + 0.25rem);
-  min-width: 240px;
+  left: calc(100% + 0.5rem);
+  min-width: 220px;
   list-style: none;
-  padding: 1rem 1.25rem 1rem 1.75rem;
+  padding: 0.5rem 0;
   margin: 0;
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
-  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
   opacity: 0;
   pointer-events: none;
-  transform: translate(-12px, -50%) scale(0.97);
+  transform: translate(-10px, -50%);
   transition: opacity 0.18s ease, transform 0.18s ease;
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.menu__submenu::before {
-  content: "";
-  position: absolute;
-  left: 0.75rem;
-  top: 1rem;
-  bottom: 1rem;
-  width: 1.5px;
-  background-color: var(--border-color);
 }
 
 .menu__submenu li {
@@ -298,41 +266,64 @@ a {
 }
 
 .menu__submenu a {
-  position: relative;
   display: block;
-  padding: 0.2rem 0.5rem 0.2rem 1.25rem;
+  padding: 0.4rem 1rem;
   text-decoration: none;
   color: var(--text-color);
 }
 
-.menu__submenu a::before {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  left: 0.5rem;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 999px;
-  background-color: var(--border-color);
-}
-
 .menu__submenu a:hover,
 .menu__submenu a:focus {
-  background-color: rgba(148, 163, 184, 0.12);
+  background-color: rgba(148, 163, 184, 0.15);
   outline: none;
-}
-
-.menu__item:hover::after,
-.menu__item:focus-within::after {
-  opacity: 1;
 }
 
 .menu__item:hover > .menu__submenu,
 .menu__item:focus-within > .menu__submenu {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-2px, -50%) scale(1);
+  transform: translate(0, -50%);
+}
+
+.project-page {
+  min-height: 100vh;
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  background-color: var(--bg-color);
+}
+
+.project-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.project-page__home {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+
+.project-page__home:hover,
+.project-page__home:focus {
+  color: $brand-color;
+}
+
+.project-page__content {
+  flex: 1;
+  max-width: 960px;
+}
+
+.project-page__content > :first-child {
+  margin-top: 0;
 }
 
 @media (max-width: 600px) {
@@ -354,18 +345,11 @@ a {
   .menu {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.25rem;
+    gap: 1.35rem;
   }
 
   .menu__item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 0;
-  }
-
-  .menu__item::after {
-    display: none;
+    padding: 0.6rem 0;
   }
 
   .menu__submenu {
@@ -373,22 +357,19 @@ a {
     top: auto;
     left: auto;
     transform: none;
-    margin: 0.5rem 0 0 1.25rem;
+    margin: 0.5rem 0 0 0;
     opacity: 1;
     pointer-events: auto;
     box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
   }
 
-  .menu__submenu::before {
-    left: 0.5rem;
+  .project-page {
+    padding: 2rem 1.25rem 2.5rem;
   }
 
-  .menu__submenu a {
-    padding-left: 1.5rem;
-  }
-
-  .menu__submenu a::before {
-    left: 0.5rem;
+  .project-page__header {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
 

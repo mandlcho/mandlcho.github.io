@@ -14,7 +14,7 @@ description: "Developer, experimenter, chronic tinkerer."
           <li>
             <a
               href="{{ '/projects/the-kanban/' | relative_url }}"
-              data-slice-link="true"
+              data-transition-link="true"
             >
               the kanban
             </a>

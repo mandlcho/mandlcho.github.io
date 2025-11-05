@@ -64,68 +64,13 @@ a {
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.landing > * {
-  position: relative;
-  z-index: 1;
-}
-
-.landing::before,
-.landing::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--bg-color);
-  background: linear-gradient(
-    130deg,
-    rgba(241, 245, 249, 0.97) 0%,
-    rgba(224, 242, 254, 0.92) 35%,
-    rgba(191, 219, 254, 0.88) 100%
-  );
-  z-index: 25;
-  pointer-events: none;
+.landing.is-transitioning {
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.15s ease, transform 0.65s ease;
-}
-
-.landing::before {
-  clip-path: inset(0 50% 0 0);
-  box-shadow: inset -1px 0 0 rgba(148, 163, 184, 0.35);
-  transform: translateX(0);
-}
-
-.landing::after {
-  clip-path: inset(0 0 0 50%);
-  box-shadow: inset 1px 0 0 rgba(148, 163, 184, 0.35);
-  transform: translateX(0);
-}
-
-.landing.is-slicing::before,
-.landing.is-slicing::after {
-  opacity: 1;
-  visibility: visible;
-}
-
-.landing.is-slicing::before {
-  transform: translateX(-115%);
-}
-
-.landing.is-slicing::after {
-  transform: translateX(115%);
-}
-
-[data-theme="dark"] .landing::before,
-[data-theme="dark"] .landing::after {
-  background: var(--bg-color);
-  background: linear-gradient(
-    130deg,
-    rgba(30, 41, 59, 0.96) 0%,
-    rgba(15, 23, 42, 0.95) 40%,
-    rgba(2, 6, 23, 0.92) 100%
-  );
-  box-shadow: inset 0 0 0 rgba(15, 23, 42, 0.5);
+  transform: scale(0.985) translateY(12px);
+  pointer-events: none;
 }
 .landing__header {
   display: flex;

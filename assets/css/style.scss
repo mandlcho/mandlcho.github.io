@@ -256,6 +256,9 @@ a {
   flex-direction: column;
   gap: clamp(2rem, 5vw, 3.5rem);
   background-color: var(--bg-color);
+  opacity: 0;
+  transform: translateY(16px);
+  animation: project-fade-in 0.6s ease forwards 0.15s;
 }
 
 .project-page__header {

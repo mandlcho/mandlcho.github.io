@@ -252,8 +252,8 @@ a {
 }
 
 .contributions__avatar {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(148, 163, 184, 0.35);
@@ -332,9 +332,9 @@ a {
 }
 
 .contributions--about .contributions__content {
-  border-top: none;
-  padding-top: 0;
-  margin-top: 0;
+  border-top: 1px dotted rgba(148, 163, 184, 0.22);
+  padding-top: 1.25rem;
+  margin-top: 0.75rem;
 }
 
 .contributions--about .contributions__avatar {

@@ -193,7 +193,8 @@ a {
 
 .about {
   width: min(100%, 600px);
-  margin: -25px 0 0;
+  margin: -110px 0 0;
+  transform: translateX(-30px);
   display: flex;
   flex-direction: column;
   gap: 1.75rem;

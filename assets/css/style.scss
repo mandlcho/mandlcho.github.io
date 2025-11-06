@@ -233,11 +233,16 @@ a {
 }
 
 .contributions__list {
-  list-style: disc;
-  padding: 0 0 0 1.35rem;
+  list-style: none;
+  padding: 0;
   margin: 0;
   display: grid;
   gap: 0.4rem;
+}
+
+.contributions__list--projects {
+  list-style: disc;
+  padding: 0 0 0 1.35rem;
 }
 
 .contributions__list li {
@@ -247,8 +252,8 @@ a {
 }
 
 .contributions__avatar {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(148, 163, 184, 0.35);
@@ -320,6 +325,28 @@ a {
 
 [data-theme="dark"] .contributions__graph img {
   filter: grayscale(1) invert(1) brightness(1.15) contrast(0.95);
+}
+
+.contributions--about .contributions__body {
+  border: none;
+}
+
+.contributions--about .contributions__content {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.contributions--about .contributions__avatar {
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+[data-theme="dark"] .contributions--about .contributions__avatar {
+  border: none;
+  box-shadow: none;
+  background: none;
 }
 
 @media (min-width: 720px) {

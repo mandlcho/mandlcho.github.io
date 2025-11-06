@@ -235,7 +235,7 @@ a {
 
 .contributions__content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px;
+  grid-template-columns: minmax(0, 1fr) clamp(160px, 28vw, 260px);
   grid-template-areas: "text avatar";
   align-items: stretch;
   gap: 1.5rem;
@@ -393,19 +393,6 @@ a {
   .landing__nav {
     flex-wrap: wrap;
     justify-content: flex-start;
-  }
-
-  .contributions__content {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "text"
-      "avatar";
-  }
-
-  .contributions__avatar {
-    max-width: 220px;
-    margin-inline: auto;
-    justify-self: center;
   }
 }
 

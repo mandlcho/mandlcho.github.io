@@ -192,20 +192,21 @@ a {
 }
 
 .about {
-  width: min(100%, 720px);
-  margin: 0 auto;
+  width: min(100%, 640px);
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+  align-self: flex-start;
 }
 
 .about__body {
   border-radius: 1.25rem;
   padding: clamp(1.75rem, 4vw, 2.5rem);
-  background-color: rgba(241, 245, 249, 0.06);
+  background-color: rgba(241, 245, 249, 0.1);
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgba(226, 232, 240, 0.09) 1px,
+    rgba(226, 232, 240, 0.18) 1px,
     transparent 0
   );
   background-size: 20px 20px;
@@ -215,10 +216,10 @@ a {
 }
 
 [data-theme="dark"] .about__body {
-  background-color: rgba(148, 163, 184, 0.024);
+  background-color: rgba(148, 163, 184, 0.06);
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgba(148, 163, 184, 0.064) 1px,
+    rgba(148, 163, 184, 0.15) 1px,
     transparent 0
   );
 }

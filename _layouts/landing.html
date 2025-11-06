@@ -15,13 +15,7 @@ layout: null
     <div class="landing">
       <header class="landing__header">
         <h1 class="landing__brand">
-          <a
-            href="{{ '/' | relative_url }}"
-            class="landing__brand-link"
-            data-transition-link="true"
-          >
-            {{ page.hero_title | default: page.title | default: site.title }}
-          </a>
+          {{ page.hero_title | default: page.title | default: site.title }}
         </h1>
         <button
           type="button"

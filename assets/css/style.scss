@@ -91,18 +91,6 @@ a {
   text-transform: lowercase;
 }
 
-.landing__brand-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.landing__brand-link:hover,
-.landing__brand-link:focus {
-  text-decoration: underline;
-  text-decoration-thickness: 0.08em;
-  outline: none;
-}
-
 .landing__content {
   flex: 1;
   display: flex;

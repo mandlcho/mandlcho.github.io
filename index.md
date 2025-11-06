@@ -33,11 +33,9 @@ description: "Developer, experimenter, chronic tinkerer."
       Live snapshot of my latest activity across repositories.
     </p>
     <div class="contributions__graph">
-      <img
-        src="https://ghchart.rshah.org/mandlcho"
-        alt="GitHub contributions calendar for mandlcho"
-        loading="lazy"
-      />
+      <div class="github-calendar js-github-calendar" aria-live="polite">
+        Loading contribution data&hellip;
+      </div>
     </div>
   </div>
 </section>

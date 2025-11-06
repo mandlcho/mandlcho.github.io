@@ -224,9 +224,12 @@ a {
 
 .contributions__content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(72px, 130px);
-  align-items: center;
-  gap: clamp(1rem, 4vw, 1.5rem);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "avatar"
+    "text";
+  align-items: start;
+  gap: clamp(0.9rem, 3.5vw, 1.4rem);
   border-top: 1px dotted rgba(148, 163, 184, 0.2);
   padding-top: 1.25rem;
   margin-top: 0.75rem;
@@ -236,6 +239,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  grid-area: text;
 }
 
 .contributions__list {
@@ -274,6 +278,7 @@ a {
   );
   justify-self: center;
   margin-inline: auto;
+  grid-area: avatar;
 }
 
 .contributions__avatar img {
@@ -322,26 +327,40 @@ a {
   background-color: var(--bg-color);
 }
 
-.contributions__graph img {
-  display: block;
+.github-calendar {
   width: 100%;
-  max-width: 100%;
-  height: auto;
-  filter: grayscale(1) contrast(1.05);
 }
 
-[data-theme="dark"] .contributions__graph img {
-  filter: grayscale(1) invert(1) brightness(1.15) contrast(0.95);
+.github-calendar .calendar {
+  width: 100%;
+}
+
+.github-calendar .contrib-tooltip {
+  font-family: inherit;
+}
+
+[data-theme="dark"] .github-calendar {
+  filter: invert(0.92) hue-rotate(180deg);
+}
+
+[data-theme="dark"] .github-calendar svg {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 .contributions--about .contributions__body {
   border: none;
+  gap: 0.65rem;
 }
 
 .contributions--about .contributions__content {
-  border-top: 1px dotted rgba(148, 163, 184, 0.22);
-  padding-top: 1.25rem;
-  margin-top: 0.75rem;
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+  gap: clamp(0.75rem, 2.8vw, 1.05rem);
+}
+
+.contributions--about .contributions__text {
+  gap: 0.45rem;
 }
 
 .contributions--about .contributions__avatar {
@@ -365,6 +384,8 @@ a {
 @media (min-width: 880px) {
   .contributions__content {
     grid-template-columns: minmax(0, 1fr) minmax(110px, 160px);
+    grid-template-areas: "text avatar";
+    align-items: center;
   }
 
   .contributions__avatar {

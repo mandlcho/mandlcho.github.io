@@ -10,6 +10,10 @@ layout: null
       {% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}
     </title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+    />
   </head>
   <body>
     <div class="landing">
@@ -148,6 +152,17 @@ layout: null
             });
         }
       })();
+    </script>
+    <script
+      src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"
+      defer
+    ></script>
+    <script>
+      window.addEventListener("load", function () {
+        if (window.GitHubCalendar) {
+          GitHubCalendar(".js-github-calendar", "mandlcho", { responsive: true });
+        }
+      });
     </script>
   </body>
 </html>

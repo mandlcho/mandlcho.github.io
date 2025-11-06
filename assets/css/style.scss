@@ -224,11 +224,6 @@ a {
   margin: 0;
 }
 
-.contributions--github {
-  margin: 0;
-  grid-column: 1 / -1;
-}
-
 .contributions__content {
   display: grid;
   grid-template-columns: 1fr;
@@ -334,46 +329,16 @@ a {
   background-color: var(--bg-color);
 }
 
-.github-calendar {
+.contributions__graph img {
+  display: block;
   width: 100%;
-  padding: 0;
-  border: none;
-  background: none;
-  box-shadow: none;
-  color: inherit;
-}
-
-.github-calendar .calendar {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.github-calendar svg {
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  filter: grayscale(1) contrast(1.05);
 }
 
-.github-calendar .js-yearly-contributions h2,
-.github-calendar .js-yearly-contributions .contrib-legend,
-.github-calendar .js-yearly-contributions .contrib-footer,
-.github-calendar .js-yearly-contributions .contrib-column,
-.github-calendar .js-yearly-contributions .float-left,
-.github-calendar .js-yearly-contributions .float-right,
-.github-calendar .js-yearly-contributions .sr-only,
-.github-calendar .js-yearly-contributions .text-gray {
-  display: none !important;
-}
-
-.github-calendar .js-yearly-contributions .position-relative > div:not(.js-calendar-graph) {
-  display: none !important;
-}
-
-.github-calendar .js-yearly-contributions .js-calendar-graph {
-  padding: 0;
-}
-
-.github-calendar .contrib-legend .legend li {
-  border-radius: 0;
+[data-theme="dark"] .contributions__graph img {
+  filter: grayscale(1) invert(1) brightness(1.15) contrast(0.95);
 }
 
 .contributions--about .contributions__body {

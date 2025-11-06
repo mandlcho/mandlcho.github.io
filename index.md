@@ -26,16 +26,18 @@ description: "Developer, experimenter, chronic tinkerer."
   </div>
 </section>
 
-<section class="contributions contributions--github">
+<section class="contributions">
   <div class="contributions__body">
     <h2 class="contributions__title">github contributions</h2>
     <p class="contributions__description">
       Live snapshot of my latest activity across repositories.
     </p>
     <div class="contributions__graph">
-      <div class="github-calendar js-github-calendar" aria-live="polite">
-        Loading contribution data&hellip;
-      </div>
+      <img
+        src="https://ghchart.rshah.org/mandlcho"
+        alt="GitHub contributions calendar for mandlcho"
+        loading="lazy"
+      />
     </div>
   </div>
 </section>

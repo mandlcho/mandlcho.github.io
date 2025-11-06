@@ -336,12 +336,17 @@ a {
 
 .games-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.75rem, 2.5vw, 1.25rem);
   margin-top: clamp(0.5rem, 1.8vw, 0.85rem);
 }
 
-.games-gallery img {
+.games-gallery__column {
+  display: grid;
+  gap: clamp(0.65rem, 2vw, 1.05rem);
+}
+
+.games-gallery__image {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -351,7 +356,7 @@ a {
   background: #0f172a;
 }
 
-[data-theme="dark"] .games-gallery img {
+[data-theme="dark"] .games-gallery__image {
   border-color: rgba(148, 163, 184, 0.4);
   box-shadow: 0 12px 24px rgba(2, 6, 23, 0.55);
   background: #1e293b;

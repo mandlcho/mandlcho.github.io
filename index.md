@@ -60,51 +60,66 @@ description: "Developer, experimenter, chronic tinkerer."
   <div class="contributions__body">
     <h2 class="contributions__title">games</h2>
     <div class="games-gallery">
-      <img
-        src="{{ '/images/game-1a.png' | relative_url }}"
-        alt="Game frame variant 1"
-        loading="lazy"
-      />
-      <img
-        src="{{ '/images/game-1b.png' | relative_url }}"
-        alt="Game frame variant 2"
-        loading="lazy"
-      />
-      <img
-        src="{{ '/images/game-1c.png' | relative_url }}"
-        alt="Game frame variant 3"
-        loading="lazy"
-      />
-      <img
-        src="{{ '/images/game-2a.png' | relative_url }}"
-        alt="Game frame variant 4"
-        loading="lazy"
-      />
-      <img
-        src="{{ '/images/game-2b.png' | relative_url }}"
-        alt="Game frame variant 5"
-        loading="lazy"
-      />
-      <img
-        src="{{ '/images/game-2c.png' | relative_url }}"
-        alt="Game frame variant 6"
-        loading="lazy"
-      />
-      <img
-        src="{{ '/images/game-3a.png' | relative_url }}"
-        alt="Game frame variant 7"
-        loading="lazy"
-      />
-      <img
-        src="{{ '/images/game-3b.png' | relative_url }}"
-        alt="Game frame variant 8"
-        loading="lazy"
-      />
-      <img
-        src="{{ '/images/game-3c.png' | relative_url }}"
-        alt="Game frame variant 9"
-        loading="lazy"
-      />
+      <div class="games-gallery__column">
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-3a.png' | relative_url }}"
+          alt="Game three concept slice A"
+          loading="lazy"
+        />
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-3b.png' | relative_url }}"
+          alt="Game three concept slice B"
+          loading="lazy"
+        />
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-3c.png' | relative_url }}"
+          alt="Game three concept slice C"
+          loading="lazy"
+        />
+      </div>
+      <div class="games-gallery__column">
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-2a.png' | relative_url }}"
+          alt="Game two concept slice A"
+          loading="lazy"
+        />
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-2b.png' | relative_url }}"
+          alt="Game two concept slice B"
+          loading="lazy"
+        />
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-2c.png' | relative_url }}"
+          alt="Game two concept slice C"
+          loading="lazy"
+        />
+      </div>
+      <div class="games-gallery__column">
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-1a.png' | relative_url }}"
+          alt="Game one concept slice A"
+          loading="lazy"
+        />
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-1b.png' | relative_url }}"
+          alt="Game one concept slice B"
+          loading="lazy"
+        />
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/game-1c.png' | relative_url }}"
+          alt="Game one concept slice C"
+          loading="lazy"
+        />
+      </div>
     </div>
   </div>
 </section>

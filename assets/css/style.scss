@@ -191,46 +191,6 @@ a {
   display: block;
 }
 
-.about {
-  width: 100%;
-  margin: -75px 0 0;
-  transform: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  align-self: flex-start;
-}
-
-.about__body {
-  border-radius: 1.25rem;
-  padding: clamp(1.75rem, 4vw, 2.5rem);
-  display: grid;
-  gap: 1.5rem;
-  border: 1px dotted rgba(148, 163, 184, 0.35);
-  width: 100%;
-}
-
-.about__title {
-  margin: 0;
-  font-size: clamp(0.88rem, 2vw, 1.2rem);
-  letter-spacing: -0.01em;
-  text-transform: lowercase;
-}
-
-.about__list {
-  list-style: disc;
-  padding: 0 0 0 1.35rem;
-  margin: 0;
-  display: grid;
-  gap: 0.55rem;
-}
-
-.about__list li {
-  margin: 0;
-  font-size: clamp(0.75rem, 1.65vw, 0.83rem);
-  line-height: 1.45;
-}
-
 .contributions {
   width: 100%;
   margin: 32px 0 0;
@@ -246,6 +206,24 @@ a {
   display: grid;
   gap: 1.25rem;
   border: 1px dotted rgba(148, 163, 184, 0.35);
+}
+
+.contributions--about {
+  margin-top: -75px;
+}
+
+.contributions__list {
+  list-style: disc;
+  padding: 0 0 0 1.35rem;
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contributions__list li {
+  margin: 0;
+  font-size: clamp(0.75rem, 1.65vw, 0.83rem);
+  line-height: 1.45;
 }
 
 .contributions__title {
@@ -473,28 +451,13 @@ a {
     padding: 1.5rem 0;
   }
 
-  .about,
   .contributions {
     width: 100%;
-    margin: 0;
-    transform: none;
+    margin: 1.75rem 0 0;
   }
 
-  .about__body {
-    padding: 1.5rem;
-    gap: 1.25rem;
-  }
-
-  .about__title {
-    font-size: 0.9rem;
-  }
-
-  .about__list {
-    gap: 0.5rem;
-  }
-
-  .contributions {
-    margin-top: 1.75rem;
+  .contributions--about {
+    margin-top: 0;
   }
 
   .contributions__body {

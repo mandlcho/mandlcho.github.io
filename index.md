@@ -4,10 +4,13 @@ title: "Mandl Cho"
 description: "Developer, experimenter, chronic tinkerer."
 ---
 
-<section class="about">
-  <div class="about__body">
-    <h2 class="about__title">about</h2>
-    <ul class="about__list">
+<section class="contributions contributions--about">
+  <div class="contributions__body">
+    <h2 class="contributions__title">about</h2>
+    <p class="contributions__description">
+      Quick notes on what I'm tinkering with right now.
+    </p>
+    <ul class="contributions__list">
       <li>Exploring placeholder ideas across code, design, and storytelling.</li>
       <li>Shipping placeholder experiments to learn faster than I plan.</li>
       <li>Documenting placeholder lessons so future-me has a map.</li>

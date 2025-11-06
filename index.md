@@ -6,7 +6,7 @@ description: "Developer, experimenter, chronic tinkerer."
 
 <section class="about">
   <div class="about__body">
-    <h2 class="about__title">about me</h2>
+    <h2 class="about__title">about</h2>
     <ul class="about__list">
       <li>Exploring placeholder ideas across code, design, and storytelling.</li>
       <li>Shipping placeholder experiments to learn faster than I plan.</li>

@@ -205,7 +205,7 @@ a {
   padding: clamp(1.5rem, 3.2vw, 2rem);
   display: grid;
   gap: 1rem;
-  border: 2px dotted rgba(148, 163, 184, 0.32);
+  border: 1.8px dotted rgba(148, 163, 184, 0.26);
 }
 
 .contributions--about {
@@ -231,11 +231,11 @@ a {
 }
 
 [data-theme="dark"] .contributions__body {
-  border-color: rgba(148, 163, 184, 0.45);
+  border-color: rgba(148, 163, 184, 0.4);
 }
 
 [data-theme="dark"] .contributions__graph {
-  border-color: rgba(148, 163, 184, 0.55);
+  border-color: rgba(148, 163, 184, 0.5);
 }
 
 .contributions__title {
@@ -255,7 +255,7 @@ a {
   border-radius: 0.75rem;
   overflow: hidden;
   padding: clamp(0.75rem, 2vw, 1rem);
-  border: 2px dotted rgba(148, 163, 184, 0.24);
+  border: 1.8px dotted rgba(148, 163, 184, 0.18);
   background-color: var(--bg-color);
 }
 

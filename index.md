@@ -34,3 +34,17 @@ description: "Developer, experimenter, chronic tinkerer."
     </div>
   </div>
 </section>
+
+<section class="contributions contributions--projects">
+  <div class="contributions__body">
+    <h2 class="contributions__title">projects</h2>
+    <p class="contributions__description">
+      Quick notes on what I'm building, shipping, or experimenting with next.
+    </p>
+    <ul class="contributions__list contributions__list--projects">
+      <li>Placeholder project update: new feature sketches under review.</li>
+      <li>Placeholder prototype: iterating on interaction model this week.</li>
+      <li>Placeholder shipping note: packaging roadmap for early testers.</li>
+    </ul>
+  </div>
+</section>

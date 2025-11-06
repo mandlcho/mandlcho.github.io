@@ -193,7 +193,7 @@ a {
 
 .contributions {
   width: 100%;
-  margin: 32px 0 0;
+  margin: 18px 0 0;
   transform: none;
   display: flex;
   flex-direction: column;
@@ -202,14 +202,18 @@ a {
 
 .contributions__body {
   border-radius: 1.25rem;
-  padding: clamp(1.75rem, 4vw, 2.5rem);
+  padding: clamp(1.5rem, 3.2vw, 2rem);
   display: grid;
-  gap: 1.25rem;
-  border: 1.5px dotted rgba(148, 163, 184, 0.22);
+  gap: 1rem;
+  border: 2px dotted rgba(148, 163, 184, 0.32);
 }
 
 .contributions--about {
-  margin-top: -75px;
+  margin-top: -65px;
+}
+
+.contributions--projects {
+  margin-top: 24px;
 }
 
 .contributions__list {
@@ -217,13 +221,21 @@ a {
   padding: 0 0 0 1.35rem;
   margin: 0;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.45rem;
 }
 
 .contributions__list li {
   margin: 0;
   font-size: clamp(0.75rem, 1.65vw, 0.83rem);
   line-height: 1.45;
+}
+
+[data-theme="dark"] .contributions__body {
+  border-color: rgba(148, 163, 184, 0.45);
+}
+
+[data-theme="dark"] .contributions__graph {
+  border-color: rgba(148, 163, 184, 0.55);
 }
 
 .contributions__title {
@@ -243,7 +255,7 @@ a {
   border-radius: 0.75rem;
   overflow: hidden;
   padding: clamp(0.75rem, 2vw, 1rem);
-  border: 1.5px dotted rgba(148, 163, 184, 0.14);
+  border: 2px dotted rgba(148, 163, 184, 0.24);
   background-color: var(--bg-color);
 }
 

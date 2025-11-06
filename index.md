@@ -14,7 +14,7 @@ description: "Developer, experimenter, chronic tinkerer."
       <div class="hero-section__body">
         <details class="hero-section__details">
           <summary class="hero-section__summary">
-            <span>open projects</span>
+            <span>projects</span>
             <span class="hero-section__summary-icon" aria-hidden="true"></span>
           </summary>
           <ul class="hero-section__projects">

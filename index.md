@@ -5,7 +5,6 @@ description: "Developer, experimenter, chronic tinkerer."
 ---
 
 <section class="hero">
-  <h1 class="hero__title">mandl cho</h1>
   <nav class="hero__menu" aria-label="primary">
     <ul class="menu">
       <li class="menu__item menu__item--accordion">

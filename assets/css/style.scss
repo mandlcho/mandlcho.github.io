@@ -204,25 +204,9 @@ a {
 .about__body {
   border-radius: 1.25rem;
   padding: clamp(1.75rem, 4vw, 2.5rem);
-  background-color: rgba(241, 245, 249, 0.1);
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(226, 232, 240, 0.18) 1px,
-    transparent 0
-  );
-  background-size: 20px 20px;
   display: grid;
   gap: 1.5rem;
   width: 100%;
-}
-
-[data-theme="dark"] .about__body {
-  background-color: rgba(148, 163, 184, 0.06);
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(148, 163, 184, 0.15) 1px,
-    transparent 0
-  );
 }
 
 .about__title {
@@ -258,13 +242,8 @@ a {
 .contributions__body {
   border-radius: 1.25rem;
   padding: clamp(1.75rem, 4vw, 2.5rem);
-  background-color: rgba(15, 23, 42, 0.05);
   display: grid;
   gap: 1.25rem;
-}
-
-[data-theme="dark"] .contributions__body {
-  background-color: rgba(148, 163, 184, 0.08);
 }
 
 .contributions__title {
@@ -283,14 +262,7 @@ a {
 .contributions__graph {
   border-radius: 0.75rem;
   overflow: hidden;
-  background: #fff;
   padding: clamp(0.75rem, 2vw, 1rem);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
-}
-
-[data-theme="dark"] .contributions__graph {
-  background: rgba(15, 23, 42, 0.75);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.4);
 }
 
 .contributions__graph img {
@@ -298,7 +270,7 @@ a {
   width: 100%;
   max-width: 100%;
   height: auto;
-  filter: saturate(1.1);
+  filter: grayscale(1);
 }
 
 @media (min-width: 720px) {

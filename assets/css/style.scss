@@ -222,6 +222,12 @@ a {
 
 .contributions--projects {
   margin: 0;
+  grid-column: 1 / -1;
+}
+
+.contributions--github {
+  margin: 0;
+  grid-column: 1 / -1;
 }
 
 .contributions__content {
@@ -264,8 +270,9 @@ a {
 }
 
 .contributions__avatar {
-  width: clamp(72px, 28vw, 130px);
-  height: clamp(72px, 28vw, 130px);
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(148, 163, 184, 0.35);
@@ -377,8 +384,9 @@ a {
   }
 
   .contributions__avatar {
-    justify-self: end;
+    justify-self: stretch;
     margin-inline: 0;
+    max-width: none;
   }
 }
 

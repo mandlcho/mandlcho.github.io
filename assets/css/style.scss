@@ -246,6 +246,61 @@ a {
   line-height: 1.45;
 }
 
+.contributions {
+  width: min(100%, 600px);
+  margin: 32px 0 0;
+  transform: translateX(-25px);
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.contributions__body {
+  border-radius: 1.25rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  background-color: rgba(15, 23, 42, 0.05);
+  display: grid;
+  gap: 1.25rem;
+}
+
+[data-theme="dark"] .contributions__body {
+  background-color: rgba(148, 163, 184, 0.08);
+}
+
+.contributions__title {
+  margin: 0;
+  font-size: clamp(0.88rem, 2vw, 1.2rem);
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+}
+
+.contributions__description {
+  margin: 0;
+  font-size: clamp(0.75rem, 1.65vw, 0.85rem);
+  color: var(--muted-text);
+}
+
+.contributions__graph {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #fff;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="dark"] .contributions__graph {
+  background: rgba(15, 23, 42, 0.75);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.4);
+}
+
+.contributions__graph img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  filter: saturate(1.1);
+}
+
 @media (min-width: 720px) {
   .landing__content {
     max-width: none;
@@ -443,6 +498,13 @@ a {
     padding: 1.5rem 0;
   }
 
+  .about,
+  .contributions {
+    width: 100%;
+    margin: 0;
+    transform: none;
+  }
+
   .about__body {
     padding: 1.5rem;
     gap: 1.25rem;
@@ -454,6 +516,19 @@ a {
 
   .about__list {
     gap: 0.5rem;
+  }
+
+  .contributions {
+    margin-top: 1.75rem;
+  }
+
+  .contributions__body {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .contributions__graph {
+    padding: 0.75rem;
   }
 
   .project-page {

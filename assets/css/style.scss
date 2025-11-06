@@ -239,6 +239,118 @@ a {
   border-color: rgba(99, 179, 237, 0.35);
 }
 
+.hero-section__details {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.hero-section__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.75rem;
+  background-color: rgba(148, 163, 184, 0.1);
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-section__summary-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.hero-section__summary-icon::before {
+  content: "+";
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.hero-section__details[open] .hero-section__summary-icon::before {
+  content: "-";
+  transform: translateY(-1px);
+}
+
+.hero-section__summary:hover,
+.hero-section__summary:focus-visible {
+  background-color: rgba(148, 163, 184, 0.18);
+  border-color: var(--border-color);
+  outline: none;
+}
+
+[data-theme="dark"] .hero-section__summary {
+  background-color: rgba(99, 179, 237, 0.12);
+}
+
+[data-theme="dark"] .hero-section__summary:hover,
+[data-theme="dark"] .hero-section__summary:focus-visible {
+  background-color: rgba(99, 179, 237, 0.2);
+}
+
+.hero-section__summary::-webkit-details-marker {
+  display: none;
+}
+
+.hero-section__summary::marker {
+  content: "";
+}
+
+.hero-section__details[open] .hero-section__summary {
+  border-color: var(--border-color);
+  background-color: rgba(148, 163, 184, 0.14);
+}
+
+[data-theme="dark"] .hero-section__details[open] .hero-section__summary {
+  background-color: rgba(99, 179, 237, 0.24);
+}
+
+.hero-section__projects {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.15rem;
+}
+
+.hero-project {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.hero-project__name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.hero-project__name a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.hero-project__name a:hover,
+.hero-project__name a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.hero-project__description {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted-text);
+}
+
 .hero-section__list {
   list-style: none;
   padding: 0;

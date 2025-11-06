@@ -143,8 +143,8 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  width: 100%;
-  max-width: none;
+  width: min(100%, 960px);
+  margin: 0 auto;
   padding: 2rem 0;
   gap: 1.5rem;
   opacity: 0;
@@ -207,6 +207,8 @@ a {
   display: grid;
   gap: 1rem;
   border: 1.8px dotted rgba(148, 163, 184, 0.26);
+  width: min(100%, 960px);
+  margin: 0 auto;
 }
 
 .contributions--about {

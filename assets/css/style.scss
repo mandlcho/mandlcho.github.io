@@ -61,14 +61,13 @@ a {
 .landing {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 2rem;
+  padding: 2.5rem 1.75rem;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color);
-  gap: 3rem;
+  gap: 2.5rem;
   box-sizing: border-box;
   overflow-x: hidden;
-  overflow-y: auto;
   position: relative;
   transition: opacity 0.35s ease, transform 0.35s ease;
   opacity: 0;
@@ -76,31 +75,17 @@ a {
   animation: project-fade-in 0.6s ease forwards 0.15s;
 }
 
-.landing.is-transitioning {
-  opacity: 0;
-  transform: scale(0.985) translateY(12px);
-  pointer-events: none;
-}
 .landing__header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  margin: -2rem -2rem 0;
-  padding: clamp(1rem, 2.5vw, 1.35rem) 2rem;
-  background: var(--bg-color);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+  width: min(100%, 1080px);
+  margin: 0 auto;
 }
 
 .landing__header-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  width: min(100%, 1080px);
-  margin: 0 auto;
-  flex-wrap: nowrap;
-  min-width: 0;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  width: 100%;
 }
 
 .landing__brand {
@@ -114,24 +99,24 @@ a {
 .landing__controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: nowrap;
   justify-content: flex-end;
+  gap: clamp(0.65rem, 2vw, 1rem);
+  min-width: 0;
+}
+
+.landing__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.55rem, 1.8vw, 0.85rem);
+  flex-wrap: nowrap;
   min-width: 0;
   overflow-x: auto;
   padding-bottom: 0.25rem;
   scrollbar-width: none;
 }
 
-.landing__controls::-webkit-scrollbar {
+.landing__nav::-webkit-scrollbar {
   display: none;
-}
-
-.landing__nav {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  flex-wrap: nowrap;
 }
 
 .landing__link {
@@ -243,11 +228,10 @@ a {
 }
 
 .contributions__content {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
-  grid-template-areas: "text avatar";
-  align-items: stretch;
-  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.25rem, 4vw, 2rem);
   border-top: 1px dotted rgba(148, 163, 184, 0.2);
   padding-top: 1.25rem;
   margin-top: 0.75rem;
@@ -257,7 +241,8 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  grid-area: text;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .contributions__list {
@@ -280,6 +265,7 @@ a {
 }
 
 .contributions__avatar {
+  flex: 0 0 220px;
   width: 220px;
   height: 220px;
   border-radius: 50%;
@@ -294,10 +280,6 @@ a {
     rgba(99, 179, 237, 0.35),
     rgba(148, 163, 184, 0.2)
   );
-  justify-self: end;
-  align-self: center;
-  margin: 0;
-  grid-area: avatar;
 }
 
 .contributions__avatar img {
@@ -384,24 +366,6 @@ a {
   border: none;
   box-shadow: none;
   background: none;
-}
-
-@media (max-width: 680px) {
-  .landing__header-inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-  }
-
-  .landing__controls {
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .landing__nav {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
 }
 
 .project-page {

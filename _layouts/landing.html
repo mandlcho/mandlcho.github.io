@@ -14,76 +14,78 @@ layout: null
   <body>
     <div class="landing">
       <header class="landing__header">
-        <h1 class="landing__brand">
-          {{ page.hero_title | default: page.title | default: site.title }}
-        </h1>
-        <div class="landing__controls">
-          <nav class="landing__nav" aria-label="Primary">
-            <a
-              class="landing__link"
-              href="{{ '/projects/' | relative_url }}"
-              data-transition-link="true"
+        <div class="landing__header-inner">
+          <h1 class="landing__brand">
+            {{ page.hero_title | default: page.title | default: site.title }}
+          </h1>
+          <div class="landing__controls">
+            <nav class="landing__nav" aria-label="Primary">
+              <a
+                class="landing__link"
+                href="{{ '/projects/' | relative_url }}"
+                data-transition-link="true"
+              >
+                projects
+              </a>
+              <a
+                class="landing__link"
+                href="{{ '/experiments/prototypes/' | relative_url }}"
+                data-transition-link="true"
+              >
+                games
+              </a>
+              <a
+                class="landing__link"
+                href="{{ '/bitcoin/' | relative_url }}"
+                data-transition-link="true"
+              >
+                bitcoin
+              </a>
+            </nav>
+            <button
+              type="button"
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Switch to dark mode"
             >
-              projects
-            </a>
-            <a
-              class="landing__link"
-              href="{{ '/experiments/prototypes/' | relative_url }}"
-              data-transition-link="true"
-            >
-              games
-            </a>
-            <a
-              class="landing__link"
-              href="{{ '/bitcoin/' | relative_url }}"
-              data-transition-link="true"
-            >
-              bitcoin
-            </a>
-          </nav>
-          <button
-            type="button"
-            class="theme-toggle"
-            id="theme-toggle"
-            aria-label="Switch to dark mode"
-          >
-            <svg
-              class="theme-toggle__icon theme-toggle__icon--sun is-visible"
-              aria-hidden="true"
-              focusable="false"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.75"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 3v2" />
-              <path d="M12 19v2" />
-              <path d="M5.22 5.22 6.64 6.64" />
-              <path d="M17.36 17.36 18.78 18.78" />
-              <path d="M3 12h2" />
-              <path d="M19 12h2" />
-              <path d="M5.22 18.78 6.64 17.36" />
-              <path d="M17.36 6.64 18.78 5.22" />
-            </svg>
-            <svg
-              class="theme-toggle__icon theme-toggle__icon--moon"
-              aria-hidden="true"
-              focusable="false"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.75"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M21 12.79A9 9 0 0 1 11.21 3 6.5 6.5 0 1 0 21 12.79Z"
-              />
-            </svg>
-          </button>
+              <svg
+                class="theme-toggle__icon theme-toggle__icon--sun is-visible"
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 3v2" />
+                <path d="M12 19v2" />
+                <path d="M5.22 5.22 6.64 6.64" />
+                <path d="M17.36 17.36 18.78 18.78" />
+                <path d="M3 12h2" />
+                <path d="M19 12h2" />
+                <path d="M5.22 18.78 6.64 17.36" />
+                <path d="M17.36 6.64 18.78 5.22" />
+              </svg>
+              <svg
+                class="theme-toggle__icon theme-toggle__icon--moon"
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 12.79A9 9 0 0 1 11.21 3 6.5 6.5 0 1 0 21 12.79Z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
 

@@ -321,30 +321,133 @@ a {
 
 .contributions__graph {
   border-radius: 0.75rem;
-  overflow: hidden;
-  padding: clamp(0.75rem, 2vw, 1rem);
-  border: 1.8px dotted rgba(148, 163, 184, 0.18);
-  background-color: var(--bg-color);
+  overflow: visible;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .github-calendar {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 2vw, 1rem);
+  padding: clamp(0.85rem, 3vw, 1.35rem);
+  border-radius: 1rem;
+  border: 1.8px dotted rgba(148, 163, 184, 0.24);
+  background: linear-gradient(
+    145deg,
+    rgba(148, 163, 184, 0.08),
+    rgba(99, 179, 237, 0.12)
+  );
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.14);
+  --ghc-level-0: rgba(148, 163, 184, 0.22);
+  --ghc-level-1: #bfdbfe;
+  --ghc-level-2: #93c5fd;
+  --ghc-level-3: #60a5fa;
+  --ghc-level-4: #2563eb;
 }
 
 .github-calendar .calendar {
   width: 100%;
+  overflow-x: auto;
+}
+
+.github-calendar svg {
+  width: 100%;
+  height: auto;
+}
+
+.github-calendar .calendar-graph text {
+  fill: var(--muted-text);
+  font-size: 0.65rem;
+}
+
+.github-calendar .ContributionCalendar-day {
+  rx: 3.25;
+  ry: 3.25;
+  shape-rendering: geometricPrecision;
+  stroke: rgba(15, 23, 42, 0.08);
+  stroke-width: 0.5;
+  transition: transform 0.18s ease, stroke 0.18s ease, fill 0.18s ease;
+  will-change: transform;
+}
+
+.github-calendar .ContributionCalendar-day[data-level="0"] {
+  fill: var(--ghc-level-0) !important;
+}
+
+.github-calendar .ContributionCalendar-day[data-level="1"] {
+  fill: var(--ghc-level-1) !important;
+}
+
+.github-calendar .ContributionCalendar-day[data-level="2"] {
+  fill: var(--ghc-level-2) !important;
+}
+
+.github-calendar .ContributionCalendar-day[data-level="3"] {
+  fill: var(--ghc-level-3) !important;
+}
+
+.github-calendar .ContributionCalendar-day[data-level="4"] {
+  fill: var(--ghc-level-4) !important;
+}
+
+.github-calendar .ContributionCalendar-day:hover {
+  stroke: rgba(15, 23, 42, 0.35);
+  transform: translateY(-2px) scale(1.08);
 }
 
 .github-calendar .contrib-tooltip {
   font-family: inherit;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
+}
+
+.github-calendar .contrib-legend,
+.github-calendar .js-yearly-contributions h2,
+.github-calendar .contrib-column {
+  font-size: clamp(0.68rem, 1.5vw, 0.78rem);
+  color: var(--muted-text);
+}
+
+.github-calendar .contrib-number {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: var(--text-color);
 }
 
 [data-theme="dark"] .github-calendar {
-  filter: invert(0.92) hue-rotate(180deg);
+  border-color: rgba(148, 163, 184, 0.35);
+  background: linear-gradient(
+    145deg,
+    rgba(148, 163, 184, 0.08),
+    rgba(99, 179, 237, 0.18)
+  );
+  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.65);
+  --ghc-level-0: rgba(71, 85, 105, 0.55);
+  --ghc-level-1: #1e3a8a;
+  --ghc-level-2: #1d4ed8;
+  --ghc-level-3: #3b82f6;
+  --ghc-level-4: #60a5fa;
 }
 
-[data-theme="dark"] .github-calendar svg {
-  filter: invert(1) hue-rotate(180deg);
+[data-theme="dark"] .github-calendar .ContributionCalendar-day {
+  stroke: rgba(148, 163, 184, 0.3);
+}
+
+[data-theme="dark"] .github-calendar .contrib-tooltip {
+  border-color: rgba(148, 163, 184, 0.25);
+  box-shadow: 0 16px 40px rgba(2, 6, 23, 0.7);
+}
+
+.github-calendar .contrib-legend .legend li {
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .github-calendar {
+  color: var(--muted-text);
 }
 
 .contributions--about .contributions__body {
@@ -381,7 +484,7 @@ a {
   }
 }
 
-@media (min-width: 880px) {
+@media (min-width: 400px) {
   .contributions__content {
     grid-template-columns: minmax(0, 1fr) minmax(110px, 160px);
     grid-template-areas: "text avatar";

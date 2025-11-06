@@ -191,170 +191,56 @@ a {
   display: block;
 }
 
-.hero {
-  display: grid;
+.about {
   width: 100%;
-  gap: 2.5rem;
-}
-
-.hero__sections {
-  display: grid;
-  width: 100%;
-  gap: 2.5rem;
-  grid-template-columns: 1fr;
-}
-
-.hero-section {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  width: 100%;
-}
-
-.hero-section__title {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  text-transform: lowercase;
-}
-
-.hero-section__description {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--muted-text);
-}
-
-.hero-section__body {
-  border-radius: 1rem;
-  padding: 1.5rem;
-  background-color: var(--section-surface);
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    var(--grid-dot-color) 1px,
-    transparent 0
-  );
-  background-size: 18px 18px;
-  display: grid;
-  gap: 0.85rem;
-  width: 100%;
-}
-
-.hero-section__details {
-  margin: 0;
-  padding: 0;
-  border: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-.hero-section__summary {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  text-transform: lowercase;
-  color: var(--text-color);
-  cursor: pointer;
-  padding: 0.65rem 0.9rem;
-  border-radius: 0.75rem;
-  background-color: transparent;
-  border: 1px solid transparent;
-  transition: color 0.2s ease;
-  width: 100%;
-}
-
-.hero-section__summary-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  display: grid;
-  place-items: center;
-}
-
-.hero-section__summary-icon {
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  border: 1px solid var(--border-color);
-  transition: transform 0.2s ease;
-}
-
-.hero-section__summary-icon::before {
-  content: "+";
-  font-size: 1rem;
-  line-height: 1;
-}
-
-.hero-section__details[open] .hero-section__summary-icon::before {
-  content: "-";
-}
-
-.hero-section__summary::-webkit-details-marker {
-  display: none;
-}
-
-.hero-section__summary::marker {
-  content: "";
-}
-
-.hero-section__details[open] {
-  grid-template-columns: minmax(140px, 1fr) minmax(0, 3fr);
   gap: 1.75rem;
 }
 
-.hero-section__details[open] .hero-section__summary {
-  grid-column: 1 / 2;
-}
-
-.hero-section__details[open] .hero-section__projects {
-  grid-column: 2 / 3;
-}
-
-.hero-section__projects {
-  grid-column: 1 / -1;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.about__body {
+  border-radius: 1.25rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  background-color: rgba(148, 163, 184, 0.12);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(148, 163, 184, 0.4) 1px,
+    transparent 0
+  );
+  background-size: 20px 20px;
   display: grid;
-  gap: 1.15rem;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-.hero-project {
+[data-theme="dark"] .about__body {
+  background-color: rgba(99, 179, 237, 0.12);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(99, 179, 237, 0.45) 1px,
+    transparent 0
+  );
+}
+
+.about__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+}
+
+.about__list {
+  list-style: disc;
+  padding: 0 0 0 1.35rem;
+  margin: 0;
   display: grid;
-  gap: 0.4rem;
+  gap: 0.55rem;
 }
 
-.hero-project__name {
+.about__list li {
   margin: 0;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.hero-project__name a {
-  color: var(--text-color);
-  text-decoration: none;
-}
-
-.hero-project__name a:hover,
-.hero-project__name a:focus-visible {
-  text-decoration: underline;
-  outline: none;
-}
-
-.hero-project__description {
-  margin: 0;
-  font-size: 0.92rem;
-  color: var(--muted-text);
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  line-height: 1.45;
 }
 
 @media (min-width: 720px) {
@@ -554,27 +440,17 @@ a {
     padding: 1.5rem 0;
   }
 
-  .hero__sections {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
+  .about__body {
+    padding: 1.5rem;
+    gap: 1.25rem;
   }
 
-  .hero-section__body {
-    padding: 1.25rem;
+  .about__title {
+    font-size: 1.6rem;
   }
 
-  .hero-section__details {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .hero-section__summary {
-    display: flex;
-    width: 100%;
-  }
-
-  .hero-section__projects {
-    grid-column: 1 / -1;
+  .about__list {
+    gap: 0.5rem;
   }
 
   .project-page {

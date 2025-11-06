@@ -34,7 +34,8 @@ description: "Developer, experimenter, chronic tinkerer."
     </p>
     <div class="contributions__graph">
       <img
-        src="https://ghchart.rshah.org/mandlcho"
+        id="github-contributions"
+        data-base-src="https://ghchart.rshah.org/mandlcho"
         alt="GitHub contributions calendar for mandlcho"
         loading="lazy"
       />
@@ -55,6 +56,16 @@ description: "Developer, experimenter, chronic tinkerer."
     </ul>
   </div>
 </section>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", () => {
+    const chart = document.getElementById("github-contributions");
+    if (!chart) return;
+    const base = chart.dataset.baseSrc;
+    if (!base) return;
+    chart.src = `${base}?t=${Date.now()}`; // bust cache to pull latest chart
+  });
+</script>
 
 <section class="contributions contributions--games">
   <div class="contributions__body">

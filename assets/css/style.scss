@@ -228,7 +228,6 @@ a {
 .hero-section__body {
   border-radius: 1rem;
   padding: 1.5rem;
-  border: 1px solid var(--border-color);
   background-color: var(--section-surface);
   background-image: radial-gradient(
     circle at 1px 1px,
@@ -239,10 +238,6 @@ a {
   display: grid;
   gap: 0.85rem;
   width: 100%;
-}
-
-[data-theme="dark"] .hero-section__body {
-  border-color: rgba(99, 179, 237, 0.35);
 }
 
 .hero-section__details {
@@ -257,9 +252,9 @@ a {
 
 .hero-section__summary {
   grid-column: 1 / -1;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
   gap: 0.75rem;
   font-size: 0.95rem;
   font-weight: 600;
@@ -269,9 +264,9 @@ a {
   cursor: pointer;
   padding: 0.65rem 0.9rem;
   border-radius: 0.75rem;
-  background-color: rgba(148, 163, 184, 0.1);
+  background-color: transparent;
   border: 1px solid transparent;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease;
   width: 100%;
 }
 
@@ -282,32 +277,26 @@ a {
   place-items: center;
 }
 
+.hero-section__summary-icon {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease;
+}
+
 .hero-section__summary-icon::before {
   content: "+";
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1;
-  transition: transform 0.2s ease;
 }
 
 .hero-section__details[open] .hero-section__summary-icon::before {
   content: "-";
-  transform: translateY(-1px);
-}
-
-.hero-section__summary:hover,
-.hero-section__summary:focus-visible {
-  background-color: rgba(148, 163, 184, 0.18);
-  border-color: var(--border-color);
-  outline: none;
-}
-
-[data-theme="dark"] .hero-section__summary {
-  background-color: rgba(99, 179, 237, 0.12);
-}
-
-[data-theme="dark"] .hero-section__summary:hover,
-[data-theme="dark"] .hero-section__summary:focus-visible {
-  background-color: rgba(99, 179, 237, 0.2);
 }
 
 .hero-section__summary::-webkit-details-marker {
@@ -325,12 +314,6 @@ a {
 
 .hero-section__details[open] .hero-section__summary {
   grid-column: 1 / 2;
-  border-color: var(--border-color);
-  background-color: rgba(148, 163, 184, 0.14);
-}
-
-[data-theme="dark"] .hero-section__details[open] .hero-section__summary {
-  background-color: rgba(99, 179, 237, 0.24);
 }
 
 .hero-section__details[open] .hero-section__projects {

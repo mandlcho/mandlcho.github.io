@@ -105,18 +105,12 @@ a {
 }
 
 .landing__nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, auto));
   align-items: center;
+  justify-content: center;
   gap: clamp(0.55rem, 1.8vw, 0.85rem);
-  flex-wrap: nowrap;
   min-width: 0;
-  overflow-x: auto;
-  padding-bottom: 0.25rem;
-  scrollbar-width: none;
-}
-
-.landing__nav::-webkit-scrollbar {
-  display: none;
 }
 
 .landing__link {

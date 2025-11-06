@@ -6,9 +6,9 @@ description: "Developer, experimenter, chronic tinkerer."
 
 <section class="contributions contributions--about">
   <div class="contributions__body">
-    <h2 class="contributions__title">about</h2>
     <div class="contributions__content">
       <div class="contributions__text">
+        <h2 class="contributions__title">about</h2>
         <ul class="contributions__list">
           <li>Sr Technical Animator, Tencent</li>
           <li>Central, Singapore</li>

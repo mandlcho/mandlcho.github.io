@@ -205,7 +205,7 @@ a {
   padding: clamp(1.75rem, 4vw, 2.5rem);
   display: grid;
   gap: 1.25rem;
-  border: 1px dotted rgba(148, 163, 184, 0.18);
+  border: 1.5px dotted rgba(148, 163, 184, 0.22);
 }
 
 .contributions--about {
@@ -243,7 +243,8 @@ a {
   border-radius: 0.75rem;
   overflow: hidden;
   padding: clamp(0.75rem, 2vw, 1rem);
-  border: 1px dotted rgba(148, 163, 184, 0.12);
+  border: 1.5px dotted rgba(148, 163, 184, 0.14);
+  background-color: var(--bg-color);
 }
 
 .contributions__graph img {
@@ -251,7 +252,11 @@ a {
   width: 100%;
   max-width: 100%;
   height: auto;
-  filter: grayscale(1);
+  filter: grayscale(1) contrast(1.05);
+}
+
+[data-theme="dark"] .contributions__graph img {
+  filter: grayscale(1) invert(1) brightness(1.15) contrast(0.95);
 }
 
 @media (min-width: 720px) {

@@ -7,16 +7,12 @@ description: "Developer, experimenter, chronic tinkerer."
 <section class="contributions contributions--about">
   <div class="contributions__body">
     <h2 class="contributions__title">about</h2>
-    <p class="contributions__description">
-      Quick notes on what I'm tinkering with right now.
-    </p>
     <div class="contributions__content">
       <div class="contributions__text">
         <ul class="contributions__list">
-          <li>Exploring placeholder ideas across code, design, and storytelling.</li>
-          <li>Shipping placeholder experiments to learn faster than I plan.</li>
-          <li>Documenting placeholder lessons so future-me has a map.</li>
-          <li>Collaborating on placeholder projects that make everyday tools kinder.</li>
+          <li>Sr Technical Animator, Tencent</li>
+          <li>Central, Singapore</li>
+          <li>mandl.cho@icloud.com</li>
         </ul>
       </div>
       <span class="contributions__avatar contributions__avatar--about">

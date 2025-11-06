@@ -14,18 +14,9 @@ layout: null
   <body>
     <div class="landing">
       <header class="landing__header">
-        <div class="landing__identity">
-          <span class="landing__avatar">
-            <img
-              src="{{ '/images/profile_pic.png' | relative_url }}"
-              alt="Portrait of {{ site.title }}"
-              loading="lazy"
-            />
-          </span>
-          <h1 class="landing__brand">
-            {{ page.hero_title | default: page.title | default: site.title }}
-          </h1>
-        </div>
+        <h1 class="landing__brand">
+          {{ page.hero_title | default: page.title | default: site.title }}
+        </h1>
         <div class="landing__controls">
           <nav class="landing__nav" aria-label="Primary">
             <a

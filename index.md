@@ -16,6 +16,19 @@ description: "Developer, experimenter, chronic tinkerer."
       <li>Documenting placeholder lessons so future-me has a map.</li>
       <li>Collaborating on placeholder projects that make everyday tools kinder.</li>
     </ul>
+    <div class="contributions__profile">
+      <span class="contributions__avatar">
+        <img
+          src="{{ '/images/profile_pic.png' | relative_url }}"
+          alt="Portrait of {{ site.title }}"
+          loading="lazy"
+        />
+      </span>
+      <div class="contributions__profile-copy">
+        <p>mandl cho</p>
+        <p>Designer · Builder · Chronic tinkerer</p>
+      </div>
+    </div>
   </div>
 </section>
 

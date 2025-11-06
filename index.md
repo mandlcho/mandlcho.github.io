@@ -37,56 +37,5 @@ description: "Developer, experimenter, chronic tinkerer."
       </div>
     </section>
 
-    <section class="hero-section">
-      <h2 class="hero-section__title">experiments</h2>
-      <p class="hero-section__description">
-        Scratchpad for prototypes, lab notes, and playful detours.
-      </p>
-      <div class="hero-section__body">
-        <ul class="hero-section__list">
-          <li>
-            <a href="{{ '/experiments/' | relative_url }}" data-transition-link="true">
-              overview
-            </a>
-          </li>
-          <li>
-            <a href="{{ '/experiments/lab-notes/' | relative_url }}">
-              lab notes
-            </a>
-          </li>
-          <li>
-            <a href="{{ '/experiments/prototypes/' | relative_url }}">
-              playable prototypes
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="hero-section">
-      <h2 class="hero-section__title">bitcoin</h2>
-      <p class="hero-section__description">
-        Research threads, personal notes, and tools I'm collecting as I learn.
-      </p>
-      <div class="hero-section__body">
-        <ul class="hero-section__list">
-          <li>
-            <a href="{{ '/bitcoin/' | relative_url }}" data-transition-link="true">
-              overview
-            </a>
-          </li>
-          <li>
-            <a href="{{ '/bitcoin/research/' | relative_url }}">
-              research log
-            </a>
-          </li>
-          <li>
-            <a href="{{ '/bitcoin/tools/' | relative_url }}">
-              tools + resources
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
   </div>
 </section>

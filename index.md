@@ -26,7 +26,7 @@ description: "Developer, experimenter, chronic tinkerer."
   </div>
 </section>
 
-<section class="contributions">
+<section class="contributions contributions--github">
   <div class="contributions__body">
     <h2 class="contributions__title">github contributions</h2>
     <p class="contributions__description">

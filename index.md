@@ -10,24 +10,22 @@ description: "Developer, experimenter, chronic tinkerer."
     <p class="contributions__description">
       Quick notes on what I'm tinkering with right now.
     </p>
-    <ul class="contributions__list">
-      <li>Exploring placeholder ideas across code, design, and storytelling.</li>
-      <li>Shipping placeholder experiments to learn faster than I plan.</li>
-      <li>Documenting placeholder lessons so future-me has a map.</li>
-      <li>Collaborating on placeholder projects that make everyday tools kinder.</li>
-    </ul>
-    <div class="contributions__profile">
-      <span class="contributions__avatar">
+    <div class="contributions__content">
+      <div class="contributions__text">
+        <ul class="contributions__list">
+          <li>Exploring placeholder ideas across code, design, and storytelling.</li>
+          <li>Shipping placeholder experiments to learn faster than I plan.</li>
+          <li>Documenting placeholder lessons so future-me has a map.</li>
+          <li>Collaborating on placeholder projects that make everyday tools kinder.</li>
+        </ul>
+      </div>
+      <span class="contributions__avatar contributions__avatar--about">
         <img
           src="{{ '/images/profile_pic.png' | relative_url }}"
           alt="Portrait of {{ site.title }}"
           loading="lazy"
         />
       </span>
-      <div class="contributions__profile-copy">
-        <p>mandl cho</p>
-        <p>Designer · Builder · Chronic tinkerer</p>
-      </div>
     </div>
   </div>
 </section>

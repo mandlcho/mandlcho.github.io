@@ -59,19 +59,52 @@ description: "Developer, experimenter, chronic tinkerer."
 <section class="contributions contributions--games">
   <div class="contributions__body">
     <h2 class="contributions__title">games</h2>
-    <p class="contributions__description">
-      Small experiments and prototypes exploring play, animation, and interaction.
-    </p>
-    <ul class="contributions__list contributions__list--projects">
-      <li>
-        Placeholder platformer: tuning physics to feel bouncy yet precise.
-      </li>
-      <li>
-        Narrative toybox: stitching animation timelines with branching dialogue.
-      </li>
-      <li>
-        Rhythm sandbox: prototyping procedural beats tied to player motion.
-      </li>
-    </ul>
+    <div class="games-gallery">
+      <img
+        src="{{ '/images/game-1a.png' | relative_url }}"
+        alt="Game frame variant 1"
+        loading="lazy"
+      />
+      <img
+        src="{{ '/images/game-1b.png' | relative_url }}"
+        alt="Game frame variant 2"
+        loading="lazy"
+      />
+      <img
+        src="{{ '/images/game-1c.png' | relative_url }}"
+        alt="Game frame variant 3"
+        loading="lazy"
+      />
+      <img
+        src="{{ '/images/game-2a.png' | relative_url }}"
+        alt="Game frame variant 4"
+        loading="lazy"
+      />
+      <img
+        src="{{ '/images/game-2b.png' | relative_url }}"
+        alt="Game frame variant 5"
+        loading="lazy"
+      />
+      <img
+        src="{{ '/images/game-2c.png' | relative_url }}"
+        alt="Game frame variant 6"
+        loading="lazy"
+      />
+      <img
+        src="{{ '/images/game-3a.png' | relative_url }}"
+        alt="Game frame variant 7"
+        loading="lazy"
+      />
+      <img
+        src="{{ '/images/game-3b.png' | relative_url }}"
+        alt="Game frame variant 8"
+        loading="lazy"
+      />
+      <img
+        src="{{ '/images/game-3c.png' | relative_url }}"
+        alt="Game frame variant 9"
+        loading="lazy"
+      />
+    </div>
   </div>
 </section>

@@ -334,6 +334,29 @@ a {
   filter: grayscale(1) invert(1) brightness(1.15) contrast(0.95);
 }
 
+.games-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(0.75rem, 2.5vw, 1.25rem);
+  margin-top: clamp(0.5rem, 1.8vw, 0.85rem);
+}
+
+.games-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.14);
+  background: #0f172a;
+}
+
+[data-theme="dark"] .games-gallery img {
+  border-color: rgba(148, 163, 184, 0.4);
+  box-shadow: 0 12px 24px rgba(2, 6, 23, 0.55);
+  background: #1e293b;
+}
+
 .contributions--about .contributions__body {
   border: none;
   gap: 0.65rem;

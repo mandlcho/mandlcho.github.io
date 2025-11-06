@@ -139,11 +139,10 @@ a {
 
 .landing__content {
   flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-auto-rows: auto;
-  justify-content: center;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   width: min(100%, 1080px);
   margin: 0 auto;
   padding: 2rem 0;
@@ -200,7 +199,6 @@ a {
   display: flex;
   flex-direction: column;
   align-self: stretch;
-  height: 100%;
 }
 
 .contributions__body {
@@ -212,27 +210,13 @@ a {
   width: 100%;
   margin: 0;
   box-sizing: border-box;
-  height: 100%;
 }
 
-.contributions--about {
-  margin: 0;
-  grid-column: 1 / -1;
-}
-
-.contributions--projects {
-  margin: 0;
-  grid-column: 1 / -1;
-}
-
+.contributions--about,
+.contributions--projects,
+.contributions--github,
 .contributions--games {
   margin: 0;
-  grid-column: 1 / -1;
-}
-
-.contributions--github {
-  margin: 0;
-  grid-column: 1 / -1;
 }
 
 .contributions__content {

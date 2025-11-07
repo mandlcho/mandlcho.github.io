@@ -363,7 +363,21 @@ a {
   border-radius: 1rem;
   box-shadow: none;
   background: transparent;
-  filter: brightness(1.3);
+}
+
+.contributions--games .contributions__body {
+  border: none;
+  padding: 0;
+  gap: clamp(0.65rem, 2vw, 1.1rem);
+  background: transparent;
+}
+
+.contributions--games .contributions__title {
+  padding: 0 clamp(0.25rem, 1.5vw, 0.75rem);
+}
+
+.contributions--games .games-gallery {
+  margin-top: clamp(0.5rem, 1.5vw, 0.85rem);
 }
 
 .contributions--about .contributions__body {

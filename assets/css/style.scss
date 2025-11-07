@@ -86,6 +86,8 @@ a {
   align-items: center;
   gap: clamp(1rem, 3vw, 1.75rem);
   width: 100%;
+  position: relative;
+  padding-right: 3.5rem; // reserve space for anchored theme toggle
 }
 
 .landing__brand {
@@ -185,6 +187,10 @@ a {
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease,
     border-color 0.2s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
 }
 
 .theme-toggle:hover {
@@ -615,10 +621,6 @@ a {
 
   .landing__link {
     flex: 0 0 auto;
-  }
-
-  .theme-toggle {
-    align-self: flex-end;
   }
 
   .landing__content {

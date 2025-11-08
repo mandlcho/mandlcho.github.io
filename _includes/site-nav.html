@@ -1,0 +1,27 @@
+{% assign nav_class = include.nav_class | default: "landing__nav" %}
+{% assign link_class = include.link_class | default: "landing__link" %}
+{% assign aria_label = include.aria_label | default: "Primary" %}
+
+<nav class="{{ nav_class }}" aria-label="{{ aria_label }}">
+  <a
+    class="{{ link_class }}"
+    href="{{ '/projects/' | relative_url }}"
+    data-transition-link="true"
+  >
+    projects
+  </a>
+  <a
+    class="{{ link_class }}"
+    href="{{ '/experiments/prototypes/' | relative_url }}"
+    data-transition-link="true"
+  >
+    games
+  </a>
+  <a
+    class="{{ link_class }}"
+    href="{{ '/bitcoin/' | relative_url }}"
+    data-transition-link="true"
+  >
+    bitcoin
+  </a>
+</nav>

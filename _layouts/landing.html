@@ -17,29 +17,7 @@ layout: null
             {{ page.hero_title | default: page.title | default: site.title }}
           </h1>
           <div class="landing__controls">
-            <nav class="landing__nav" aria-label="Primary">
-              <a
-                class="landing__link"
-                href="{{ '/projects/' | relative_url }}"
-                data-transition-link="true"
-              >
-                projects
-              </a>
-              <a
-                class="landing__link"
-                href="{{ '/experiments/prototypes/' | relative_url }}"
-                data-transition-link="true"
-              >
-                games
-              </a>
-              <a
-                class="landing__link"
-                href="{{ '/bitcoin/' | relative_url }}"
-                data-transition-link="true"
-              >
-                bitcoin
-              </a>
-            </nav>
+            {% include site-nav.html %}
             <button
               type="button"
               class="theme-toggle"

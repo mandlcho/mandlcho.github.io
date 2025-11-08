@@ -1,0 +1,140 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  </head>
+  <body>
+    <div class="content-page">
+      <header class="content-page__header">
+        <a class="content-page__brand" href="{{ '/' | relative_url }}">
+          <span class="content-page__brand-label">
+            {{ site.title | default: "Home" | escape }}
+          </span>
+        </a>
+        <div class="content-page__controls">
+          {% include site-nav.html
+            nav_class="content-page__nav"
+            link_class="content-page__link"
+            aria_label="Section navigation"
+          %}
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Switch to dark mode"
+          >
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--sun is-visible"
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 3v2" />
+              <path d="M12 19v2" />
+              <path d="M5.22 5.22 6.64 6.64" />
+              <path d="M17.36 17.36 18.78 18.78" />
+              <path d="M3 12h2" />
+              <path d="M19 12h2" />
+              <path d="M5.22 18.78 6.64 17.36" />
+              <path d="M17.36 6.64 18.78 5.22" />
+            </svg>
+            <svg
+              class="theme-toggle__icon theme-toggle__icon--moon"
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 12.79A9 9 0 0 1 11.21 3 6.5 6.5 0 1 0 21 12.79Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+      <main class="content-page__body">
+        {{ content }}
+      </main>
+    </div>
+    <script>
+      (function () {
+        var storageKey = "preferred-theme";
+        var toggle = document.getElementById("theme-toggle");
+        if (!toggle) return;
+
+        var sunIcon = toggle.querySelector(".theme-toggle__icon--sun");
+        var moonIcon = toggle.querySelector(".theme-toggle__icon--moon");
+
+        function updateIcons(isDark) {
+          sunIcon.classList.toggle("is-visible", !isDark);
+          moonIcon.classList.toggle("is-visible", isDark);
+        }
+
+        function applyTheme(theme) {
+          document.documentElement.setAttribute("data-theme", theme);
+          var isDark = theme === "dark";
+          toggle.setAttribute(
+            "aria-label",
+            isDark ? "Switch to light mode" : "Switch to dark mode"
+          );
+          updateIcons(isDark);
+        }
+
+        function getStoredTheme() {
+          try {
+            return localStorage.getItem(storageKey);
+          } catch (error) {
+            return null;
+          }
+        }
+
+        function getPreferredTheme() {
+          var stored = getStoredTheme();
+          if (stored) return stored;
+          return window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+
+        var currentTheme = getPreferredTheme();
+        applyTheme(currentTheme);
+
+        toggle.addEventListener("click", function () {
+          currentTheme = currentTheme === "dark" ? "light" : "dark";
+          try {
+            localStorage.setItem(storageKey, currentTheme);
+          } catch (error) {}
+          applyTheme(currentTheme);
+        });
+
+        if (window.matchMedia) {
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", function (event) {
+              if (!getStoredTheme()) {
+                currentTheme = event.matches ? "dark" : "light";
+                applyTheme(currentTheme);
+              }
+            });
+        }
+      })();
+    </script>
+  </body>
+</html>

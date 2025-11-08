@@ -1,0 +1,42 @@
+{% assign project = include.project %}
+{% if project %}
+  {% assign repo = project.card_repo | default: project.repo %}
+  {% assign repo_owner = repo | split: "/" | first %}
+  {% assign repo_name = repo | split: "/" | last %}
+  {% assign summary = project.card_summary | default: project.summary %}
+  {% assign status = project.card_status | default: project.status | default: "public" %}
+  {% assign language = project.card_language | default: project.language %}
+  {% assign language_color = project.card_language_color | default: project.language_color | default: "rgba(148, 163, 184, 0.6)" %}
+  <article class="project-card project-card--slim" data-repo="{{ repo | escape }}">
+    <div class="project-card--slim__body">
+      <a class="project-card--slim__name" href="{{ project.url | default: project.permalink | relative_url }}">
+        <span class="project-card__owner">{{ repo_owner }}</span>
+        <span class="project-card__slash">/</span>
+        <span class="project-card__repo">{{ repo_name }}</span>
+      </a>
+      {% if summary %}
+        <p class="project-card--slim__summary">
+          {{ summary }}
+        </p>
+      {% endif %}
+    </div>
+    <div class="project-card--slim__meta">
+      <span class="project-card__language">
+        <span
+          class="project-card__language-swatch"
+          data-language-swatch
+          style="--lang-color: {{ language_color }};"
+        ></span>
+        <span class="project-card__language-label" data-language-label>
+          {{ language | default: "updating..." }}
+        </span>
+      </span>
+      <span class="project-card__status">
+        {{ status }}
+      </span>
+      <span class="project-card__stat project-card__stat--updated" data-updated-value>
+        updated — syncing...
+      </span>
+    </div>
+  </article>
+{% endif %}

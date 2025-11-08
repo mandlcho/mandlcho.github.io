@@ -4,16 +4,9 @@ title: projects
 hero_title: Mandl Cho
 description: "Selected builds, kept in high signal snapshots."
 permalink: /projects/
-projects:
-  - name: the-kanban
-    repo: mandlcho/opencode-todolist
-    url: /projects/the-kanban/
-    summary: "Live kanban that surfaces active experiments without drowning in docs."
-    status: public
-    language: JavaScript
-    language_color: "#f1e05a"
 ---
 
+{% assign projects = site.data.projects %}
 <section class="projects-page">
   <header class="projects-page__intro">
     <p class="projects-page__eyebrow">latest cycles</p>
@@ -22,8 +15,8 @@ projects:
   </header>
 
   <div class="projects-grid">
-    {% if page.projects and page.projects.size > 0 %}
-      {% for project in page.projects %}
+    {% if projects and projects.size > 0 %}
+      {% for project in projects %}
         <article class="project-card" data-repo="{{ project.repo }}">
           <header class="project-card__header">
             <div class="project-card__identity">

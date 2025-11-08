@@ -4,6 +4,8 @@ title: "Mandl Cho"
 description: "Developer, experimenter, chronic tinkerer."
 ---
 
+{% assign projects_showcase = site.data.projects | slice: 0, 3 %}
+
 <section class="contributions contributions--about">
   <div class="contributions__body">
     <div class="contributions__content">
@@ -49,21 +51,95 @@ description: "Developer, experimenter, chronic tinkerer."
     <p class="contributions__description">
       Quick notes on what I'm building, shipping, or experimenting with next.
     </p>
-    <ul class="contributions__list contributions__list--projects">
-      <li>Placeholder project update: new feature sketches under review.</li>
-      <li>Placeholder prototype: iterating on interaction model this week.</li>
-      <li>Placeholder shipping note: packaging roadmap for early testers.</li>
-    </ul>
+    {% if projects_showcase and projects_showcase.size > 0 %}
+      <div class="projects-overview">
+        {% for project in projects_showcase %}
+          {% include project-card-mini.html project=project %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="projects-page__empty">More builds coming soon.</p>
+    {% endif %}
   </div>
 </section>
 
 <script defer>
   document.addEventListener("DOMContentLoaded", () => {
     const chart = document.getElementById("github-contributions");
-    if (!chart) return;
-    const base = chart.dataset.baseSrc;
-    if (!base) return;
-    chart.src = `${base}?t=${Date.now()}`; // bust cache to pull latest chart
+    if (chart) {
+      const base = chart.dataset.baseSrc;
+      if (base) {
+        chart.src = `${base}?t=${Date.now()}`; // bust cache to pull latest chart
+      }
+    }
+
+    const cards = document.querySelectorAll(".project-card[data-repo]");
+    if (!cards.length) return;
+
+    const languageColors = {
+      JavaScript: "#f1e05a",
+      TypeScript: "#3178c6",
+      HTML: "#e34c26",
+      CSS: "#563d7c",
+      SCSS: "#c6538c",
+      Ruby: "#701516",
+      Python: "#3572a5",
+      Shell: "#89e051",
+      Markdown: "#083fa1",
+      JSON: "#292929"
+    };
+
+    cards.forEach((card) => {
+      const repo = card.getAttribute("data-repo");
+      if (!repo) return;
+
+      const starsEl = card.querySelector("[data-stars-value]");
+      const forksEl = card.querySelector("[data-forks-value]");
+      const updatedEl = card.querySelector("[data-updated-value]");
+      const languageLabel = card.querySelector("[data-language-label]");
+      const languageSwatch = card.querySelector("[data-language-swatch]");
+
+      fetch(`https://api.github.com/repos/${repo}`, {
+        headers: { Accept: "application/vnd.github+json" }
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error("Network response was not ok");
+          return response.json();
+        })
+        .then((repoData) => {
+          if (starsEl && typeof repoData.stargazers_count === "number") {
+            starsEl.textContent = repoData.stargazers_count;
+          }
+
+          if (forksEl && typeof repoData.forks_count === "number") {
+            forksEl.textContent = repoData.forks_count;
+          }
+
+          if (languageLabel && repoData.language) {
+            languageLabel.textContent = repoData.language;
+          }
+
+          if (languageSwatch && repoData.language) {
+            const color =
+              languageColors[repoData.language] ||
+              "rgba(148, 163, 184, 0.6)";
+            languageSwatch.style.setProperty("--lang-color", color);
+          }
+
+          if (updatedEl && repoData.pushed_at) {
+            const updatedDate = new Date(repoData.pushed_at);
+            updatedEl.textContent = `updated — ${updatedDate.toLocaleDateString(
+              undefined,
+              { month: "short", day: "numeric", year: "numeric" }
+            )}`;
+          }
+        })
+        .catch(() => {
+          if (starsEl) starsEl.textContent = "—";
+          if (forksEl) forksEl.textContent = "—";
+          if (updatedEl) updatedEl.textContent = "updated — unavailable";
+        });
+    });
   });
 </script>
 

@@ -1,0 +1,44 @@
+{% assign project = include.project %}
+{% if project %}
+  {% assign repo = project.repo %}
+  {% assign repo_owner = repo | split: "/" | first %}
+  {% assign repo_name = repo | split: "/" | last %}
+  <article class="project-card project-card--mini" data-repo="{{ repo | escape }}">
+    <header class="project-card--mini__header">
+      <a class="project-card--mini__name" href="{{ project.url | relative_url }}">
+        <span>{{ repo_owner }}</span>
+        <span class="project-card__slash">/</span>
+        <span>{{ repo_name }}</span>
+      </a>
+      <span class="project-card--mini__status">
+        {{ project.status | default: "public" }}
+      </span>
+    </header>
+    <p class="project-card--mini__summary">
+      {{ project.summary }}
+    </p>
+    <div class="project-card--mini__meta">
+      <span class="project-card__language">
+        <span
+          class="project-card__language-swatch"
+          data-language-swatch
+          style="--lang-color: {{ project.language_color | default: 'rgba(148, 163, 184, 0.6)' }};"
+        ></span>
+        <span class="project-card__language-label" data-language-label>
+          {{ project.language | default: "updating..." }}
+        </span>
+      </span>
+      <span class="project-card__stat project-card__stat--stars">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path
+            d="M8 .981 10.09 6.26l5.527.2-4.3 3.402 1.434 5.356L8 12.735l-4.75 2.483 1.434-5.356-4.3-3.403 5.527-.199Z"
+          />
+        </svg>
+        <span class="project-card__stat-value" data-stars-value>—</span>
+      </span>
+      <span class="project-card__stat project-card__stat--updated" data-updated-value>
+        updated — syncing...
+      </span>
+    </div>
+  </article>
+{% endif %}

@@ -590,6 +590,65 @@ a {
   letter-spacing: 0.02em;
 }
 
+.projects-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+.project-card--mini {
+  padding: 0.9rem 1rem;
+  gap: 0.6rem;
+  min-height: auto;
+  border-radius: 0.85rem;
+}
+
+.project-card--mini__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.project-card--mini__name {
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.project-card--mini__name:hover,
+.project-card--mini__name:focus {
+  text-decoration: underline;
+}
+
+.project-card--mini__status {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted-text);
+}
+
+.project-card--mini__summary {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted-text);
+  line-height: 1.35;
+}
+
+.project-card--mini__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: var(--muted-text);
+}
+
 @media (max-width: 640px) {
   .project-card__footer {
     flex-direction: column;

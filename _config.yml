@@ -6,6 +6,7 @@ baseurl: "" # Leave empty for user/organization GitHub Pages
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/

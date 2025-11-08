@@ -1,6 +1,7 @@
 ---
-layout: page
+layout: landing
 title: projects
+hero_title: Mandl Cho
 description: "Selected builds, kept in high signal snapshots."
 permalink: /projects/
 projects:
@@ -9,8 +10,8 @@ projects:
     url: /projects/the-kanban/
     summary: "Live kanban that surfaces active experiments without drowning in docs."
     status: public
-    language: JavaScript
-    language_color: "#f1e05a"
+language: JavaScript
+language_color: "#f1e05a"
 ---
 
 <section class="projects-page">

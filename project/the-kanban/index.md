@@ -1,12 +1,7 @@
+---
 layout: project
 title: the kanban
 permalink: /projects/the-kanban/
-card_repo: mandlcho/opencode-todolist
-card_summary: "Live kanban that surfaces active experiments without drowning in docs."
-card_status: public
-card_language: JavaScript
-card_language_color: "#f1e05a"
-card_order: 1
 ---
 
 # the kanban

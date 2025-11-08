@@ -4,15 +4,16 @@ title: projects
 hero_title: Mandl Cho
 description: "Selected builds, kept in high signal snapshots."
 permalink: /projects/
+projects:
+  - name: the-kanban
+    repo: mandlcho/opencode-todolist
+    url: /projects/the-kanban/
+    summary: "Live kanban that surfaces active experiments without drowning in docs."
+    status: public
+    language: JavaScript
+    language_color: "#f1e05a"
 ---
 
-{% assign detected_projects = site.pages | where: "layout", "project" | sort: "card_order" %}
-{% assign detected_project_count = 0 %}
-{% for project in detected_projects %}
-  {% if project.card_repo %}
-    {% assign detected_project_count = detected_project_count | plus: 1 %}
-  {% endif %}
-{% endfor %}
 <section class="projects-page">
   <header class="projects-page__intro">
     <p class="projects-page__eyebrow">latest cycles</p>
@@ -21,11 +22,82 @@ permalink: /projects/
   </header>
 
   <div class="projects-grid">
-    {% if detected_project_count > 0 %}
-      {% for project in detected_projects %}
-        {% if project.card_repo %}
-          {% include project-card.html project=project %}
-        {% endif %}
+    {% if page.projects and page.projects.size > 0 %}
+      {% for project in page.projects %}
+        <article class="project-card" data-repo="{{ project.repo }}">
+          <header class="project-card__header">
+            <div class="project-card__identity">
+              <svg
+                class="project-card__icon"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M2 2.75A1.75 1.75 0 0 1 3.75 1h8.5A1.75 1.75 0 0 1 14 2.75v10.5A1.75 1.75 0 0 1 12.25 15H3.75A1.75 1.75 0 0 1 2 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25Z"
+                />
+              </svg>
+              <a class="project-card__name" href="{{ project.url | relative_url }}">
+                <span class="project-card__owner">
+                  {{ project.repo | split: "/" | first }}
+                </span>
+                <span class="project-card__slash">/</span>
+                <span class="project-card__repo">
+                  {{ project.repo | split: "/" | last }}
+                </span>
+              </a>
+            </div>
+            <span class="project-card__status">
+              {{ project.status | default: "public" }}
+            </span>
+          </header>
+
+          <p class="project-card__summary">
+            {{ project.summary }}
+          </p>
+
+          <div class="project-card__footer">
+            <span class="project-card__language">
+              <span
+                class="project-card__language-swatch"
+                data-language-swatch
+                style="--lang-color: {{ project.language_color | default: 'rgba(148, 163, 184, 0.6)' }};"
+              ></span>
+              <span class="project-card__language-label" data-language-label>
+                {{ project.language | default: "updating..." }}
+              </span>
+            </span>
+            <div class="project-card__stats">
+              <span class="project-card__stat project-card__stat--stars">
+                <svg
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M8 .981 10.09 6.26l5.527.2-4.3 3.402 1.434 5.356L8 12.735l-4.75 2.483 1.434-5.356-4.3-3.403 5.527-.199Z"
+                  />
+                </svg>
+                <span class="project-card__stat-value" data-stars-value>—</span>
+              </span>
+              <span class="project-card__stat project-card__stat--forks">
+                <svg
+                  viewBox="0 0 16 16"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M5.5 3.25a2.25 2.25 0 1 0-3 2.122v2.256a2.25 2.25 0 1 0 1.5 0V5.372a2.251 2.251 0 0 0 1.5-2.122m-2.25.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5m0 6a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5M10.5.5a2.25 2.25 0 0 0-1.5 3.872v5.256a2.25 2.25 0 1 0 1.5 0V4.372A2.25 2.25 0 0 0 10.5.5m0 3a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5m0 8a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5"
+                  />
+                </svg>
+                <span class="project-card__stat-value" data-forks-value>—</span>
+              </span>
+              <span class="project-card__stat project-card__stat--updated" data-updated-value>
+                updated — syncing...
+              </span>
+            </div>
+          </div>
+        </article>
       {% endfor %}
     {% else %}
       <p class="projects-page__empty">More builds coming soon.</p>

@@ -10,8 +10,8 @@ projects:
     url: /projects/the-kanban/
     summary: "Live kanban that surfaces active experiments without drowning in docs."
     status: public
-language: JavaScript
-language_color: "#f1e05a"
+    language: JavaScript
+    language_color: "#f1e05a"
 ---
 
 <section class="projects-page">

@@ -375,30 +375,6 @@ a {
   max-width: 40ch;
 }
 
-.contributions__links {
-  display: inline-flex;
-  gap: 0.35rem;
-  margin-top: 0.35rem;
-}
-
-.contributions__links a {
-  font-size: clamp(0.75rem, 1.65vw, 0.83rem);
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
-}
-
-.contributions__links--stacked {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-}
-
-.contributions__links a:hover,
-.contributions__links a:focus {
-  text-decoration: underline;
-}
-
 .contributions__avatar {
   flex: 0 0 198px;
   width: 198px;

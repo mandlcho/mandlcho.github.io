@@ -751,17 +751,6 @@ a {
   border: 1px solid var(--border-color);
 }
 
-.project-card__case-link {
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--text-color);
-}
-
-.project-card__case-link:hover,
-.project-card__case-link:focus {
-  text-decoration: underline;
-}
-
 .project-card__case-empty {
   margin: 0;
   font-size: 0.85rem;

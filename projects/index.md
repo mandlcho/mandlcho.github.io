@@ -130,12 +130,6 @@ permalink: /projects/
                   <div class="project-card__case-body">
                     {{ case_post.content }}
                   </div>
-                  <a
-                    class="project-card__case-link"
-                    href="{{ case_post.url | relative_url }}"
-                  >
-                    Continue reading
-                  </a>
                 </article>
               {% else %}
                 <p class="project-card__case-empty">

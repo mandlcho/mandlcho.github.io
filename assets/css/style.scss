@@ -684,8 +684,8 @@ a {
 }
 
 .projects-overview {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 0.9rem;
   margin-top: 1.25rem;
 }

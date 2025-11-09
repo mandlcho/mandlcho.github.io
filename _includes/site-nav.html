@@ -5,6 +5,13 @@
 <nav class="{{ nav_class }}" aria-label="{{ aria_label }}">
   <a
     class="{{ link_class }}"
+    href="{{ '/' | relative_url }}"
+    data-transition-link="true"
+  >
+    home
+  </a>
+  <a
+    class="{{ link_class }}"
     href="{{ '/projects/' | relative_url }}"
     data-transition-link="true"
   >

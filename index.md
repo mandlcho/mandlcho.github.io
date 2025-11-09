@@ -16,16 +16,16 @@ description: "Developer, experimenter, chronic tinkerer."
           <li>📍 Central, Singapore</li>
           <li>✉️ mandl.cho@icloud.com</li>
         </ul>
+        <div class="contributions__links contributions__links--stacked">
+          <a href="https://x.com/placeholder" target="_blank" rel="noopener">X</a>
+          <a href="https://linkedin.com/in/placeholder" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
         <p class="contributions__bio">
           I toggle between engines, rigs, and tiny web toys—chasing playful systems
           that feel handcrafted without the overhead of heavy pipelines. Most days
           I’m prototyping feel-first loops, documenting the process, and sharing
           notes so other builders can remix the experiments for themselves.
         </p>
-        <div class="contributions__links">
-          <a href="https://x.com/placeholder" target="_blank" rel="noopener">X</a>
-          <a href="https://linkedin.com/in/placeholder" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
       </div>
       <span class="contributions__avatar contributions__avatar--about">
         <img

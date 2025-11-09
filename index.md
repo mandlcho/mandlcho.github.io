@@ -21,10 +21,17 @@ description: "Developer, experimenter, chronic tinkerer."
               LinkedIn
             </a>
           </li>
-          <li>
-            🐦
-            <a href="https://x.com/placeholder" target="_blank" rel="noopener">
-              X / Twitter
+          <li class="contributions__social">
+            <img
+              src="{{ '/images/x-favicon.svg' | relative_url }}"
+              alt="X logo"
+              class="contributions__social-icon"
+              width="16"
+              height="16"
+              loading="lazy"
+            />
+            <a href="https://x.com/maaandl" target="_blank" rel="noopener">
+              X (@maaandl)
             </a>
           </li>
         </ul>

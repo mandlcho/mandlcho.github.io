@@ -366,6 +366,18 @@ a {
   line-height: 1.45;
 }
 
+.contributions__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.contributions__social-icon {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+}
+
 .contributions__bio {
   margin: 0;
   margin-top: 0.75rem;

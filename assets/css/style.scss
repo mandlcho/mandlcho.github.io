@@ -371,6 +371,7 @@ a {
   color: var(--muted-text);
   font-size: clamp(0.8rem, 1.75vw, 0.95rem);
   line-height: 1.55;
+  max-width: 32ch;
 }
 
 .contributions__avatar {

@@ -3,9 +3,17 @@
   {% assign repo = project.repo %}
   {% assign repo_owner = repo | split: "/" | first %}
   {% assign repo_name = repo | split: "/" | last %}
+  {% assign project_href = project.url | default: "" %}
+  {% if project_href contains "://" %}
+    {% assign project_href = project_href %}
+  {% elsif project_href != "" %}
+    {% assign project_href = project_href | relative_url %}
+  {% else %}
+    {% assign project_href = "https://github.com/" | append: repo %}
+  {% endif %}
   <article class="project-card project-card--mini" data-repo="{{ repo | escape }}">
     <header class="project-card--mini__header">
-      <a class="project-card--mini__name" href="{{ project.url | relative_url }}">
+      <a class="project-card--mini__name" href="{{ project_href }}">
         <span>{{ repo_owner }}</span>
         <span class="project-card__slash">/</span>
         <span>{{ repo_name }}</span>

@@ -1,7 +1,23 @@
-- name: the-kanban
+- name: mandlcho.github.io
+  repo: mandlcho/mandlcho.github.io
+  url: https://github.com/mandlcho/mandlcho.github.io
+  summary: "This site’s source—custom Minima skin, experiments, and notes in one place."
+  status: public
+  language: SCSS
+  language_color: "#c6538c"
+
+- name: beefbeater
+  repo: mandlcho/beefbeater
+  url: https://github.com/mandlcho/beefbeater
+  summary: "A tiny clicker loop for testing real-time UI polish and scoring systems."
+  status: public
+  language: JavaScript
+  language_color: "#f1e05a"
+
+- name: opencode-todolist
   repo: mandlcho/opencode-todolist
-  url: /projects/the-kanban/
-  summary: "Live kanban that surfaces active experiments without drowning in docs."
+  url: https://github.com/mandlcho/opencode-todolist
+  summary: "Open kanban + backlog surface that keeps active experiments visible."
   status: public
   language: JavaScript
   language_color: "#f1e05a"

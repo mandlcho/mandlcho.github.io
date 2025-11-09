@@ -17,7 +17,16 @@ permalink: /projects/
   <div class="projects-grid">
     {% if projects and projects.size > 0 %}
       {% for project in projects %}
-        <article class="project-card" data-repo="{{ project.repo }}">
+        {% assign repo = project.repo %}
+        {% assign project_href = project.url | default: "" %}
+        {% if project_href contains "://" %}
+          {% assign project_href = project_href %}
+        {% elsif project_href != "" %}
+          {% assign project_href = project_href | relative_url %}
+        {% else %}
+          {% assign project_href = "https://github.com/" | append: repo %}
+        {% endif %}
+        <article class="project-card" data-repo="{{ repo }}">
           <header class="project-card__header">
             <div class="project-card__identity">
               <svg
@@ -30,13 +39,13 @@ permalink: /projects/
                   d="M2 2.75A1.75 1.75 0 0 1 3.75 1h8.5A1.75 1.75 0 0 1 14 2.75v10.5A1.75 1.75 0 0 1 12.25 15H3.75A1.75 1.75 0 0 1 2 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25Z"
                 />
               </svg>
-              <a class="project-card__name" href="{{ project.url | relative_url }}">
+              <a class="project-card__name" href="{{ project_href }}">
                 <span class="project-card__owner">
-                  {{ project.repo | split: "/" | first }}
+                  {{ repo | split: "/" | first }}
                 </span>
                 <span class="project-card__slash">/</span>
                 <span class="project-card__repo">
-                  {{ project.repo | split: "/" | last }}
+                  {{ repo | split: "/" | last }}
                 </span>
               </a>
             </div>

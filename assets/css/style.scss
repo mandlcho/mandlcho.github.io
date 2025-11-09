@@ -368,10 +368,29 @@ a {
 
 .contributions__bio {
   margin: 0;
+  margin-top: 0.75rem;
   color: var(--muted-text);
-  font-size: clamp(0.8rem, 1.75vw, 0.95rem);
+  font-size: clamp(0.75rem, 1.65vw, 0.83rem);
   line-height: 1.55;
-  max-width: 32ch;
+  max-width: 40ch;
+}
+
+.contributions__links {
+  display: inline-flex;
+  gap: 0.75rem;
+  margin-top: 0.65rem;
+}
+
+.contributions__links a {
+  font-size: clamp(0.75rem, 1.65vw, 0.83rem);
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.contributions__links a:hover,
+.contributions__links a:focus {
+  text-decoration: underline;
 }
 
 .contributions__avatar {

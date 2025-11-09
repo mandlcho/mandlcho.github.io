@@ -22,6 +22,10 @@ description: "Developer, experimenter, chronic tinkerer."
           I’m prototyping feel-first loops, documenting the process, and sharing
           notes so other builders can remix the experiments for themselves.
         </p>
+        <div class="contributions__links">
+          <a href="https://x.com/placeholder" target="_blank" rel="noopener">X</a>
+          <a href="https://linkedin.com/in/placeholder" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
       <span class="contributions__avatar contributions__avatar--about">
         <img

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="24" fill="url(#bg2)" />
+  <text x="38" y="60" fill="#ccfbf1" font-family="Inter, Arial" font-size="28">
+    archive drawer • focus mode
+  </text>
+  <g transform="translate(40 100)">
+    <rect width="560" height="200" rx="20" fill="rgba(0,0,0,0.35)" stroke="#2dd4bf" stroke-width="2" />
+    <rect x="24" y="32" width="240" height="56" rx="12" fill="#f472b6" opacity="0.85" />
+    <text x="40" y="65" fill="#fff" font-family="Inter, Arial" font-size="16">
+      UX tidy-up · archived
+    </text>
+    <rect x="24" y="108" width="240" height="56" rx="12" fill="#93c5fd" opacity="0.85" />
+    <text x="40" y="141" fill="#0f172a" font-family="Inter, Arial" font-size="16">
+      bug bash · archived
+    </text>
+    <rect x="304" y="32" width="288" height="132" rx="14" fill="rgba(45, 212, 191, 0.14)" stroke="#67e8f9" stroke-dasharray="8 6" />
+    <text x="324" y="70" fill="#cffafe" font-family="Inter, Arial" font-size="16">
+      keyboard shortcuts
+    </text>
+    <text x="324" y="110" fill="#a5f3fc" font-family="Inter, Arial" font-size="15">
+      ⌘J toggles drawer · esc closes
+    </text>
+    <text x="324" y="140" fill="#a5f3fc" font-family="Inter, Arial" font-size="15">
+      pointer-down outside auto-dismiss
+    </text>
+  </g>
+  <text x="40" y="320" fill="#e0f2fe" font-family="Inter, Arial" font-size="16">
+    archive view mirrors Supabase category cleanup + theme toggle tests
+  </text>
+</svg>

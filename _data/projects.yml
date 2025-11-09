@@ -16,11 +16,11 @@
   language_color: "#f1e05a"
   case_study_slug: beefbeater-loop
 
-- name: opencode-todolist
-  repo: mandlcho/opencode-todolist
-  url: https://github.com/mandlcho/opencode-todolist
+- name: the-kanban
+  repo: mandlcho/the-kanban
+  url: https://github.com/mandlcho/the-kanban
   summary: "Open kanban + backlog surface that keeps active experiments visible."
   status: public
   language: JavaScript
   language_color: "#f1e05a"
-  case_study_slug: opencode-todolist-diary
+  case_study_slug: the-kanban-diary

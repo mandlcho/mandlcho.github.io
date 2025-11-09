@@ -16,7 +16,7 @@ permalink: /projects/the-kanban/
     <ul
       class="project-languages"
       id="project-languages"
-      data-repo="mandlcho/opencode-todolist"
+      data-repo="mandlcho/the-kanban"
     >
       <li>loading…</li>
     </ul>

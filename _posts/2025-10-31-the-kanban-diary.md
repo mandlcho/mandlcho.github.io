@@ -1,14 +1,14 @@
 ---
 layout: page
-title: "OpenCode To-Do List Build Log"
+title: "The Kanban Build Log"
 description: "How the kanban-lite workflow keeps experiments visible without ceremony."
 date: 2025-10-31
 tags:
   - productivity
-  - opencode-todolist
+  - the-kanban
 ---
 
-![Board layout concept for OpenCode]({{ '/images/opencode-wireframe.png' | relative_url }})
+![Board layout concept for The Kanban]({{ '/images/opencode-wireframe.png' | relative_url }})
 
 What started as a “sticky notes but in the browser” sprint morphed into a living backlog that tracks experiments moving from `spark → build → ship`.
 

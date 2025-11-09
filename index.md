@@ -29,10 +29,14 @@ description: "Developer, experimenter, chronic tinkerer."
           </li>
         </ul>
         <p class="contributions__bio">
-          I toggle between engines, rigs, and tiny web toys—chasing playful systems
-          that feel handcrafted without the overhead of heavy pipelines. Most days
-          I’m prototyping feel-first loops, documenting the process, and sharing
-          notes so other builders can remix the experiments for themselves.
+          <span>
+            I toggle between engines, rigs, and tiny web toys—chasing playful systems
+            that feel handcrafted without the overhead of heavy pipelines.
+          </span>
+          <span>
+            Most days I’m prototyping feel-first loops, documenting the process,
+            and sharing notes so other builders can remix the experiments for themselves.
+          </span>
         </p>
       </div>
       <span class="contributions__avatar contributions__avatar--about">

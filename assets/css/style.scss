@@ -375,6 +375,15 @@ a {
   max-width: 40ch;
 }
 
+.contributions__bio span {
+  display: block;
+}
+
+.contributions__bio span + span {
+  display: block;
+  margin-top: 0.6rem;
+}
+
 .contributions__avatar {
   flex: 0 0 198px;
   width: 198px;

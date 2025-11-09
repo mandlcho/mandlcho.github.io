@@ -366,6 +366,13 @@ a {
   line-height: 1.45;
 }
 
+.contributions__bio {
+  margin: 0;
+  color: var(--muted-text);
+  font-size: clamp(0.8rem, 1.75vw, 0.95rem);
+  line-height: 1.55;
+}
+
 .contributions__avatar {
   flex: 0 0 198px;
   width: 198px;

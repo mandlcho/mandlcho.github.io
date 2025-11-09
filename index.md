@@ -12,10 +12,16 @@ description: "Developer, experimenter, chronic tinkerer."
       <div class="contributions__text">
         <h2 class="contributions__title">about</h2>
         <ul class="contributions__list">
-          <li>Sr Technical Animator, Tencent</li>
-          <li>Central, Singapore</li>
-          <li>mandl.cho@icloud.com</li>
+          <li>💼 Sr Technical Animator, Tencent</li>
+          <li>📍 Central, Singapore</li>
+          <li>✉️ mandl.cho@icloud.com</li>
         </ul>
+        <p class="contributions__bio">
+          I toggle between engines, rigs, and tiny web toys—chasing playful systems
+          that feel handcrafted without the overhead of heavy pipelines. Most days
+          I’m prototyping feel-first loops, documenting the process, and sharing
+          notes so other builders can remix the experiments for themselves.
+        </p>
       </div>
       <span class="contributions__avatar contributions__avatar--about">
         <img

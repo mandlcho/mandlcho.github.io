@@ -8,8 +8,6 @@ tags:
   - the-kanban
 ---
 
-![Kanban board overview]({{ '/images/the-kanban-board.svg' | relative_url }})
-
 The Kanban (formerly OpenCode To-Do List) leans into a board-first workflow: backlog, active, and done columns are powered by the same drag hooks that fuel the list view. Todo metadata—priority badges, categories, and due dates—survive every drag thanks to the `useBoardDragAndDrop` hook.
 
 Key takeaways from this cycle:
@@ -17,8 +15,6 @@ Key takeaways from this cycle:
 - **Dual view modes.** The `viewMode` state flips between list and card views, letting me compose quickly in list mode but review flow in the kanban layout.
 - **Category system.** `useCategories()` keeps labels reusable: assigning/removing a category instantly re-colors cards and filters via the selector chips above the board.
 - **Priority focus.** Holding a priority filter (`TODO_PRIORITIES`) fades non-matching cards, a tiny trick that keeps deep backlogs scannable.
-
-![Archive drawer interactions]({{ '/images/the-kanban-archive.svg' | relative_url }})
 
 Recent additions focus on lifecycle management:
 

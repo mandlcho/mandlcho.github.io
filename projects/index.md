@@ -26,7 +26,12 @@ permalink: /projects/
         {% else %}
           {% assign project_href = "https://github.com/" | append: repo %}
         {% endif %}
-        <article class="project-card" data-repo="{{ repo }}">
+        {% assign case_post = nil %}
+        {% if project.case_study_slug %}
+          {% assign case_post = site.posts | where: "slug", project.case_study_slug | first %}
+        {% endif %}
+        {% assign has_case_panel = project.case_study_slug %}
+        <article class="project-card" data-repo="{{ repo }}" data-project-card>
           <header class="project-card__header">
             <div class="project-card__identity">
               <svg
@@ -99,6 +104,46 @@ permalink: /projects/
               </span>
             </div>
           </div>
+          {% if has_case_panel %}
+            <button
+              class="project-card__toggle"
+              type="button"
+              data-project-toggle
+              aria-expanded="false"
+            >
+              <span data-toggle-label>Show build log</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path
+                  d="M3.22 5.47a.75.75 0 0 1 1.06 0L8 9.19l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.22 6.53a.75.75 0 0 1 0-1.06"
+                />
+              </svg>
+            </button>
+            <div class="project-card__details" data-project-details hidden>
+              {% if case_post %}
+                <article class="project-card__case">
+                  <header class="project-card__case-header">
+                    <p class="project-card__case-eyebrow">
+                      {{ case_post.date | date: "%b %d, %Y" }}
+                    </p>
+                    <h3 class="project-card__case-title">{{ case_post.title }}</h3>
+                  </header>
+                  <div class="project-card__case-body">
+                    {{ case_post.content }}
+                  </div>
+                  <a
+                    class="project-card__case-link"
+                    href="{{ case_post.url | relative_url }}"
+                  >
+                    Continue reading
+                  </a>
+                </article>
+              {% else %}
+                <p class="project-card__case-empty">
+                  Build log coming soon.
+                </p>
+              {% endif %}
+            </div>
+          {% endif %}
         </article>
       {% endfor %}
     {% else %}
@@ -178,6 +223,37 @@ permalink: /projects/
           if (forksEl) forksEl.textContent = "—";
           if (updatedEl) updatedEl.textContent = "updated — unavailable";
         });
+    });
+
+    var detailCards = document.querySelectorAll("[data-project-card]");
+    detailCards.forEach(function (card) {
+      var toggle = card.querySelector("[data-project-toggle]");
+      var details = card.querySelector("[data-project-details]");
+      if (!toggle || !details) return;
+
+      var label = toggle.querySelector("[data-toggle-label]");
+
+      function setState(isOpen) {
+        toggle.setAttribute("aria-expanded", isOpen);
+        details.hidden = !isOpen;
+        card.classList.toggle("is-open", isOpen);
+        if (label) {
+          label.textContent = isOpen ? "Hide build log" : "Show build log";
+        }
+      }
+
+      toggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        var isExpanded = toggle.getAttribute("aria-expanded") === "true";
+        setState(!isExpanded);
+      });
+
+      card.addEventListener("click", function (event) {
+        if (event.target.closest("a")) return;
+        if (event.target.closest("[data-project-toggle]")) return;
+        if (event.target.closest("[data-project-details]")) return;
+        toggle.click();
+      });
     });
   });
 </script>

@@ -5,6 +5,7 @@
   status: public
   language: SCSS
   language_color: "#c6538c"
+  case_study_slug: mandlcho-github-io-refresh
 
 - name: beefbeater
   repo: mandlcho/beefbeater
@@ -13,6 +14,7 @@
   status: public
   language: JavaScript
   language_color: "#f1e05a"
+  case_study_slug: beefbeater-loop
 
 - name: opencode-todolist
   repo: mandlcho/opencode-todolist
@@ -21,3 +23,4 @@
   status: public
   language: JavaScript
   language_color: "#f1e05a"
+  case_study_slug: opencode-todolist-diary

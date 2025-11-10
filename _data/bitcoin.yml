@@ -1,0 +1,13 @@
+- name: research log
+  url: /bitcoin/research/
+  summary: "Placeholder ideas for mining notes, economic models, and protocol explorations."
+  status: log
+  language: Writing
+  language_color: "#a855f7"
+
+- name: tools + resources
+  url: /bitcoin/tools/
+  summary: "Placeholder catalog for node setups, wallet scripts, and reading lists."
+  status: toolkit
+  language: Reference
+  language_color: "#0ea5e9"

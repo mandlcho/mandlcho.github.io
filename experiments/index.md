@@ -7,4 +7,4 @@ permalink: /experiments/
 # experiments
 
 - [lab notes]({{ '/experiments/lab-notes/' | relative_url }})
-- [playable prototypes]({{ '/experiments/prototypes/' | relative_url }})
+- [games]({{ '/experiments/prototypes/' | relative_url }})

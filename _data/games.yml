@@ -1,0 +1,14 @@
+- name: beefbeater
+  repo: mandlcho/beefbeater
+  summary: "A tiny clicker loop for testing real-time UI polish and scoring systems."
+  status: playable
+  language: JavaScript
+  language_color: "#f1e05a"
+  case_study_slug: beefbeater-loop
+
+- name: next jam build
+  url: /experiments/prototypes/
+  summary: "Placeholder space for demo builds, interaction videos, and user feedback notes."
+  status: in progress
+  language: Prototype
+  language_color: "#64748b"

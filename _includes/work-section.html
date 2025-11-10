@@ -28,20 +28,32 @@
         {% if project_href == "" %}
           {% assign project_href = "#" %}
         {% endif %}
-        {% assign case_post = nil %}
-        {% if item.case_study_slug %}
-          {% assign case_post = site.posts | where: "slug", item.case_study_slug | first %}
-        {% endif %}
-        {% assign has_case_panel = item.case_study_slug %}
-        {% assign language_label = item.language_label | default: item.language %}
-        {% assign language_color = item.language_color | default: "rgba(148, 163, 184, 0.6)" %}
-        {% assign show_language = language_label or item.language_color %}
-        <article
-          class="project-card"
-          {% if repo %}data-repo="{{ repo }}"{% endif %}
-          data-project-card
-        >
-          <header class="project-card__header">
+{% assign case_post = nil %}
+{% if item.case_study_slug %}
+  {% assign case_post = site.posts | where: "slug", item.case_study_slug | first %}
+{% endif %}
+{% assign has_case_panel = item.case_study_slug %}
+{% assign language_label = item.language_label | default: item.language %}
+{% assign language_color = item.language_color | default: "rgba(148, 163, 184, 0.6)" %}
+{% assign show_language = language_label or item.language_color %}
+{% assign project_image = item.image %}
+{% if project_image %}
+  {% unless project_image contains "://" %}
+    {% assign project_image = project_image | relative_url %}
+  {% endunless %}
+{% endif %}
+{% assign image_alt = item.image_alt | default: item.name | default: section_title %}
+<article
+  class="project-card"
+  {% if repo %}data-repo="{{ repo }}"{% endif %}
+  data-project-card
+>
+  {% if project_image %}
+    <figure class="project-card__media">
+      <img src="{{ project_image }}" alt="{{ image_alt }}" loading="lazy" />
+    </figure>
+  {% endif %}
+  <header class="project-card__header">
             <div class="project-card__identity">
               <svg
                 class="project-card__icon"

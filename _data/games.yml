@@ -1,14 +1,35 @@
-- name: beefbeater
-  repo: mandlcho/beefbeater
-  summary: "A tiny clicker loop for testing real-time UI polish and scoring systems."
-  status: playable
-  language: JavaScript
-  language_color: "#f1e05a"
-  case_study_slug: beefbeater-loop
+- name: Assassin's Creed Origins
+  url: https://www.ubisoft.com/en-us/game/assassins-creed/origins
+  summary: "Mission ownership across Memphis region—quest scripting, boss encounters, and stealth sandboxes tuned for the new combat loop."
+  status: shipped
+  language_label: Narrative Systems
+  language_color: "#f97316"
+  image: /images/game-1a.png
+  image_alt: "Assassin's Creed Origins gameplay screenshot"
 
-- name: next jam build
-  url: /experiments/prototypes/
-  summary: "Placeholder space for demo builds, interaction videos, and user feedback notes."
-  status: in progress
-  language: Prototype
-  language_color: "#64748b"
+- name: Assassin's Creed Valhalla
+  url: https://www.ubisoft.com/en-us/game/assassins-creed/valhalla
+  summary: "Led Viking settlement events and combat polish for post-launch festivals, keeping live ops drops tightly scoped."
+  status: live
+  language_label: Live Ops Design
+  language_color: "#0ea5e9"
+  image: /images/game-2a.png
+  image_alt: "Assassin's Creed Valhalla festival scene"
+
+- name: Skull and Bones
+  url: https://www.ubisoft.com/en-us/game/skull-and-bones
+  summary: "Prototyped ship progression beats and seasonal contracts, balancing progression pacing with PvP risk."
+  status: beta
+  language_label: Systems Design
+  language_color: "#10b981"
+  image: /images/game-3a.png
+  image_alt: "Skull and Bones naval combat moment"
+
+- name: Monster Hunter (collab missions)
+  url: https://www.monsterhunter.com/
+  summary: "Supported limited-time crossover hunts—encounter tuning, loot tables, and UX flows for onboarding squads."
+  status: featured
+  language_label: Encounter Design
+  language_color: "#a855f7"
+  image: /images/game-1b.png
+  image_alt: "Monster Hunter co-op hunt screenshot"

@@ -591,6 +591,23 @@ a {
     box-shadow 0.2s ease;
 }
 
+.project-card__media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--border-color);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+.project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .project-card:hover,
 .project-card:focus-within {
   transform: translateY(-2px);

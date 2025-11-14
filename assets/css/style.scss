@@ -54,6 +54,14 @@ a {
   }
 }
 
+code {
+  font-size: 0.8rem;
+}
+
+pre {
+  font-size: 0.8rem;
+}
+
 .lead {
   font-size: 1.1rem;
   margin-top: 1.5rem;
@@ -809,7 +817,7 @@ a {
 .project-card__case-body pre {
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .project-card__case-empty {

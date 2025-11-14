@@ -15,6 +15,7 @@ description: "Developer, experimenter, chronic tinkerer."
           <li>💼 Sr Technical Animator, Tencent</li>
           <li>📍 Central, Singapore</li>
           <li>✉️ mandl.cho@icloud.com</li>
+          <li>✨ Fun-stack Developer</li>
           <li class="contributions__social">
             <img
               src="{{ '/images/linkedin-favicon.svg' | relative_url }}"

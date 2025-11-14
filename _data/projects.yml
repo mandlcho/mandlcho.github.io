@@ -1,26 +1,61 @@
-- name: mandlcho.github.io
-  repo: mandlcho/mandlcho.github.io
-  url: https://github.com/mandlcho/mandlcho.github.io
-  summary: "This site’s source—custom Minima skin, experiments, and notes in one place."
-  status: public
-  language: SCSS
-  language_color: "#c6538c"
-  case_study_slug: mandlcho-github-io-refresh
-
+- name: ama-db
+  repo: mandlcho/ama-db
+  summary: ''
+  language_label: ''
+  url: https://github.com/mandlcho/ama-db
 - name: beefbeater
   repo: mandlcho/beefbeater
+  summary: ''
+  language_label: JavaScript
   url: https://github.com/mandlcho/beefbeater
-  summary: "A tiny clicker loop for testing real-time UI polish and scoring systems."
-  status: public
-  language: JavaScript
-  language_color: "#f1e05a"
-  case_study_slug: beefbeater-loop
-
+- name: blog
+  repo: mandlcho/blog
+  summary: ''
+  language_label: ''
+  url: https://github.com/mandlcho/blog
+- name: Covid19Tracker
+  repo: mandlcho/Covid19Tracker
+  summary: Simple Covid19 Tracker
+  language_label: JavaScript
+  url: https://github.com/mandlcho/Covid19Tracker
+- name: findit
+  repo: mandlcho/findit
+  summary: find toilets near you when nature calls
+  language_label: TypeScript
+  url: https://github.com/mandlcho/findit
+- name: maya_skeletonExporter
+  repo: mandlcho/maya_skeletonExporter
+  summary: namespace-based skeleton transform exporter
+  language_label: Python
+  url: https://github.com/mandlcho/maya_skeletonExporter
+- name: MocapAssistantTool
+  repo: mandlcho/MocapAssistantTool
+  summary: lazy data entry tool
+  language_label: Python
+  url: https://github.com/mandlcho/MocapAssistantTool
+- name: pyfbsdk_mConstraintToolbox
+  repo: mandlcho/pyfbsdk_mConstraintToolbox
+  summary: simple marker creation ; one-click send to story and export ; color-code
+    characters
+  language_label: Python
+  url: https://github.com/mandlcho/pyfbsdk_mConstraintToolbox
 - name: the-kanban
   repo: mandlcho/the-kanban
+  summary: ''
+  language_label: JavaScript
   url: https://github.com/mandlcho/the-kanban
-  summary: "Open kanban + backlog surface that keeps active experiments visible."
-  status: public
-  language: JavaScript
-  language_color: "#f1e05a"
-  case_study_slug: the-kanban-diary
+- name: thermobot
+  repo: mandlcho/thermobot
+  summary: Telegram chatbot for Thermomix users
+  language_label: ''
+  url: https://github.com/mandlcho/thermobot
+- name: unrealvibes
+  repo: mandlcho/unrealvibes
+  summary: ''
+  language_label: C++
+  url: https://github.com/mandlcho/unrealvibes
+- name: WhereToEat
+  repo: mandlcho/WhereToEat
+  summary: can't decide where to eat?
+  language_label: Python
+  url: https://github.com/mandlcho/WhereToEat

@@ -875,11 +875,10 @@ a {
 
   .content-page__controls {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .content-page__nav {
-    width: 100%;
     justify-content: flex-start;
   }
 
@@ -1071,9 +1070,11 @@ a {
   }
 
   .landing__header-inner {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
+    gap: 0.85rem;
   }
 
   .landing__controls {

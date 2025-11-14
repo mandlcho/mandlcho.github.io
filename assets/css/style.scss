@@ -50,6 +50,7 @@ a {
 
   &:hover {
     color: darken($brand-color, 10%);
+    text-decoration: none; /* Remove underline on hover */
   }
 }
 
@@ -647,7 +648,7 @@ a {
 
 .project-card__name:hover,
 .project-card__name:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .project-card__owner {
@@ -848,7 +849,7 @@ a {
 
 .project-card--mini__name:hover,
 .project-card--mini__name:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .project-card--mini__status {

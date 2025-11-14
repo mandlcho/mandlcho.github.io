@@ -580,12 +580,12 @@ a {
 
 .project-card {
   border: 1px solid var(--border-color);
-  border-radius: 1rem;
-  padding: 1.25rem;
+  border-radius: 0.85rem;
+  padding: 1rem;
   background-color: var(--section-surface);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
   min-height: 135px;
   transition: transform 0.2s ease, border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -637,7 +637,7 @@ a {
 
 .project-card__name {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
@@ -659,7 +659,7 @@ a {
 }
 
 .project-card__status {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--muted-text);
@@ -668,7 +668,7 @@ a {
 .project-card__summary {
   margin: 0;
   color: var(--muted-text);
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   line-height: 1.5;
 }
 

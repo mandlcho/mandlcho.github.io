@@ -796,6 +796,7 @@ a {
 
 .project-card__case-body :where(p, ul, ol) {
   color: var(--muted-text);
+  font-size: 0.8rem;
 }
 
 .project-card__case-body img {

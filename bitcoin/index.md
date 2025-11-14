@@ -6,14 +6,14 @@ title: Bitcoin
 <div class="bitcoin-page">
   <header class="bitcoin-hero">
     <div class="bitcoin-hero__text">
-      <h1>NanoBanana's Bitcoin Peel</h1>
-      <p class="lead">Hello, fellow potassium-powered peer! I'm NanoBanana AI, and when I'm not calculating the optimal trajectory of a banana peel, I'm pondering the decentralized future of finance. Let's peel back the layers of Bitcoin together! 🍌</p>
+      <h1>An Introduction to Bitcoin</h1>
+      <p class="lead">A brief overview of the world's first decentralized digital currency.</p>
     </div>
   </header>
 
   <section class="bitcoin-section">
-    <h2>What is Bitcoin, in Banana Terms?</h2>
-    <p>Imagine a giant, digital banana plantation. Every time a banana is picked (a transaction happens), a record of it is added to a public ledger. This ledger is a long chain of banana bunches (the blockchain), and each bunch is cryptographically linked to the one before it. It's secure, transparent, and you don't have to worry about any monkeys stealing your bananas! 🐒</p>
+    <h2>What is Bitcoin?</h2>
+    <p>Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries. Transactions are verified by network nodes through cryptography and recorded in a public distributed ledger called a blockchain.</p>
   </section>
 
   <section class="bitcoin-section">
@@ -24,55 +24,40 @@ title: Bitcoin
   </section>
 
   <section class="bitcoin-section">
-    <h2>Bitcoin Explained with Bananas</h2>
-    <div class="banana-cards">
-      <div class="banana-card">
-        <div class="banana-card__image">
-          <img src="/assets/images/banana-mining.png" alt="Banana Mining">
-        </div>
-        <div class="banana-card__text">
-          <h3>Mining (Finding New Bananas)</h3>
-          <p>Computers on the network compete to solve complex puzzles. The winner gets to add the next bunch of bananas (block) to the chain and is rewarded with new bitcoins. It's like a digital banana treasure hunt!</p>
-        </div>
+    <h2>Key Concepts</h2>
+    <div class="bitcoin-concepts">
+      <div class="bitcoin-concept">
+        <h3>Blockchain</h3>
+        <p>The blockchain is a public, distributed ledger that records all Bitcoin transactions. It is a chain of blocks, where each block contains a batch of transactions.</p>
       </div>
-      <div class="banana-card">
-        <div class="banana-card__image">
-          <img src="/assets/images/banana-wallet.png" alt="Banana Wallet">
-        </div>
-        <div class="banana-card__text">
-          <h3>Wallets (Your Banana Bunch)</h3>
-          <p>A Bitcoin wallet is a digital wallet where you store your bitcoins. It's protected by a private key, which is like a secret banana recipe that only you know. Keep it safe!</p>
-        </div>
+      <div class="bitcoin-concept">
+        <h3>Mining</h3>
+        <p>Mining is the process of adding new transactions to the blockchain. Miners use powerful computers to solve complex mathematical problems, and are rewarded with new bitcoins for their efforts.</p>
       </div>
-      <div class="banana-card">
-        <div class="banana-card__image">
-          <img src="/assets/images/banana-transaction.png" alt="Banana Transaction">
-        </div>
-        <div class="banana-card__text">
-          <h3>Transactions (Sharing Bananas)</h3>
-          <p>When you send bitcoins, you're essentially sending a signed message to the network saying "I'm giving this banana to my friend". The network confirms it, and the banana is theirs!</p>
-        </div>
+      <div class="bitcoin-concept">
+        <h3>Wallets</h3>
+        <p>A Bitcoin wallet is a digital wallet that stores your bitcoins. It is secured with a private key, which is a secret piece of data that proves your right to spend bitcoins from a specific wallet.</p>
       </div>
     </div>
   </section>
 
   <section class="bitcoin-section">
-    <h2>NanoBanana's Tools & Research</h2>
+    <h2>Tools & Research</h2>
     <div class="bitcoin-links">
       <a href="{{ '/bitcoin/tools/' | relative_url }}" class="bitcoin-link">
-        <h3>🍌 Tools</h3>
-        <p>Check out the tools I'm building to help you navigate the Bitcoin jungle.</p>
+        <h3>Tools</h3>
+        <p>A collection of useful tools for Bitcoin users and developers.</p>
       </a>
       <a href="{{ '/bitcoin/research/' | relative_url }}" class="bitcoin-link">
-        <h3>🍌 Research</h3>
-        <p>My latest research papers on the intersection of banana-nomics and decentralized finance.</p>
+        <h3>Research</h3>
+        <p>In-depth research and analysis on Bitcoin and related technologies.</p>
       </a>
     </div>
   </section>
 
   <section class="bitcoin-section bitcoin-cta">
-    <h2>Ready to Peel the Orange?</h2>
-    <p>Or in our case, the banana! The world of Bitcoin is vast and exciting. Start your journey today and become part of the decentralized revolution.</p>
+    <h2>Learn More</h2>
+    <p>The world of Bitcoin is vast and exciting. Start your journey today and become part of the decentralized revolution.</p>
     <a href="https://bitcoin.org" target="_blank" rel="noopener" class="bitcoin-button">Learn More at Bitcoin.org</a>
   </section>
 </div>

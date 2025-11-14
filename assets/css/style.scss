@@ -793,9 +793,15 @@ a {
 }
 
 .project-card__case-body img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 0.75rem;
   border: 1px solid var(--border-color);
+}
+
+.project-card__case-body pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .project-card__case-empty {
@@ -1126,6 +1132,14 @@ a {
 
   .project-info {
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .project-card__stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 

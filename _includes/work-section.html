@@ -196,86 +196,109 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // GitHub API fetching
-    var cardsWithRepo = document.querySelectorAll(".project-card[data-repo]");
-    if (cardsWithRepo.length) {
-      var languageColors = {
-        JavaScript: "#f1e05a",
-        TypeScript: "#3178c6",
-        HTML: "#e34c26",
-        CSS: "#563d7c",
-        SCSS: "#c6538c",
-        Ruby: "#701516",
-        Python: "#3572a5",
-        Shell: "#89e051",
-        Markdown: "#083fa1",
-        JSON: "#292929"
-      };
+    const languageColors = {
+      JavaScript: "#f1e05a",
+      TypeScript: "#3178c6",
+      HTML: "#e34c26",
+      CSS: "#563d7c",
+      SCSS: "#c6538c",
+      Ruby: "#701516",
+      Python: "#3572a5",
+      Shell: "#89e051",
+      Markdown: "#083fa1",
+      JSON: "#292929"
+    };
 
-      cardsWithRepo.forEach(function (card) {
-        var repo = card.getAttribute("data-repo");
-        if (!repo) return;
+    function updateCardWithData(card, repoData) {
+      const starsEl = card.querySelector("[data-stars-value]");
+      const forksEl = card.querySelector("[data-forks-value]");
+      const updatedEl = card.querySelector("[data-updated-value]");
+      const languageLabel = card.querySelector("[data-language-label]");
+      const languageSwatch = card.querySelector("[data-language-swatch]");
 
-        var starsEl = card.querySelector("[data-stars-value]");
-        var forksEl = card.querySelector("[data-forks-value]");
-        var updatedEl = card.querySelector("[data-updated-value]");
-        var languageLabel = card.querySelector("[data-language-label]");
-        var languageSwatch = card.querySelector("[data-language-swatch]");
+      if (starsEl && typeof repoData.stargazers_count === "number") {
+        starsEl.textContent = repoData.stargazers_count;
+      }
 
-        fetch("https://api.github.com/repos/" + repo, {
-          headers: { Accept: "application/vnd.github+json" }
+      if (forksEl && typeof repoData.forks_count === "number") {
+        forksEl.textContent = repoData.forks_count;
+      }
+
+      if (languageLabel && repoData.language) {
+        languageLabel.textContent = repoData.language;
+      }
+
+      if (languageSwatch && repoData.language) {
+        const color = languageColors[repoData.language] || "rgba(148, 163, 184, 0.6)";
+        languageSwatch.style.setProperty("--lang-color", color);
+      }
+
+      if (updatedEl && repoData.pushed_at) {
+        const updatedDate = new Date(repoData.pushed_at);
+        updatedEl.textContent = `updated — ${updatedDate.toLocaleDateString(undefined, {
+          month: "short",
+          day: "numeric",
+          year: "numeric"
+        })}`;
+      }
+    }
+
+    function setCardToErrorState(card) {
+      const starsEl = card.querySelector("[data-stars-value]");
+      const forksEl = card.querySelector("[data-forks-value]");
+      const updatedEl = card.querySelector("[data-updated-value]");
+      if (starsEl) starsEl.textContent = "—";
+      if (forksEl) forksEl.textContent = "—";
+      if (updatedEl) updatedEl.textContent = "updated — unavailable";
+    }
+
+    function fetchRepoData(card) {
+      const repo = card.getAttribute("data-repo");
+      if (!repo) return;
+
+      const cacheKey = `github_repo_${repo}`;
+      const cachedData = localStorage.getItem(cacheKey);
+      const now = new Date().getTime();
+      const oneHour = 60 * 60 * 1000;
+
+      if (cachedData) {
+        const { timestamp, data } = JSON.parse(cachedData);
+        if (now - timestamp < oneHour) {
+          updateCardWithData(card, data);
+          return;
+        }
+      }
+
+      fetch(`https://api.github.com/repos/${repo}`, {
+        headers: { Accept: "application/vnd.github+json" }
+      })
+        .then(response => {
+          if (!response.ok) throw new Error("Network response was not ok");
+          return response.json();
         })
-          .then(function (response) {
-            if (!response.ok) throw new Error("Network response was not ok");
-            return response.json();
-          })
-          .then(function (repoData) {
-            if (starsEl && typeof repoData.stargazers_count === "number") {
-              starsEl.textContent = repoData.stargazers_count;
-            }
+        .then(repoData => {
+          localStorage.setItem(cacheKey, JSON.stringify({ timestamp: now, data: repoData }));
+          updateCardWithData(card, repoData);
+        })
+        .catch(() => {
+          setCardToErrorState(card);
+        });
+    }
 
-            if (forksEl && typeof repoData.forks_count === "number") {
-              forksEl.textContent = repoData.forks_count;
-            }
-
-            if (languageLabel && repoData.language) {
-              languageLabel.textContent = repoData.language;
-            }
-
-            if (languageSwatch && repoData.language) {
-              var color =
-                languageColors[repoData.language] ||
-                "rgba(148, 163, 184, 0.6)";
-              languageSwatch.style.setProperty("--lang-color", color);
-            }
-
-            if (updatedEl && repoData.pushed_at) {
-              var updatedDate = new Date(repoData.pushed_at);
-              updatedEl.textContent =
-                "updated — " +
-                updatedDate.toLocaleDateString(undefined, {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric"
-                });
-            }
-          })
-          .catch(function () {
-            if (starsEl) starsEl.textContent = "—";
-            if (forksEl) forksEl.textContent = "—";
-            if (updatedEl) updatedEl.textContent = "updated — unavailable";
-          });
-      });
+    // GitHub API fetching
+    const cardsWithRepo = document.querySelectorAll(".project-card[data-repo]");
+    if (cardsWithRepo.length) {
+      cardsWithRepo.forEach(fetchRepoData);
     }
 
     // "Show build log" toggle
-    var detailCards = document.querySelectorAll("[data-project-card]");
+    const detailCards = document.querySelectorAll("[data-project-card]");
     detailCards.forEach(function (card) {
-      var toggle = card.querySelector("[data-project-toggle]");
-      var details = card.querySelector("[data-project-details]");
+      const toggle = card.querySelector("[data-project-toggle]");
+      const details = card.querySelector("[data-project-details]");
       if (!toggle || !details) return;
 
-      var label = toggle.querySelector("[data-toggle-label]");
+      const label = toggle.querySelector("[data-toggle-label]");
 
       function setState(isOpen) {
         toggle.setAttribute("aria-expanded", isOpen);
@@ -288,7 +311,7 @@
 
       toggle.addEventListener("click", function (event) {
         event.stopPropagation();
-        var isExpanded = toggle.getAttribute("aria-expanded") === "true";
+        const isExpanded = toggle.getAttribute("aria-expanded") === "true";
         setState(!isExpanded);
       });
 

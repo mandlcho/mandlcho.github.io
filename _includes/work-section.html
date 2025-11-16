@@ -239,6 +239,7 @@
     const typeFilter = document.getElementById("type-filter");
     const languageFilter = document.getElementById("language-filter");
     const sortSelect = document.getElementById("sort-select");
+    let gridAnimationTimeout = null;
 
     // "Show build log" toggle
     projectCards.forEach(function (card) {
@@ -314,31 +315,58 @@
       });
     }
 
-    function applyFiltersAndSort() {
+    function animateGridUpdate(callback) {
+      if (!projectsGrid) {
+        callback();
+        return;
+      }
+      if (gridAnimationTimeout) {
+        clearTimeout(gridAnimationTimeout);
+        gridAnimationTimeout = null;
+      }
+      projectsGrid.classList.add("is-fading");
+      gridAnimationTimeout = window.setTimeout(() => {
+        callback();
+        requestAnimationFrame(() => {
+          projectsGrid.classList.remove("is-fading");
+        });
+        gridAnimationTimeout = null;
+      }, 180);
+    }
+
+    function applyFiltersAndSort(options = { animate: true }) {
       if (!projectsGrid) return;
-      const query = (searchInput?.value || "").trim().toLowerCase();
-      const typeValue = (typeFilter?.value || "").toLowerCase();
-      const languageValue = (languageFilter?.value || "").toLowerCase();
-      const sortValue = sortSelect ? sortSelect.value : "last-updated";
+      const run = () => {
+        const query = (searchInput?.value || "").trim().toLowerCase();
+        const typeValue = (typeFilter?.value || "").toLowerCase();
+        const languageValue = (languageFilter?.value || "").toLowerCase();
+        const sortValue = sortSelect ? sortSelect.value : "last-updated";
 
-      const visibleCards = projectCards.filter(card => {
-        const name = card.dataset.name || "";
-        const summary = card.dataset.summary || "";
-        const cardType = (card.dataset.type || "").toLowerCase();
-        const language = (card.dataset.languageNormalized || "").toLowerCase();
+        const visibleCards = projectCards.filter(card => {
+          const name = card.dataset.name || "";
+          const summary = card.dataset.summary || "";
+          const cardType = (card.dataset.type || "").toLowerCase();
+          const language = (card.dataset.languageNormalized || "").toLowerCase();
 
-        const matchesSearch =
-          !query || name.includes(query) || summary.includes(query);
-        const matchesType = !typeValue || cardType === typeValue;
-        const matchesLanguage = !languageValue || language === languageValue;
-        const isMatch = matchesSearch && matchesType && matchesLanguage;
-        card.hidden = !isMatch;
-        return isMatch;
-      });
+          const matchesSearch =
+            !query || name.includes(query) || summary.includes(query);
+          const matchesType = !typeValue || cardType === typeValue;
+          const matchesLanguage = !languageValue || language === languageValue;
+          const isMatch = matchesSearch && matchesType && matchesLanguage;
+          card.hidden = !isMatch;
+          return isMatch;
+        });
 
-      const hiddenCards = projectCards.filter(card => card.hidden);
-      const sortedVisible = sortCards(visibleCards, sortValue);
-      sortedVisible.concat(hiddenCards).forEach(card => projectsGrid.appendChild(card));
+        const hiddenCards = projectCards.filter(card => card.hidden);
+        const sortedVisible = sortCards(visibleCards, sortValue);
+        sortedVisible.concat(hiddenCards).forEach(card => projectsGrid.appendChild(card));
+      };
+
+      if (options.animate) {
+        animateGridUpdate(run);
+      } else {
+        run();
+      }
     }
 
     populateLanguageFilter();
@@ -356,6 +384,6 @@
       sortSelect.addEventListener("change", applyFiltersAndSort);
     }
 
-    applyFiltersAndSort();
+    applyFiltersAndSort({ animate: false });
   });
 </script>

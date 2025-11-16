@@ -686,6 +686,12 @@ pre {
   display: flex;
   flex-direction: column;
   gap: clamp(1rem, 3vw, 1.75rem);
+  transition: opacity 0.2s ease;
+}
+
+.projects-grid.is-fading {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .project-card {

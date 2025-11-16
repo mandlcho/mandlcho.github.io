@@ -324,6 +324,9 @@
         clearTimeout(gridAnimationTimeout);
         gridAnimationTimeout = null;
       }
+      projectsGrid.classList.remove("is-fading");
+      // Force reflow so re-adding the class retriggers the transition.
+      void projectsGrid.offsetWidth;
       projectsGrid.classList.add("is-fading");
       gridAnimationTimeout = window.setTimeout(() => {
         callback();
@@ -331,7 +334,7 @@
           projectsGrid.classList.remove("is-fading");
         });
         gridAnimationTimeout = null;
-      }, 180);
+      }, 250);
     }
 
     function applyFiltersAndSort(options = { animate: true }) {

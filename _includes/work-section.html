@@ -196,77 +196,79 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var cards = document.querySelectorAll(".project-card[data-repo]");
-    if (!cards.length) return;
+    // GitHub API fetching
+    var cardsWithRepo = document.querySelectorAll(".project-card[data-repo]");
+    if (cardsWithRepo.length) {
+      var languageColors = {
+        JavaScript: "#f1e05a",
+        TypeScript: "#3178c6",
+        HTML: "#e34c26",
+        CSS: "#563d7c",
+        SCSS: "#c6538c",
+        Ruby: "#701516",
+        Python: "#3572a5",
+        Shell: "#89e051",
+        Markdown: "#083fa1",
+        JSON: "#292929"
+      };
 
-    var languageColors = {
-      JavaScript: "#f1e05a",
-      TypeScript: "#3178c6",
-      HTML: "#e34c26",
-      CSS: "#563d7c",
-      SCSS: "#c6538c",
-      Ruby: "#701516",
-      Python: "#3572a5",
-      Shell: "#89e051",
-      Markdown: "#083fa1",
-      JSON: "#292929"
-    };
+      cardsWithRepo.forEach(function (card) {
+        var repo = card.getAttribute("data-repo");
+        if (!repo) return;
 
-    cards.forEach(function (card) {
-      var repo = card.getAttribute("data-repo");
-      if (!repo) return;
+        var starsEl = card.querySelector("[data-stars-value]");
+        var forksEl = card.querySelector("[data-forks-value]");
+        var updatedEl = card.querySelector("[data-updated-value]");
+        var languageLabel = card.querySelector("[data-language-label]");
+        var languageSwatch = card.querySelector("[data-language-swatch]");
 
-      var starsEl = card.querySelector("[data-stars-value]");
-      var forksEl = card.querySelector("[data-forks-value]");
-      var updatedEl = card.querySelector("[data-updated-value]");
-      var languageLabel = card.querySelector("[data-language-label]");
-      var languageSwatch = card.querySelector("[data-language-swatch]");
-
-      fetch("https://api.github.com/repos/" + repo, {
-        headers: { Accept: "application/vnd.github+json" }
-      })
-        .then(function (response) {
-          if (!response.ok) throw new Error("Network response was not ok");
-          return response.json();
+        fetch("https://api.github.com/repos/" + repo, {
+          headers: { Accept: "application/vnd.github+json" }
         })
-        .then(function (repoData) {
-          if (starsEl && typeof repoData.stargazers_count === "number") {
-            starsEl.textContent = repoData.stargazers_count;
-          }
+          .then(function (response) {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+          })
+          .then(function (repoData) {
+            if (starsEl && typeof repoData.stargazers_count === "number") {
+              starsEl.textContent = repoData.stargazers_count;
+            }
 
-          if (forksEl && typeof repoData.forks_count === "number") {
-            forksEl.textContent = repoData.forks_count;
-          }
+            if (forksEl && typeof repoData.forks_count === "number") {
+              forksEl.textContent = repoData.forks_count;
+            }
 
-          if (languageLabel && repoData.language) {
-            languageLabel.textContent = repoData.language;
-          }
+            if (languageLabel && repoData.language) {
+              languageLabel.textContent = repoData.language;
+            }
 
-          if (languageSwatch && repoData.language) {
-            var color =
-              languageColors[repoData.language] ||
-              "rgba(148, 163, 184, 0.6)";
-            languageSwatch.style.setProperty("--lang-color", color);
-          }
+            if (languageSwatch && repoData.language) {
+              var color =
+                languageColors[repoData.language] ||
+                "rgba(148, 163, 184, 0.6)";
+              languageSwatch.style.setProperty("--lang-color", color);
+            }
 
-          if (updatedEl && repoData.pushed_at) {
-            var updatedDate = new Date(repoData.pushed_at);
-            updatedEl.textContent =
-              "updated — " +
-              updatedDate.toLocaleDateString(undefined, {
-                month: "short",
-                day: "numeric",
-                year: "numeric"
-              });
-          }
-        })
-        .catch(function () {
-          if (starsEl) starsEl.textContent = "—";
-          if (forksEl) forksEl.textContent = "—";
-          if (updatedEl) updatedEl.textContent = "updated — unavailable";
-        });
-    });
+            if (updatedEl && repoData.pushed_at) {
+              var updatedDate = new Date(repoData.pushed_at);
+              updatedEl.textContent =
+                "updated — " +
+                updatedDate.toLocaleDateString(undefined, {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric"
+                });
+            }
+          })
+          .catch(function () {
+            if (starsEl) starsEl.textContent = "—";
+            if (forksEl) forksEl.textContent = "—";
+            if (updatedEl) updatedEl.textContent = "updated — unavailable";
+          });
+      });
+    }
 
+    // "Show build log" toggle
     var detailCards = document.querySelectorAll("[data-project-card]");
     detailCards.forEach(function (card) {
       var toggle = card.querySelector("[data-project-toggle]");
@@ -297,44 +299,43 @@
         toggle.click();
       });
     });
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
+
+    // Sorting logic
     const sortSelect = document.getElementById("sort-select");
     const projectsGrid = document.getElementById("projects-grid");
-    const projectCards = Array.from(projectsGrid.querySelectorAll(".project-card"));
+    if (sortSelect && projectsGrid) {
+      const projectCards = Array.from(projectsGrid.querySelectorAll(".project-card"));
 
-    sortSelect.addEventListener("change", function () {
-      const sortValue = this.value;
-      let sortedCards;
+      sortSelect.addEventListener("change", function () {
+        const sortValue = this.value;
+        let sortedCards;
 
-      switch (sortValue) {
-        case "last-updated":
-          sortedCards = [...projectCards].sort((a, b) => {
-            const dateA = new Date(a.dataset.lastUpdated);
-            const dateB = new Date(b.dataset.lastUpdated);
-            return dateB - dateA;
-          });
-          break;
-        case "most-recent":
-          sortedCards = [...projectCards].sort((a, b) => {
-            const dateA = new Date(a.dataset.dateAdded);
-            const dateB = new Date(b.dataset.dateAdded);
-            return dateB - dateA;
-          });
-          break;
-        case "name":
-          sortedCards = [...projectCards].sort((a, b) => {
-            const nameA = a.dataset.name;
-            const nameB = b.dataset.name;
-            return nameA.localeCompare(nameB);
-          });
-          break;
-      }
+        switch (sortValue) {
+          case "last-updated":
+            sortedCards = [...projectCards].sort((a, b) => {
+              const dateA = new Date(a.dataset.lastUpdated);
+              const dateB = new Date(b.dataset.lastUpdated);
+              return dateB - dateA;
+            });
+            break;
+          case "most-recent":
+            sortedCards = [...projectCards].sort((a, b) => {
+              const dateA = new Date(a.dataset.dateAdded);
+              const dateB = new Date(b.dataset.dateAdded);
+              return dateB - dateA;
+            });
+            break;
+          case "name":
+            sortedCards = [...projectCards].sort((a, b) => {
+              const nameA = a.dataset.name;
+              const nameB = b.dataset.name;
+              return nameA.localeCompare(nameB);
+            });
+            break;
+        }
 
-      projectsGrid.innerHTML = "";
-      sortedCards.forEach(card => projectsGrid.appendChild(card));
-    });
+        sortedCards.forEach(card => projectsGrid.appendChild(card));
+      });
+    }
   });
 </script>

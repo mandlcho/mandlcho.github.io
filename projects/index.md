@@ -6,7 +6,7 @@ description: "Selected builds, kept in high signal snapshots."
 permalink: /projects/
 ---
 
-{% assign projects = site.data.projects %}
+{% assign projects = site.data.projects | sort: 'last_updated' | reverse %}
 {% include work-section.html
   items=projects
   eyebrow="latest cycles"

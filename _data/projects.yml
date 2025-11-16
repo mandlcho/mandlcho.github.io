@@ -3,59 +3,83 @@
   summary: ''
   language_label: ''
   url: https://github.com/mandlcho/ama-db
+  date_added: 2023-01-15
+  last_updated: 2023-05-20
 - name: beefbeater
   repo: mandlcho/beefbeater
   summary: ''
   language_label: JavaScript
   url: https://github.com/mandlcho/beefbeater
+  date_added: 2024-02-10
+  last_updated: 2024-11-09
 - name: blog
   repo: mandlcho/blog
   summary: ''
   language_label: ''
   url: https://github.com/mandlcho/blog
+  date_added: 2023-03-22
+  last_updated: 2023-08-01
 - name: Covid19Tracker
   repo: mandlcho/Covid19Tracker
   summary: Simple Covid19 Tracker
   language_label: JavaScript
   url: https://github.com/mandlcho/Covid19Tracker
+  date_added: 2020-03-20
+  last_updated: 2020-04-25
 - name: findit
   repo: mandlcho/findit
   summary: find toilets near you when nature calls
   language_label: TypeScript
   url: https://github.com/mandlcho/findit
+  date_added: 2023-09-05
+  last_updated: 2024-01-15
 - name: maya_skeletonExporter
   repo: mandlcho/maya_skeletonExporter
   summary: namespace-based skeleton transform exporter
   language_label: Python
   url: https://github.com/mandlcho/maya_skeletonExporter
+  date_added: 2019-05-10
+  last_updated: 2019-06-15
 - name: MocapAssistantTool
   repo: mandlcho/MocapAssistantTool
   summary: lazy data entry tool
   language_label: Python
   url: https://github.com/mandlcho/MocapAssistantTool
+  date_added: 2019-07-20
+  last_updated: 2019-08-20
 - name: pyfbsdk_mConstraintToolbox
   repo: mandlcho/pyfbsdk_mConstraintToolbox
   summary: simple marker creation ; one-click send to story and export ; color-code
     characters
   language_label: Python
   url: https://github.com/mandlcho/pyfbsdk_mConstraintToolbox
+  date_added: 2019-09-15
+  last_updated: 2019-10-20
 - name: the-kanban
   repo: mandlcho/the-kanban
   summary: ''
   language_label: JavaScript
   url: https://github.com/mandlcho/the-kanban
+  date_added: 2025-10-20
+  last_updated: 2025-10-31
 - name: thermobot
   repo: mandlcho/thermobot
   summary: Telegram chatbot for Thermomix users
   language_label: ''
   url: https://github.com/mandlcho/thermobot
+  date_added: 2022-08-10
+  last_updated: 2022-09-15
 - name: unrealvibes
   repo: mandlcho/unrealvibes
   summary: ''
   language_label: C++
   url: https://github.com/mandlcho/unrealvibes
+  date_added: 2021-04-25
+  last_updated: 2021-06-30
 - name: WhereToEat
   repo: mandlcho/WhereToEat
   summary: can't decide where to eat?
   language_label: Python
-  url: https://github.com/mandlcho/WhereToEat
+  url: https://github.com/mandlcho.github.io/
+  date_added: 2025-11-08
+  last_updated: 2025-11-08

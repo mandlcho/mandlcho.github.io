@@ -8,12 +8,22 @@
   <header class="projects-page__intro">
     <p class="projects-page__eyebrow">{{ eyebrow }}</p>
     <h1 class="projects-page__title">{{ section_title }}</h1>
-    {% if section_description %}
-      <p class="projects-page__description">{{ section_description }}</p>
-    {% endif %}
+    <div class="projects-page__header-container">
+      {% if section_description %}
+        <p class="projects-page__description">{{ section_description }}</p>
+      {% endif %}
+      <div class="projects-page__sort-controls">
+        <label for="sort-select" class="projects-page__sort-label">Sort by:</label>
+        <select id="sort-select" class="projects-page__sort-select">
+          <option value="last-updated">Last Updated</option>
+          <option value="most-recent">Most Recent</option>
+          <option value="name">Name</option>
+        </select>
+      </div>
+    </div>
   </header>
 
-  <div class="projects-grid">
+  <div class="projects-grid" id="projects-grid">
     {% if cards and cards.size > 0 %}
       {% for item in cards %}
         {% assign repo = item.repo %}
@@ -47,6 +57,9 @@
   class="project-card"
   {% if repo %}data-repo="{{ repo }}"{% endif %}
   data-project-card
+  data-name="{{ item.name | downcase }}"
+  data-last-updated="{{ item.last_updated }}"
+  data-date-added="{{ item.date_added }}"
 >
   {% if project_image %}
     <figure class="project-card__media">
@@ -283,6 +296,45 @@
         if (event.target.closest("[data-project-details]")) return;
         toggle.click();
       });
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sortSelect = document.getElementById("sort-select");
+    const projectsGrid = document.getElementById("projects-grid");
+    const projectCards = Array.from(projectsGrid.querySelectorAll(".project-card"));
+
+    sortSelect.addEventListener("change", function () {
+      const sortValue = this.value;
+      let sortedCards;
+
+      switch (sortValue) {
+        case "last-updated":
+          sortedCards = [...projectCards].sort((a, b) => {
+            const dateA = new Date(a.dataset.lastUpdated);
+            const dateB = new Date(b.dataset.lastUpdated);
+            return dateB - dateA;
+          });
+          break;
+        case "most-recent":
+          sortedCards = [...projectCards].sort((a, b) => {
+            const dateA = new Date(a.dataset.dateAdded);
+            const dateB = new Date(b.dataset.dateAdded);
+            return dateB - dateA;
+          });
+          break;
+        case "name":
+          sortedCards = [...projectCards].sort((a, b) => {
+            const nameA = a.dataset.name;
+            const nameB = b.dataset.name;
+            return nameA.localeCompare(nameB);
+          });
+          break;
+      }
+
+      projectsGrid.innerHTML = "";
+      sortedCards.forEach(card => projectsGrid.appendChild(card));
     });
   });
 </script>

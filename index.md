@@ -4,7 +4,7 @@ title: "Mandl Cho"
 description: "Developer, experimenter, chronic tinkerer."
 ---
 
-{% assign projects_showcase = site.data.projects | slice: 0, 3 %}
+{% assign projects_showcase = site.data.projects | sort: 'last_updated' | reverse | slice: 0, 3 %}
 
 <section class="contributions contributions--about">
   <div class="contributions__body">

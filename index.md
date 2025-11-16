@@ -97,6 +97,11 @@ description: "Developer, experimenter, chronic tinkerer."
     {% else %}
       <p class="projects-page__empty">More builds coming soon.</p>
     {% endif %}
+    <div class="contributions__footer">
+      <a class="contributions__see-more" href="{{ '/projects/' | relative_url }}">
+        See more projects →
+      </a>
+    </div>
   </div>
 </section>
 

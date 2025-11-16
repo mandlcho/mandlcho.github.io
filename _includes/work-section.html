@@ -12,16 +12,44 @@
       {% if section_description %}
         <p class="projects-page__description">{{ section_description }}</p>
       {% endif %}
-      <div class="projects-page__sort-controls">
-        <label for="sort-select" class="projects-page__sort-label">Sort by:</label>
-        <select id="sort-select" class="projects-page__sort-select">
-          <option value="last-updated">Last Updated</option>
-          <option value="most-recent">Most Recent</option>
-          <option value="name">Name</option>
-        </select>
-      </div>
     </div>
   </header>
+
+  <div class="projects-page__filters" data-project-filters>
+    <label class="projects-page__search-label" for="project-search">Find a repository</label>
+    <input
+      type="search"
+      id="project-search"
+      class="projects-page__search-input"
+      placeholder="Search projects…"
+      autocomplete="off"
+    />
+    <div class="projects-page__filter-group">
+      <label class="projects-page__filter">
+        <span>Type</span>
+        <select id="type-filter">
+          <option value="">All</option>
+          <option value="source">Sources</option>
+          <option value="fork">Forks</option>
+          <option value="archived">Archived</option>
+        </select>
+      </label>
+      <label class="projects-page__filter">
+        <span>Language</span>
+        <select id="language-filter">
+          <option value="">All languages</option>
+        </select>
+      </label>
+      <label class="projects-page__filter projects-page__filter--sort">
+        <span>Sort</span>
+        <select id="sort-select">
+          <option value="last-updated">Last updated</option>
+          <option value="most-recent">Date added</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+    </div>
+  </div>
 
   <div class="projects-grid" id="projects-grid">
     {% if cards and cards.size > 0 %}
@@ -53,13 +81,20 @@
   {% endunless %}
 {% endif %}
 {% assign image_alt = item.image_alt | default: item.name | default: section_title %}
+{% assign project_language_value = language_label | default: item.language | default: "" %}
+{% assign project_type = item.project_type | default: item.type | default: item.status | default: "source" %}
+{% assign project_summary = item.summary | default: "" %}
 <article
   class="project-card"
   {% if repo %}data-repo="{{ repo }}"{% endif %}
   data-project-card
-  data-name="{{ item.name | downcase }}"
+  data-name="{{ item.name | downcase | escape }}"
+  data-summary="{{ project_summary | strip_newlines | downcase | escape }}"
   data-last-updated="{{ item.last_updated }}"
   data-date-added="{{ item.date_added }}"
+  data-language="{{ project_language_value | escape }}"
+  data-language-normalized="{{ project_language_value | downcase | escape }}"
+  data-type="{{ project_type | downcase | escape }}"
 >
   {% if project_image %}
     <figure class="project-card__media">
@@ -198,9 +233,15 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    const projectsGrid = document.getElementById("projects-grid");
+    const projectCards = projectsGrid ? Array.from(projectsGrid.querySelectorAll(".project-card")) : [];
+    const searchInput = document.getElementById("project-search");
+    const typeFilter = document.getElementById("type-filter");
+    const languageFilter = document.getElementById("language-filter");
+    const sortSelect = document.getElementById("sort-select");
+
     // "Show build log" toggle
-    const detailCards = document.querySelectorAll("[data-project-card]");
-    detailCards.forEach(function (card) {
+    projectCards.forEach(function (card) {
       const toggle = card.querySelector("[data-project-toggle]");
       const details = card.querySelector("[data-project-details]");
       if (!toggle || !details) return;
@@ -230,42 +271,91 @@
       });
     });
 
-    // Sorting logic
-    const sortSelect = document.getElementById("sort-select");
-    const projectsGrid = document.getElementById("projects-grid");
-    if (sortSelect && projectsGrid) {
-      const projectCards = Array.from(projectsGrid.querySelectorAll(".project-card"));
+    function sortCards(cards, sortValue) {
+      switch (sortValue) {
+        case "most-recent":
+          return [...cards].sort((a, b) => {
+            const dateA = new Date(a.dataset.dateAdded);
+            const dateB = new Date(b.dataset.dateAdded);
+            return dateB - dateA;
+          });
+        case "name":
+          return [...cards].sort((a, b) => {
+            const nameA = a.dataset.name;
+            const nameB = b.dataset.name;
+            return nameA.localeCompare(nameB);
+          });
+        case "last-updated":
+        default:
+          return [...cards].sort((a, b) => {
+            const dateA = new Date(a.dataset.lastUpdated);
+            const dateB = new Date(b.dataset.lastUpdated);
+            return dateB - dateA;
+          });
+      }
+    }
 
-      sortSelect.addEventListener("change", function () {
-        const sortValue = this.value;
-        let sortedCards;
-
-        switch (sortValue) {
-          case "last-updated":
-            sortedCards = [...projectCards].sort((a, b) => {
-              const dateA = new Date(a.dataset.lastUpdated);
-              const dateB = new Date(b.dataset.lastUpdated);
-              return dateB - dateA;
-            });
-            break;
-          case "most-recent":
-            sortedCards = [...projectCards].sort((a, b) => {
-              const dateA = new Date(a.dataset.dateAdded);
-              const dateB = new Date(b.dataset.dateAdded);
-              return dateB - dateA;
-            });
-            break;
-          case "name":
-            sortedCards = [...projectCards].sort((a, b) => {
-              const nameA = a.dataset.name;
-              const nameB = b.dataset.name;
-              return nameA.localeCompare(nameB);
-            });
-            break;
+    function populateLanguageFilter() {
+      if (!languageFilter) return;
+      const seen = new Map();
+      projectCards.forEach(card => {
+        const label = (card.dataset.language || "").trim();
+        const normalized = (card.dataset.languageNormalized || "").trim();
+        if (label && normalized && !seen.has(normalized)) {
+          seen.set(normalized, label);
         }
-
-        sortedCards.forEach(card => projectsGrid.appendChild(card));
+      });
+      const options = Array.from(seen.entries()).sort((a, b) => a[1].localeCompare(b[1]));
+      options.forEach(([value, label]) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        languageFilter.appendChild(option);
       });
     }
+
+    function applyFiltersAndSort() {
+      if (!projectsGrid) return;
+      const query = (searchInput?.value || "").trim().toLowerCase();
+      const typeValue = (typeFilter?.value || "").toLowerCase();
+      const languageValue = (languageFilter?.value || "").toLowerCase();
+      const sortValue = sortSelect ? sortSelect.value : "last-updated";
+
+      const visibleCards = projectCards.filter(card => {
+        const name = card.dataset.name || "";
+        const summary = card.dataset.summary || "";
+        const cardType = (card.dataset.type || "").toLowerCase();
+        const language = (card.dataset.languageNormalized || "").toLowerCase();
+
+        const matchesSearch =
+          !query || name.includes(query) || summary.includes(query);
+        const matchesType = !typeValue || cardType === typeValue;
+        const matchesLanguage = !languageValue || language === languageValue;
+        const isMatch = matchesSearch && matchesType && matchesLanguage;
+        card.hidden = !isMatch;
+        return isMatch;
+      });
+
+      const hiddenCards = projectCards.filter(card => card.hidden);
+      const sortedVisible = sortCards(visibleCards, sortValue);
+      sortedVisible.concat(hiddenCards).forEach(card => projectsGrid.appendChild(card));
+    }
+
+    populateLanguageFilter();
+
+    if (searchInput) {
+      searchInput.addEventListener("input", applyFiltersAndSort);
+    }
+    if (typeFilter) {
+      typeFilter.addEventListener("change", applyFiltersAndSort);
+    }
+    if (languageFilter) {
+      languageFilter.addEventListener("change", applyFiltersAndSort);
+    }
+    if (sortSelect) {
+      sortSelect.addEventListener("change", applyFiltersAndSort);
+    }
+
+    applyFiltersAndSort();
   });
 </script>

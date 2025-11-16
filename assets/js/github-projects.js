@@ -143,17 +143,12 @@ const GithubProjects = (() => {
     safeSet(`${REPO_STORAGE_PREFIX}${repoKey}`, JSON.stringify(payload));
   }
 
-  function fetchOwnerRepos(owner, ownerKey, fallback) {
+  function fetchOwnerRepos(owner, ownerKey) {
     const now = Date.now();
     const memory = runtimeStore("OwnerStore");
-    if (memory[ownerKey] && now - memory[ownerKey].timestamp < ONE_HOUR) {
+    if (memory[ownerKey] && now - memory[ownerKey].timestamp < 5 * 1000) {
+      // Prevent duplicate network calls during a single render pass.
       return Promise.resolve(memory[ownerKey].data);
-    }
-
-    const localData = fallback || getOwnerPayload(ownerKey);
-    if (localData && now - localData.timestamp < ONE_HOUR) {
-      memory[ownerKey] = localData;
-      return Promise.resolve(localData.data);
     }
 
     const inflight = runtimeStore("OwnerPromises");
@@ -162,7 +157,7 @@ const GithubProjects = (() => {
     }
 
     const endpoint = `https://api.github.com/users/${owner}/repos?per_page=100&type=owner&sort=updated`;
-    const request = fetch(endpoint, { headers: HEADERS })
+    const request = fetch(endpoint, { headers: HEADERS, cache: "no-store" })
       .then(response => {
         if (!response.ok) throw new Error("Network response was not ok");
         return response.json();
@@ -174,9 +169,10 @@ const GithubProjects = (() => {
         return repoList;
       })
       .catch(error => {
-        if (localData && localData.data) {
-          memory[ownerKey] = localData;
-          return localData.data;
+        const fallback = getOwnerPayload(ownerKey);
+        if (fallback && fallback.data) {
+          memory[ownerKey] = fallback;
+          return fallback.data;
         }
         throw error;
       })
@@ -206,7 +202,10 @@ const GithubProjects = (() => {
       return inflight[repoFullKey];
     }
 
-    const request = fetch(`https://api.github.com/repos/${repoFull}`, { headers: HEADERS })
+    const request = fetch(`https://api.github.com/repos/${repoFull}`, {
+      headers: HEADERS,
+      cache: "no-store"
+    })
       .then(response => {
         if (!response.ok) throw new Error("Network response was not ok");
         return response.json();
@@ -295,13 +294,7 @@ const GithubProjects = (() => {
     });
 
     owners.forEach(({ owner, entries }, ownerKey) => {
-      const storedOwner = getOwnerPayload(ownerKey);
-      let missingFromStored = [];
-      if (storedOwner && storedOwner.data) {
-        missingFromStored = applyRepoData(entries, storedOwner.data);
-      }
-
-      fetchOwnerRepos(owner, ownerKey, storedOwner)
+      fetchOwnerRepos(owner, ownerKey)
         .then(repoList => {
           const missing = applyRepoData(entries, repoList);
           if (missing.length) {
@@ -309,8 +302,15 @@ const GithubProjects = (() => {
           }
         })
         .catch(() => {
-          const targets = missingFromStored.length ? missingFromStored : entries;
-          fetchMissingRepos(targets);
+          const fallback = getOwnerPayload(ownerKey);
+          if (fallback && fallback.data) {
+            const missing = applyRepoData(entries, fallback.data);
+            if (missing.length) {
+              fetchMissingRepos(missing);
+            }
+          } else {
+            fetchMissingRepos(entries);
+          }
         });
     });
   }

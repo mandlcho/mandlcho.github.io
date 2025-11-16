@@ -158,14 +158,16 @@
           {% endif %}
 
           {% if has_case_panel %}
-            <button
-              class="project-card__toggle"
-              type="button"
-              data-project-toggle
-              aria-expanded="false"
-            >
-              <span data-toggle-label>Show build log</span>
-            </button>
+            <div class="project-card__process">
+              <button
+                class="project-card__process-link"
+                type="button"
+                data-project-toggle
+                aria-expanded="false"
+              >
+                <span data-toggle-label>View process</span>
+              </button>
+            </div>
             <div class="project-card__details" data-project-details hidden>
               {% if case_post %}
                 <article class="project-card__case">
@@ -181,7 +183,7 @@
                 </article>
               {% else %}
                 <p class="project-card__case-empty">
-                  Build log coming soon.
+                  Process blog coming soon.
                 </p>
               {% endif %}
             </div>
@@ -210,7 +212,7 @@
         details.hidden = !isOpen;
         card.classList.toggle("is-open", isOpen);
         if (label) {
-          label.textContent = isOpen ? "Hide build log" : "Show build log";
+          label.textContent = isOpen ? "Hide process" : "View process";
         }
       }
 

@@ -623,12 +623,12 @@ pre {
 .project-card {
   border: 1px solid var(--border-color);
   border-radius: 0.85rem;
-  padding: 1rem;
+  padding: 0.85rem;
   background-color: var(--section-surface);
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  min-height: 135px;
+  gap: 0.65rem;
+  min-height: 110px;
   transition: transform 0.2s ease, border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
@@ -772,37 +772,44 @@ pre {
   letter-spacing: 0.02em;
 }
 
-.project-card__toggle {
-  margin-top: 0.5rem;
+.project-card__process {
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+.project-card__process-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  border: 1px solid var(--border-color);
-  border-radius: 999px;
-  background-color: transparent;
-  color: var(--text-color);
+  color: $brand-color;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  padding: 0.3rem 0.75rem;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
 }
 
-.project-card__toggle:hover,
-.project-card__toggle:focus-visible {
-  border-color: var(--border-color);
-  background-color: rgba(148, 163, 184, 0.12);
-  color: var(--text-color);
+.project-card__process-link::after {
+  content: "→";
+  font-size: 0.82rem;
+  transition: transform 0.2s ease;
+}
+
+.project-card__process-link:hover::after,
+.project-card__process-link:focus-visible::after {
+  transform: translateX(2px);
+}
+
+.project-card__process-link:hover,
+.project-card__process-link:focus-visible {
+  text-decoration: underline;
   outline: none;
 }
 
-[data-theme="dark"] .project-card__toggle:hover,
-[data-theme="dark"] .project-card__toggle:focus-visible {
-  background-color: rgba(99, 179, 237, 0.15);
-}
-
 .project-card__details {
-  margin-top: 1rem;
+  margin-top: 0.65rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
 }

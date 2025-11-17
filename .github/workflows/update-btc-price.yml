@@ -1,0 +1,28 @@
+name: Update BTC price snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update cached price
+        run: |
+          python3 scripts/fetch_google_price.py --output assets/data/btc-usd.json
+      - name: Commit snapshot
+        run: |
+          if git status --short assets/data/btc-usd.json | grep .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/data/btc-usd.json
+            git commit -m "chore: refresh BTC price"
+            git push
+          else
+            echo "No price change"
+          fi

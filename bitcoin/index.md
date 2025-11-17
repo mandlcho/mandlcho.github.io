@@ -25,6 +25,7 @@ title: Bitcoin
       <div>
         <p class="btc-price-banner__label">BTC/USD — Google Finance</p>
         <p class="btc-price-banner__time" data-btc-price-time>Fetching latest snapshot…</p>
+        <p class="btc-price-banner__interval">Auto-updated every 30 minutes via GitHub Actions.</p>
       </div>
       <p class="btc-price-banner__value" data-btc-price-value>—</p>
     </div>

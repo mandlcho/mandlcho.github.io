@@ -1260,9 +1260,46 @@ pre {
     padding: 2rem 1.25rem 2.5rem;
   }
 
-  .project-info {
-    padding: 1.5rem;
-  }
+.project-info {
+  padding: 1.5rem;
+}
+
+.bitcoin-section--price {
+  margin-top: 2.5rem;
+}
+
+.btc-price-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.75rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border-color);
+  background: linear-gradient(120deg, rgba(99, 179, 237, 0.15), rgba(15, 23, 42, 0.05));
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btc-price-banner__label {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+}
+
+.btc-price-banner__time {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+.btc-price-banner__value {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 600;
+}
 }
 
 @media (max-width: 400px) {

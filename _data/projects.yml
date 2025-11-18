@@ -1,10 +1,3 @@
-- name: ama-db
-  repo: mandlcho/ama-db
-  summary: ''
-  language_label: ''
-  url: https://github.com/mandlcho/ama-db
-  date_added: 2023-01-15
-  last_updated: 2023-05-20
 - name: beefbeater
   repo: mandlcho/beefbeater
   summary: ''
@@ -62,13 +55,6 @@
   url: https://github.com/mandlcho/the-kanban
   date_added: 2025-10-20
   last_updated: 2025-10-31
-- name: thermobot
-  repo: mandlcho/thermobot
-  summary: Telegram chatbot for Thermomix users
-  language_label: ''
-  url: https://github.com/mandlcho/thermobot
-  date_added: 2022-08-10
-  last_updated: 2022-09-15
 - name: unrealvibes
   repo: mandlcho/unrealvibes
   summary: ''

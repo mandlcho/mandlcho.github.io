@@ -32,15 +32,6 @@ GitHub Pages blog powered by Jekyll and the minima theme.
 
 Push changes to the `main` branch and GitHub Pages will rebuild the site automatically.
 
-### Refreshing the BTC price snapshot
-
-The Bitcoin page reads a cached Google Finance snapshot stored at `assets/data/btc-usd.json`. Update it before publishing by running:
-
-```bash
-python3 scripts/fetch_google_price.py
-```
-
-Commit the refreshed JSON so production picks up the latest price.
 
 ## Creating a post
 

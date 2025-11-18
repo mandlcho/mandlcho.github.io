@@ -15,10 +15,6 @@ permalink: /bitcoin/
       Transfers settle without intermediaries, transactions are verified cryptographically,
       and the ledger is stored in a public blockchain that anyone can inspect.
     </p>
-    <p>
-      Use this page to keep tabs on the latest BTC/USD snapshot and experiment with the sats calculator I’m
-      building for my own research.
-    </p>
   </div>
 </section>
 

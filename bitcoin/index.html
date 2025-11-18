@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sats Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-theme="light">
+    <main class="app-card">
+      <header class="app-header">
+        <h1>Sats Calculator</h1>
+        <div class="header-meta">
+          <p class="platform-label" id="platformLabel"></p>
+          <button id="themeToggle" type="button" class="theme-toggle" aria-label="toggle theme">₿</button>
+        </div>
+      </header>
+
+      <section class="coinguides-card">
+        <div class="section-heading">
+          <h2>fiat to sats converter</h2>
+          <span class="section-subtitle">BTC · sats · 14 fiat currencies</span>
+        </div>
+        <div class="cg-meta">
+          <p class="cg-meta-text" id="cgRateMeta">Loading converter…</p>
+          <button id="cgRefreshBtn" type="button" class="ghost-button">Refresh</button>
+        </div>
+        <div class="cg-grid">
+          <label class="cg-field">
+            <span class="input-label">Satoshis</span>
+            <div class="cg-input-shell">
+              <img
+                src="https://coinguides.org/wp-content/plugins/tool-satoshi-converter/sats.png"
+                alt="Sats"
+                class="cg-icon"
+                width="40"
+                height="40"
+              />
+              <input id="cgSatsInput" type="number" min="0" step="1" inputmode="numeric" placeholder="Satoshi" />
+            </div>
+          </label>
+
+          <label class="cg-field">
+            <span class="input-label">Bitcoin</span>
+            <div class="cg-input-shell">
+              <img
+                src="https://coinguides.org/wp-content/plugins/tool-satoshi-converter/btc.png"
+                alt="BTC"
+                class="cg-icon"
+                width="40"
+                height="40"
+              />
+              <input
+                id="cgBtcInput"
+                type="number"
+                min="0"
+                step="0.00000001"
+                inputmode="decimal"
+                placeholder="Bitcoin"
+              />
+            </div>
+          </label>
+
+          <label class="cg-field">
+            <span class="input-label">Fiat amount</span>
+            <div class="cg-input-shell cg-fiat-shell">
+              <img id="cgFlag" src="https://flagsapi.com/US/flat/32.png" alt="Flag" class="cg-flag" width="40" height="40" />
+              <select id="cgCurrencySelect" aria-label="Select fiat currency">
+                <option value="usd" data-flag="US">usd</option>
+                <option value="eur" data-flag="EU">eur</option>
+                <option value="gbp" data-flag="GB">gbp</option>
+                <option value="aud" data-flag="AU">aud</option>
+                <option value="cny" data-flag="CN">cny</option>
+                <option value="rub" data-flag="RU">rub</option>
+                <option value="cad" data-flag="CA">cad</option>
+                <option value="nzd" data-flag="NZ">nzd</option>
+                <option value="sgd" data-flag="SG">sgd</option>
+                <option value="jpy" data-flag="JP">jpy</option>
+                <option value="kwd" data-flag="KW">kwd</option>
+                <option value="inr" data-flag="IN">inr</option>
+                <option value="chf" data-flag="CH">chf</option>
+                <option value="aed" data-flag="AE">aed</option>
+              </select>
+              <input id="cgFiatInput" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Amount" />
+            </div>
+          </label>
+        </div>
+        <p class="fine-print">Rates powered by CryptoCompare.</p>
+      </section>
+    </main>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

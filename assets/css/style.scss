@@ -1259,6 +1259,7 @@ pre {
   .project-page {
     padding: 2rem 1.25rem 2.5rem;
   }
+}
 
 .project-info {
   padding: 1.5rem;
@@ -1266,6 +1267,62 @@ pre {
 
 .bitcoin-section--price {
   margin-top: 2.5rem;
+}
+
+.bitcoin-section--intro {
+  margin-top: 2.5rem;
+}
+
+.bitcoin-section--tool {
+  margin-top: 2.5rem;
+}
+
+.bitcoin-card {
+  padding: clamp(1.75rem, 4vw, 2.25rem);
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--section-surface);
+  max-width: 760px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
+
+.bitcoin-card h2 {
+  margin-top: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.bitcoin-card p {
+  margin: 0 0 1rem;
+  color: var(--muted-text);
+}
+
+.bitcoin-card__eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+.bitcoin-section__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(1rem, 4vw, 1.5rem);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.bitcoin-section__lead {
+  margin: 0.35rem 0 0;
+  color: var(--muted-text);
+  max-width: 52ch;
+}
+
+.bitcoin-section__meta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted-text);
 }
 
 .btc-price-banner {
@@ -1305,6 +1362,277 @@ pre {
   font-size: clamp(2rem, 5vw, 2.75rem);
   font-weight: 600;
 }
+
+.sats-calculator {
+  --bg-light: #f4f6fb;
+  --bg-dark: #050609;
+  --card-light: #ffffff;
+  --card-dark: #11121a;
+  --text-light: #0d0e15;
+  --text-dark: #f5f6ff;
+  --muted-light: #5f6275;
+  --muted-dark: #9ba1c2;
+  --accent: #f7931a;
+  --border: rgba(99, 102, 241, 0.15);
+  font-family: "IBM Plex Sans", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.sats-calculator[data-theme="dark"] {
+  background: radial-gradient(circle at 15% 20%, #1b1e31, #03030a);
+  color: var(--text-dark);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.sats-calculator *,
+.sats-calculator *::before,
+.sats-calculator *::after {
+  box-sizing: border-box;
+}
+
+.sats-calculator .app-card {
+  width: min(420px, 100%);
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 28px;
+  background: var(--card-light);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.sats-calculator[data-theme="dark"] .app-card {
+  background: var(--card-dark);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.6);
+}
+
+.sats-calculator .app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sats-calculator .app-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.sats-calculator .header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sats-calculator .platform-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted-light);
+}
+
+.sats-calculator[data-theme="dark"] .platform-label {
+  color: var(--muted-dark);
+}
+
+.sats-calculator .theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--accent);
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.2s ease, background 0.2s ease, transform 0.1s ease;
+}
+
+.sats-calculator[data-theme="dark"] .theme-toggle {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fefefe;
+}
+
+.sats-calculator .theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+.sats-calculator .theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.sats-calculator .ghost-button {
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: transparent;
+  color: inherit;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border 0.2s ease, transform 0.1s ease;
+}
+
+.sats-calculator .ghost-button:hover {
+  border-color: var(--accent);
+}
+
+.sats-calculator .ghost-button:active {
+  transform: scale(0.97);
+}
+
+.sats-calculator .ghost-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.sats-calculator .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sats-calculator .section-heading h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.sats-calculator .section-subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted-light);
+}
+
+.sats-calculator[data-theme="dark"] .section-subtitle {
+  color: var(--muted-dark);
+}
+
+.sats-calculator .input-label {
+  font-size: 0.85rem;
+  color: var(--muted-light);
+}
+
+.sats-calculator[data-theme="dark"] .input-label {
+  color: var(--muted-dark);
+}
+
+.sats-calculator .fine-print {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted-light);
+}
+
+.sats-calculator[data-theme="dark"] .fine-print {
+  color: var(--muted-dark);
+}
+
+.sats-calculator .coinguides-card {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.25rem;
+  background: rgba(99, 102, 241, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sats-calculator[data-theme="dark"] .coinguides-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.sats-calculator .cg-meta-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted-light);
+}
+
+.sats-calculator[data-theme="dark"] .cg-meta-text {
+  color: var(--muted-dark);
+}
+
+.sats-calculator .cg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.sats-calculator .cg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sats-calculator .cg-input-shell {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  padding: 0.6rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--card-light);
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.sats-calculator[data-theme="dark"] .cg-input-shell {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(17, 18, 26, 0.8);
+}
+
+.sats-calculator .cg-input-shell:focus-within {
+  border-color: var(--accent);
+}
+
+.sats-calculator .cg-fiat-shell {
+  padding-right: 0.35rem;
+}
+
+.sats-calculator .cg-icon,
+.sats-calculator .cg-flag {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+}
+
+.sats-calculator .cg-input-shell input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.sats-calculator .cg-input-shell input:focus {
+  outline: none;
+}
+
+.sats-calculator .cg-fiat-shell select {
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: inherit;
+  margin-right: 0.35rem;
+}
+
+.sats-calculator .cg-fiat-shell select:focus {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .sats-calculator {
+    padding: 1rem;
+  }
+
+  .sats-calculator .app-card {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 400px) {

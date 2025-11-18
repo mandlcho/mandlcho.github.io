@@ -1,5 +1,6 @@
 const SATS_PER_BTC = 100_000_000;
 
+const calculator = document.querySelector('.sats-calculator');
 const platformLabel = document.getElementById('platformLabel');
 const themeToggle = document.getElementById('themeToggle');
 const cgSatsInput = document.getElementById('cgSatsInput');
@@ -31,11 +32,17 @@ const updateThemeToggleIcon = theme => {
 };
 
 const applyTheme = theme => {
-  document.body.dataset.theme = theme;
+  if (!calculator) {
+    return;
+  }
+  calculator.dataset.theme = theme;
   updateThemeToggleIcon(theme);
 };
 
 const initTheme = () => {
+  if (!calculator) {
+    return;
+  }
   const platform = window.native?.platform ?? 'browser';
   if (platformLabel) {
     platformLabel.textContent = platformMap[platform] ?? platform;
@@ -50,7 +57,7 @@ const initTheme = () => {
   applyTheme(theme);
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+      const nextTheme = calculator.dataset.theme === 'dark' ? 'light' : 'dark';
       localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
       applyTheme(nextTheme);
     });

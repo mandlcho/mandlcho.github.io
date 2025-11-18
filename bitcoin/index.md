@@ -1,19 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sats Calculator</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body data-theme="light">
-    <main class="app-card">
+---
+layout: landing
+title: bitcoin
+hero_title: bitcoin
+description: "Notes, references, and the sats calculator I’m tinkering on."
+permalink: /bitcoin/
+---
+
+<section class="bitcoin-section bitcoin-section--intro">
+  <div class="bitcoin-card">
+    <p class="bitcoin-card__eyebrow">orientation</p>
+    <h2>What is bitcoin?</h2>
+    <p>
+      Bitcoin is a decentralized digital currency that runs on a peer-to-peer network.
+      Transfers settle without intermediaries, transactions are verified cryptographically,
+      and the ledger is stored in a public blockchain that anyone can inspect.
+    </p>
+    <p>
+      Use this page to keep tabs on the latest BTC/USD snapshot and experiment with the sats calculator I’m
+      building for my own research.
+    </p>
+  </div>
+</section>
+
+<section class="bitcoin-section bitcoin-section--price">
+  <div
+    class="btc-price-banner"
+    data-btc-price
+    data-endpoint="{{ '/assets/data/btc-usd.json' | relative_url }}"
+  >
+    <div>
+      <p class="btc-price-banner__label">BTC/USD — Google Finance</p>
+      <p class="btc-price-banner__time" data-btc-price-time>Fetching latest snapshot…</p>
+      <p class="btc-price-banner__interval">Auto-updated every 30 minutes via GitHub Actions.</p>
+    </div>
+    <p class="btc-price-banner__value" data-btc-price-value>—</p>
+  </div>
+</section>
+
+<section class="bitcoin-section bitcoin-section--tool">
+  <div class="bitcoin-section__heading">
+    <div>
+      <p class="bitcoin-card__eyebrow">conversion lab</p>
+      <h2>Sats calculator</h2>
+      <p class="bitcoin-section__lead">Convert between sats, BTC, and fourteen fiat currencies.</p>
+    </div>
+    <p class="bitcoin-section__meta">Rates from CryptoCompare · Flags via flagsapi.com</p>
+  </div>
+  <div class="sats-calculator" data-theme="light">
+    <div class="app-card">
       <header class="app-header">
-        <h1>Sats Calculator</h1>
+        <h3>Sats Calculator</h3>
         <div class="header-meta">
           <p class="platform-label" id="platformLabel"></p>
           <button id="themeToggle" type="button" class="theme-toggle" aria-label="toggle theme">₿</button>
@@ -22,13 +58,13 @@
 
       <section class="coinguides-card">
         <div class="section-heading">
-          <h2>fiat to sats converter</h2>
-          <span class="section-subtitle">BTC · sats · 14 fiat currencies</span>
-        </div>
-        <div class="cg-meta">
-          <p class="cg-meta-text" id="cgRateMeta">Loading converter…</p>
+          <div>
+            <h4>Fiat to sats converter</h4>
+            <p class="section-subtitle">BTC · sats · 14 fiat currencies</p>
+          </div>
           <button id="cgRefreshBtn" type="button" class="ghost-button">Refresh</button>
         </div>
+        <p class="cg-meta-text" id="cgRateMeta">Loading converter…</p>
         <div class="cg-grid">
           <label class="cg-field">
             <span class="input-label">Satoshis</span>
@@ -91,7 +127,9 @@
         </div>
         <p class="fine-print">Rates powered by CryptoCompare.</p>
       </section>
-    </main>
-    <script src="./app.js" type="module"></script>
-  </body>
-</html>
+    </div>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/btc-price.js' | relative_url }}" defer></script>
+<script src="{{ '/bitcoin/app.js' | relative_url }}" type="module"></script>

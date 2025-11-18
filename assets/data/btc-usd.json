@@ -1,8 +1,8 @@
 {
   "symbol": "BTC-USD",
-  "price": 91185.741,
+  "price": 91069.71,
   "currency": "USD",
-  "source": "google-finance",
-  "fetched_at": "2025-11-18T08:56:13.689977+00:00",
-  "url": "https://www.google.com/finance/quote/BTC-USD"
+  "source": "coin-guides",
+  "fetched_at": "2025-11-18T09:14:02.676674+00:00",
+  "url": "https://coinguides.org/tools/satoshi-converter/"
 }

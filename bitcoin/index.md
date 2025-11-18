@@ -28,10 +28,20 @@ permalink: /bitcoin/
     data-btc-price
     data-endpoint="{{ '/assets/data/btc-usd.json' | relative_url }}"
   >
-    <div>
-      <p class="btc-price-banner__label">BTC/USD — Google Finance</p>
-      <p class="btc-price-banner__time" data-btc-price-time>Fetching latest snapshot…</p>
-      <p class="btc-price-banner__interval">Auto-updated every 30 minutes via GitHub Actions.</p>
+    <div class="btc-price-banner__details">
+      <img
+        class="btc-price-banner__flag"
+        src="https://coinguides.org/wp-content/plugins/tool-satoshi-converter/btc.png"
+        alt="Bitcoin flag"
+        width="44"
+        height="44"
+        loading="lazy"
+      />
+      <div>
+        <p class="btc-price-banner__label">BTC/USD — CoinGuides</p>
+        <p class="btc-price-banner__time" data-btc-price-time>Fetching latest snapshot…</p>
+        <p class="btc-price-banner__interval">Auto-updated every 30 minutes via GitHub Actions.</p>
+      </div>
     </div>
     <p class="btc-price-banner__value" data-btc-price-value>—</p>
   </div>

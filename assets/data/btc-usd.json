@@ -1,8 +1,8 @@
 {
   "symbol": "BTC-USD",
-  "price": 89908.0656,
+  "price": 90398.2475,
   "currency": "USD",
   "source": "google-finance",
-  "fetched_at": "2025-11-18T07:28:00.272489+00:00",
+  "fetched_at": "2025-11-18T07:43:30.039563+00:00",
   "url": "https://www.google.com/finance/quote/BTC-USD"
 }

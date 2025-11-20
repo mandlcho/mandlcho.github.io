@@ -90,9 +90,9 @@ description: "Developer, experimenter, chronic tinkerer."
     </p>
     {% if projects_showcase and projects_showcase.size > 0 %}
       <div class="projects-overview">
-        {% for project in projects_showcase %}
-          {% include project-card-mini.html project=project %}
-        {% endfor %}
+{% for project in projects_showcase %}
+  {% include project-card-mini.html project=project index=forloop.index0 %}
+{% endfor %}
       </div>
     {% else %}
       <p class="projects-page__empty">More builds coming soon.</p>

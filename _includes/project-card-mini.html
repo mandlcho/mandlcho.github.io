@@ -1,4 +1,5 @@
 {% assign project = include.project %}
+{% assign card_index = include.index | default: forloop.index0 | default: 0 %}
 {% if project %}
   {% assign repo = project.repo %}
   {% assign repo_owner = repo | split: "/" | first %}
@@ -11,7 +12,11 @@
   {% else %}
     {% assign project_href = "https://github.com/" | append: repo %}
   {% endif %}
-  <article class="project-card project-card--mini" data-repo="{{ repo | escape }}">
+  <article
+    class="project-card project-card--mini"
+    data-repo="{{ repo | escape }}"
+    style="--card-index: {{ card_index }}"
+  >
     <header class="project-card--mini__header">
       <a class="project-card--mini__name" href="{{ project_href }}">
         <span>{{ repo_owner }}</span>

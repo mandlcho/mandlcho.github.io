@@ -86,6 +86,7 @@
 {% assign project_summary = item.summary | default: "" %}
 <article
   class="project-card"
+  style="--card-index: {{ forloop.index0 | default: 0 }}"
   {% if repo %}data-repo="{{ repo }}"{% endif %}
   data-project-card
   data-name="{{ item.name | downcase | escape }}"

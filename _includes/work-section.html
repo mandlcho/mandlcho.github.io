@@ -15,42 +15,6 @@
     </div>
   </header>
 
-  <div class="projects-page__filters" data-project-filters>
-    <label class="projects-page__search-label" for="project-search">Find a repository</label>
-    <input
-      type="search"
-      id="project-search"
-      class="projects-page__search-input"
-      placeholder="Search projects…"
-      autocomplete="off"
-    />
-    <div class="projects-page__filter-group">
-      <label class="projects-page__filter">
-        <span>Type</span>
-        <select id="type-filter">
-          <option value="">All</option>
-          <option value="source">Sources</option>
-          <option value="fork">Forks</option>
-          <option value="archived">Archived</option>
-        </select>
-      </label>
-      <label class="projects-page__filter">
-        <span>Language</span>
-        <select id="language-filter">
-          <option value="">All languages</option>
-        </select>
-      </label>
-      <label class="projects-page__filter projects-page__filter--sort">
-        <span>Sort</span>
-        <select id="sort-select">
-          <option value="last-updated">Last updated</option>
-          <option value="most-recent">Date added</option>
-          <option value="name">Name</option>
-        </select>
-      </label>
-    </div>
-  </div>
-
   <div class="projects-grid" id="projects-grid">
     {% if cards and cards.size > 0 %}
       {% for item in cards %}

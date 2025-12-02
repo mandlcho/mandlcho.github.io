@@ -1,0 +1,93 @@
+// Design Tokens
+// CSS Custom Properties for consistent theming
+
+:root {
+  color-scheme: light;
+
+  // Existing color tokens
+  --bg-color: #ffffff;
+  --text-color: #1a202c;
+  --muted-text: #4a5568;
+  --border-color: #e2e8f0;
+  --button-bg: #2b6cb0;
+  --button-text: #ffffff;
+  --section-surface: rgba(15, 23, 42, 0.03);
+  --grid-dot-color: rgba(148, 163, 184, 0.25);
+
+  // NEW: Brand & accent colors
+  --color-brand: #2b6cb0;
+  --color-accent: #63b3ed;
+  --color-hover-light: rgba(148, 163, 184, 0.12);
+  --color-hover-dark: rgba(99, 179, 237, 0.15);
+  --color-border-subtle: rgba(148, 163, 184, 0.26);
+  --color-border-focus: rgba(99, 179, 237, 0.65);
+  --color-shadow-sm: rgba(15, 23, 42, 0.08);
+  --color-shadow-md: rgba(15, 23, 42, 0.12);
+  --color-shadow-lg: rgba(15, 23, 42, 0.18);
+
+  // NEW: Spacing scale
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-section: clamp(var(--space-8), 5vw, var(--space-16));
+  --space-card: clamp(var(--space-6), 3vw, var(--space-8));
+
+  // NEW: Typography scale
+  --text-xs: clamp(0.75rem, 1.5vw, 0.8rem);
+  --text-sm: clamp(0.85rem, 1.7vw, 0.9rem);
+  --text-base: clamp(0.95rem, 1.8vw, 1rem);
+  --text-xl: clamp(1.2rem, 2.5vw, 1.4rem);
+  --text-2xl: clamp(1.6rem, 3.2vw, 2.1rem);
+  --text-3xl: clamp(2rem, 4vw, 2.75rem);
+  --text-4xl: clamp(2.75rem, 6vw, 3.75rem);
+  --leading-tight: 1.1;
+  --leading-normal: 1.45;
+  --leading-relaxed: 1.55;
+  --font-medium: 500;
+  --font-semibold: 600;
+
+  // NEW: Border radius
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 999px;
+
+  // NEW: Shadows
+  --shadow-md: 0 10px 30px var(--color-shadow-md);
+  --shadow-lg: 0 20px 40px var(--color-shadow-lg);
+
+  // NEW: Transitions
+  --duration-base: 0.2s;
+  --duration-slow: 0.3s;
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  // Existing dark theme colors
+  --bg-color: #0f172a;
+  --text-color: #e2e8f0;
+  --muted-text: #94a3b8;
+  --border-color: #1e293b;
+  --button-bg: #63b3ed;
+  --button-text: #0f172a;
+  --section-surface: rgba(148, 163, 184, 0.08);
+  --grid-dot-color: rgba(99, 179, 237, 0.22);
+
+  // NEW: Dark theme overrides
+  --color-hover-light: rgba(99, 179, 237, 0.15);
+  --color-border-subtle: rgba(148, 163, 184, 0.4);
+  --color-shadow-sm: rgba(0, 0, 0, 0.3);
+  --color-shadow-md: rgba(0, 0, 0, 0.5);
+  --color-shadow-lg: rgba(0, 0, 0, 0.6);
+}

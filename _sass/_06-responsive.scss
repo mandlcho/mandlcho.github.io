@@ -1,0 +1,193 @@
+// Responsive
+// Media queries and responsive adjustments
+
+// Project filters responsive
+@media (max-width: 720px) {
+  .projects-page__filter-group {
+    flex-direction: column;
+  }
+
+  .projects-page__filter--sort {
+    margin-left: 0;
+  }
+}
+
+// Reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Content page responsive
+@media (max-width: 640px) {
+  .content-page {
+    padding: 2rem 1.25rem 2.5rem;
+  }
+
+  .content-page__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .content-page__controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .content-page__nav {
+    justify-content: flex-start;
+  }
+
+  .project-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-card__stats {
+    width: 100%;
+  }
+}
+
+// Sats calculator responsive
+@media (max-width: 600px) {
+  .sats-calculator {
+    padding: 1rem;
+  }
+
+  .sats-calculator .app-card {
+    padding: 1.5rem;
+  }
+}
+
+// Landing page responsive
+@media (max-width: 525px) {
+  .landing {
+    padding: 1.5rem 1.25rem;
+    min-height: 100vh;
+  }
+
+  .landing__header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .landing__controls {
+    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .landing__nav {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.2rem;
+  }
+
+  .theme-toggle {
+    align-self: flex-end;
+  }
+
+  .landing__content {
+    padding: 1.5rem 0;
+  }
+
+  .contributions__content {
+    flex-wrap: nowrap;
+    gap: clamp(0.85rem, 3vw, 1.25rem);
+    overflow-x: auto;
+  }
+
+  .contributions__avatar {
+    flex: 0 0 160px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .contributions__body {
+    padding: clamp(1.25rem, 4vw, 1.6rem);
+  }
+
+  .contributions__graph {
+    padding: clamp(0.6rem, 3vw, 0.85rem);
+  }
+
+  .project-page {
+    padding: 2rem 1.25rem 2.5rem;
+  }
+}
+
+// Small screen project card stats
+@media (max-width: 400px) {
+  .project-card__stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+// FIXED: Avatar responsive behavior
+@media (max-width: 39.99em) {
+  .contributions__content {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+  .contributions__avatar {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+// NEW: Touch device interactions
+@media (pointer: coarse) {
+  .landing__link, .content-page__link, .theme-toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .landing__link:hover, .project-card:hover {
+    transform: none;
+  }
+}
+
+// NEW: Active states for touch
+.landing__link:active, .content-page__link:active {
+  background-color: var(--color-hover-light);
+  transform: scale(0.98);
+}
+
+[data-theme="dark"] .landing__link:active, [data-theme="dark"] .content-page__link:active {
+  background-color: var(--color-hover-dark);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+// NEW: Tap highlight
+* {
+  -webkit-tap-highlight-color: rgba(99, 179, 237, 0.2);
+}
+
+// Animations
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes project-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

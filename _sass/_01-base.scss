@@ -1,0 +1,47 @@
+// Base Styles
+// Global HTML element styling
+
+body {
+  background-color: var(--bg-color);
+  font-family: $base-font-family;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: $brand-color;
+
+  &:hover {
+    color: darken($brand-color, 10%);
+    text-decoration: none; /* Remove underline on hover */
+  }
+}
+
+code {
+  font-size: 0.8rem;
+}
+
+pre {
+  font-size: 0.8rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

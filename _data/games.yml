@@ -4,7 +4,7 @@
   status: shipped
   language_label: Narrative Systems
   language_color: "#f97316"
-  image: /images/game-1a.png
+  image: /images/ace.png
   image_alt: "Assassin's Creed Origins gameplay screenshot"
 
 - name: Assassin's Creed Valhalla
@@ -13,7 +13,7 @@
   status: live
   language_label: Live Ops Design
   language_color: "#0ea5e9"
-  image: /images/game-2a.png
+  image: /images/valh.png
   image_alt: "Assassin's Creed Valhalla festival scene"
 
 - name: Skull and Bones
@@ -22,7 +22,7 @@
   status: beta
   language_label: Systems Design
   language_color: "#10b981"
-  image: /images/game-3a.png
+  image: /images/sb.png
   image_alt: "Skull and Bones naval combat moment"
 
 - name: Monster Hunter (collab missions)
@@ -31,5 +31,5 @@
   status: featured
   language_label: Encounter Design
   language_color: "#a855f7"
-  image: /images/game-1b.png
+  image: /images/mh.png
   image_alt: "Monster Hunter co-op hunt screenshot"

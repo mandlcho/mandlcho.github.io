@@ -637,11 +637,90 @@
 .projects-page--games {
   background: var(--color-bitcoin-orange);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 
   // Dark mode: Keep the orange but slightly darker
   [data-theme="dark"] & {
     background: #d67a15;
+  }
+
+  // White shapes breaking the silhouette - top edge
+  &::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 15%;
+    width: 80px;
+    height: 80px;
+    background: white;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transform: rotate(25deg);
+    z-index: 3;
+
+    [data-theme="dark"] & {
+      background: var(--bg-color);
+    }
+  }
+
+  // White circle breaking right edge
+  .projects-page__eyebrow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+
+    [data-theme="dark"] & {
+      background: var(--bg-color);
+    }
+  }
+
+  // White diamond breaking left edge
+  .projects-page__description::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: -35px;
+    width: 70px;
+    height: 70px;
+    background: white;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    transform: rotate(15deg);
+    z-index: -1;
+
+    [data-theme="dark"] & {
+      background: var(--bg-color);
+    }
+  }
+
+  // White pentagon breaking bottom edge
+  .projects-grid {
+    &::before {
+      // Already used for brush strokes
+    }
+
+    // Add after bottom right
+    .project-card:last-child::after {
+      content: "";
+      position: absolute;
+      bottom: -45px;
+      right: 10%;
+      width: 90px;
+      height: 90px;
+      background: white;
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      transform: rotate(-20deg);
+      z-index: -1;
+
+      [data-theme="dark"] & {
+        background: var(--bg-color);
+      }
+    }
   }
 
   // Base gradient layer with stripes breaking through
@@ -778,6 +857,7 @@
     text-shadow: 2px 2px 0 rgba(0,0,0,0.12);
     transform: rotate(1.2deg);
     display: inline-block;
+    position: relative;
   }
 
   .projects-page__title {
@@ -800,6 +880,7 @@
     text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
     transform: rotate(0.3deg);
     display: inline-block;
+    position: relative;
   }
 
   .projects-grid {

@@ -986,9 +986,10 @@
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: clamp(1.5rem, 3vw, 2.5rem);
 
-    // Mobile: single column
+    // Mobile: straight vertical list, no grid
     @media (max-width: 768px) {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
     }
   }

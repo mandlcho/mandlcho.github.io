@@ -720,6 +720,12 @@
   flex-direction: column;
   gap: clamp(1rem, 3vw, 1.75rem);
   transition: opacity 0.28s ease;
+
+  // Mobile: ensure straight vertical list
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+    width: 100%;
+  }
 }
 
 .projects-grid.is-fading {
@@ -741,6 +747,13 @@
   opacity: 1;
   position: relative;
   box-shadow: 4px 4px 0 var(--color-accent);
+
+  // Mobile: ensure cards don't overflow
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 
   // Random halftone decoration
   &::before {

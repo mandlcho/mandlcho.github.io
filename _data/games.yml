@@ -1,35 +1,35 @@
-- name: Assassin's Creed Origins
-  url: https://www.ubisoft.com/en-us/game/assassins-creed/origins
-  summary: "Mission ownership across Memphis region—quest scripting, boss encounters, and stealth sandboxes tuned for the new combat loop."
-  status: shipped
-  language_label: Narrative Systems
-  language_color: "#f97316"
-  image: /images/ace.png
-  image_alt: "Assassin's Creed Origins gameplay screenshot"
+- name: Monster Hunter (collab missions)
+  url: https://www.monsterhunter.com/
+  summary: "Supported limited-time crossover hunts—encounter tuning, loot tables, and UX flows for onboarding squads."
+  status: Unreleased
+  language_label: Encounter Design
+  language_color: "#a855f7"
+  image: /images/mh.png
+  image_alt: "Monster Hunter co-op hunt screenshot"
 
 - name: Assassin's Creed Valhalla
   url: https://www.ubisoft.com/en-us/game/assassins-creed/valhalla
   summary: "Led Viking settlement events and combat polish for post-launch festivals, keeping live ops drops tightly scoped."
-  status: live
+  status: Shipped
   language_label: Live Ops Design
   language_color: "#0ea5e9"
   image: /images/valh.png
   image_alt: "Assassin's Creed Valhalla festival scene"
 
+- name: Assassin's Creed Origins
+  url: https://www.ubisoft.com/en-us/game/assassins-creed/origins
+  summary: "Mission ownership across Memphis region—quest scripting, boss encounters, and stealth sandboxes tuned for the new combat loop."
+  status: Shipped
+  language_label: Narrative Systems
+  language_color: "#f97316"
+  image: /images/ace.png
+  image_alt: "Assassin's Creed Origins gameplay screenshot"
+
 - name: Skull and Bones
   url: https://www.ubisoft.com/en-us/game/skull-and-bones
   summary: "Prototyped ship progression beats and seasonal contracts, balancing progression pacing with PvP risk."
-  status: beta
+  status: Shipped
   language_label: Systems Design
   language_color: "#10b981"
   image: /images/sb.png
   image_alt: "Skull and Bones naval combat moment"
-
-- name: Monster Hunter (collab missions)
-  url: https://www.monsterhunter.com/
-  summary: "Supported limited-time crossover hunts—encounter tuning, loot tables, and UX flows for onboarding squads."
-  status: featured
-  language_label: Encounter Design
-  language_color: "#a855f7"
-  image: /images/mh.png
-  image_alt: "Monster Hunter co-op hunt screenshot"

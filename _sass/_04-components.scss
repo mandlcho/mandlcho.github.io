@@ -858,6 +858,36 @@
   padding: 0.2rem 0.5rem;
   border: 2px solid var(--text-color);
   border-radius: 0;
+  display: inline-block;
+  position: relative;
+
+  // Chaotic crooked status badges
+  transform: rotate(-1.5deg);
+  border-width: 2px 3px 2px 2px;
+
+  // Vary per card
+  .project-card:nth-child(3n+1) & {
+    transform: rotate(-2deg);
+    border-width: 3px 2px 2px 3px;
+  }
+
+  .project-card:nth-child(3n+2) & {
+    transform: rotate(1.8deg);
+    border-width: 2px 2px 3px 2px;
+  }
+
+  .project-card:nth-child(3n) & {
+    transform: rotate(-1.2deg);
+    border-width: 2px 3px 2px 3px;
+  }
+
+  .project-card:nth-child(5n+1) & {
+    transform: rotate(2.2deg);
+  }
+
+  .project-card:nth-child(7n+2) & {
+    transform: rotate(-1.8deg);
+  }
 }
 
 .project-card__summary {

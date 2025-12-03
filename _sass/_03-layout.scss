@@ -55,12 +55,23 @@
   font-size: clamp(2.5rem, 8vw, 5rem);
   line-height: 0.9;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.05em;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
   white-space: nowrap;
   flex-shrink: 0;
-  transform: skewY(-2deg);
-  text-shadow: 3px 3px 0 var(--color-accent);
+  color: var(--color-bitcoin-orange);
+  text-shadow:
+    0 0 10px var(--color-bitcoin-orange),
+    0 0 20px var(--color-bitcoin-orange),
+    0 0 30px var(--color-bitcoin-orange);
+  position: relative;
+
+  &::before {
+    content: "₿@";
+    color: var(--color-bitcoin-gold);
+    font-size: 0.6em;
+    margin-right: 0.1em;
+  }
 }
 
 .landing__controls {

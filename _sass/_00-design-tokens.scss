@@ -4,30 +4,30 @@
 :root {
   color-scheme: light;
 
-  // BRUTALIST CHAOS - High contrast, raw, intense
-  --bg-color: #fafafa;
-  --text-color: #000000;
-  --muted-text: #2a2a2a;
-  --border-color: #000000;
-  --button-bg: #000000;
-  --button-text: #ffffff;
-  --section-surface: rgba(0, 0, 0, 0.02);
-  --grid-dot-color: rgba(0, 0, 0, 0.1);
+  // BITCOIN TERMINAL - Digital gold aesthetic
+  --bg-color: #0a0a0a;
+  --text-color: #e8e8e8;
+  --muted-text: #8a8a8a;
+  --border-color: #f7931a;
+  --button-bg: #f7931a;
+  --button-text: #0a0a0a;
+  --section-surface: rgba(247, 147, 26, 0.03);
+  --grid-dot-color: rgba(247, 147, 26, 0.12);
 
-  // CHAOS COLORS - Loud, unpolished, unexpected
-  --color-brand: #000000;
-  --color-accent: #ff0000;
-  --color-chaos-yellow: #ffff00;
-  --color-chaos-cyan: #00ffff;
-  --color-chaos-green: #00ff00;
-  --color-chaos-magenta: #ff00ff;
-  --color-hover-light: rgba(0, 0, 0, 0.08);
-  --color-hover-dark: rgba(255, 0, 0, 0.15);
-  --color-border-subtle: rgba(0, 0, 0, 0.4);
-  --color-border-focus: #ff0000;
-  --color-shadow-sm: rgba(0, 0, 0, 0.15);
-  --color-shadow-md: rgba(0, 0, 0, 0.25);
-  --color-shadow-lg: rgba(0, 0, 0, 0.4);
+  // BITCOIN COLORS - Orange/gold crypto vibes
+  --color-brand: #f7931a;
+  --color-accent: #ffb347;
+  --color-bitcoin-orange: #f7931a;
+  --color-bitcoin-gold: #ffd700;
+  --color-bitcoin-amber: #ffb347;
+  --color-bitcoin-dark: #cc7a15;
+  --color-hover-light: rgba(247, 147, 26, 0.12);
+  --color-hover-dark: rgba(255, 179, 71, 0.15);
+  --color-border-subtle: rgba(247, 147, 26, 0.3);
+  --color-border-focus: #ffb347;
+  --color-shadow-sm: rgba(247, 147, 26, 0.15);
+  --color-shadow-md: rgba(247, 147, 26, 0.25);
+  --color-shadow-lg: rgba(247, 147, 26, 0.4);
 
   // TYPOGRAPHY CHAOS - Mix sans/mono brutally
   --font-sans: "IBM Plex Sans", -apple-system, sans-serif;
@@ -82,24 +82,24 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  // BRUTALIST DARK - High contrast chaos
+  // BITCOIN DARK - Pure black with BTC orange
   --bg-color: #000000;
-  --text-color: #ffffff;
-  --muted-text: #cccccc;
-  --border-color: #ffffff;
-  --button-bg: #ffffff;
+  --text-color: #f7931a;
+  --muted-text: #8a8a8a;
+  --border-color: #f7931a;
+  --button-bg: #f7931a;
   --button-text: #000000;
-  --section-surface: rgba(255, 255, 255, 0.03);
-  --grid-dot-color: rgba(255, 255, 255, 0.15);
+  --section-surface: rgba(247, 147, 26, 0.05);
+  --grid-dot-color: rgba(247, 147, 26, 0.15);
 
-  // CHAOS COLORS - Dark mode intensity
-  --color-brand: #ffffff;
-  --color-accent: #ff0000;
-  --color-hover-light: rgba(255, 255, 255, 0.1);
-  --color-hover-dark: rgba(255, 0, 0, 0.2);
-  --color-border-subtle: rgba(255, 255, 255, 0.3);
-  --color-border-focus: #00ffff;
-  --color-shadow-sm: rgba(255, 255, 255, 0.08);
-  --color-shadow-md: rgba(255, 255, 255, 0.12);
-  --color-shadow-lg: rgba(255, 255, 255, 0.18);
+  // Enhanced bitcoin glow in dark mode
+  --color-brand: #f7931a;
+  --color-accent: #ffd700;
+  --color-hover-light: rgba(247, 147, 26, 0.15);
+  --color-hover-dark: rgba(255, 215, 0, 0.2);
+  --color-border-subtle: rgba(247, 147, 26, 0.4);
+  --color-border-focus: #ffd700;
+  --color-shadow-sm: rgba(247, 147, 26, 0.2);
+  --color-shadow-md: rgba(247, 147, 26, 0.3);
+  --color-shadow-lg: rgba(247, 147, 26, 0.5);
 }

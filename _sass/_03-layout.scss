@@ -121,33 +121,39 @@
 }
 
 .landing__link {
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   text-transform: lowercase;
   color: var(--text-color);
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
+  padding: 0.4rem 0.9rem;
+  border-radius: 0;
+  border: 2px solid transparent;
   background-color: transparent;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
 }
 
 .landing__link:hover,
 .landing__link:focus-visible {
-  border-color: var(--border-color);
-  background-color: rgba(148, 163, 184, 0.12);
-  color: var(--text-color);
+  border-color: var(--text-color);
+  background-color: var(--color-accent);
+  color: white;
   outline: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--text-color);
 }
 
 [data-theme="dark"] .landing__link:hover,
 [data-theme="dark"] .landing__link:focus-visible {
-  background-color: rgba(99, 179, 237, 0.15);
+  background-color: var(--color-accent);
+  color: white;
 }
 
 .landing__content {

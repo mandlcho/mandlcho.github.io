@@ -1,11 +1,11 @@
 // Components
 // Reusable UI components
 
-// Theme Toggle
+// Theme Toggle - Comic Book Style
 .theme-toggle {
   appearance: none;
-  border: 1px solid var(--border-color);
-  border-radius: 999px;
+  border: 2px solid var(--text-color);
+  border-radius: 0;
   background: transparent;
   color: var(--text-color);
   font-size: 1.25rem;
@@ -14,13 +14,27 @@
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease,
-    border-color 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background: var(--color-comic-yellow);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
 }
 
 .theme-toggle:hover {
-  background-color: rgba(148, 163, 184, 0.15);
-  transform: translateY(-1px);
+  background-color: var(--color-accent);
+  color: white;
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--text-color);
 }
 
 .theme-toggle__icon {

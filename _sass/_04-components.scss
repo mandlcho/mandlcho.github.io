@@ -285,8 +285,9 @@
   margin-bottom: 0.6rem;
   display: inline-block;
   position: relative;
+  z-index: 2;
 
-  // Comic book underline with halftone
+  // Comic book underline
   &::before {
     content: "";
     position: absolute;
@@ -295,9 +296,10 @@
     width: 50px;
     height: 4px;
     background: var(--color-accent);
+    z-index: 3;
   }
 
-  // Random shape accent
+  // Random shape accent (foreground)
   &::after {
     content: "";
     position: absolute;
@@ -307,7 +309,96 @@
     height: 12px;
     background: var(--color-comic-yellow);
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    z-index: 3;
   }
+}
+
+// Random yellow dots and shapes for each section title
+.contributions--about .contributions__title {
+  &::before {
+    // Background halftone dots
+    box-shadow:
+      -25px 8px 0 -2px var(--color-comic-yellow),
+      -15px -5px 0 -1px var(--color-bitcoin-yellow),
+      30px -8px 0 -3px var(--color-comic-yellow),
+      45px 12px 0 -2px var(--color-bitcoin-yellow);
+    opacity: 0.4;
+  }
+}
+
+.contributions--projects .contributions__title {
+  &::after {
+    // Large background blob
+    box-shadow:
+      -35px -10px 0 8px rgba(255, 217, 61, 0.2),
+      40px 5px 0 -1px var(--color-comic-yellow),
+      -20px 15px 0 -2px var(--color-bitcoin-yellow),
+      25px -12px 0 6px rgba(247, 147, 26, 0.15);
+  }
+}
+
+.contributions--github .contributions__title {
+  &::before {
+    // Scattered small dots
+    box-shadow:
+      -30px 10px 0 -3px var(--color-bitcoin-yellow),
+      -18px -8px 0 -2px var(--color-comic-yellow),
+      35px 15px 0 -3px var(--color-bitcoin-yellow),
+      48px -5px 0 -1px var(--color-comic-yellow),
+      -8px 18px 0 -2px var(--color-bitcoin-yellow);
+    opacity: 0.5;
+  }
+}
+
+.contributions--games .contributions__title {
+  &::after {
+    // Mixed sizes - big and small
+    box-shadow:
+      -40px 8px 0 10px rgba(255, 217, 61, 0.25),
+      28px -15px 0 -2px var(--color-comic-yellow),
+      -15px -10px 0 3px rgba(255, 179, 71, 0.3),
+      42px 12px 0 -3px var(--color-bitcoin-yellow),
+      -25px 20px 0 -1px var(--color-comic-yellow);
+  }
+}
+
+// Add random foreground shapes to title containers
+.contributions--about .contributions__title::after {
+  width: 18px;
+  height: 18px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  top: -12px;
+  right: -20px;
+  bottom: auto;
+}
+
+.contributions--projects .contributions__title::after {
+  width: 15px;
+  height: 15px;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  bottom: -8px;
+  left: -18px;
+  right: auto;
+}
+
+.contributions--github .contributions__title::after {
+  width: 20px;
+  height: 20px;
+  clip-path: circle(50%);
+  top: -8px;
+  left: -25px;
+  right: auto;
+  bottom: auto;
+}
+
+.contributions--games .contributions__title::after {
+  width: 16px;
+  height: 16px;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  top: 50%;
+  right: -22px;
+  bottom: auto;
+  transform: translateY(-50%) rotate(25deg);
 }
 
 .contributions__description {

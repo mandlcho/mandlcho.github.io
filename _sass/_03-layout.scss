@@ -138,6 +138,32 @@
   white-space: nowrap;
   position: relative;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+
+  // Chaotic crooked nav items
+  &:nth-child(1) {
+    transform: rotate(-1.2deg);
+    border-width: 2px 3px 2px 2px;
+  }
+
+  &:nth-child(2) {
+    transform: rotate(0.8deg);
+    border-width: 3px 2px 2px 3px;
+  }
+
+  &:nth-child(3) {
+    transform: rotate(-0.5deg);
+    border-width: 2px 2px 3px 2px;
+  }
+
+  &:nth-child(4) {
+    transform: rotate(1.1deg);
+    border-width: 2px 3px 2px 3px;
+  }
+
+  &:nth-child(5) {
+    transform: rotate(-0.9deg);
+    border-width: 3px 2px 3px 2px;
+  }
 }
 
 .landing__link:hover,
@@ -146,8 +172,32 @@
   background-color: var(--color-accent);
   color: white;
   outline: none;
-  transform: translate(-1px, -1px);
   box-shadow: 2px 2px 0 var(--text-color);
+
+  &:nth-child(1) {
+    transform: rotate(-1.2deg) translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--text-color);
+  }
+
+  &:nth-child(2) {
+    transform: rotate(0.8deg) translate(-1px, -1px);
+    box-shadow: 2px 3px 0 var(--text-color);
+  }
+
+  &:nth-child(3) {
+    transform: rotate(-0.5deg) translate(-1px, -1px);
+    box-shadow: 3px 2px 0 var(--text-color);
+  }
+
+  &:nth-child(4) {
+    transform: rotate(1.1deg) translate(-1px, -1px);
+    box-shadow: 2px 3px 0 var(--text-color);
+  }
+
+  &:nth-child(5) {
+    transform: rotate(-0.9deg) translate(-1px, -1px);
+    box-shadow: 3px 2px 0 var(--text-color);
+  }
 }
 
 [data-theme="dark"] .landing__link:hover,
@@ -304,6 +354,32 @@
   white-space: nowrap;
   position: relative;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+
+  // Chaotic crooked nav items
+  &:nth-child(1) {
+    transform: rotate(-1.2deg);
+    border-width: 2px 3px 2px 2px;
+  }
+
+  &:nth-child(2) {
+    transform: rotate(0.8deg);
+    border-width: 3px 2px 2px 3px;
+  }
+
+  &:nth-child(3) {
+    transform: rotate(-0.5deg);
+    border-width: 2px 2px 3px 2px;
+  }
+
+  &:nth-child(4) {
+    transform: rotate(1.1deg);
+    border-width: 2px 3px 2px 3px;
+  }
+
+  &:nth-child(5) {
+    transform: rotate(-0.9deg);
+    border-width: 3px 2px 3px 2px;
+  }
 }
 
 .content-page__link:hover,
@@ -312,8 +388,32 @@
   background-color: var(--color-accent);
   color: white;
   outline: none;
-  transform: translate(-1px, -1px);
   box-shadow: 2px 2px 0 var(--text-color);
+
+  &:nth-child(1) {
+    transform: rotate(-1.2deg) translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--text-color);
+  }
+
+  &:nth-child(2) {
+    transform: rotate(0.8deg) translate(-1px, -1px);
+    box-shadow: 2px 3px 0 var(--text-color);
+  }
+
+  &:nth-child(3) {
+    transform: rotate(-0.5deg) translate(-1px, -1px);
+    box-shadow: 3px 2px 0 var(--text-color);
+  }
+
+  &:nth-child(4) {
+    transform: rotate(1.1deg) translate(-1px, -1px);
+    box-shadow: 2px 3px 0 var(--text-color);
+  }
+
+  &:nth-child(5) {
+    transform: rotate(-0.9deg) translate(-1px, -1px);
+    box-shadow: 3px 2px 0 var(--text-color);
+  }
 }
 
 [data-theme="dark"] .content-page__link:hover,
@@ -350,6 +450,8 @@
   font-family: var(--font-mono);
   color: var(--muted-text);
   margin: 0;
+  transform: rotate(-0.8deg);
+  display: inline-block;
 }
 
 .projects-page__title {
@@ -360,6 +462,8 @@
   margin: 0;
   line-height: 1.1;
   text-transform: lowercase;
+  transform: rotate(0.5deg);
+  display: inline-block;
 }
 
 .projects-page__description {
@@ -368,6 +472,8 @@
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
+  transform: rotate(-0.3deg);
+  display: inline-block;
 }
 
 // Project Page Layout
@@ -525,12 +631,13 @@
   padding: 1.5rem;
 }
 
-// GAMES PAGE - Arcade Cabinet Style with Orange Background
+// GAMES PAGE - Chaotic Arcade Cabinet Style with Orange Background
 .projects-page--games {
-  background: linear-gradient(135deg, var(--color-bitcoin-orange) 0%, var(--color-bitcoin-yellow) 100%);
+  background:
+    linear-gradient(127deg, var(--color-bitcoin-orange) 0%, var(--color-bitcoin-yellow) 100%);
   position: relative;
-  
-  // Pixel art grid pattern
+
+  // Chaotic torn paper edges overlay
   &::before {
     content: "";
     position: absolute;
@@ -539,22 +646,37 @@
     right: 0;
     bottom: 0;
     background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px),
-      repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px);
+      repeating-linear-gradient(2deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px),
+      repeating-linear-gradient(88deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px);
     background-size: 4px 4px;
     pointer-events: none;
+    z-index: 0;
+    transform: rotate(-0.3deg) scale(1.02);
+  }
+
+  // Random splotches and texture
+  &::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0,0,0,0.08) 0%, transparent 70%);
+    transform: rotate(25deg);
     z-index: 0;
   }
 
   .projects-page__intro {
     position: relative;
     z-index: 1;
+    transform: rotate(-0.4deg);
   }
 
-  .projects-page__eyebrow,
-  .projects-page__title,
-  .projects-page__description {
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  .projects-page__eyebrow {
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.12);
+    transform: rotate(1.2deg);
+    display: inline-block;
   }
 
   .projects-page__title {
@@ -562,6 +684,15 @@
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+    transform: rotate(-0.6deg);
+    display: inline-block;
+  }
+
+  .projects-page__description {
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    transform: rotate(0.3deg);
+    display: inline-block;
   }
 
   .projects-grid {

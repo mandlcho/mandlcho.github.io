@@ -4,42 +4,50 @@
 :root {
   color-scheme: light;
 
-  // Existing color tokens
-  --bg-color: #ffffff;
-  --text-color: #1a202c;
-  --muted-text: #4a5568;
-  --border-color: #e2e8f0;
-  --button-bg: #2b6cb0;
+  // BRUTALIST CHAOS - High contrast, raw, intense
+  --bg-color: #fafafa;
+  --text-color: #000000;
+  --muted-text: #2a2a2a;
+  --border-color: #000000;
+  --button-bg: #000000;
   --button-text: #ffffff;
-  --section-surface: rgba(15, 23, 42, 0.03);
-  --grid-dot-color: rgba(148, 163, 184, 0.25);
+  --section-surface: rgba(0, 0, 0, 0.02);
+  --grid-dot-color: rgba(0, 0, 0, 0.1);
 
-  // NEW: Brand & accent colors
-  --color-brand: #2b6cb0;
-  --color-accent: #63b3ed;
-  --color-hover-light: rgba(148, 163, 184, 0.12);
-  --color-hover-dark: rgba(99, 179, 237, 0.15);
-  --color-border-subtle: rgba(148, 163, 184, 0.26);
-  --color-border-focus: rgba(99, 179, 237, 0.65);
-  --color-shadow-sm: rgba(15, 23, 42, 0.08);
-  --color-shadow-md: rgba(15, 23, 42, 0.12);
-  --color-shadow-lg: rgba(15, 23, 42, 0.18);
+  // CHAOS COLORS - Loud, unpolished, unexpected
+  --color-brand: #000000;
+  --color-accent: #ff0000;
+  --color-chaos-yellow: #ffff00;
+  --color-chaos-cyan: #00ffff;
+  --color-chaos-green: #00ff00;
+  --color-chaos-magenta: #ff00ff;
+  --color-hover-light: rgba(0, 0, 0, 0.08);
+  --color-hover-dark: rgba(255, 0, 0, 0.15);
+  --color-border-subtle: rgba(0, 0, 0, 0.4);
+  --color-border-focus: #ff0000;
+  --color-shadow-sm: rgba(0, 0, 0, 0.15);
+  --color-shadow-md: rgba(0, 0, 0, 0.25);
+  --color-shadow-lg: rgba(0, 0, 0, 0.4);
 
-  // NEW: Spacing scale
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-7: 1.75rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-section: clamp(var(--space-8), 5vw, var(--space-16));
-  --space-card: clamp(var(--space-6), 3vw, var(--space-8));
+  // TYPOGRAPHY CHAOS - Mix sans/mono brutally
+  --font-sans: "IBM Plex Sans", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  // COMPRESSED SPACING - Brutalist density
+  --space-1: 0.15rem;
+  --space-2: 0.35rem;
+  --space-3: 0.5rem;
+  --space-4: 0.75rem;
+  --space-5: 1rem;
+  --space-6: 1.15rem;
+  --space-7: 1.35rem;
+  --space-8: 1.5rem;
+  --space-10: 1.85rem;
+  --space-12: 2.25rem;
+  --space-16: 3rem;
+  --space-20: 3.75rem;
+  --space-section: clamp(0.85rem, 3vw, 1.25rem);
+  --space-card: clamp(0.65rem, 2vw, 0.95rem);
 
   // NEW: Typography scale
   --text-xs: clamp(0.75rem, 1.5vw, 0.8rem);
@@ -55,11 +63,11 @@
   --font-medium: 500;
   --font-semibold: 600;
 
-  // NEW: Border radius
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
-  --radius-full: 999px;
+  // BRUTALIST SHARP - No smooth curves
+  --radius-md: 2px;
+  --radius-lg: 3px;
+  --radius-xl: 4px;
+  --radius-full: 2px;
 
   // NEW: Shadows
   --shadow-md: 0 10px 30px var(--color-shadow-md);
@@ -74,20 +82,24 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  // Existing dark theme colors
-  --bg-color: #0f172a;
-  --text-color: #e2e8f0;
-  --muted-text: #94a3b8;
-  --border-color: #1e293b;
-  --button-bg: #63b3ed;
-  --button-text: #0f172a;
-  --section-surface: rgba(148, 163, 184, 0.08);
-  --grid-dot-color: rgba(99, 179, 237, 0.22);
+  // BRUTALIST DARK - High contrast chaos
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --muted-text: #cccccc;
+  --border-color: #ffffff;
+  --button-bg: #ffffff;
+  --button-text: #000000;
+  --section-surface: rgba(255, 255, 255, 0.03);
+  --grid-dot-color: rgba(255, 255, 255, 0.15);
 
-  // NEW: Dark theme overrides
-  --color-hover-light: rgba(99, 179, 237, 0.15);
-  --color-border-subtle: rgba(148, 163, 184, 0.4);
-  --color-shadow-sm: rgba(0, 0, 0, 0.3);
-  --color-shadow-md: rgba(0, 0, 0, 0.5);
-  --color-shadow-lg: rgba(0, 0, 0, 0.6);
+  // CHAOS COLORS - Dark mode intensity
+  --color-brand: #ffffff;
+  --color-accent: #ff0000;
+  --color-hover-light: rgba(255, 255, 255, 0.1);
+  --color-hover-dark: rgba(255, 0, 0, 0.2);
+  --color-border-subtle: rgba(255, 255, 255, 0.3);
+  --color-border-focus: #00ffff;
+  --color-shadow-sm: rgba(255, 255, 255, 0.08);
+  --color-shadow-md: rgba(255, 255, 255, 0.12);
+  --color-shadow-lg: rgba(255, 255, 255, 0.18);
 }

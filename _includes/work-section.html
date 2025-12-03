@@ -4,7 +4,7 @@
 {% assign section_description = include.description | default: page.description %}
 {% assign empty_message = include.empty_message | default: "More builds coming soon." %}
 
-<section class="projects-page">
+<section class="projects-page {% if include.page_type %}projects-page--{{ include.page_type }}{% endif %}">
   <header class="projects-page__intro">
     <p class="projects-page__eyebrow">{{ eyebrow }}</p>
     <h1 class="projects-page__title">{{ section_title }}</h1>

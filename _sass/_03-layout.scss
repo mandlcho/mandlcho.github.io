@@ -516,3 +516,190 @@
 .project-info {
   padding: 1.5rem;
 }
+
+// GAMES PAGE - Arcade Cabinet Style with Orange Background
+.projects-page--games {
+  background: linear-gradient(135deg, var(--color-bitcoin-orange) 0%, var(--color-bitcoin-yellow) 100%);
+  position: relative;
+  
+  // Pixel art grid pattern
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px);
+    background-size: 4px 4px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .projects-page__intro {
+    position: relative;
+    z-index: 1;
+  }
+
+  .projects-page__eyebrow,
+  .projects-page__title,
+  .projects-page__description {
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+  }
+
+  .projects-page__title {
+    color: var(--bg-color);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .projects-grid {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Arcade cabinet frames for game cards
+  .project-card {
+    background: var(--bg-color);
+    border: 4px solid var(--text-color);
+    box-shadow:
+      0 0 0 2px var(--color-bitcoin-yellow),
+      8px 8px 0 var(--text-color);
+    position: relative;
+
+    // Pixel art corner decorations
+    &::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border: 2px dashed var(--color-bitcoin-yellow);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    // Arcade marquee effect on top
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--color-comic-yellow) 0px,
+        var(--color-comic-yellow) 8px,
+        var(--text-color) 8px,
+        var(--text-color) 16px
+      );
+    }
+
+    &:hover {
+      box-shadow:
+        0 0 0 2px var(--color-bitcoin-yellow),
+        12px 12px 0 var(--text-color);
+      transform: translate(-2px, -2px);
+    }
+  }
+
+  .project-card__status {
+    background: var(--color-bitcoin-orange);
+    color: white;
+    padding: 0.25rem 0.6rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 2px solid var(--text-color);
+    box-shadow: 2px 2px 0 var(--text-color);
+  }
+}
+
+// PROJECTS PAGE - Comic Panel Grid
+.projects-page--projects {
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .project-card {
+    // Random panel sizes
+    &:nth-child(3n+1) {
+      grid-column: span 1;
+    }
+
+    &:nth-child(5n+2) {
+      grid-column: span 2;
+    }
+
+    // Comic panel gutters
+    &::before {
+      box-shadow:
+        -20px 15px 0 -1px var(--color-bitcoin-yellow),
+        25px -10px 0 -2px var(--color-comic-yellow),
+        -30px -12px 0 -3px var(--color-bitcoin-orange);
+      opacity: 0.3;
+    }
+
+    // Panel number badges (top-left corner)
+    &::after {
+      content: counter(panel);
+      counter-increment: panel;
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 24px;
+      height: 24px;
+      background: var(--color-bitcoin-orange);
+      color: white;
+      font-family: var(--font-mono);
+      font-weight: 900;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--text-color);
+      box-shadow: 2px 2px 0 var(--text-color);
+      z-index: 10;
+    }
+  }
+
+  .projects-grid {
+    counter-reset: panel;
+  }
+
+  // Splash page hero - first card takes more space
+  .project-card:first-child {
+    grid-column: 1 / -1;
+    
+    .project-card__summary {
+      font-size: 1.1em;
+    }
+  }
+}
+
+// Shared comic styling for both
+.projects-page--games,
+.projects-page--projects {
+  .projects-page__title {
+    position: relative;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 5px;
+      background: var(--color-accent);
+    }
+  }
+}

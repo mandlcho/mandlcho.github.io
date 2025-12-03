@@ -4,6 +4,7 @@ title: projects
 hero_title: Mandl Cho
 description: "Selected builds, kept in high signal snapshots."
 permalink: /projects/
+page_class: projects-page-panels
 ---
 
 {% assign projects = site.data.projects | sort: 'last_updated' | reverse %}
@@ -13,4 +14,5 @@ permalink: /projects/
   title="projects"
   description=page.description
   empty_message="More builds coming soon."
+  page_type="projects"
 %}

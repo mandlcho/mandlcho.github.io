@@ -644,35 +644,52 @@
     background: #d67a15;
   }
 
-  // White shapes breaking the silhouette - top edge
-  &::after {
+  // Random white shapes breaking LEFT edge - scattered top to bottom
+  .projects-page__eyebrow::before {
     content: "";
     position: absolute;
-    top: -20px;
-    left: 15%;
+    top: -35px;
+    left: -40px;
+    width: 75px;
+    height: 75px;
+    background: white;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    transform: rotate(35deg);
+    z-index: -1;
+
+    [data-theme="dark"] & {
+      background: var(--bg-color);
+    }
+  }
+
+  .projects-page__description::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: -30px;
+    width: 55px;
+    height: 55px;
+    background: white;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    transform: rotate(-25deg);
+    z-index: -1;
+
+    [data-theme="dark"] & {
+      background: var(--bg-color);
+    }
+  }
+
+  // Random white shapes breaking RIGHT edge - scattered
+  .projects-page__title::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -45px;
     width: 80px;
     height: 80px;
     background: white;
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    transform: rotate(25deg);
-    z-index: 3;
-
-    [data-theme="dark"] & {
-      background: var(--bg-color);
-    }
-  }
-
-  // White circle breaking right edge
-  .projects-page__eyebrow::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: -40px;
-    width: 100px;
-    height: 100px;
-    background: white;
-    border-radius: 50%;
-    transform: translateY(-50%);
+    transform: rotate(-15deg);
     z-index: -1;
 
     [data-theme="dark"] & {
@@ -680,17 +697,16 @@
     }
   }
 
-  // White diamond breaking left edge
-  .projects-page__description::after {
+  .projects-page__title::after {
     content: "";
     position: absolute;
-    bottom: -30px;
-    left: -35px;
-    width: 70px;
-    height: 70px;
+    bottom: -25px;
+    right: -35px;
+    width: 65px;
+    height: 65px;
     background: white;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    transform: rotate(15deg);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    transform: rotate(40deg);
     z-index: -1;
 
     [data-theme="dark"] & {
@@ -698,23 +714,36 @@
     }
   }
 
-  // White pentagon breaking bottom edge
+  // Additional shapes on grid sides
   .projects-grid {
+    // Left side shapes - mid section
     &::before {
-      // Already used for brush strokes
-    }
-
-    // Add after bottom right
-    .project-card:last-child::after {
       content: "";
       position: absolute;
-      bottom: -45px;
-      right: 10%;
-      width: 90px;
-      height: 90px;
+      top: 35%;
+      left: -35px;
+      width: 70px;
+      height: 70px;
+      background: white;
+      clip-path: circle(50%);
+      z-index: -1;
+
+      [data-theme="dark"] & {
+        background: var(--bg-color);
+      }
+    }
+
+    // Right side shapes - mid section
+    &::after {
+      content: "";
+      position: absolute;
+      top: 55%;
+      right: -40px;
+      width: 85px;
+      height: 85px;
       background: white;
       clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-      transform: rotate(-20deg);
+      transform: rotate(-25deg);
       z-index: -1;
 
       [data-theme="dark"] & {
@@ -868,6 +897,7 @@
     text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
     transform: rotate(-0.6deg);
     display: inline-block;
+    position: relative;
 
     // Ensure readability in dark mode
     [data-theme="dark"] & {
@@ -955,6 +985,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: clamp(1.5rem, 3vw, 2.5rem);
+
+    // Mobile: single column
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 
   .project-card {
@@ -965,6 +1001,11 @@
 
     &:nth-child(5n+2) {
       grid-column: span 2;
+
+      // Mobile: no spanning
+      @media (max-width: 768px) {
+        grid-column: span 1;
+      }
     }
 
     // Comic panel gutters

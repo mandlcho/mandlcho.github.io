@@ -4,27 +4,27 @@
 :root {
   color-scheme: light;
 
-  // VALORANT TACTICAL - Clean white with subtle orange accents
+  // COMIC BOOK BITCOIN - Graphic novel with BTC orange
   --bg-color: #fafafa;
   --text-color: #1a1a1a;
   --muted-text: #6a6a6a;
   --border-color: #e8e8e8;
-  --button-bg: #ff4655;
+  --button-bg: #f7931a;
   --button-text: #ffffff;
-  --section-surface: rgba(255, 70, 85, 0.02);
+  --section-surface: rgba(247, 147, 26, 0.02);
   --grid-dot-color: rgba(200, 200, 200, 0.3);
 
-  // TACTICAL COLORS - Subtle orange/red accents
-  --color-brand: #ff4655;
-  --color-accent: #ff4655;
-  --color-orange-subtle: #fd4556;
-  --color-orange-bright: #ff4655;
-  --color-beige: #ece8e1;
-  --color-dark: #1a1a1a;
-  --color-hover-light: rgba(255, 70, 85, 0.08);
-  --color-hover-dark: rgba(255, 70, 85, 0.12);
+  // BITCOIN COMIC COLORS - Orange/yellow graphic novel vibes
+  --color-brand: #f7931a;
+  --color-accent: #f7931a;
+  --color-bitcoin-orange: #f7931a;
+  --color-bitcoin-yellow: #ffb347;
+  --color-bitcoin-dark: #cc7a15;
+  --color-comic-yellow: #ffd93d;
+  --color-hover-light: rgba(247, 147, 26, 0.08);
+  --color-hover-dark: rgba(247, 147, 26, 0.12);
   --color-border-subtle: rgba(26, 26, 26, 0.1);
-  --color-border-focus: #ff4655;
+  --color-border-focus: #f7931a;
   --color-shadow-sm: rgba(26, 26, 26, 0.08);
   --color-shadow-md: rgba(26, 26, 26, 0.12);
   --color-shadow-lg: rgba(26, 26, 26, 0.16);
@@ -82,23 +82,23 @@
 [data-theme="dark"] {
   color-scheme: dark;
 
-  // VALORANT DARK - Deep tactical with red accents
-  --bg-color: #0f1923;
+  // COMIC DARK - Noir style with BTC orange pops
+  --bg-color: #1a1a1a;
   --text-color: #ece8e1;
   --muted-text: #8a8a8a;
-  --border-color: #2a3540;
-  --button-bg: #ff4655;
+  --border-color: #2a2a2a;
+  --button-bg: #f7931a;
   --button-text: #ffffff;
-  --section-surface: rgba(255, 70, 85, 0.05);
-  --grid-dot-color: rgba(42, 53, 64, 0.5);
+  --section-surface: rgba(247, 147, 26, 0.05);
+  --grid-dot-color: rgba(60, 60, 60, 0.5);
 
-  // Enhanced tactical accents in dark mode
-  --color-brand: #ff4655;
-  --color-accent: #ff4655;
-  --color-hover-light: rgba(255, 70, 85, 0.12);
-  --color-hover-dark: rgba(255, 70, 85, 0.18);
-  --color-border-subtle: rgba(42, 53, 64, 0.6);
-  --color-border-focus: #ff4655;
+  // Enhanced bitcoin comic accents in dark mode
+  --color-brand: #f7931a;
+  --color-accent: #f7931a;
+  --color-hover-light: rgba(247, 147, 26, 0.12);
+  --color-hover-dark: rgba(247, 147, 26, 0.18);
+  --color-border-subtle: rgba(42, 42, 42, 0.6);
+  --color-border-focus: #ffb347;
   --color-shadow-sm: rgba(0, 0, 0, 0.3);
   --color-shadow-md: rgba(0, 0, 0, 0.4);
   --color-shadow-lg: rgba(0, 0, 0, 0.5);

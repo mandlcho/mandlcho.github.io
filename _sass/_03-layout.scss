@@ -635,17 +635,16 @@
 
 // GAMES PAGE - Chaotic Arcade Cabinet Style with Orange Background
 .projects-page--games {
-  background:
-    linear-gradient(127deg, var(--color-bitcoin-orange) 0%, var(--color-bitcoin-yellow) 100%);
+  background: var(--color-bitcoin-orange);
   position: relative;
+  overflow: hidden;
 
   // Dark mode: Keep the orange but slightly darker
   [data-theme="dark"] & {
-    background:
-      linear-gradient(127deg, #d67a15 0%, #e8a940 100%);
+    background: #d67a15;
   }
 
-  // Chaotic torn paper edges overlay
+  // Base gradient layer with stripes breaking through
   &::before {
     content: "";
     position: absolute;
@@ -654,30 +653,124 @@
     right: 0;
     bottom: 0;
     background-image:
-      repeating-linear-gradient(2deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px),
-      repeating-linear-gradient(88deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px);
-    background-size: 4px 4px;
+      // Diagonal stripes
+      repeating-linear-gradient(
+        -47deg,
+        transparent,
+        transparent 80px,
+        rgba(255, 217, 61, 0.4) 80px,
+        rgba(255, 217, 61, 0.4) 160px
+      ),
+      // Crooked horizontal bands
+      repeating-linear-gradient(
+        2deg,
+        var(--color-bitcoin-yellow) 0px,
+        var(--color-bitcoin-yellow) 100px,
+        transparent 100px,
+        transparent 150px,
+        var(--color-comic-yellow) 150px,
+        var(--color-comic-yellow) 220px,
+        transparent 220px,
+        transparent 300px
+      ),
+      // Base gradient
+      linear-gradient(127deg, var(--color-bitcoin-orange) 0%, var(--color-bitcoin-yellow) 100%);
     pointer-events: none;
     z-index: 0;
-    transform: rotate(-0.3deg) scale(1.02);
+
+    [data-theme="dark"] & {
+      background-image:
+        repeating-linear-gradient(
+          -47deg,
+          transparent,
+          transparent 80px,
+          rgba(232, 169, 64, 0.3) 80px,
+          rgba(232, 169, 64, 0.3) 160px
+        ),
+        repeating-linear-gradient(
+          2deg,
+          #e8a940 0px,
+          #e8a940 100px,
+          transparent 100px,
+          transparent 150px,
+          #f4c563 150px,
+          #f4c563 220px,
+          transparent 220px,
+          transparent 300px
+        ),
+        linear-gradient(127deg, #d67a15 0%, #e8a940 100%);
+    }
   }
 
-  // Random splotches and texture
-  &::after {
+  // Halftone pattern overlay
+  .projects-page__intro::before {
     content: "";
     position: absolute;
-    top: 15%;
-    right: 10%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(0,0,0,0.08) 0%, transparent 70%);
-    transform: rotate(25deg);
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background-image:
+      radial-gradient(circle, rgba(0,0,0,0.15) 2px, transparent 2px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    pointer-events: none;
     z-index: 0;
+    transform: rotate(-3deg);
+  }
+
+  // Paint brush strokes - organic shapes
+  .projects-grid::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 300px;
+    height: 200px;
+    background:
+      radial-gradient(ellipse 80% 40% at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,0,0,0.08) 0%, transparent 70%);
+    transform: rotate(-15deg);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(2px);
+  }
+
+  // More brush strokes bottom left
+  .projects-grid::after {
+    content: "";
+    position: absolute;
+    bottom: 15%;
+    left: 8%;
+    width: 250px;
+    height: 180px;
+    background:
+      radial-gradient(ellipse 70% 50% at 40% 60%, rgba(255,255,255,0.25) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 60% at 60% 30%, rgba(0,0,0,0.06) 0%, transparent 70%);
+    transform: rotate(25deg);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(3px);
+  }
+
+  // Pixelated texture overlay
+  .projects-page__intro::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .projects-page__intro {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     transform: rotate(-0.4deg);
   }
 
@@ -711,7 +804,7 @@
 
   .projects-grid {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   // Arcade cabinet frames for game cards

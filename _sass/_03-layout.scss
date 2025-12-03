@@ -175,7 +175,7 @@
   display: none;
 }
 
-// Content Page Layout
+// Content Page Layout - Comic Book Style
 .content-page {
   min-height: 100vh;
   padding: clamp(2.5rem, 6vw, 5rem) clamp(1.75rem, 6vw, 4.25rem);
@@ -183,9 +183,41 @@
   flex-direction: column;
   gap: clamp(2rem, 5vw, 3.5rem);
   background-color: var(--bg-color);
-  opacity: 0;
-  transform: translateY(16px);
-  animation: project-fade-in 0.6s ease forwards 0.1s;
+  opacity: 1;
+  transform: none;
+  position: relative;
+
+  // Halftone background pattern
+  background-image:
+    radial-gradient(circle, var(--grid-dot-color) 1px, transparent 1px);
+  background-size: 16px 16px;
+
+  // Random comic shapes scattered
+  &::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 3%;
+    width: 35px;
+    height: 35px;
+    background: var(--color-bitcoin-yellow);
+    opacity: 0.25;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    z-index: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    width: 45px;
+    height: 45px;
+    background: var(--color-comic-yellow);
+    opacity: 0.2;
+    clip-path: circle(50%);
+    z-index: 0;
+  }
 }
 
 .content-page__header {
@@ -200,12 +232,25 @@
   text-decoration: none;
   color: var(--text-color);
   font-size: clamp(1.4rem, 3vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  border: 1px solid transparent;
-  border-radius: 0.85rem;
-  padding: 0.35rem 0.85rem;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  border: 2px solid transparent;
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-bitcoin-orange);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
 }
 
 .content-page__brand-label {
@@ -217,9 +262,12 @@
 
 .content-page__brand:hover,
 .content-page__brand:focus-visible {
-  color: $brand-color;
-  border-color: rgba(148, 163, 184, 0.35);
+  border-color: var(--text-color);
+  background-color: var(--color-accent);
+  color: white;
   outline: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--text-color);
 }
 
 .content-page__controls {
@@ -239,29 +287,39 @@
 }
 
 .content-page__link {
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   text-transform: lowercase;
   color: var(--text-color);
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
+  padding: 0.4rem 0.9rem;
+  border-radius: 0;
+  border: 2px solid transparent;
   background-color: transparent;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
 }
 
 .content-page__link:hover,
 .content-page__link:focus-visible {
-  border-color: var(--border-color);
-  background-color: rgba(148, 163, 184, 0.12);
-  color: var(--text-color);
+  border-color: var(--text-color);
+  background-color: var(--color-accent);
+  color: white;
   outline: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 var(--text-color);
 }
 
 [data-theme="dark"] .content-page__link:hover,
 [data-theme="dark"] .content-page__link:focus-visible {
-  background-color: rgba(99, 179, 237, 0.15);
+  background-color: var(--color-accent);
+  color: white;
 }
 
 .content-page__body {

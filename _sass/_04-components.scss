@@ -63,20 +63,13 @@
   position: relative;
 
   &::before {
-    content: "₿";
+    content: "";
     position: absolute;
-    top: -2px;
-    left: -2px;
-    font-family: var(--font-mono);
-    font-size: 1.2rem;
-    color: var(--color-bitcoin-orange);
-    line-height: 1;
-    animation: blink 1.5s infinite;
-  }
-
-  @keyframes blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--color-accent);
   }
 
   &:hover {
@@ -171,45 +164,36 @@
   margin-top: 0.4rem;
 }
 
-// BITCOIN AVATAR - Digital gold glow
+// TACTICAL AVATAR - Clean, sharp Valorant style
 .contributions__avatar {
   flex: 0 0 clamp(120px, 28vw, 180px);
   width: clamp(120px, 28vw, 180px);
   height: clamp(120px, 28vw, 180px);
   border-radius: 0;
   overflow: hidden;
-  border: 3px solid var(--color-bitcoin-orange);
-  box-shadow:
-    0 0 10px var(--color-bitcoin-orange),
-    0 0 20px var(--color-bitcoin-orange),
-    6px 6px 0 var(--color-bitcoin-amber);
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0 var(--color-accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--section-surface);
-  transition: none;
+  background: var(--bg-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
 
   &::after {
-    content: "₿";
+    content: "";
     position: absolute;
-    bottom: -3px;
-    right: -3px;
-    font-family: var(--font-mono);
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--bg-color);
-    background: var(--color-bitcoin-orange);
-    padding: 0.1rem 0.4rem;
-    border: 2px solid var(--color-bitcoin-orange);
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--color-accent);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
   }
 
   &:hover {
-    box-shadow:
-      0 0 15px var(--color-bitcoin-gold),
-      0 0 30px var(--color-bitcoin-gold),
-      -6px 6px 0 var(--color-bitcoin-amber);
-    border-color: var(--color-bitcoin-gold);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-accent);
   }
 }
 
@@ -240,25 +224,24 @@
 
 .contributions__title {
   margin: 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: clamp(1.3rem, 3vw, 2rem);
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
   text-transform: lowercase;
-  color: var(--color-bitcoin-orange);
-  margin-bottom: 0.25rem;
+  color: var(--text-color);
+  margin-bottom: 0.4rem;
   display: inline-block;
   position: relative;
 
   &::before {
-    content: "₿ ";
-    color: var(--color-bitcoin-gold);
-  }
-
-  &::after {
-    content: "_";
-    animation: blink 1s infinite;
-    margin-left: 0.1rem;
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--color-accent);
   }
 }
 
@@ -293,38 +276,39 @@
 .contributions__see-more {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  font-family: var(--font-mono);
+  gap: 0.35rem;
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   text-decoration: none;
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1.5rem;
   border-radius: 0;
-  background-color: transparent;
-  color: var(--color-bitcoin-orange);
-  border: 2px solid var(--color-bitcoin-orange);
-  transition: none;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   text-transform: lowercase;
-  letter-spacing: 0.02em;
-  box-shadow: 0 0 10px rgba(247, 147, 26, 0.3);
+  letter-spacing: -0.01em;
+  box-shadow: 0 2px 8px rgba(255, 70, 85, 0.2);
   position: relative;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 
-  &::before {
-    content: ">";
-    margin-right: 0.25rem;
-    color: var(--color-bitcoin-amber);
+  &::after {
+    content: "→";
+    margin-left: 0.2rem;
+    transition: transform 0.15s ease;
   }
 }
 
 .contributions__see-more:hover,
 .contributions__see-more:focus-visible {
   text-decoration: none;
-  background-color: var(--color-bitcoin-orange);
-  color: var(--bg-color);
-  border-color: var(--color-bitcoin-gold);
-  box-shadow:
-    0 0 15px var(--color-bitcoin-orange),
-    0 0 30px var(--color-bitcoin-orange);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 70, 85, 0.3);
+
+  &::after {
+    transform: translateX(2px);
+  }
 }
 
 .contributions__see-more:focus-visible {

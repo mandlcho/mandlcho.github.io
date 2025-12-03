@@ -51,26 +51,26 @@
 
 .landing__brand {
   margin: 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: clamp(2.5rem, 8vw, 5rem);
   line-height: 0.9;
   font-weight: 700;
   text-transform: lowercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   white-space: nowrap;
   flex-shrink: 0;
-  color: var(--color-bitcoin-orange);
-  text-shadow:
-    0 0 10px var(--color-bitcoin-orange),
-    0 0 20px var(--color-bitcoin-orange),
-    0 0 30px var(--color-bitcoin-orange);
+  color: var(--text-color);
   position: relative;
 
-  &::before {
-    content: "₿@";
-    color: var(--color-bitcoin-gold);
-    font-size: 0.6em;
-    margin-right: 0.1em;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    width: 0.15em;
+    height: 0.15em;
+    background: var(--color-accent);
+    transform: rotate(45deg);
   }
 }
 

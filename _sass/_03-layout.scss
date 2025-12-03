@@ -75,6 +75,8 @@
   flex-shrink: 0;
   color: var(--text-color);
   position: relative;
+  // Chaotic crooked rotation
+  transform: rotate(-0.8deg);
 
   // Comic book style accent
   &::after {
@@ -619,12 +621,12 @@
 }
 
 [data-theme="dark"] .project-info {
-  background-color: rgba(148, 163, 184, 0.16);
-  border-color: rgba(148, 163, 184, 0.35);
+  background-color: var(--section-surface);
+  border-color: var(--border-color);
 }
 
 [data-theme="dark"] .project-info__details {
-  color: rgba(226, 232, 240, 0.85);
+  color: var(--muted-text);
 }
 
 .project-info {
@@ -636,6 +638,12 @@
   background:
     linear-gradient(127deg, var(--color-bitcoin-orange) 0%, var(--color-bitcoin-yellow) 100%);
   position: relative;
+
+  // Dark mode: Keep the orange but slightly darker
+  [data-theme="dark"] & {
+    background:
+      linear-gradient(127deg, #d67a15 0%, #e8a940 100%);
+  }
 
   // Chaotic torn paper edges overlay
   &::before {
@@ -680,13 +688,19 @@
   }
 
   .projects-page__title {
-    color: var(--bg-color);
+    color: #1a1a1a;
     font-family: var(--font-mono);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
     transform: rotate(-0.6deg);
     display: inline-block;
+
+    // Ensure readability in dark mode
+    [data-theme="dark"] & {
+      color: #0a0a0a;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.25);
+    }
   }
 
   .projects-page__description {

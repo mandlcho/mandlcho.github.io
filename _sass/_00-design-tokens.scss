@@ -83,23 +83,27 @@
   color-scheme: dark;
 
   // COMIC DARK - Noir style with BTC orange pops
-  --bg-color: #1a1a1a;
-  --text-color: #ece8e1;
-  --muted-text: #8a8a8a;
-  --border-color: #2a2a2a;
+  --bg-color: #0f0f0f;
+  --text-color: #f5f5f5;
+  --muted-text: #a8a8a8;
+  --border-color: #3a3a3a;
   --button-bg: #f7931a;
   --button-text: #ffffff;
-  --section-surface: rgba(247, 147, 26, 0.05);
-  --grid-dot-color: rgba(60, 60, 60, 0.5);
+  --section-surface: rgba(247, 147, 26, 0.08);
+  --grid-dot-color: rgba(80, 80, 80, 0.4);
 
   // Enhanced bitcoin comic accents in dark mode
-  --color-brand: #f7931a;
-  --color-accent: #f7931a;
-  --color-hover-light: rgba(247, 147, 26, 0.12);
-  --color-hover-dark: rgba(247, 147, 26, 0.18);
-  --color-border-subtle: rgba(42, 42, 42, 0.6);
-  --color-border-focus: #ffb347;
-  --color-shadow-sm: rgba(0, 0, 0, 0.3);
-  --color-shadow-md: rgba(0, 0, 0, 0.4);
-  --color-shadow-lg: rgba(0, 0, 0, 0.5);
+  --color-brand: #ffb347;
+  --color-accent: #ffb347;
+  --color-bitcoin-orange: #ffb347;
+  --color-bitcoin-yellow: #ffd93d;
+  --color-bitcoin-dark: #f7931a;
+  --color-comic-yellow: #ffe454;
+  --color-hover-light: rgba(255, 179, 71, 0.15);
+  --color-hover-dark: rgba(255, 179, 71, 0.22);
+  --color-border-subtle: rgba(58, 58, 58, 0.7);
+  --color-border-focus: #ffd93d;
+  --color-shadow-sm: rgba(0, 0, 0, 0.4);
+  --color-shadow-md: rgba(0, 0, 0, 0.5);
+  --color-shadow-lg: rgba(0, 0, 0, 0.6);
 }

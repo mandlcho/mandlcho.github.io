@@ -344,22 +344,30 @@
 
 .projects-page__eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
   color: var(--muted-text);
   margin: 0;
 }
 
 .projects-page__title {
   font-size: clamp(2rem, 4vw, 2.75rem);
+  font-family: var(--font-sans);
+  font-weight: 900;
+  letter-spacing: -0.02em;
   margin: 0;
   line-height: 1.1;
+  text-transform: lowercase;
 }
 
 .projects-page__description {
   margin: 0;
   color: var(--muted-text);
   font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 // Project Page Layout

@@ -109,6 +109,51 @@
   }
 }
 
+// Chaotic crooked variations for landing page cards
+.contributions--about .contributions__body {
+  transform: rotate(-0.4deg);
+  border-width: 3px 2px 4px 3px;
+  box-shadow: 5px 7px 0 var(--color-accent);
+
+  &:hover {
+    transform: rotate(-0.4deg) translate(-2px, -2px);
+    box-shadow: 7px 9px 0 var(--color-accent);
+  }
+}
+
+.contributions--projects .contributions__body {
+  transform: rotate(0.5deg);
+  border-width: 4px 3px 2px 4px;
+  box-shadow: 7px 5px 0 var(--color-accent);
+
+  &:hover {
+    transform: rotate(0.5deg) translate(-2px, -2px);
+    box-shadow: 9px 7px 0 var(--color-accent);
+  }
+}
+
+.contributions--github .contributions__body {
+  transform: rotate(-0.6deg);
+  border-width: 2px 4px 3px 3px;
+  box-shadow: 6px 6px 0 var(--color-accent);
+
+  &:hover {
+    transform: rotate(-0.6deg) translate(-2px, -2px);
+    box-shadow: 8px 8px 0 var(--color-accent);
+  }
+}
+
+.contributions--games .contributions__body {
+  transform: rotate(0.3deg);
+  border-width: 3px 3px 4px 2px;
+  box-shadow: 5px 6px 0 var(--color-accent);
+
+  &:hover {
+    transform: rotate(0.3deg) translate(-2px, -2px);
+    box-shadow: 7px 8px 0 var(--color-accent);
+  }
+}
+
 .contributions--about,
 .contributions--projects,
 .contributions--github,
@@ -629,7 +674,7 @@
   pointer-events: none;
 }
 
-// Project Card
+// Project Card - Chaotic hand-drawn style
 .project-card {
   border: 3px solid var(--text-color);
   border-radius: 0;
@@ -641,7 +686,6 @@
   min-height: 110px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   opacity: 1;
-  transform: none;
   position: relative;
   box-shadow: 4px 4px 0 var(--color-accent);
 
@@ -658,6 +702,43 @@
     background-size: 8px 8px;
     opacity: 0.2;
     pointer-events: none;
+  }
+
+  // Chaotic variations - each card slightly crooked
+  &:nth-child(3n+1) {
+    transform: rotate(-0.5deg);
+    border-width: 2px 4px 3px 3px;
+    box-shadow: 5px 3px 0 var(--color-accent);
+  }
+
+  &:nth-child(3n+2) {
+    transform: rotate(0.7deg);
+    border-width: 3px 3px 4px 2px;
+    box-shadow: 3px 5px 0 var(--color-accent);
+  }
+
+  &:nth-child(3n) {
+    transform: rotate(-0.3deg);
+    border-width: 4px 2px 3px 4px;
+    box-shadow: 6px 4px 0 var(--color-accent);
+  }
+
+  &:nth-child(5n+1) {
+    border-width: 3px 4px 2px 3px;
+  }
+
+  &:nth-child(5n+2) {
+    border-width: 2px 3px 4px 3px;
+  }
+
+  &:nth-child(7n+3) {
+    transform: rotate(0.4deg);
+    box-shadow: 4px 6px 0 var(--color-accent);
+  }
+
+  &:nth-child(7n+4) {
+    transform: rotate(-0.6deg);
+    box-shadow: 6px 3px 0 var(--color-accent);
   }
 }
 
@@ -691,8 +772,31 @@
 
 .project-card:hover,
 .project-card:focus-within {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--color-accent);
+  // Preserve rotation on hover, add movement
+  &:nth-child(3n+1) {
+    transform: rotate(-0.5deg) translate(-2px, -2px);
+    box-shadow: 7px 5px 0 var(--color-accent);
+  }
+
+  &:nth-child(3n+2) {
+    transform: rotate(0.7deg) translate(-2px, -2px);
+    box-shadow: 5px 7px 0 var(--color-accent);
+  }
+
+  &:nth-child(3n) {
+    transform: rotate(-0.3deg) translate(-2px, -2px);
+    box-shadow: 8px 6px 0 var(--color-accent);
+  }
+
+  &:nth-child(7n+3) {
+    transform: rotate(0.4deg) translate(-2px, -2px);
+    box-shadow: 6px 8px 0 var(--color-accent);
+  }
+
+  &:nth-child(7n+4) {
+    transform: rotate(-0.6deg) translate(-2px, -2px);
+    box-shadow: 8px 5px 0 var(--color-accent);
+  }
 }
 
 .project-card__header {

@@ -15,7 +15,8 @@
       const cardCenter = rect.top + rect.height / 2;
       const distance = (cardCenter - centerY) / centerY;
       const clamped = Math.max(-1, Math.min(1, distance));
-      const offset = clamped * 10; // subtle translate range in px
+      const depth = parseFloat(card.getAttribute("data-parallax-depth")) || 16;
+      const offset = clamped * depth; // translate range in px
 
       card.style.setProperty("--parallax-offset", `${offset}px`);
     });

@@ -1,7 +1,7 @@
 ---
 layout: landing
 title: "Mandl Cho"
-hero_title: "MANDLCHO"
+hero_title: "Mandl Cho"
 description: "Developer, experimenter, chronic tinkerer."
 ---
 
@@ -66,19 +66,18 @@ description: "Developer, experimenter, chronic tinkerer."
   </div>
 </section>
 
-<section class="contributions">
+<section class="contributions contributions--games">
   <div class="contributions__body">
-    <h2 class="contributions__title">github contributions</h2>
-    <p class="contributions__description">
-      Live snapshot of my latest activity across repositories.
-    </p>
-    <div class="contributions__graph">
-      <img
-        id="github-contributions"
-        data-base-src="https://ghchart.rshah.org/mandlcho"
-        alt="GitHub contributions calendar for mandlcho"
-        loading="lazy"
-      />
+    <h2 class="contributions__title">games</h2>
+    <div class="games-gallery">
+      <div class="games-gallery__column">
+        <img
+          class="games-gallery__image"
+          src="{{ '/images/Screenshot 2025-11-07 at 12.52.02 AM.png' | relative_url }}"
+          alt="Latest gameplay screenshot preview"
+          loading="lazy"
+        />
+      </div>
     </div>
   </div>
 </section>
@@ -106,6 +105,23 @@ description: "Developer, experimenter, chronic tinkerer."
   </div>
 </section>
 
+<section class="contributions">
+  <div class="contributions__body">
+    <h2 class="contributions__title">github contributions</h2>
+    <p class="contributions__description">
+      Live snapshot of my latest activity across repositories.
+    </p>
+    <div class="contributions__graph">
+      <img
+        id="github-contributions"
+        data-base-src="https://ghchart.rshah.org/mandlcho"
+        alt="GitHub contributions calendar for mandlcho"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
 <script defer>
   document.addEventListener("DOMContentLoaded", () => {
     const chart = document.getElementById("github-contributions");
@@ -117,19 +133,3 @@ description: "Developer, experimenter, chronic tinkerer."
     }
   });
 </script>
-
-<section class="contributions contributions--games">
-  <div class="contributions__body">
-    <h2 class="contributions__title">games</h2>
-    <div class="games-gallery">
-      <div class="games-gallery__column">
-        <img
-          class="games-gallery__image"
-          src="{{ '/images/Screenshot 2025-11-07 at 12.52.02 AM.png' | relative_url }}"
-          alt="Latest gameplay screenshot preview"
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </div>
-</section>

@@ -1,10 +1,8 @@
----
 layout: landing
-title: bitcoin
-hero_title: bitcoin
+title: Bitcoin
+hero_title: Bitcoin
 description: "Notes, references, and the sats calculator I’m tinkering on."
 permalink: /bitcoin/
----
 
 <section class="bitcoin-section bitcoin-section--intro">
   <div class="bitcoin-card">

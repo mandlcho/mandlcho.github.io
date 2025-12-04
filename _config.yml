@@ -1,4 +1,4 @@
-title: MANDLCHO
+title: Mandl Cho
 description: Personal blog and project notes
 url: "" # Set to your domain, e.g. https://mandlcho.github.io
 baseurl: "" # Leave empty for user/organization GitHub Pages
@@ -8,7 +8,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-brand: MANDLCHO
+brand: Mandl Cho
 
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/

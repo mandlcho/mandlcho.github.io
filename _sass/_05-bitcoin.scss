@@ -15,15 +15,35 @@
 
 .bitcoin-card {
   padding: clamp(1.75rem, 4vw, 2.25rem);
-  border-radius: 1.5rem;
-  border: 1px solid var(--border-color);
-  background: var(--section-surface);
+  border-radius: 0;
+  border: 3px solid var(--text-color);
+  background: var(--bg-color);
   max-width: 760px;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
-  --parallax-offset: 0px;
-  transform: translate3d(0, var(--parallax-offset, 0px), 0);
-  transition: transform 0.3s ease;
+  box-shadow: 6px 6px 0 var(--color-accent);
+  position: relative;
+  transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.4deg);
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
   will-change: transform;
+  --parallax-offset: 0px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 46px;
+    height: 46px;
+    background: radial-gradient(circle, var(--color-bitcoin-yellow) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.4deg) translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--color-accent);
+  }
 }
 
 .bitcoin-card h2 {
@@ -70,16 +90,33 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 1.75rem;
-  border-radius: 1.25rem;
-  border: 1px solid var(--border-color);
-  background: linear-gradient(120deg, rgba(99, 179, 237, 0.15), rgba(15, 23, 42, 0.05));
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+  border-radius: 0;
+  border: 3px solid var(--text-color);
+  background: linear-gradient(120deg, rgba(99, 179, 237, 0.2), rgba(15, 23, 42, 0.06));
+  box-shadow: 6px 6px 0 var(--color-accent);
   gap: 1rem;
   flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
   --parallax-offset: 0px;
-  transform: translate3d(0, var(--parallax-offset, 0px), 0);
-  transition: transform 0.3s ease;
+  transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.35deg);
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
   will-change: transform;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border: 2px dashed var(--color-bitcoin-yellow);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.35deg) translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--color-accent);
+  }
 }
 
 .btc-price-banner__details {
@@ -162,16 +199,37 @@
   width: min(420px, 100%);
   margin: 0 auto;
   padding: 2rem;
-  border-radius: 28px;
+  border-radius: 0;
   background: var(--card-light);
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+  box-shadow: 6px 6px 0 var(--color-accent);
+  border: 3px solid var(--text-color);
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
   --parallax-offset: 0px;
-  transform: translate3d(0, var(--parallax-offset, 0px), 0);
-  transition: transform 0.3s ease;
+  position: relative;
+  transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.25deg);
+  transition: transform 0.3s ease, box-shadow 0.2s ease;
   will-change: transform;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 42px;
+    height: 42px;
+    background: radial-gradient(circle, var(--color-bitcoin-yellow) 1.5px, transparent 1.5px);
+    background-size: 8px 8px;
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus-within {
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.25deg) translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--color-accent);
+  }
 }
 
 .sats-calculator[data-theme="dark"] .app-card {

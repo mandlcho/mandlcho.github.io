@@ -1,7 +1,7 @@
 ---
 layout: landing
-title: projects
-hero_title: Mandl Cho
+title: Projects
+hero_title: Projects
 description: "Selected builds, kept in high signal snapshots."
 permalink: /projects/
 page_class: projects-page-panels

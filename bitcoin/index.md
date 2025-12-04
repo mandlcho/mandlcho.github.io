@@ -1,11 +1,13 @@
+---
 layout: landing
 title: Bitcoin
 hero_title: Bitcoin
 description: "Notes, references, and the sats calculator I’m tinkering on."
 permalink: /bitcoin/
+---
 
 <section class="bitcoin-section bitcoin-section--intro">
-  <div class="bitcoin-card">
+  <div class="bitcoin-card" data-parallax-card>
     <p class="bitcoin-card__eyebrow">orientation</p>
     <h2>What is bitcoin?</h2>
     <p>
@@ -19,6 +21,7 @@ permalink: /bitcoin/
 <section class="bitcoin-section bitcoin-section--price">
   <div
     class="btc-price-banner"
+    data-parallax-card
     data-btc-price
     data-endpoint="{{ '/assets/data/btc-usd.json' | relative_url }}"
   >
@@ -51,7 +54,7 @@ permalink: /bitcoin/
     <p class="bitcoin-section__meta">Rates from CryptoCompare · Flags via flagsapi.com</p>
   </div>
   <div class="sats-calculator" data-theme="light">
-    <div class="app-card">
+    <div class="app-card" data-parallax-card>
       <header class="app-header">
         <h3>Sats Calculator</h3>
         <div class="header-meta">

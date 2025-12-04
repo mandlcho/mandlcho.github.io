@@ -1,5 +1,7 @@
 (function () {
-  const cards = Array.from(document.querySelectorAll(".project-card"));
+  const cards = Array.from(
+    document.querySelectorAll(".project-card, [data-parallax-card]")
+  );
   if (!cards.length) return;
 
   let ticking = false;

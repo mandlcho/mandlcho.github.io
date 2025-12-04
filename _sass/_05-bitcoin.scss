@@ -20,6 +20,10 @@
   background: var(--section-surface);
   max-width: 760px;
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  --parallax-offset: 0px;
+  transform: translate3d(0, var(--parallax-offset, 0px), 0);
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .bitcoin-card h2 {
@@ -72,6 +76,10 @@
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
   gap: 1rem;
   flex-wrap: wrap;
+  --parallax-offset: 0px;
+  transform: translate3d(0, var(--parallax-offset, 0px), 0);
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .btc-price-banner__details {
@@ -160,6 +168,10 @@
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+  --parallax-offset: 0px;
+  transform: translate3d(0, var(--parallax-offset, 0px), 0);
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .sats-calculator[data-theme="dark"] .app-card {

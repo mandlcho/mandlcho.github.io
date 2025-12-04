@@ -1,6 +1,7 @@
 ---
 layout: landing
-title: "MANDLCHO // RAW"
+title: "Home"
+hero_title: "MANDLCHO"
 description: "Developer, experimenter, chronic tinkerer."
 ---
 
@@ -57,7 +58,7 @@ description: "Developer, experimenter, chronic tinkerer."
       <span class="contributions__avatar contributions__avatar--about">
         <img
           src="{{ '/images/profile_pic.png' | relative_url }}"
-          alt="Portrait of {{ site.title }}"
+          alt="Portrait of {{ site.brand | default: site.title }}"
           loading="lazy"
         />
       </span>

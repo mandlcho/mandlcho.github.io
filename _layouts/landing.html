@@ -12,6 +12,12 @@ layout: null
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     {%- seo -%}
+    <script>
+      (function () {
+        var pageTitle = {{ page.title | default: site.brand | default: site.title | jsonify }};
+        if (pageTitle) document.title = pageTitle;
+      })();
+    </script>
     <link
       rel="icon"
       href="{{ '/images/bitcoin-favicon.svg' | relative_url }}"
@@ -25,7 +31,7 @@ layout: null
       <header class="landing__header">
         <div class="landing__header-inner">
           <h1 class="landing__brand">
-            {{ page.hero_title | default: page.title | default: site.title }}
+            {{ page.hero_title | default: page.title | default: site.brand | default: site.title }}
           </h1>
           <div class="landing__controls">
             {% include site-nav.html %}

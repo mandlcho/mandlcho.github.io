@@ -1,4 +1,4 @@
-title: MANDLCHO // RAW
+title: MANDLCHO
 description: Personal blog and project notes
 url: "" # Set to your domain, e.g. https://mandlcho.github.io
 baseurl: "" # Leave empty for user/organization GitHub Pages
@@ -7,6 +7,8 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+brand: MANDLCHO
 
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/

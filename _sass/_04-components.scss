@@ -747,6 +747,8 @@
   opacity: 1;
   position: relative;
   box-shadow: 4px 4px 0 var(--color-accent);
+  --parallax-offset: 0px;
+  will-change: transform;
 
   // Mobile: ensure cards don't overflow
   @media (max-width: 768px) {
@@ -777,37 +779,37 @@
 
   // Chaotic variations - each card slightly crooked
   &:nth-child(3n+1) {
-    transform: rotate(-0.5deg);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.5deg);
     border-width: 2px 4px 3px 3px;
     box-shadow: 5px 3px 0 var(--color-accent);
 
     // Mobile: reduce rotation and simplify
     @media (max-width: 768px) {
-      transform: rotate(-0.2deg);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.2deg);
       border-width: 3px;
       box-shadow: 4px 4px 0 var(--color-accent);
     }
   }
 
   &:nth-child(3n+2) {
-    transform: rotate(0.7deg);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.7deg);
     border-width: 3px 3px 4px 2px;
     box-shadow: 3px 5px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(0.2deg);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.2deg);
       border-width: 3px;
       box-shadow: 4px 4px 0 var(--color-accent);
     }
   }
 
   &:nth-child(3n) {
-    transform: rotate(-0.3deg);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.3deg);
     border-width: 4px 2px 3px 4px;
     box-shadow: 6px 4px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(-0.1deg);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.1deg);
       border-width: 3px;
       box-shadow: 4px 4px 0 var(--color-accent);
     }
@@ -830,21 +832,21 @@
   }
 
   &:nth-child(7n+3) {
-    transform: rotate(0.4deg);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.4deg);
     box-shadow: 4px 6px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(0.1deg);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.1deg);
       box-shadow: 4px 4px 0 var(--color-accent);
     }
   }
 
   &:nth-child(7n+4) {
-    transform: rotate(-0.6deg);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.6deg);
     box-shadow: 6px 3px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(-0.2deg);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.2deg);
       box-shadow: 4px 4px 0 var(--color-accent);
     }
   }
@@ -882,51 +884,51 @@
 .project-card:focus-within {
   // Preserve rotation on hover, add movement
   &:nth-child(3n+1) {
-    transform: rotate(-0.5deg) translate(-2px, -2px);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.5deg) translate(-2px, -2px);
     box-shadow: 7px 5px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(-0.2deg) translate(-1px, -1px);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.2deg) translate(-1px, -1px);
       box-shadow: 5px 5px 0 var(--color-accent);
     }
   }
 
   &:nth-child(3n+2) {
-    transform: rotate(0.7deg) translate(-2px, -2px);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.7deg) translate(-2px, -2px);
     box-shadow: 5px 7px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(0.2deg) translate(-1px, -1px);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.2deg) translate(-1px, -1px);
       box-shadow: 5px 5px 0 var(--color-accent);
     }
   }
 
   &:nth-child(3n) {
-    transform: rotate(-0.3deg) translate(-2px, -2px);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.3deg) translate(-2px, -2px);
     box-shadow: 8px 6px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(-0.1deg) translate(-1px, -1px);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.1deg) translate(-1px, -1px);
       box-shadow: 5px 5px 0 var(--color-accent);
     }
   }
 
   &:nth-child(7n+3) {
-    transform: rotate(0.4deg) translate(-2px, -2px);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.4deg) translate(-2px, -2px);
     box-shadow: 6px 8px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(0.1deg) translate(-1px, -1px);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(0.1deg) translate(-1px, -1px);
       box-shadow: 5px 5px 0 var(--color-accent);
     }
   }
 
   &:nth-child(7n+4) {
-    transform: rotate(-0.6deg) translate(-2px, -2px);
+    transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.6deg) translate(-2px, -2px);
     box-shadow: 8px 5px 0 var(--color-accent);
 
     @media (max-width: 768px) {
-      transform: rotate(-0.2deg) translate(-1px, -1px);
+      transform: translate3d(0, var(--parallax-offset, 0px), 0) rotate(-0.2deg) translate(-1px, -1px);
       box-shadow: 5px 5px 0 var(--color-accent);
     }
   }

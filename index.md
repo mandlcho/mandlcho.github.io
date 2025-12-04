@@ -1,6 +1,6 @@
 ---
 layout: landing
-title: "Home"
+title: "Mandl Cho"
 hero_title: "MANDLCHO"
 description: "Developer, experimenter, chronic tinkerer."
 ---

@@ -1,6 +1,6 @@
 ---
 layout: landing
-title: "Mandl Cho"
+title: "MANDLCHO // RAW"
 description: "Developer, experimenter, chronic tinkerer."
 ---
 

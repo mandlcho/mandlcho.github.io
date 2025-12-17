@@ -248,20 +248,31 @@
     const GITHUB_TIMEOUT_MS = 10000;
     const videoToggles = Array.from(document.querySelectorAll("[data-video-toggle]"));
 
-    function extractVimeoId(url) {
+    function extractVideoInfo(url) {
       if (!url) return null;
       try {
         const parsed = new URL(url, window.location.origin);
-        const segments = parsed.pathname.split("/").filter(Boolean);
-        const videoIndex = segments.findIndex(part => part.toLowerCase() === "video");
-        const candidate =
-          videoIndex >= 0 ? segments[videoIndex + 1] : segments[segments.length - 1];
-        const cleaned = (candidate || "").split("?")[0].split("#")[0];
-        return /^\d+$/.test(cleaned) ? cleaned : null;
+        const host = parsed.hostname.toLowerCase();
+        const pathParts = parsed.pathname.split("/").filter(Boolean);
+        if (host.includes("vimeo.com")) {
+          const videoIndex = pathParts.findIndex(part => part.toLowerCase() === "video");
+          const candidate = videoIndex >= 0 ? pathParts[videoIndex + 1] : pathParts[pathParts.length - 1];
+          const cleaned = (candidate || "").split("?")[0].split("#")[0];
+          return /^\d+$/.test(cleaned) ? { type: "vimeo", id: cleaned } : null;
+        }
+        if (host.includes("youtube.com") || host.includes("youtu.be")) {
+          let id = parsed.searchParams.get("v");
+          if (!id && pathParts.length) {
+            id = pathParts[pathParts.length - 1];
+          }
+          id = (id || "").split("?")[0].split("#")[0];
+          return id ? { type: "youtube", id } : null;
+        }
       } catch (error) {
-        console.warn("[games] Unable to parse Vimeo URL", error);
+        console.warn("[games] Unable to parse video URL", error);
         return null;
       }
+      return null;
     }
 
     function attachVideoPanels() {
@@ -275,28 +286,41 @@
         function loadVideo() {
           if (panel.dataset.videoLoaded === "true") return;
           const videoUrl = panel.dataset.vimeoUrl;
-          const vimeoId = extractVimeoId(videoUrl);
-          if (!vimeoId) {
+          const info = extractVideoInfo(videoUrl);
+          if (!info) {
             window.open(videoUrl, "_blank", "noopener,noreferrer");
             return;
           }
-          const params = new URLSearchParams({
-            autoplay: "1",
-            muted: "1",
-            title: "0",
-            byline: "0",
-            portrait: "0",
-            playsinline: "1",
-            dnt: "1",
-            autopause: "1",
-          });
           const iframe = document.createElement("iframe");
-          iframe.src = `https://player.vimeo.com/video/${vimeoId}?${params.toString()}`;
-          iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
           iframe.setAttribute("allowfullscreen", "");
           iframe.setAttribute("loading", "lazy");
           iframe.setAttribute("title", panel.dataset.videoTitle || "Gameplay reel");
           iframe.className = "project-card__video-iframe";
+
+          if (info.type === "youtube") {
+            const params = new URLSearchParams({
+              autoplay: "1",
+              mute: "1",
+              rel: "0",
+              playsinline: "1",
+            });
+            iframe.src = `https://www.youtube-nocookie.com/embed/${info.id}?${params.toString()}`;
+            iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+          } else if (info.type === "vimeo") {
+            const params = new URLSearchParams({
+              autoplay: "1",
+              muted: "1",
+              title: "0",
+              byline: "0",
+              portrait: "0",
+              playsinline: "1",
+              dnt: "1",
+              autopause: "1",
+            });
+            iframe.src = `https://player.vimeo.com/video/${info.id}?${params.toString()}`;
+            iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+          }
+
           frame.innerHTML = "";
           frame.appendChild(iframe);
           panel.dataset.videoLoaded = "true";

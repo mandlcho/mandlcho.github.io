@@ -66,28 +66,9 @@
   data-language-normalized="{{ project_language_value | downcase | escape }}"
   data-type="{{ project_type | downcase | escape }}"
 >
-  {% if has_video or project_image %}
-    <figure
-      class="project-card__media{% if has_video %} project-card__media--video{% endif %}"
-      {% if has_video %}data-vimeo-url="{{ project_video_url | escape }}" data-video-title="{{ item.name | default: section_title | escape }}"{% endif %}
-    >
-      {% if has_video %}
-        <button
-          class="video-lite"
-          type="button"
-          data-vimeo-trigger
-          aria-label="Play {{ item.name | default: section_title | escape }}"
-        >
-          {% if project_image %}
-            <img class="video-lite__poster" src="{{ project_image }}" alt="{{ image_alt }}" loading="lazy" />
-          {% endif %}
-          <span class="video-lite__scrim" aria-hidden="true"></span>
-          <span class="video-lite__label" aria-hidden="true">Play</span>
-          <span class="video-lite__hint" aria-hidden="true">Watch demo</span>
-        </button>
-      {% elsif project_image %}
-        <img src="{{ project_image }}" alt="{{ image_alt }}" loading="lazy" />
-      {% endif %}
+  {% if project_image %}
+    <figure class="project-card__media">
+      <img src="{{ project_image }}" alt="{{ image_alt }}" loading="lazy" />
     </figure>
   {% endif %}
   <header class="project-card__header">
@@ -130,6 +111,21 @@
             <p class="project-card__summary">
               {{ item.summary }}
             </p>
+          {% endif %}
+
+          {% if has_video %}
+            <div class="project-card__actions">
+              <button
+                class="project-card__action project-card__action--video"
+                type="button"
+                data-video-url="{{ project_video_url | escape }}"
+                data-video-title="{{ item.name | default: section_title | escape }}"
+                aria-label="Watch reel for {{ item.name | default: section_title | escape }}"
+              >
+                <span class="project-card__action-icon" aria-hidden="true">▶</span>
+                <span>Watch reel</span>
+              </button>
+            </div>
           {% endif %}
 
           {% assign has_footer = show_language or repo %}
@@ -240,7 +236,7 @@
       "X-GitHub-Api-Version": "2022-11-28",
     };
     const GITHUB_TIMEOUT_MS = 10000;
-    const vimeoMedia = Array.from(document.querySelectorAll(".project-card__media--video"));
+    const videoButtons = Array.from(document.querySelectorAll("[data-video-url]"));
 
     function extractVimeoId(url) {
       if (!url) return null;
@@ -258,63 +254,87 @@
       }
     }
 
-    function attachVimeoEmbed(mediaEl) {
-      const trigger = mediaEl.querySelector("[data-vimeo-trigger]");
-      const videoUrl = mediaEl.dataset.vimeoUrl;
-      if (!trigger || !videoUrl) return;
+    function createOverlay() {
+      const overlay = document.createElement("div");
+      overlay.className = "video-overlay";
+      overlay.setAttribute("role", "dialog");
+      overlay.setAttribute("aria-modal", "true");
+      overlay.setAttribute("aria-label", "Video player");
+      overlay.hidden = true;
+      overlay.innerHTML = `
+        <div class="video-overlay__backdrop" data-video-close></div>
+        <div class="video-overlay__dialog">
+          <button class="video-overlay__close" type="button" data-video-close aria-label="Close video">✕</button>
+          <div class="video-overlay__player" data-video-frame></div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+      return overlay;
+    }
 
-      const reduceMotionQuery = window.matchMedia
-        ? window.matchMedia("(prefers-reduced-motion: reduce)")
-        : null;
-      const autoplayPreferred = !(reduceMotionQuery && reduceMotionQuery.matches);
-      const videoTitle = mediaEl.dataset.videoTitle || "Gameplay video";
+    const videoOverlay = videoButtons.length > 0 ? createOverlay() : null;
 
-      function loadVideo() {
-        if (mediaEl.dataset.videoLoaded === "true") return;
-        const vimeoId = extractVimeoId(videoUrl);
-        if (!vimeoId) {
-          window.open(videoUrl, "_blank", "noopener,noreferrer");
-          return;
-        }
-
-        const params = new URLSearchParams({
-          autoplay: autoplayPreferred ? "1" : "0",
-          muted: "1",
-          title: "0",
-          byline: "0",
-          portrait: "0",
-          playsinline: "1",
-          dnt: "1",
-          autopause: "1",
-        });
-
-        const iframe = document.createElement("iframe");
-        iframe.src = `https://player.vimeo.com/video/${vimeoId}?${params.toString()}`;
-        iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
-        iframe.setAttribute("allowfullscreen", "");
-        iframe.setAttribute("loading", "lazy");
-        iframe.setAttribute("title", videoTitle);
-        iframe.className = "video-lite__iframe";
-
-        mediaEl.dataset.videoLoaded = "true";
-        mediaEl.classList.add("is-playing");
-        mediaEl.innerHTML = "";
-        mediaEl.appendChild(iframe);
+    function closeOverlay() {
+      if (!videoOverlay) return;
+      const frame = videoOverlay.querySelector("[data-video-frame]");
+      if (frame) {
+        frame.innerHTML = "";
       }
+      videoOverlay.hidden = true;
+      document.body.classList.remove("is-video-open");
+    }
 
-      trigger.addEventListener("click", event => {
-        event.preventDefault();
-        loadVideo();
+    function openOverlay(url, title) {
+      if (!videoOverlay) return;
+      const frame = videoOverlay.querySelector("[data-video-frame]");
+      const vimeoId = extractVimeoId(url);
+      if (!vimeoId) {
+        window.open(url, "_blank", "noopener,noreferrer");
+        return;
+      }
+      const params = new URLSearchParams({
+        autoplay: "1",
+        muted: "1",
+        title: "0",
+        byline: "0",
+        portrait: "0",
+        playsinline: "1",
+        dnt: "1",
+        autopause: "1",
       });
-      trigger.addEventListener("keydown", event => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          loadVideo();
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://player.vimeo.com/video/${vimeoId}?${params.toString()}`;
+      iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.setAttribute("loading", "lazy");
+      iframe.setAttribute("title", title || "Gameplay reel");
+      iframe.className = "video-overlay__iframe";
+      frame.innerHTML = "";
+      frame.appendChild(iframe);
+      videoOverlay.hidden = false;
+      document.body.classList.add("is-video-open");
+    }
+
+    if (videoOverlay) {
+      videoOverlay.addEventListener("click", event => {
+        if (event.target.matches("[data-video-close]")) {
+          closeOverlay();
+        }
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !videoOverlay.hidden) {
+          closeOverlay();
         }
       });
     }
 
-    vimeoMedia.forEach(attachVimeoEmbed);
+    videoButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const url = button.dataset.videoUrl;
+        const title = button.dataset.videoTitle;
+        openOverlay(url, title);
+      });
+    });
 
     // "Show build log" toggle
     projectCards.forEach(function (card) {

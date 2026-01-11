@@ -1,6 +1,6 @@
 - name: Monster Hunter (collab missions)
   url: https://www.monsterhunter.com/
-  summary: "Supported limited-time crossover hunts—encounter tuning, loot tables, and UX flows for onboarding squads."
+  summary: "Designed limited-time crossover hunts with dynamic difficulty scaling for 1-4 player squads. Tuned monster behavior trees, balanced loot drop tables with weighted rarities, and streamlined matchmaking flows for seamless co-op onboarding."
   status: Unreleased
   language_label: Encounter Design
   language_color: "#a855f7"
@@ -10,7 +10,7 @@
 
 - name: Assassin's Creed Valhalla
   url: https://www.ubisoft.com/en-us/game/assassins-creed/valhalla
-  summary: "Led Viking settlement events and combat polish for post-launch festivals, keeping live ops drops tightly scoped."
+  summary: "Designed recurring settlement festivals with timed activities, mini-game integrations, and progression reward tracks. Polished combat feedback systems for melee hit reactions and implemented data-driven live ops content pipelines for seasonal drops."
   status: Shipped
   language_label: Live Ops Design
   language_color: "#0ea5e9"
@@ -20,7 +20,7 @@
 
 - name: Assassin's Creed Origins
   url: https://www.ubisoft.com/en-us/game/assassins-creed/origins
-  summary: "Mission ownership across Memphis region—quest scripting, boss encounters, and stealth sandboxes tuned for the new combat loop."
+  summary: "Owned Memphis region missions end-to-end: scripted branching quests with objective tracking, designed multi-phase boss encounters with telegraphed attack patterns, and built stealth sandboxes with AI patrol routes optimized for the hitbox-based combat system."
   status: Shipped
   language_label: Narrative Systems
   language_color: "#f97316"
@@ -30,7 +30,7 @@
 
 - name: Skull and Bones
   url: https://www.ubisoft.com/en-us/game/skull-and-bones
-  summary: "Prototyped ship progression beats and seasonal contracts, balancing progression pacing with PvP risk."
+  summary: "Prototyped ship upgrade progression with tiered unlock gates and resource sinks. Designed seasonal contract systems with dynamic objectives and risk-reward modifiers that balanced PvE grind pacing against open-world PvP threat zones."
   status: Shipped
   language_label: Systems Design
   language_color: "#10b981"

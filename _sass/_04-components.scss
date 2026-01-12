@@ -893,6 +893,102 @@
   }
 }
 
+// Gaussian Splat Viewer Integration
+.project-card__media.has-splat-viewer {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 300px;
+
+  img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
+
+.splat-viewer__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: transparent;
+
+  // Comic book frame accent
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-comic-yellow);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    z-index: 3;
+    pointer-events: none;
+  }
+}
+
+.splat-viewer__loader {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color-comic-yellow);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  // Loading animation - pulsing halftone dots
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, var(--color-comic-yellow) 2px, transparent 2px);
+    background-size: 10px 10px;
+    opacity: 0.3;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  span {
+    position: relative;
+    z-index: 4;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+// Dark theme adjustments
+[data-theme="dark"] .splat-viewer__loader {
+  background: rgba(15, 15, 15, 0.8);
+  color: var(--color-bitcoin-yellow);
+}
+
+// Mobile optimizations
+@media (max-width: 768px) {
+  .project-card__media.has-splat-viewer {
+    min-height: 200px;
+  }
+
+  .splat-viewer__loader {
+    font-size: 0.75rem;
+  }
+}
+
 .project-card__video {
   margin-top: 0.75rem;
   border: 2px solid var(--text-color);

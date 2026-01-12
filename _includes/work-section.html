@@ -67,7 +67,7 @@
   data-type="{{ project_type | downcase | escape }}"
 >
   {% if project_image %}
-    <figure class="project-card__media">
+    <figure class="project-card__media"{% if item.splat_model %} data-splat-model="{{ item.splat_model | relative_url }}"{% endif %}>
       <img src="{{ project_image }}" alt="{{ image_alt }}" loading="lazy" />
     </figure>
   {% endif %}

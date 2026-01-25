@@ -1,49 +1,83 @@
 # mandlcho.github.io
 
-GitHub Pages blog powered by Jekyll and the minima theme.
+A GitHub Pages site (Jekyll + minima) for publishing notes, experiments, and long-form writeups.
 
-## Local development
+## Problem
 
-> Always run `bundle install` (or `bundle update` when you need fresh gems) followed by `bundle exec jekyll build` after pulling changes so the site and dependencies stay in sync.
+Publishing technical notes and project updates often becomes documentation debt when the workflow is slow or brittle. This repo is the source of truth for a low-friction, versioned publishing pipeline.
 
-1. Ensure you have Ruby (>= 3.0 recommended) and Bundler installed.
-2. Install dependencies:
+## Who it’s for
 
-   ```bash
-   bundle install
-   ```
+- Readers who want updates, writeups, and references
+- Maintainers/contributors who want a simple workflow for adding posts and pages
 
-3. Run the development server with livereload so changes rebuild automatically:
+## Goals
 
-   ```bash
-   bundle exec jekyll serve --livereload
-   ```
+- Keep publishing lightweight (write Markdown → push to `main`)
+- Ensure local preview matches production (GitHub Pages build)
+- Keep the site stable and fast to build
 
-4. Open <http://localhost:4000> to preview changes. The site will reload when you edit files.
+## Success metrics
 
-5. Before committing, rebuild to catch issues:
+- Time to publish a post: < 5 minutes after writing
+- Pages build success rate: ~100% on `main`
+- No broken internal links or missing assets after merges
 
-   ```bash
-   bundle exec jekyll build
-   bundle exec jekyll doctor
-   ```
+## Scope
+
+- Jekyll site content and theme config
+- Posts under `_posts/`
+- Static pages, assets, and site metadata
+
+## Non-goals
+
+- Building a custom CMS or admin UI
+- Complex theme customization beyond what’s needed for readability
+- Heavy client-side JS features
+
+## Constraints / assumptions
+
+- GitHub Pages runs the production build
+- Ruby/Bundler required for local development
+- Keep dependencies compatible with GitHub Pages’ supported Jekyll ecosystem
+
+## How to run locally
+
+Prereqs: Ruby (>= 3.0 recommended) + Bundler
+
+```bash
+bundle install
+bundle exec jekyll serve --livereload
+```
+
+Open http://localhost:4000
+
+Before committing:
+
+```bash
+bundle exec jekyll build
+bundle exec jekyll doctor
+```
 
 ## Publishing
 
-Push changes to the `main` branch and GitHub Pages will rebuild the site automatically.
-
+Push to `main` and GitHub Pages will rebuild automatically.
 
 ## Creating a post
 
-1. Add a new Markdown file under `_posts/` named `YYYY-MM-DD-your-title.md`.
-2. Include YAML front matter similar to:
+1. Add a Markdown file under `_posts/` named `YYYY-MM-DD-your-title.md`
+2. Include front matter:
 
-   ```markdown
-   ---
-   layout: post
-   title: "My Post Title"
-   description: Optional short summary
-   ---
-   ```
+```md
+---
+layout: post
+title: "My Post Title"
+description: Optional short summary
+---
+```
 
-3. Write your content using Markdown.
+## Roadmap
+
+- Add a lightweight content checklist (front matter conventions, image sizing, link hygiene)
+- Add CI checks: `jekyll build` + `jekyll doctor` on PRs
+- Optional: add a “Now” page / project index for navigation

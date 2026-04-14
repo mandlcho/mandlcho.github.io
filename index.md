@@ -16,17 +16,17 @@ description: "Sr Technical Animator at Tencent, Singapore."
 </section>
 
 <section class="work-grid">
-  <a class="work-card work-card--placeholder" href="#" style="background-color: #de0f66;">
-    <span class="work-card__label">Project 01</span>
+  <a class="work-card" href="#" style="background-color: #FECE4E;">
+    <span class="work-card__label" style="color: #0a0a14;">Project 01</span>
   </a>
-  <a class="work-card work-card--placeholder" href="#" style="background-color: #0ea5e9;">
-    <span class="work-card__label">Project 02</span>
+  <a class="work-card" href="#" style="background-color: #29DAB6;">
+    <span class="work-card__label" style="color: #0a0a14;">Project 02</span>
   </a>
-  <a class="work-card work-card--placeholder" href="#" style="background-color: #f97316;">
-    <span class="work-card__label">Project 03</span>
+  <a class="work-card" href="#" style="background-color: #FCA9D1;">
+    <span class="work-card__label" style="color: #0a0a14;">Project 03</span>
   </a>
-  <a class="work-card work-card--placeholder" href="#" style="background-color: #10b981;">
-    <span class="work-card__label">Project 04</span>
+  <a class="work-card" href="#" style="background-color: #DBDBE9;">
+    <span class="work-card__label" style="color: #0a0a14;">Project 04</span>
   </a>
 </section>
 

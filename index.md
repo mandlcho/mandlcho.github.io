@@ -9,10 +9,10 @@ description: "Sr Technical Animator at Tencent, Singapore."
   <div class="hero__text">
     <div class="hero__composition">
       <span class="hero__line hero__line--huge">I'm Mandl</span>
-      <span class="hero__line hero__line--sub">a AI-enthusiast,</span>
+      <span class="hero__line hero__line--sub">an AI enthusiast —</span>
       <span class="hero__line hero__line--mid">technical animator by day,</span>
       <span class="hero__line hero__line--mid">builder by night.</span>
-      <span class="hero__line hero__line--accent">chasing playful systems.</span>
+      <span class="hero__line hero__line--accent">always chasing playful systems.</span>
     </div>
     <p class="hero__previous">Previously at Ubisoft.</p>
   </div>

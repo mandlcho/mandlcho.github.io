@@ -25,13 +25,12 @@
 
 .hero__image {
   margin-top: 2.5rem;
-  max-width: 200px;
 
   img {
-    width: 100%;
-    height: auto;
     display: block;
-    border-radius: 50%;
+    height: auto;
+    max-height: 320px;
+    width: auto;
   }
 }
 

@@ -1,6 +1,140 @@
 // Components — Clean Minimal
 
-// Contributions Section (homepage sections)
+// Landing intro line
+.landing__intro {
+  font-size: var(--text-lg);
+  color: var(--muted-text);
+  margin: 0;
+  font-weight: 400;
+}
+
+// Work Grid — image-forward portfolio
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.work-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 16 / 10;
+  background: var(--section-surface);
+  text-decoration: none;
+
+  &:hover .work-card__image,
+  &:focus-visible .work-card__image {
+    transform: scale(1.03);
+  }
+
+  &:hover .work-card__overlay,
+  &:focus-visible .work-card__overlay {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+.work-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.work-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-5);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.work-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: var(--leading-tight);
+}
+
+.work-card__role {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.25rem;
+}
+
+// "View all projects" link
+.landing__more {
+  display: flex;
+  justify-content: center;
+}
+
+.landing__more-link {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-brand);
+  text-decoration: none;
+  transition: color var(--duration-base) ease;
+
+  &::after {
+    content: " \2192";
+    transition: transform var(--duration-base) ease;
+    display: inline-block;
+  }
+
+  &:hover {
+    color: var(--color-accent-hover);
+
+    &::after {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// Site footer
+.landing__site-footer {
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border-color);
+}
+
+.landing__footer-links {
+  display: flex;
+  gap: var(--space-5);
+  justify-content: center;
+
+  a {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--muted-text);
+    text-decoration: none;
+    transition: color var(--duration-base) ease;
+
+    &:hover {
+      color: var(--text-color);
+    }
+  }
+}
+
+// Contributions Section (homepage sections — kept for projects/games pages)
 .contributions {
   width: 100%;
   margin: 0;

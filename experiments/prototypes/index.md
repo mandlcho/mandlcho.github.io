@@ -1,4 +1,5 @@
 ---
+published: false
 layout: landing
 title: games
 hero_title: games

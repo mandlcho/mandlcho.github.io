@@ -1,48 +1,64 @@
 // Components — Clean Minimal
 
-// Hero Section
+// Hero Section — text left, portrait right
 .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 4vw, 4rem);
   padding: clamp(2rem, 5vw, 5.33rem) 0 clamp(3rem, 6vw, 7.78rem);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .hero__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero__intro {
   font-family: var(--font-sans);
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 400;
   line-height: 1.6;
   color: var(--text-color);
   margin: 0;
-  max-width: 720px;
 }
 
 .hero__previous {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   color: var(--muted-text);
-  margin: 1.5rem 0 0;
+  margin: 1rem 0 0;
   font-weight: 400;
 }
 
 .hero__image {
-  margin-top: 2.5rem;
+  flex-shrink: 0;
 
   img {
     display: block;
     height: auto;
-    max-height: 320px;
+    max-height: 360px;
     width: auto;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      max-height: 280px;
+    }
   }
 }
 
-// Work Section — masonry-style project grid
-.work-section {
-  padding: clamp(2rem, 4vw, 5.33rem) 0;
-}
-
-.work-masonry {
+// Work Grid — 2x2 project panels
+.work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1rem, 2vw, 1.875rem);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(2rem, 4vw, 5.33rem) 0;
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
@@ -50,20 +66,21 @@
 }
 
 .work-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  transition: box-shadow 0.3s ease;
-  border-radius: var(--radius-md);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  padding: var(--space-5);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 
   &:hover,
   &:focus-visible {
-    box-shadow: 0 1.33rem 2.78rem rgba(0, 0, 0, 0.04);
-  }
-
-  &:hover .work-card__image {
-    transform: scale(1.005);
+    box-shadow: 0 1.33rem 2.78rem rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
   }
 
   &:focus-visible {
@@ -72,30 +89,40 @@
   }
 }
 
-.work-card__image-wrap {
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  background: var(--section-surface);
-}
-
-.work-card__image {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.work-card__info {
-  padding: 1rem 0.25rem 0.5rem;
-}
-
-.work-card__title {
+.work-card__label {
   font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-color);
-  margin: 0;
-  line-height: var(--leading-normal);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: #fff;
+}
+
+// Site Footer — social icons
+.site-footer {
+  padding: clamp(3rem, 6vw, 5.33rem) 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.site-footer__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+
+  a {
+    color: var(--muted-text);
+    text-decoration: none;
+    transition: color var(--duration-base) ease;
+    display: inline-flex;
+
+    &:hover {
+      color: var(--text-color);
+    }
+
+    svg {
+      display: block;
+    }
+  }
 }
 
 .work-card__role {

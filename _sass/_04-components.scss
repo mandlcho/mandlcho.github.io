@@ -23,9 +23,10 @@
 .hero__composition {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: 0;
+  position: relative;
 }
 
 .hero__line {
@@ -33,34 +34,39 @@
   font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   color: var(--text-color);
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
 .hero__line--huge {
   font-size: clamp(4.5rem, 10vw, 7.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  margin-bottom: 0.15em;
+  margin-bottom: 0.1em;
+  align-self: flex-start;
 }
 
 .hero__line--sub {
-  font-size: clamp(1.5rem, 3.3vw, 2rem);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
   font-weight: 400;
   color: var(--muted-text);
-  margin-bottom: 0.6em;
+  margin-bottom: 0.7em;
+  align-self: flex-start;
+  padding-left: 0.15em;
 }
 
 .hero__line--mid {
   font-size: clamp(2.1rem, 4.8vw, 3.3rem);
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.2;
+  align-self: flex-end;
 }
 
 .hero__line--accent {
   font-size: clamp(1.65rem, 3.75vw, 2.25rem);
   font-weight: 400;
   color: var(--color-brand);
-  margin-top: 0.5em;
+  margin-top: 0.6em;
+  align-self: center;
 }
 
 .hero__previous {

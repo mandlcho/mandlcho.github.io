@@ -19,18 +19,15 @@
   min-width: 0;
 }
 
-.hero__intro {
-  font-family: var(--font-serif);
+p.hero__intro,
+p.hero__intro em {
+  font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.25rem, 2.8vw, 1.75rem);
   font-weight: 400;
   font-style: italic;
   line-height: 1.5;
   color: var(--text-color);
   margin: 0;
-
-  em {
-    font-style: italic;
-  }
 }
 
 .hero__previous {

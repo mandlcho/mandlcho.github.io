@@ -11,8 +11,11 @@
 }
 
 .landing__header {
-  width: min(100%, 1080px);
+  width: min(100%, 1410px);
   margin: 0 auto;
+  height: 6.89rem;
+  display: flex;
+  align-items: center;
 }
 
 .landing__header-inner {
@@ -26,10 +29,10 @@
 .landing__brand {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3.56rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--text-color);
 }
 
@@ -57,11 +60,12 @@
 
 .landing__link {
   font-family: var(--font-sans);
-  font-size: var(--text-sm);
+  font-size: 0.78rem;
   font-weight: 500;
-  color: var(--muted-text);
-  padding: 0.4rem 0.75rem;
-  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+  padding: 0.4rem 1.56rem;
   background-color: transparent;
   border: none;
   transition: color var(--duration-base) ease;
@@ -73,7 +77,7 @@
 
   &:hover,
   &:focus-visible {
-    color: var(--text-color);
+    color: var(--color-brand);
     text-decoration: none;
     outline: none;
   }
@@ -85,10 +89,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  width: min(100%, 1080px);
+  width: min(100%, 1410px);
   margin: 0 auto;
-  padding: var(--space-6) 0;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 0;
+  gap: 0;
   opacity: 0;
   transform: translateY(12px);
   animation: fade-in 0.6s ease forwards 0.1s;
@@ -158,11 +162,12 @@
 
 .content-page__link {
   font-family: var(--font-sans);
-  font-size: var(--text-sm);
+  font-size: 0.78rem;
   font-weight: 500;
-  color: var(--muted-text);
-  padding: 0.4rem 0.75rem;
-  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+  padding: 0.4rem 1.56rem;
   background-color: transparent;
   border: none;
   transition: color var(--duration-base) ease;
@@ -174,7 +179,7 @@
 
   &:hover,
   &:focus-visible {
-    color: var(--text-color);
+    color: var(--color-brand);
     text-decoration: none;
     outline: none;
   }

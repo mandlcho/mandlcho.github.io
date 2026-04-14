@@ -1,32 +1,49 @@
 // Components — Clean Minimal
 
-// Hero intro
+// Hero Section
 .hero {
+  padding: clamp(2rem, 5vw, 5.33rem) 0 clamp(3rem, 6vw, 7.78rem);
+}
+
+.hero__text {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
   max-width: 720px;
 }
 
-.hero__heading {
-  font-family: var(--font-serif);
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: var(--text-color);
-  margin: 0;
-}
-
-.hero__sub {
+.hero__previous {
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   color: var(--muted-text);
-  margin: 0.75rem 0 0;
+  margin: 1.5rem 0 0;
   font-weight: 400;
 }
 
-// Work Grid — image-forward portfolio
-.work-grid {
+.hero__image {
+  margin-top: 2.5rem;
+  max-width: 200px;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+  }
+}
+
+// Work Section — masonry-style project grid
+.work-section {
+  padding: clamp(2rem, 4vw, 5.33rem) 0;
+}
+
+.work-masonry {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1rem, 2vw, 1.5rem);
+  gap: clamp(1rem, 2vw, 1.875rem);
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
@@ -34,22 +51,20 @@
 }
 
 .work-card {
-  position: relative;
   display: block;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  aspect-ratio: 16 / 10;
-  background: var(--section-surface);
   text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.3s ease;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 
-  &:hover .work-card__image,
-  &:focus-visible .work-card__image {
-    transform: scale(1.03);
+  &:hover,
+  &:focus-visible {
+    box-shadow: 0 1.33rem 2.78rem rgba(0, 0, 0, 0.04);
   }
 
-  &:hover .work-card__overlay,
-  &:focus-visible .work-card__overlay {
-    opacity: 1;
+  &:hover .work-card__image {
+    transform: scale(1.005);
   }
 
   &:focus-visible {
@@ -58,92 +73,95 @@
   }
 }
 
-.work-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
+.work-card__image-wrap {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--section-surface);
 }
 
-.work-card__overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: var(--space-5);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.work-card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.work-card__info {
+  padding: 1rem 0.25rem 0.5rem;
 }
 
 .work-card__title {
-  font-family: var(--font-serif);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
   margin: 0;
-  line-height: var(--leading-tight);
+  line-height: var(--leading-normal);
 }
 
 .work-card__role {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 0.25rem;
+  color: var(--muted-text);
+  margin-top: 0.15rem;
+  display: block;
 }
 
-// "View all projects" link
-.landing__more {
-  display: flex;
-  justify-content: center;
+// Connect / Footer Section
+.connect {
+  padding: clamp(3rem, 6vw, 5.33rem) 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
 }
 
-.landing__more-link {
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  font-weight: 600;
+.connect__heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.connect__text {
+  font-size: var(--text-base);
+  color: var(--muted-text);
+  margin: 0.75rem 0 0;
+}
+
+.connect__email {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: var(--text-base);
+  font-weight: 500;
   color: var(--color-brand);
   text-decoration: none;
   transition: color var(--duration-base) ease;
 
-  &::after {
-    content: " \2192";
-    transition: transform var(--duration-base) ease;
-    display: inline-block;
-  }
-
   &:hover {
     color: var(--color-accent-hover);
-
-    &::after {
-      transform: translateX(3px);
-    }
   }
 }
 
-// Site footer
-.landing__site-footer {
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--border-color);
-}
-
-.landing__footer-links {
+.connect__social {
   display: flex;
-  gap: var(--space-5);
   justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
 
   a {
-    font-size: var(--text-sm);
-    font-weight: 500;
     color: var(--muted-text);
     text-decoration: none;
     transition: color var(--duration-base) ease;
+    display: inline-flex;
 
     &:hover {
-      color: var(--text-color);
+      color: var(--color-brand);
+    }
+
+    img, svg {
+      display: block;
     }
   }
 }

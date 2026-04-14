@@ -1,109 +1,54 @@
-// Design Tokens
-// CSS Custom Properties for consistent theming
+// Design Tokens — Clean Minimal
 
 :root {
-  color-scheme: light;
+  --bg-color: #ffffff;
+  --text-color: #0a0a14;
+  --muted-text: #999999;
+  --border-color: #e5e5e5;
+  --section-surface: #fafafa;
 
-  // COMIC BOOK BITCOIN - Graphic novel with BTC orange
-  --bg-color: #fafafa;
-  --text-color: #1a1a1a;
-  --muted-text: #6a6a6a;
-  --border-color: #e8e8e8;
-  --button-bg: #f7931a;
-  --button-text: #ffffff;
-  --section-surface: rgba(247, 147, 26, 0.02);
-  --grid-dot-color: rgba(200, 200, 200, 0.3);
+  --color-brand: #de0f66;
+  --color-accent: #de0f66;
+  --color-accent-hover: #af0c48;
 
-  // BITCOIN COMIC COLORS - Orange/yellow graphic novel vibes
-  --color-brand: #f7931a;
-  --color-accent: #f7931a;
-  --color-bitcoin-orange: #f7931a;
-  --color-bitcoin-yellow: #ffb347;
-  --color-bitcoin-dark: #cc7a15;
-  --color-comic-yellow: #ffd93d;
-  --color-hover-light: rgba(247, 147, 26, 0.08);
-  --color-hover-dark: rgba(247, 147, 26, 0.12);
-  --color-border-subtle: rgba(26, 26, 26, 0.1);
-  --color-border-focus: #f7931a;
-  --color-shadow-sm: rgba(26, 26, 26, 0.08);
-  --color-shadow-md: rgba(26, 26, 26, 0.12);
-  --color-shadow-lg: rgba(26, 26, 26, 0.16);
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, sans-serif;
 
-  // TYPOGRAPHY CHAOS - Mix sans/mono brutally
-  --font-sans: "IBM Plex Sans", -apple-system, sans-serif;
-  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 5rem;
+  --space-16: 6rem;
+  --space-section: clamp(3rem, 6vw, 5.33rem);
 
-  // COMPRESSED SPACING - Brutalist density
-  --space-1: 0.15rem;
-  --space-2: 0.35rem;
-  --space-3: 0.5rem;
-  --space-4: 0.75rem;
-  --space-5: 1rem;
-  --space-6: 1.15rem;
-  --space-7: 1.35rem;
-  --space-8: 1.5rem;
-  --space-10: 1.85rem;
-  --space-12: 2.25rem;
-  --space-16: 3rem;
-  --space-20: 3.75rem;
-  --space-section: clamp(0.85rem, 3vw, 1.25rem);
-  --space-card: clamp(0.65rem, 2vw, 0.95rem);
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: clamp(1.5rem, 3vw, 2.22rem);
+  --text-3xl: clamp(2rem, 4vw, 3rem);
+  --text-4xl: clamp(2.5rem, 6vw, 3.56rem);
 
-  // NEW: Typography scale
-  --text-xs: clamp(0.75rem, 1.5vw, 0.8rem);
-  --text-sm: clamp(0.85rem, 1.7vw, 0.9rem);
-  --text-base: clamp(0.95rem, 1.8vw, 1rem);
-  --text-xl: clamp(1.2rem, 2.5vw, 1.4rem);
-  --text-2xl: clamp(1.6rem, 3.2vw, 2.1rem);
-  --text-3xl: clamp(2rem, 4vw, 2.75rem);
-  --text-4xl: clamp(2.75rem, 6vw, 3.75rem);
-  --leading-tight: 1.1;
-  --leading-normal: 1.45;
-  --leading-relaxed: 1.55;
-  --font-medium: 500;
-  --font-semibold: 600;
+  --leading-tight: 1.15;
+  --leading-normal: 1.44;
+  --leading-relaxed: 1.6;
 
-  // BRUTALIST SHARP - No smooth curves
-  --radius-md: 2px;
-  --radius-lg: 3px;
-  --radius-xl: 4px;
-  --radius-full: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 
-  // NEW: Shadows
-  --shadow-md: 0 10px 30px var(--color-shadow-md);
-  --shadow-lg: 0 20px 40px var(--color-shadow-lg);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 1.33rem 2.78rem rgba(0, 0, 0, 0.04);
 
-  // NEW: Transitions
   --duration-base: 0.2s;
   --duration-slow: 0.3s;
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-theme="dark"] {
-  color-scheme: dark;
-
-  // COMIC DARK - Noir style with BTC orange pops
-  --bg-color: #0f0f0f;
-  --text-color: #f5f5f5;
-  --muted-text: #a8a8a8;
-  --border-color: #3a3a3a;
-  --button-bg: #f7931a;
-  --button-text: #ffffff;
-  --section-surface: rgba(247, 147, 26, 0.08);
-  --grid-dot-color: rgba(80, 80, 80, 0.4);
-
-  // Enhanced bitcoin comic accents in dark mode
-  --color-brand: #ffb347;
-  --color-accent: #ffb347;
-  --color-bitcoin-orange: #ffb347;
-  --color-bitcoin-yellow: #ffd93d;
-  --color-bitcoin-dark: #f7931a;
-  --color-comic-yellow: #ffe454;
-  --color-hover-light: rgba(255, 179, 71, 0.15);
-  --color-hover-dark: rgba(255, 179, 71, 0.22);
-  --color-border-subtle: rgba(58, 58, 58, 0.7);
-  --color-border-focus: #ffd93d;
-  --color-shadow-sm: rgba(0, 0, 0, 0.4);
-  --color-shadow-md: rgba(0, 0, 0, 0.5);
-  --color-shadow-lg: rgba(0, 0, 0, 0.6);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }

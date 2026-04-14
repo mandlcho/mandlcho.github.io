@@ -1,53 +1,13 @@
-// Layout
-// Page structure and layout components
+// Layout — Clean Minimal
 
-// Landing Page Layout
+// Landing Page
 .landing {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 0.75rem 0.85rem;
+  padding: var(--space-6) clamp(1.5rem, 6vw, 6.67rem);
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color);
-  gap: 0.65rem;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  position: relative;
-  transition: none;
-  opacity: 1;
-  transform: none;
-
-  /* COMIC BOOK GRID - Halftone pattern */
-  background-image:
-    radial-gradient(circle, var(--grid-dot-color) 1px, transparent 1px);
-  background-size: 16px 16px;
-
-  // Random comic shapes scattered
-  &::before {
-    content: "";
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    width: 40px;
-    height: 40px;
-    background: var(--color-comic-yellow);
-    opacity: 0.3;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    z-index: 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 15%;
-    left: 8%;
-    width: 50px;
-    height: 50px;
-    background: var(--color-bitcoin-orange);
-    opacity: 0.2;
-    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-    z-index: 0;
-  }
 }
 
 .landing__header {
@@ -65,35 +25,12 @@
 
 .landing__brand {
   margin: 0;
-  font-family: var(--font-sans);
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  line-height: 0.9;
-  font-weight: 900;
-  text-transform: lowercase;
-  letter-spacing: -0.03em;
-  white-space: nowrap;
-  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.56rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--text-color);
-  position: relative;
-  // Chaotic crooked rotation
-  transform: rotate(-0.8deg);
-
-  // Comic book style accent
-  &::after {
-    content: "";
-    position: absolute;
-    top: -0.1em;
-    right: -0.3em;
-    width: 0.25em;
-    height: 0.25em;
-    background: var(--color-accent);
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-  }
-
-  // Halftone shadow effect
-  text-shadow:
-    3px 3px 0 var(--color-accent),
-    3px 3px 0 var(--color-accent);
 }
 
 .landing__controls {
@@ -108,104 +45,38 @@
 .landing__nav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(0.55rem, 1.8vw, 0.85rem);
+  gap: clamp(0.25rem, 1.5vw, 0.5rem);
   min-width: 0;
   flex-wrap: nowrap;
-}
-
-.landing__nav::-webkit-scrollbar {
-  display: none;
-}
-
-.landing__nav {
   scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .landing__link {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-transform: lowercase;
-  color: var(--text-color);
-  padding: 0.4rem 0.9rem;
-  border-radius: 0;
-  border: 2px solid transparent;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--muted-text);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
   background-color: transparent;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  border: none;
+  transition: color var(--duration-base) ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  position: relative;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  text-decoration: none;
 
-  // Chaotic crooked nav items
-  &:nth-child(1) {
-    transform: rotate(-1.2deg);
-    border-width: 2px 3px 2px 2px;
+  &:hover,
+  &:focus-visible {
+    color: var(--text-color);
+    text-decoration: none;
+    outline: none;
   }
-
-  &:nth-child(2) {
-    transform: rotate(0.8deg);
-    border-width: 3px 2px 2px 3px;
-  }
-
-  &:nth-child(3) {
-    transform: rotate(-0.5deg);
-    border-width: 2px 2px 3px 2px;
-  }
-
-  &:nth-child(4) {
-    transform: rotate(1.1deg);
-    border-width: 2px 3px 2px 3px;
-  }
-
-  &:nth-child(5) {
-    transform: rotate(-0.9deg);
-    border-width: 3px 2px 3px 2px;
-  }
-}
-
-.landing__link:hover,
-.landing__link:focus-visible {
-  border-color: var(--text-color);
-  background-color: var(--color-accent);
-  color: white;
-  outline: none;
-  box-shadow: 2px 2px 0 var(--text-color);
-
-  &:nth-child(1) {
-    transform: rotate(-1.2deg) translate(-1px, -1px);
-    box-shadow: 3px 3px 0 var(--text-color);
-  }
-
-  &:nth-child(2) {
-    transform: rotate(0.8deg) translate(-1px, -1px);
-    box-shadow: 2px 3px 0 var(--text-color);
-  }
-
-  &:nth-child(3) {
-    transform: rotate(-0.5deg) translate(-1px, -1px);
-    box-shadow: 3px 2px 0 var(--text-color);
-  }
-
-  &:nth-child(4) {
-    transform: rotate(1.1deg) translate(-1px, -1px);
-    box-shadow: 2px 3px 0 var(--text-color);
-  }
-
-  &:nth-child(5) {
-    transform: rotate(-0.9deg) translate(-1px, -1px);
-    box-shadow: 3px 2px 0 var(--text-color);
-  }
-}
-
-[data-theme="dark"] .landing__link:hover,
-[data-theme="dark"] .landing__link:focus-visible {
-  background-color: var(--color-accent);
-  color: white;
 }
 
 .landing__content {
@@ -216,8 +87,8 @@
   align-items: stretch;
   width: min(100%, 1080px);
   margin: 0 auto;
-  padding: 2rem 0;
-  gap: clamp(1.5rem, 5vw, 2.5rem);
+  padding: var(--space-8) 0;
+  gap: var(--space-section);
   opacity: 0;
   transform: translateY(12px);
   animation: fade-in 0.6s ease forwards 0.1s;
@@ -227,49 +98,14 @@
   display: none;
 }
 
-// Content Page Layout - Comic Book Style
+// Content Page (used by page.html)
 .content-page {
   min-height: 100vh;
-  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.75rem, 6vw, 4.25rem);
+  padding: var(--space-6) clamp(1.5rem, 6vw, 6.67rem);
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 5vw, 3.5rem);
+  gap: var(--space-8);
   background-color: var(--bg-color);
-  opacity: 1;
-  transform: none;
-  position: relative;
-
-  // Halftone background pattern
-  background-image:
-    radial-gradient(circle, var(--grid-dot-color) 1px, transparent 1px);
-  background-size: 16px 16px;
-
-  // Random comic shapes scattered
-  &::before {
-    content: "";
-    position: absolute;
-    top: 15%;
-    left: 3%;
-    width: 35px;
-    height: 35px;
-    background: var(--color-bitcoin-yellow);
-    opacity: 0.25;
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-    z-index: 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 20%;
-    right: 5%;
-    width: 45px;
-    height: 45px;
-    background: var(--color-comic-yellow);
-    opacity: 0.2;
-    clip-path: circle(50%);
-    z-index: 0;
-  }
 }
 
 .content-page__header {
@@ -283,25 +119,18 @@
 .content-page__brand {
   text-decoration: none;
   color: var(--text-color);
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
-  font-weight: 900;
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
   letter-spacing: -0.02em;
-  border: 2px solid transparent;
-  border-radius: 0;
-  padding: 0.5rem 1rem;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-  position: relative;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  padding: 0.5rem 0;
+  transition: color var(--duration-base) ease;
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: -3px;
-    right: -3px;
-    width: 10px;
-    height: 10px;
-    background: var(--color-bitcoin-orange);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  &:hover,
+  &:focus-visible {
+    color: var(--color-brand);
+    text-decoration: none;
+    outline: none;
   }
 }
 
@@ -309,17 +138,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  text-transform: lowercase;
-}
-
-.content-page__brand:hover,
-.content-page__brand:focus-visible {
-  border-color: var(--text-color);
-  background-color: var(--color-accent);
-  color: white;
-  outline: none;
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0 var(--text-color);
 }
 
 .content-page__controls {
@@ -334,94 +152,32 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: clamp(0.45rem, 2vw, 0.85rem);
+  gap: clamp(0.25rem, 1.5vw, 0.5rem);
   flex-wrap: wrap;
 }
 
 .content-page__link {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-transform: lowercase;
-  color: var(--text-color);
-  padding: 0.4rem 0.9rem;
-  border-radius: 0;
-  border: 2px solid transparent;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--muted-text);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
   background-color: transparent;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  border: none;
+  transition: color var(--duration-base) ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  position: relative;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  text-decoration: none;
 
-  // Chaotic crooked nav items
-  &:nth-child(1) {
-    transform: rotate(-1.2deg);
-    border-width: 2px 3px 2px 2px;
+  &:hover,
+  &:focus-visible {
+    color: var(--text-color);
+    text-decoration: none;
+    outline: none;
   }
-
-  &:nth-child(2) {
-    transform: rotate(0.8deg);
-    border-width: 3px 2px 2px 3px;
-  }
-
-  &:nth-child(3) {
-    transform: rotate(-0.5deg);
-    border-width: 2px 2px 3px 2px;
-  }
-
-  &:nth-child(4) {
-    transform: rotate(1.1deg);
-    border-width: 2px 3px 2px 3px;
-  }
-
-  &:nth-child(5) {
-    transform: rotate(-0.9deg);
-    border-width: 3px 2px 3px 2px;
-  }
-}
-
-.content-page__link:hover,
-.content-page__link:focus-visible {
-  border-color: var(--text-color);
-  background-color: var(--color-accent);
-  color: white;
-  outline: none;
-  box-shadow: 2px 2px 0 var(--text-color);
-
-  &:nth-child(1) {
-    transform: rotate(-1.2deg) translate(-1px, -1px);
-    box-shadow: 3px 3px 0 var(--text-color);
-  }
-
-  &:nth-child(2) {
-    transform: rotate(0.8deg) translate(-1px, -1px);
-    box-shadow: 2px 3px 0 var(--text-color);
-  }
-
-  &:nth-child(3) {
-    transform: rotate(-0.5deg) translate(-1px, -1px);
-    box-shadow: 3px 2px 0 var(--text-color);
-  }
-
-  &:nth-child(4) {
-    transform: rotate(1.1deg) translate(-1px, -1px);
-    box-shadow: 2px 3px 0 var(--text-color);
-  }
-
-  &:nth-child(5) {
-    transform: rotate(-0.9deg) translate(-1px, -1px);
-    box-shadow: 3px 2px 0 var(--text-color);
-  }
-}
-
-[data-theme="dark"] .content-page__link:hover,
-[data-theme="dark"] .content-page__link:focus-visible {
-  background-color: var(--color-accent);
-  color: white;
 }
 
 .content-page__body {
@@ -429,20 +185,13 @@
   width: min(100%, 920px);
 }
 
-// Projects Page Layout
+// Projects Page
 .projects-page {
-  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
+  padding: var(--space-section) clamp(1.25rem, 4vw, 2.5rem);
   display: flex;
   flex-direction: column;
   gap: clamp(2rem, 4vw, 3rem);
   background-color: var(--bg-color);
-  overflow-x: hidden;
-
-  // Mobile: reduce padding to prevent overflow
-  @media (max-width: 768px) {
-    padding: 2rem 1rem;
-    gap: 2rem;
-  }
 }
 
 .projects-page__intro {
@@ -454,48 +203,41 @@
 .projects-page__eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  font-size: 0.75rem;
-  font-weight: 700;
-  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  font-family: var(--font-sans);
   color: var(--muted-text);
   margin: 0;
-  transform: rotate(-0.8deg);
-  display: inline-block;
 }
 
 .projects-page__title {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-family: var(--font-sans);
-  font-weight: 900;
+  font-size: var(--text-3xl);
+  font-family: var(--font-serif);
+  font-weight: 700;
   letter-spacing: -0.02em;
   margin: 0;
-  line-height: 1.1;
-  text-transform: lowercase;
-  transform: rotate(0.5deg);
-  display: inline-block;
+  line-height: var(--leading-tight);
 }
 
 .projects-page__description {
   margin: 0;
   color: var(--muted-text);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  transform: rotate(-0.3deg);
-  display: inline-block;
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
 }
 
-// Project Page Layout
+// Project Detail Page
 .project-page {
   min-height: 100vh;
-  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 6vw, 6rem);
+  padding: var(--space-6) clamp(1.5rem, 6vw, 6rem);
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 5vw, 3.5rem);
+  gap: var(--space-8);
   background-color: var(--bg-color);
   opacity: 0;
-  transform: translateY(16px);
-  animation: project-fade-in 0.6s ease forwards 0.15s;
+  transform: translateY(12px);
+  animation: fade-in 0.6s ease forwards 0.15s;
 }
 
 .project-page__header {
@@ -515,8 +257,14 @@
   width: 2.5rem;
   height: 2.5rem;
   border: 1px solid transparent;
-  border-radius: 0.75rem;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  border-radius: var(--radius-lg);
+  transition: border-color var(--duration-base) ease, color var(--duration-base) ease;
+
+  &:hover,
+  &:focus {
+    color: var(--color-brand);
+    border-color: var(--border-color);
+  }
 }
 
 .project-page__home-icon {
@@ -526,38 +274,32 @@
   fill: currentColor;
 }
 
-.project-page__content > h1:first-of-type {
-  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
-  letter-spacing: -0.01em;
-  margin-bottom: clamp(1.5rem, 3vw, 2rem);
-}
-
-.project-page__home:hover,
-.project-page__home:focus {
-  color: $brand-color;
-  border-color: rgba(148, 163, 184, 0.35);
-}
-
 .project-page__content {
   flex: 1;
   max-width: 960px;
-}
 
-.project-page__content > :first-child {
-  margin-top: 0;
+  > h1:first-of-type {
+    font-size: var(--text-2xl);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-6);
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
 }
 
 .project-info {
   border: 1px solid var(--border-color);
-  border-radius: 1rem;
-  padding: clamp(1.5rem, 3vw, 2rem);
-  background-color: rgba(148, 163, 184, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  background-color: var(--section-surface);
   display: grid;
-  gap: clamp(1rem, 2.5vw, 1.5rem);
+  gap: var(--space-4);
 }
 
 .project-info__title {
-  font-size: 0.8rem;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--muted-text);
@@ -565,26 +307,25 @@
 }
 
 .project-info__lede {
-  font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+  font-size: var(--text-base);
   margin: 0;
 }
 
 .project-info__details {
   display: grid;
   gap: 0.75rem;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: var(--muted-text);
-}
 
-.project-info__details p,
-.project-info__details ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  p, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-.project-info__details li {
-  margin: 0;
+  li {
+    margin: 0;
+  }
 }
 
 .project-info__header {
@@ -595,7 +336,7 @@
 }
 
 .project-meta {
-  font-size: 0.8rem;
+  font-size: var(--text-xs);
   color: var(--muted-text);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -614,476 +355,43 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--text-color);
-  padding: 0.2rem 0;
 }
 
 .project-language__swatch {
-  width: 0.85rem;
-  height: 0.85rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 50%;
   background-color: var(--lang-color, rgba(148, 163, 184, 0.6));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
-[data-theme="dark"] .project-info {
-  background-color: var(--section-surface);
-  border-color: var(--border-color);
-}
-
-[data-theme="dark"] .project-info__details {
-  color: var(--muted-text);
-}
-
-.project-info {
-  padding: 1.5rem;
-}
-
-// GAMES PAGE - Chaotic Arcade Cabinet Style with Orange Background
+// Games Page
 .projects-page--games {
-  background: var(--color-bitcoin-orange);
-  position: relative;
-  overflow: visible;
-
-  // Dark mode: Keep the orange but slightly darker
-  [data-theme="dark"] & {
-    background: #d67a15;
-  }
-
-  // Random white shapes breaking LEFT edge - scattered top to bottom
-  .projects-page__eyebrow::before {
-    content: "";
-    position: absolute;
-    top: -35px;
-    left: -40px;
-    width: 75px;
-    height: 75px;
-    background: white;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    transform: rotate(35deg);
-    z-index: -1;
-
-    [data-theme="dark"] & {
-      background: var(--bg-color);
-    }
-  }
-
-  .projects-page__description::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: -30px;
-    width: 55px;
-    height: 55px;
-    background: white;
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-    transform: rotate(-25deg);
-    z-index: -1;
-
-    [data-theme="dark"] & {
-      background: var(--bg-color);
-    }
-  }
-
-  // Random white shapes breaking RIGHT edge - scattered
-  .projects-page__title::before {
-    content: "";
-    position: absolute;
-    top: -30px;
-    right: -45px;
-    width: 80px;
-    height: 80px;
-    background: white;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    transform: rotate(-15deg);
-    z-index: -1;
-
-    [data-theme="dark"] & {
-      background: var(--bg-color);
-    }
-  }
-
-  .projects-page__title::after {
-    content: "";
-    position: absolute;
-    bottom: -25px;
-    right: -35px;
-    width: 65px;
-    height: 65px;
-    background: white;
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-    transform: rotate(40deg);
-    z-index: -1;
-
-    [data-theme="dark"] & {
-      background: var(--bg-color);
-    }
-  }
-
-  // Additional shapes on grid sides
   .projects-grid {
-    // Left side shapes - mid section
-    &::before {
-      content: "";
-      position: absolute;
-      top: 35%;
-      left: -35px;
-      width: 70px;
-      height: 70px;
-      background: white;
-      clip-path: circle(50%);
-      z-index: -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
 
-      [data-theme="dark"] & {
-        background: var(--bg-color);
-      }
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
-
-    // Right side shapes - mid section
-    &::after {
-      content: "";
-      position: absolute;
-      top: 55%;
-      right: -40px;
-      width: 85px;
-      height: 85px;
-      background: white;
-      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-      transform: rotate(-25deg);
-      z-index: -1;
-
-      [data-theme="dark"] & {
-        background: var(--bg-color);
-      }
-    }
-  }
-
-  // Base gradient layer with stripes breaking through
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-      // Diagonal stripes
-      repeating-linear-gradient(
-        -47deg,
-        transparent,
-        transparent 80px,
-        rgba(255, 217, 61, 0.4) 80px,
-        rgba(255, 217, 61, 0.4) 160px
-      ),
-      // Crooked horizontal bands
-      repeating-linear-gradient(
-        2deg,
-        var(--color-bitcoin-yellow) 0px,
-        var(--color-bitcoin-yellow) 100px,
-        transparent 100px,
-        transparent 150px,
-        var(--color-comic-yellow) 150px,
-        var(--color-comic-yellow) 220px,
-        transparent 220px,
-        transparent 300px
-      ),
-      // Base gradient
-      linear-gradient(127deg, var(--color-bitcoin-orange) 0%, var(--color-bitcoin-yellow) 100%);
-    pointer-events: none;
-    z-index: 0;
-
-    [data-theme="dark"] & {
-      background-image:
-        repeating-linear-gradient(
-          -47deg,
-          transparent,
-          transparent 80px,
-          rgba(232, 169, 64, 0.3) 80px,
-          rgba(232, 169, 64, 0.3) 160px
-        ),
-        repeating-linear-gradient(
-          2deg,
-          #e8a940 0px,
-          #e8a940 100px,
-          transparent 100px,
-          transparent 150px,
-          #f4c563 150px,
-          #f4c563 220px,
-          transparent 220px,
-          transparent 300px
-        ),
-        linear-gradient(127deg, #d67a15 0%, #e8a940 100%);
-    }
-  }
-
-  // Halftone pattern overlay
-  .projects-page__intro::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    right: -50px;
-    bottom: -50px;
-    background-image:
-      radial-gradient(circle, rgba(0,0,0,0.15) 2px, transparent 2px);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 10px;
-    pointer-events: none;
-    z-index: 0;
-    transform: rotate(-3deg);
-  }
-
-  // Paint brush strokes - organic shapes
-  .projects-grid::before {
-    content: "";
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    width: 300px;
-    height: 200px;
-    background:
-      radial-gradient(ellipse 80% 40% at 30% 50%, rgba(255,255,255,0.3) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,0,0,0.08) 0%, transparent 70%);
-    transform: rotate(-15deg);
-    pointer-events: none;
-    z-index: 0;
-    filter: blur(2px);
-  }
-
-  // More brush strokes bottom left
-  .projects-grid::after {
-    content: "";
-    position: absolute;
-    bottom: 15%;
-    left: 8%;
-    width: 250px;
-    height: 180px;
-    background:
-      radial-gradient(ellipse 70% 50% at 40% 60%, rgba(255,255,255,0.25) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 60% at 60% 30%, rgba(0,0,0,0.06) 0%, transparent 70%);
-    transform: rotate(25deg);
-    pointer-events: none;
-    z-index: 0;
-    filter: blur(3px);
-  }
-
-  // Pixelated texture overlay
-  .projects-page__intro::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px),
-      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .projects-page__intro {
-    position: relative;
-    z-index: 2;
-    transform: rotate(-0.4deg);
-  }
-
-  .projects-page__eyebrow {
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.12);
-    transform: rotate(1.2deg);
-    display: inline-block;
-    position: relative;
-  }
-
-  .projects-page__title {
-    color: #1a1a1a;
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
-    transform: rotate(-0.6deg);
-    display: inline-block;
-    position: relative;
-
-    // Ensure readability in dark mode
-    [data-theme="dark"] & {
-      color: #0a0a0a;
-      text-shadow: 3px 3px 0 rgba(0,0,0,0.25);
-    }
-  }
-
-  .projects-page__description {
-    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-    transform: rotate(0.3deg);
-    display: inline-block;
-    position: relative;
-  }
-
-  .projects-grid {
-    position: relative;
-    z-index: 2;
-  }
-
-  // Arcade cabinet frames for game cards
-  .project-card {
-    background: var(--bg-color);
-    border: 4px solid var(--text-color);
-    box-shadow:
-      0 0 0 2px var(--color-bitcoin-yellow),
-      8px 8px 0 var(--text-color);
-    position: relative;
-
-    // Pixel art corner decorations
-    &::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      border: 2px dashed var(--color-bitcoin-yellow);
-      opacity: 0.4;
-      pointer-events: none;
-    }
-
-    // Arcade marquee effect on top
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--color-comic-yellow) 0px,
-        var(--color-comic-yellow) 8px,
-        var(--text-color) 8px,
-        var(--text-color) 16px
-      );
-    }
-
-    &:hover {
-      box-shadow:
-        0 0 0 2px var(--color-bitcoin-yellow),
-        12px 12px 0 var(--text-color);
-      transform: translate(-2px, -2px);
-    }
-  }
-
-  .project-card__status {
-    background: var(--color-bitcoin-orange);
-    color: white;
-    padding: 0.25rem 0.6rem;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border: 2px solid var(--text-color);
-    box-shadow: 2px 2px 0 var(--text-color);
   }
 }
 
-// PROJECTS PAGE - Comic Panel Grid
+// Projects Page grid
 .projects-page--projects {
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: clamp(1.5rem, 3vw, 2.5rem);
 
-    // Mobile: straight vertical list, no grid
     @media (max-width: 768px) {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-  }
-
-  .project-card {
-    // Random panel sizes
-    &:nth-child(3n+1) {
-      grid-column: span 1;
-    }
-
-    &:nth-child(5n+2) {
-      grid-column: span 2;
-
-      // Mobile: no spanning
-      @media (max-width: 768px) {
-        grid-column: span 1;
-      }
-    }
-
-    // Comic panel gutters
-    &::before {
-      box-shadow:
-        -20px 15px 0 -1px var(--color-bitcoin-yellow),
-        25px -10px 0 -2px var(--color-comic-yellow),
-        -30px -12px 0 -3px var(--color-bitcoin-orange);
-      opacity: 0.3;
-    }
-
-    // Panel number badges (top-left corner)
-    &::after {
-      content: counter(panel);
-      counter-increment: panel;
-      position: absolute;
-      top: -3px;
-      left: -3px;
-      width: 24px;
-      height: 24px;
-      background: var(--color-bitcoin-orange);
-      color: white;
-      font-family: var(--font-mono);
-      font-weight: 900;
-      font-size: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--text-color);
-      box-shadow: 2px 2px 0 var(--text-color);
-      z-index: 10;
-    }
-  }
-
-  .projects-grid {
-    counter-reset: panel;
-  }
-
-  // Splash page hero - first card takes more space
-  .project-card:first-child {
-    grid-column: 1 / -1;
-
-    .project-card__summary {
-      font-size: 1.1em;
-    }
-
-    // Mobile: no special grid spanning
-    @media (max-width: 768px) {
-      grid-column: auto;
-    }
-  }
-}
-
-// Shared comic styling for both
-.projects-page--games,
-.projects-page--projects {
-  .projects-page__title {
-    position: relative;
-    
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 60px;
-      height: 5px;
-      background: var(--color-accent);
     }
   }
 }

@@ -1,25 +1,18 @@
 ---
-# Styling overrides for minima
+# Styling
 ---
 
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
 
-$base-font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+$base-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Helvetica Neue", Arial, sans-serif;
-$brand-color: #2b6cb0;
+$brand-color: #de0f66;
 
 @import "minima";
 
-/* ==================================================================
-   DESIGN SYSTEM & CUSTOM STYLING
-   Organized into modular partials for maintainability
-   ================================================================== */
-
-@import "00-design-tokens";  /* CSS custom properties & design tokens */
-@import "01-base";           /* Base HTML elements & resets */
-@import "02-typography";     /* Typography styles */
-@import "03-layout";         /* Page layouts (landing, content, project) */
-@import "04-components";     /* Reusable components (cards, nav, buttons) */
-@import "05-bitcoin";        /* Bitcoin section & calculator */
-@import "06-responsive";     /* Media queries & responsive styles */
+@import "00-design-tokens";
+@import "01-base";
+@import "02-typography";
+@import "03-layout";
+@import "04-components";
+@import "06-responsive";

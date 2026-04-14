@@ -1,4 +1,5 @@
 ---
+published: false
 layout: landing
 title: Bitcoin
 hero_title: Bitcoin

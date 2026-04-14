@@ -1,33 +1,25 @@
 // Base Styles
-// Global HTML element styling
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: var(--bg-color);
   font-family: $base-font-family;
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-
-  // Mobile: prevent horizontal scroll
-  @media (max-width: 768px) {
-    overflow-x: hidden;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-
-  // Mobile: prevent horizontal scroll
-  @media (max-width: 768px) {
-    overflow-x: hidden;
-  }
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: $brand-color;
+  color: var(--color-brand);
+  transition: color var(--duration-base) ease;
 
   &:hover {
-    color: darken($brand-color, 10%);
-    text-decoration: none; /* Remove underline on hover */
+    color: var(--color-accent-hover);
+    text-decoration: none;
   }
 }
 
@@ -37,11 +29,6 @@ code {
 
 pre {
   font-size: 0.8rem;
-}
-
-.lead {
-  font-size: 1.1rem;
-  margin-top: 1.5rem;
 }
 
 .sr-only {

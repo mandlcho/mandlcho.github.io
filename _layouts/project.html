@@ -2,16 +2,15 @@
 layout: null
 ---
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <title>{{ page.title | default: site.brand | default: site.title | escape }}</title>
-    <link
-      rel="icon"
-      href="{{ '/images/bitcoin-favicon.svg' | relative_url }}"
-      type="image/svg+xml"
-    />
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
   </head>
   <body>
@@ -44,30 +43,5 @@ layout: null
         {{ content }}
       </main>
     </div>
-    <script>
-      (function () {
-        var storageKey = "preferred-theme";
-
-        function getStoredTheme() {
-          try {
-            return localStorage.getItem(storageKey);
-          } catch (error) {
-            return null;
-          }
-        }
-
-        function getPreferredTheme() {
-          var stored = getStoredTheme();
-          if (stored) return stored;
-          return window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-        }
-
-        var currentTheme = getPreferredTheme();
-        document.documentElement.setAttribute("data-theme", currentTheme);
-      })();
-    </script>
   </body>
 </html>

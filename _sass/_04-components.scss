@@ -66,16 +66,19 @@
 }
 
 .work-card {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  aspect-ratio: 4 / 3;
+  display: block;
+  position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
   text-decoration: none;
-  color: #fff;
-  padding: var(--space-5);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  // Force card shape — padding-bottom trick for reliable aspect ratio
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: 75%; // 4:3 ratio
+  }
 
   &:hover,
   &:focus-visible {
@@ -90,10 +93,12 @@
 }
 
 .work-card__label {
+  position: absolute;
+  bottom: var(--space-5);
+  left: var(--space-5);
   font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: 600;
-  color: #fff;
 }
 
 // Site Footer — social icons

@@ -7,7 +7,13 @@ description: "Sr Technical Animator at Tencent, Singapore."
 
 <section class="hero">
   <div class="hero__text">
-    <p class="hero__intro"><em>I'm Mandl, a Sr Technical Animator at Tencent. I toggle between engines, rigs, and tiny web toys — chasing playful systems that feel handcrafted without the overhead of heavy pipelines.</em></p>
+    <div class="hero__composition">
+      <span class="hero__line hero__line--huge">I'm Mandl</span>
+      <span class="hero__line hero__line--sub">a AI-enthusiast,</span>
+      <span class="hero__line hero__line--mid">technical animator by day,</span>
+      <span class="hero__line hero__line--mid">builder by night.</span>
+      <span class="hero__line hero__line--accent">chasing playful systems.</span>
+    </div>
     <p class="hero__previous">Previously at Ubisoft.</p>
   </div>
   <div class="hero__image">

@@ -19,15 +19,45 @@
   min-width: 0;
 }
 
-p.hero__intro,
-p.hero__intro em {
+.hero__composition {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hero__line {
+  display: block;
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
-  font-weight: 400;
   font-style: italic;
-  line-height: 1.5;
   color: var(--text-color);
-  margin: 0;
+  line-height: 1.15;
+}
+
+.hero__line--huge {
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.15em;
+}
+
+.hero__line--sub {
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 400;
+  color: var(--muted-text);
+  margin-bottom: 0.6em;
+}
+
+.hero__line--mid {
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.hero__line--accent {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: var(--color-brand);
+  margin-top: 0.5em;
 }
 
 .hero__previous {

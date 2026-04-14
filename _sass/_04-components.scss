@@ -17,11 +17,14 @@
 .hero__text {
   flex: 1;
   min-width: 0;
+  text-align: center;
 }
 
 .hero__composition {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 0;
 }
 
@@ -34,27 +37,27 @@
 }
 
 .hero__line--huge {
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(4.5rem, 10vw, 7.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   margin-bottom: 0.15em;
 }
 
 .hero__line--sub {
-  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-size: clamp(1.5rem, 3.3vw, 2rem);
   font-weight: 400;
   color: var(--muted-text);
   margin-bottom: 0.6em;
 }
 
 .hero__line--mid {
-  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  font-size: clamp(2.1rem, 4.8vw, 3.3rem);
   font-weight: 500;
   line-height: 1.25;
 }
 
 .hero__line--accent {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.65rem, 3.75vw, 2.25rem);
   font-weight: 400;
   color: var(--color-brand);
   margin-top: 0.5em;
@@ -64,8 +67,9 @@
   font-family: var(--font-sans);
   font-size: var(--text-base);
   color: var(--muted-text);
-  margin: 1rem 0 0;
+  margin: 1.5rem 0 0;
   font-weight: 400;
+  text-align: center;
 }
 
 .hero__image {

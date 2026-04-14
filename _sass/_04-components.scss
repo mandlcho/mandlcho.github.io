@@ -1,10 +1,24 @@
 // Components — Clean Minimal
 
-// Landing intro line
-.landing__intro {
-  font-size: var(--text-lg);
-  color: var(--muted-text);
+// Hero intro
+.hero {
+  max-width: 720px;
+}
+
+.hero__heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text-color);
   margin: 0;
+}
+
+.hero__sub {
+  font-size: var(--text-base);
+  color: var(--muted-text);
+  margin: 0.75rem 0 0;
   font-weight: 400;
 }
 

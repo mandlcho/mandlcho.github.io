@@ -9,7 +9,7 @@ description: "Sr Technical Animator at Tencent, Singapore."
   <p class="hero__text">I'm Mandl, a Sr Technical Animator at Tencent. I toggle between engines, rigs, and tiny web toys — chasing playful systems that feel handcrafted without the overhead of heavy pipelines.</p>
   <p class="hero__previous">Previously at Ubisoft.</p>
   <div class="hero__image">
-    <img src="{{ '/images/profile_pic.png' | relative_url }}" alt="Portrait of Mandl Cho" loading="lazy" />
+    <img src="{{ '/images/profile.png' | relative_url }}" alt="Portrait of Mandl Cho" loading="lazy" />
   </div>
 </section>
 

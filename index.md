@@ -8,6 +8,7 @@ description: "Sr Technical Animator at Tencent, Singapore."
 <section class="hero">
   <div class="hero__text">
     <div class="hero__composition">
+      <span class="hero__line hero__line--ghost">Mandl</span>
       <span class="hero__line hero__line--huge">I'm Mandl</span>
       <span class="hero__line hero__line--sub">an AI enthusiast,</span>
       <span class="hero__line hero__line--mid">technical animator by day,</span>

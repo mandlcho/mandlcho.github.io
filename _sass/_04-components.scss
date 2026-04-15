@@ -21,12 +21,13 @@
 }
 
 .hero__composition {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
   gap: 0;
-  position: relative;
+  padding-top: clamp(2rem, 5vw, 4rem);
 }
 
 .hero__line {
@@ -38,46 +39,77 @@
   position: relative;
 }
 
-// Foreground — bold, crisp, overlaps downward
+// Giant ghost text — watermark texture behind everything
+.hero__line--ghost {
+  position: absolute;
+  top: -0.15em;
+  left: -0.08em;
+  font-size: clamp(8rem, 18vw, 14rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--text-color);
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+// Main name — bold foreground, sits on top of ghost
 .hero__line--huge {
-  font-size: clamp(4.5rem, 10vw, 7.5rem);
+  font-size: clamp(4rem, 9vw, 7rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   align-self: flex-start;
   z-index: 4;
-  margin-bottom: -0.25em;
+  margin-bottom: -0.35em;
 }
 
-// Background layer — smaller, muted, tucked behind huge
+// Whisper line — tiny, light, peeks out from behind the name
 .hero__line--sub {
-  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   font-weight: 400;
-  color: var(--muted-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted-text);
   align-self: flex-start;
-  padding-left: 0.15em;
-  z-index: 1;
-  margin-bottom: 0.2em;
+  padding-left: 0.3em;
+  z-index: 2;
+  margin-bottom: 0.8em;
 }
 
-// Foreground — overlaps slightly into lines above/below
+// Mid lines — staggered left/right, overlap each other
 .hero__line--mid {
-  font-size: clamp(2.1rem, 4.8vw, 3.3rem);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 500;
-  line-height: 1.15;
-  align-self: flex-end;
+  line-height: 1.05;
   z-index: 3;
-  margin-top: -0.12em;
+
+  &:nth-of-type(4) {
+    align-self: flex-start;
+    margin-left: 0.5em;
+  }
+
+  &:nth-of-type(5) {
+    align-self: flex-end;
+    margin-top: -0.18em;
+    margin-right: 0.2em;
+  }
 }
 
-// Background accent — lower opacity, overlapped by mid lines
+// Accent — brand color, rotated slightly for energy
 .hero__line--accent {
-  font-size: clamp(1.65rem, 3.75vw, 2.25rem);
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
   font-weight: 400;
   color: var(--color-brand);
-  opacity: 0.7;
-  align-self: center;
-  z-index: 2;
-  margin-top: -0.1em;
+  align-self: flex-start;
+  z-index: 5;
+  margin-top: 0.6em;
+  margin-left: 1.5em;
+  transform: rotate(-2deg);
+  transform-origin: left center;
 }
 
 .hero__previous {

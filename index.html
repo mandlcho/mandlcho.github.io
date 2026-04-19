@@ -1,0 +1,615 @@
+---
+layout: null
+title: "Mandl Cho"
+permalink: /
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mandl Cho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #0d0d0f;
+    --dim: #8a8a86;
+    --rule: #e3e2dc;
+    --accent: #ff3b1f;
+  }
+
+  /* Tweaks panel */
+  #tweaks {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    background: var(--bg);
+    border: 1px solid var(--ink);
+    padding: 14px 16px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    min-width: 240px;
+    display: none;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  #tweaks.on { display: block; }
+  #tweaks h5 {
+    font-family: "Fraunces", serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink);
+  }
+  #tweaks h5 span { color: var(--accent); font-style: normal; font-family: "JetBrains Mono", monospace; font-size: 10px; }
+  #tweaks .group { margin: 10px 0; }
+  #tweaks label { display: block; color: var(--dim); font-size: 10px; margin-bottom: 5px; }
+  #tweaks .swatches { display: flex; gap: 6px; }
+  #tweaks .swatches button {
+    width: 22px; height: 22px;
+    border: 1px solid var(--rule);
+    background: var(--c);
+    cursor: pointer;
+    padding: 0;
+    transition: transform .15s;
+  }
+  #tweaks .swatches button:hover { transform: scale(1.12); }
+  #tweaks .swatches button.on { outline: 2px solid var(--ink); outline-offset: 2px; }
+  #tweaks input[type="text"] {
+    width: 100%;
+    font: inherit;
+    font-size: 11px;
+    text-transform: none;
+    background: transparent;
+    border: 1px solid var(--rule);
+    padding: 6px 8px;
+    color: var(--ink);
+  }
+  #tweaks input[type="text"]:focus { outline: none; border-color: var(--accent); }
+  #tweaks .seg {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--ink);
+  }
+  #tweaks .seg button {
+    background: var(--bg);
+    border: none;
+    border-right: 1px solid var(--ink);
+    padding: 6px 0;
+    font: inherit;
+    font-size: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  #tweaks .seg button:last-child { border-right: none; }
+  #tweaks .seg button.on { background: var(--ink); color: var(--bg); }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Fraunces", "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-height: 100vh;
+    padding: 28px 40px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 0;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--ink); color: var(--bg); }
+
+  /* ============ HEADER ============ */
+  header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.02em;
+  }
+  header .mark {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  header .mark::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    margin-right: 10px;
+    transform: translateY(-1px);
+    border-radius: 50%;
+    animation: blip 3s ease-in-out infinite;
+  }
+  @keyframes blip {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  header .loc { text-align: right; }
+
+  /* ============ MAIN ============ */
+  main {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding-top: 64px;
+  }
+
+  .hero {
+    align-self: center;
+    max-width: 1600px;
+  }
+
+  .hero-line {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-size: clamp(64px, 12vw, 200px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+  .hero-line em {
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 144;
+  }
+  .hero-line .soft {
+    color: var(--dim);
+  }
+  .hero-line .swap {
+    display: inline-block;
+    position: relative;
+    padding: 0 0.04em;
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 400;
+    min-width: 6ch;
+    text-align: left;
+  }
+  .hero-line .swap::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.12em;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.4;
+  }
+
+  .hero-sub {
+    margin-top: 40px;
+    max-width: 640px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--dim);
+    letter-spacing: 0.01em;
+  }
+  .hero-sub strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ============ CREDITS ============ */
+  .credits {
+    margin-top: 120px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .credit-row {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    cursor: pointer;
+    position: relative;
+    transition: padding 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .credit-row .title {
+    font-family: "Fraunces", serif;
+    font-size: clamp(28px, 3.4vw, 48px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .credit-row .title em {
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+  }
+  .credit-row .role {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.02em;
+  }
+  .credit-row .studio {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.02em;
+    text-align: right;
+  }
+  .credit-row .arrow {
+    font-family: "Fraunces", serif;
+    font-size: 24px;
+    color: var(--dim);
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+  }
+  .credit-row:hover {
+    padding-left: 16px;
+  }
+  .credit-row:hover .title {
+    font-style: italic;
+  }
+  .credit-row:hover .arrow {
+    transform: translate(6px, -6px) rotate(-8deg);
+    color: var(--accent);
+  }
+  .credit-row:hover .role,
+  .credit-row:hover .studio {
+    color: var(--ink);
+  }
+
+  /* Hover preview — float a tiny image on the right */
+  .credit-row .preview {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translate(40px, -50%) scale(0.9) rotate(2deg);
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: grayscale(0.1) contrast(1.05);
+    border: 1px solid var(--rule);
+    z-index: 5;
+  }
+  .credit-row:hover .preview {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1) rotate(-1deg);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+    padding-top: 80px;
+    padding-bottom: 8px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.02em;
+  }
+  footer .links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  footer .links a {
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    padding-bottom: 2px;
+  }
+  footer .links a:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+  }
+  footer .time {
+    text-align: right;
+  }
+
+  /* ============ CURSOR TYPE ============ */
+  .cursor {
+    display: inline-block;
+    width: 0.05em;
+    height: 0.85em;
+    background: var(--accent);
+    vertical-align: -0.05em;
+    margin-left: 0.04em;
+    animation: caret 0.9s steps(2) infinite;
+  }
+  @keyframes caret {
+    50% { opacity: 0; }
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 720px) {
+    body { padding: 20px 20px; }
+    header { grid-template-columns: 1fr 1fr; font-size: 11px; }
+    header .middle { display: none; }
+    main { padding-top: 40px; }
+    .hero-line { font-size: clamp(48px, 14vw, 96px); }
+    .credit-row {
+      grid-template-columns: 1fr auto;
+      row-gap: 6px;
+    }
+    .credit-row .role { grid-column: 1; font-size: 11px; }
+    .credit-row .studio { grid-column: 1 / -1; text-align: left; font-size: 11px; }
+    .credit-row .arrow { grid-row: 1; grid-column: 2; }
+    .credit-row .preview { display: none; }
+    footer { grid-template-columns: 1fr; }
+    footer .time { text-align: left; }
+  }
+
+  /* ============ INITIAL REVEAL ============ */
+  .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mark">MANDL CHO</div>
+  <div class="middle"></div>
+  <div class="loc" id="loc">Singapore · <span id="clock">——:——</span></div>
+</header>
+
+<!-- ========== TWEAKS PANEL ========== -->
+<div id="tweaks">
+  <h5>tweak <span>· live</span></h5>
+  <div class="group">
+    <label>accent</label>
+    <div class="swatches" id="sw-accent">
+      <button data-c="#ff3b1f" style="--c:#ff3b1f" title="Vermillion"></button>
+      <button data-c="#0d0d0f" style="--c:#0d0d0f" title="Ink"></button>
+      <button data-c="#1e5fff" style="--c:#1e5fff" title="Cobalt"></button>
+      <button data-c="#2d8f4e" style="--c:#2d8f4e" title="Moss"></button>
+      <button data-c="#c98a2b" style="--c:#c98a2b" title="Ochre"></button>
+      <button data-c="#8c2dcf" style="--c:#8c2dcf" title="Violet"></button>
+    </div>
+  </div>
+  <div class="group">
+    <label>theme</label>
+    <div class="seg" id="sw-theme">
+      <button data-t="light">light</button>
+      <button data-t="cream">cream</button>
+      <button data-t="dark">dark</button>
+    </div>
+  </div>
+  <div class="group">
+    <label>verb ( comma-separated )</label>
+    <input type="text" id="sw-verbs" value="moves, fights, listens, breathes, ships, plays" />
+  </div>
+  <div class="group">
+    <label>cycle speed</label>
+    <div class="seg" id="sw-speed">
+      <button data-s="2000">fast</button>
+      <button data-s="3400">med</button>
+      <button data-s="6000">slow</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="hero">
+    <h1 class="hero-line reveal">
+      I make <em>things</em><br/>
+      <span class="soft">that</span> <span class="swap" id="swap">move</span><span class="cursor"></span>
+    </h1>
+    <p class="hero-sub reveal">
+      <strong>Sr. Technical Animator</strong> at Tencent, Singapore. Previously at Ubisoft<br/>
+      on Assassin's Creed Origins, Valhalla, and Skull &amp; Bones.<br/>
+      Currently building small, playful tools on the side.
+    </p>
+  </section>
+
+  <section class="credits">
+    <a class="credit-row reveal" href="https://www.ubisoft.com/en-us/game/assassins-creed/origins" target="_blank" rel="noopener">
+      <span class="title"><em>Assassin's Creed</em> Origins</span>
+      <span class="role">cinematics &amp; gameplay</span>
+      <span class="studio">Ubisoft · shipped</span>
+      <span class="arrow">↗</span>
+      <img class="preview" src="{{ "/images/ace.png" | relative_url }}" alt="" />
+    </a>
+    <a class="credit-row reveal" href="https://www.ubisoft.com/en-us/game/assassins-creed/valhalla" target="_blank" rel="noopener">
+      <span class="title"><em>Assassin's Creed</em> Valhalla</span>
+      <span class="role">longship gameplay &amp; combat</span>
+      <span class="studio">Ubisoft · shipped</span>
+      <span class="arrow">↗</span>
+      <img class="preview" src="{{ "/images/valh.png" | relative_url }}" alt="" />
+    </a>
+    <a class="credit-row reveal" href="https://www.ubisoft.com/en-us/game/skull-and-bones" target="_blank" rel="noopener">
+      <span class="title">Skull <em>&amp;</em> Bones</span>
+      <span class="role">animation systems design</span>
+      <span class="studio">Ubisoft · shipped</span>
+      <span class="arrow">↗</span>
+      <img class="preview" src="{{ "/images/sb.png" | relative_url }}" alt="" />
+    </a>
+    <a class="credit-row reveal" href="https://www.monsterhunter.com/" target="_blank" rel="noopener">
+      <span class="title"><em>Monster Hunter</em> Outlanders</span>
+      <span class="role">locomotion &amp; combat</span>
+      <span class="studio">Tencent · unreleased</span>
+      <span class="arrow">↗</span>
+      <img class="preview" src="{{ "/images/mh.png" | relative_url }}" alt="" />
+    </a>
+  </section>
+</main>
+
+<footer>
+  <div class="links reveal">
+    <a href="https://github.com/mandlcho" target="_blank" rel="noopener">github</a>
+    <a href="https://www.linkedin.com/in/mandlcho/" target="_blank" rel="noopener">linkedin</a>
+    <a href="https://x.com/maaandl" target="_blank" rel="noopener">x</a>
+    <a href="https://adplist.org/mentors/mandl-cho" target="_blank" rel="noopener">adplist</a>
+    <a href="mailto:mandlcho@example.com">email</a>
+  </div>
+  <div class="time">© 2026</div>
+</footer>
+
+<script>
+  /* ========== TWEAK DEFAULTS (persisted) ========== */
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "accent": "#ff3b1f",
+    "theme": "light",
+    "verbs": "moves, listens, breathes, ships, solves",
+    "speed": 2000
+  }/*EDITMODE-END*/;
+
+  const THEMES = {
+    light: { bg: "#fafaf7", ink: "#0d0d0f", dim: "#8a8a86", rule: "#e3e2dc" },
+    cream: { bg: "#f1ede0", ink: "#1a1610", dim: "#8f866e", rule: "#ddd5c0" },
+    dark:  { bg: "#0d0d0f", ink: "#fafaf7", dim: "#6c6c68", rule: "#222224" }
+  };
+
+  function applyTheme(name) {
+    const t = THEMES[name] || THEMES.light;
+    const r = document.documentElement.style;
+    r.setProperty('--bg', t.bg);
+    r.setProperty('--ink', t.ink);
+    r.setProperty('--dim', t.dim);
+    r.setProperty('--rule', t.rule);
+  }
+  function applyAccent(c) {
+    document.documentElement.style.setProperty('--accent', c);
+  }
+
+  applyTheme(TWEAKS.theme);
+  applyAccent(TWEAKS.accent);
+
+  // Reveal stagger
+  const revs = document.querySelectorAll('.reveal');
+  revs.forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), 120 + i * 80);
+  });
+
+  // Verb cycle — subtle, slow
+  let verbs = TWEAKS.verbs.split(',').map(s => s.trim()).filter(Boolean);
+  let cycleSpeed = TWEAKS.speed;
+  const swap = document.getElementById('swap');
+  let vi = 0;
+  function typeSwap(next) {
+    const current = swap.textContent;
+    let step = current.length;
+    const del = setInterval(() => {
+      step--;
+      swap.textContent = current.slice(0, step);
+      if (step <= 0) {
+        clearInterval(del);
+        let t = 0;
+        const type = setInterval(() => {
+          t++;
+          swap.textContent = next.slice(0, t);
+          if (t >= next.length) clearInterval(type);
+        }, 55);
+      }
+    }, 35);
+  }
+  let cycleTimer;
+  function startCycle() {
+    clearInterval(cycleTimer);
+    cycleTimer = setInterval(() => {
+      vi = (vi + 1) % verbs.length;
+      typeSwap(verbs[vi]);
+    }, cycleSpeed);
+  }
+  startCycle();
+
+  // Clock — Singapore time
+  function tick() {
+    const now = new Date();
+    // SGT is UTC+8
+    const sgt = new Date(now.getTime() + (now.getTimezoneOffset() + 480) * 60000);
+    const hh = String(sgt.getHours()).padStart(2, '0');
+    const mm = String(sgt.getMinutes()).padStart(2, '0');
+    document.getElementById('clock').textContent = `${hh}:${mm}`;
+  }
+  tick();
+  setInterval(tick, 30000);
+
+  /* ========== TWEAKS WIRING ========== */
+  const panel = document.getElementById('tweaks');
+
+  function setKey(k, v) {
+    TWEAKS[k] = v;
+    try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [k]: v } }, '*'); } catch(e){}
+  }
+
+  // accent swatches
+  const swAccent = document.querySelectorAll('#sw-accent button');
+  function paintAccentOn(c) {
+    swAccent.forEach(b => b.classList.toggle('on', b.dataset.c === c));
+  }
+  swAccent.forEach(b => b.addEventListener('click', () => {
+    const c = b.dataset.c;
+    applyAccent(c); paintAccentOn(c); setKey('accent', c);
+  }));
+  paintAccentOn(TWEAKS.accent);
+
+  // theme segmented
+  const swTheme = document.querySelectorAll('#sw-theme button');
+  function paintThemeOn(t) {
+    swTheme.forEach(b => b.classList.toggle('on', b.dataset.t === t));
+  }
+  swTheme.forEach(b => b.addEventListener('click', () => {
+    const t = b.dataset.t;
+    applyTheme(t); paintThemeOn(t); setKey('theme', t);
+  }));
+  paintThemeOn(TWEAKS.theme);
+
+  // verbs input
+  const verbsInput = document.getElementById('sw-verbs');
+  verbsInput.value = TWEAKS.verbs;
+  verbsInput.addEventListener('input', () => {
+    const parsed = verbsInput.value.split(',').map(s => s.trim()).filter(Boolean);
+    if (parsed.length) {
+      verbs = parsed; vi = 0;
+      setKey('verbs', verbsInput.value);
+    }
+  });
+
+  // speed segmented
+  const swSpeed = document.querySelectorAll('#sw-speed button');
+  function paintSpeedOn(s) {
+    swSpeed.forEach(b => b.classList.toggle('on', String(b.dataset.s) === String(s)));
+  }
+  swSpeed.forEach(b => b.addEventListener('click', () => {
+    const s = parseInt(b.dataset.s, 10);
+    cycleSpeed = s; startCycle(); paintSpeedOn(s); setKey('speed', s);
+  }));
+  paintSpeedOn(TWEAKS.speed);
+
+  // host edit-mode bridge
+  window.addEventListener('message', (ev) => {
+    const d = ev.data || {};
+    if (d.type === '__activate_edit_mode') panel.classList.add('on');
+    if (d.type === '__deactivate_edit_mode') panel.classList.remove('on');
+  });
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e){}
+</script>
+
+</body>
+</html>

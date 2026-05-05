@@ -1,8 +1,8 @@
 {
   "symbol": "BTC-USD",
-  "price": 80643.92,
+  "price": 80744.26,
   "currency": "USD",
   "source": "coin-guides",
-  "fetched_at": "2026-05-05T09:17:40.469559+00:00",
+  "fetched_at": "2026-05-05T10:56:26.134782+00:00",
   "url": "https://coinguides.org/tools/satoshi-converter/"
 }

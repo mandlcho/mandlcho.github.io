@@ -1,9 +1,9 @@
 {
   "symbol": "BTC-USD",
-  "price": 62548.515,
+  "price": 62909.365,
   "currency": "USD",
   "source": "coinbase",
   "source_url": "https://api.coinbase.com/v2/prices/BTC-USD/spot",
-  "fetched_at": "2026-06-23T23:43:12.140702+00:00",
+  "fetched_at": "2026-06-24T01:48:10.500603+00:00",
   "url": "https://coinguides.org/tools/satoshi-converter/"
 }

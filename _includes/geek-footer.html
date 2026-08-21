@@ -1,0 +1,37 @@
+<footer class="geek-footer geek-shell">
+  <p class="geek-footer__title">I build systems for gameplay <span>and animation.</span></p>
+  <div class="geek-footer__row">
+    <nav aria-label="Social links">
+      <a href="https://github.com/mandlcho" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/mandlcho/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://x.com/maaandl" target="_blank" rel="noopener">X ↗</a>
+      <a href="https://adplist.org/mentors/mandl-cho" target="_blank" rel="noopener">ADPList ↗</a>
+    </nav>
+    <span>Mandl Cho © 2026<br />Made in Singapore</span>
+  </div>
+</footer>
+
+<div class="geek-cursor" id="geekCursor" aria-hidden="true">PTR_X:0000&nbsp;&nbsp;PTR_Y:0000</div>
+
+<script>
+  (function () {
+    const themeButton = document.getElementById("geekThemeButton");
+    const cursorReadout = document.getElementById("geekCursor");
+
+    if (themeButton) {
+      themeButton.addEventListener("click", function () {
+        const active = document.body.classList.toggle("is-alt-palette");
+        themeButton.setAttribute("aria-pressed", String(active));
+        themeButton.textContent = active ? "reroll_again()" : "reroll_palette()";
+      });
+    }
+
+    if (cursorReadout) {
+      window.addEventListener("pointermove", function (event) {
+        cursorReadout.textContent =
+          "PTR_X:" + String(event.clientX).padStart(4, "0") +
+          "  PTR_Y:" + String(event.clientY).padStart(4, "0");
+      }, { passive: true });
+    }
+  })();
+</script>

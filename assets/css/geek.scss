@@ -1,0 +1,491 @@
+---
+# Shared subpage theme
+---
+
+:root {
+  --geek-cream: #f7f0de;
+  --geek-paper: #fffdf7;
+  --geek-ink: #17202a;
+  --geek-blue: #3157f6;
+  --geek-red: #f1513c;
+  --geek-green: #3eaf79;
+  --geek-yellow: #f3c843;
+  --geek-pink: #f3a7bd;
+  --geek-shadow: 6px 6px 0 var(--geek-ink);
+  --geek-mono: "JetBrains Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body.geek-body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--geek-ink);
+  background-color: var(--geek-cream);
+  background-image: radial-gradient(rgba(23, 32, 42, .17) .75px, transparent .75px);
+  background-size: 18px 18px;
+  font-family: var(--geek-mono);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.geek-body.is-alt-palette {
+  --geek-blue: #e3523b;
+  --geek-red: #3157f6;
+  --geek-yellow: #8ed8a7;
+  --geek-pink: #ffd45c;
+}
+
+.geek-body a { color: inherit; }
+.geek-body ::selection { background: var(--geek-yellow); }
+
+.geek-shell,
+.geek-main--landing > * {
+  width: min(1460px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.geek-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 76px;
+  border-bottom: 2px solid var(--geek-ink);
+  background: rgba(247, 240, 222, .84);
+  backdrop-filter: blur(8px);
+}
+
+.geek-logo {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+
+.geek-logo span {
+  display: inline-grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  margin-right: 9px;
+  color: var(--geek-cream);
+  background: var(--geek-blue);
+  border: 2px solid var(--geek-ink);
+  border-radius: 3px;
+  box-shadow: 3px 3px 0 var(--geek-ink);
+  font-size: 10px;
+}
+
+.geek-nav__links {
+  display: flex;
+  gap: 24px;
+}
+
+.geek-nav__links a,
+.geek-footer a {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+.geek-nav__links a:hover,
+.geek-footer a:hover { color: var(--geek-blue); }
+
+.geek-theme {
+  justify-self: end;
+  padding: 10px 13px;
+  color: var(--geek-ink);
+  border: 2px solid var(--geek-ink);
+  border-radius: 3px;
+  background: var(--geek-yellow);
+  box-shadow: 3px 3px 0 var(--geek-ink);
+  font: 600 9px/1 var(--geek-mono);
+  cursor: pointer;
+}
+
+.geek-theme:active {
+  box-shadow: 1px 1px 0 var(--geek-ink);
+  transform: translate(2px, 2px);
+}
+
+.geek-main { min-height: 65vh; }
+.geek-main--landing { padding: 90px 0 120px; }
+.geek-main--article { padding-block: 90px 120px; }
+
+.geek-label {
+  margin: 0;
+  color: var(--geek-blue);
+  font: 700 10px/1.4 var(--geek-mono);
+  letter-spacing: .06em;
+  text-transform: lowercase;
+}
+
+.geek-footer {
+  padding: 80px 0 28px;
+  border-top: 2px solid var(--geek-ink);
+}
+
+.geek-footer__title {
+  max-width: 1100px;
+  margin: 0 0 80px;
+  font-size: clamp(42px, 6.2vw, 92px);
+  line-height: .95;
+  letter-spacing: -.075em;
+  font-weight: 800;
+}
+
+.geek-footer__title span {
+  display: block;
+  padding-left: 12vw;
+  color: var(--geek-red);
+}
+
+.geek-footer__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: flex-end;
+  padding-top: 22px;
+  border-top: 2px solid var(--geek-ink);
+}
+
+.geek-footer__row nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.geek-footer__row > span { font-size: 9px; line-height: 1.6; text-align: right; text-transform: uppercase; }
+
+.geek-cursor {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 30;
+  padding: 7px 9px;
+  border: 1px solid rgba(23, 32, 42, .35);
+  background: rgba(247, 240, 222, .88);
+  backdrop-filter: blur(5px);
+  font: 500 8px/1 var(--geek-mono);
+  letter-spacing: .05em;
+  pointer-events: none;
+}
+
+/* Project and game indexes */
+.geek-body .projects-page { padding: 0; }
+
+.geek-body .projects-page__intro {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 60px;
+  padding: 0;
+}
+
+.geek-body .projects-page__eyebrow {
+  align-self: start;
+  margin: 9px 0 0;
+  color: var(--geek-blue);
+  font: 700 10px/1.4 var(--geek-mono);
+  letter-spacing: .06em;
+  text-transform: lowercase;
+}
+
+.geek-body .projects-page__eyebrow::before { content: "// [01] "; opacity: .65; }
+
+.geek-body .projects-page__title {
+  grid-column: 2;
+  margin: 0;
+  font: 800 clamp(52px, 8vw, 118px)/.88 var(--geek-mono);
+  letter-spacing: -.09em;
+  text-transform: lowercase;
+}
+
+.geek-body .projects-page__header-container { grid-column: 2; }
+
+.geek-body .projects-page__description {
+  max-width: 720px;
+  margin: 10px 0 0;
+  font: 500 13px/1.8 var(--geek-mono);
+}
+
+.geek-body .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.geek-body .project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  overflow: hidden;
+  padding: 0 24px 24px;
+  color: var(--geek-ink);
+  border: 2px solid var(--geek-ink);
+  border-radius: 5px;
+  background-color: var(--geek-paper);
+  background-image: radial-gradient(rgba(23, 32, 42, .18) .65px, transparent .65px);
+  background-size: 14px 14px;
+  box-shadow: var(--geek-shadow);
+  font-family: var(--geek-mono);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.geek-body .project-card:nth-child(4n + 1) { background-color: var(--geek-blue); color: white; }
+.geek-body .project-card:nth-child(4n + 2) { background-color: var(--geek-pink); }
+.geek-body .project-card:nth-child(4n + 3) { background-color: var(--geek-green); }
+.geek-body .project-card:nth-child(4n + 4) { background-color: var(--geek-red); color: white; }
+
+.geek-body .project-card:hover {
+  box-shadow: 10px 10px 0 var(--geek-ink);
+  transform: translate(-3px, -3px);
+}
+
+.geek-body .project-card__media {
+  height: 210px;
+  margin: 0 -24px 22px;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 2px solid currentColor;
+  border-radius: 0;
+  background: rgba(255, 255, 255, .18);
+}
+
+.geek-body .project-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.8) contrast(1.04);
+}
+
+.geek-body .project-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin: 0 0 18px;
+}
+
+.geek-body .project-card__name,
+.geek-body .project-card--mini__name {
+  color: inherit;
+  font: 800 clamp(18px, 2vw, 28px)/1.1 var(--geek-mono);
+  letter-spacing: -.05em;
+  text-decoration: none;
+}
+
+.geek-body .project-card__icon { fill: currentColor; }
+.geek-body .project-card__owner { opacity: .7; }
+
+.geek-body .project-card__status,
+.geek-body .project-card--mini__status {
+  flex: 0 0 auto;
+  padding: 6px 8px;
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  background: transparent;
+  font: 700 8px/1 var(--geek-mono);
+  text-transform: lowercase;
+}
+
+.geek-body .project-card__summary {
+  flex: 1;
+  margin: 0 0 22px;
+  color: inherit;
+  font: 500 11px/1.75 var(--geek-mono);
+}
+
+.geek-body .project-card__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 16px;
+  color: inherit;
+  border-top: 1px solid currentColor;
+  font: 600 8px/1.5 var(--geek-mono);
+}
+
+.geek-body .project-card__language,
+.geek-body .project-card__stats,
+.geek-body .project-card__stat { color: inherit; }
+
+.geek-body .project-card__action,
+.geek-body .project-card__process-link {
+  color: var(--geek-ink);
+  border: 2px solid var(--geek-ink);
+  border-radius: 3px;
+  background: var(--geek-yellow);
+  box-shadow: 3px 3px 0 var(--geek-ink);
+  font: 700 9px/1 var(--geek-mono);
+}
+
+.geek-body .project-card__details {
+  margin: 20px -24px -24px;
+  padding: 24px;
+  color: var(--geek-ink);
+  border-top: 2px solid var(--geek-ink);
+  background: var(--geek-paper);
+}
+
+/* Article and index pages */
+.geek-article__header {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 22px 40px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+
+.geek-article__header .geek-label { align-self: start; margin-top: 10px; }
+
+.geek-article__header h1 {
+  margin: 0;
+  font: 800 clamp(48px, 7.5vw, 110px)/.9 var(--geek-mono);
+  letter-spacing: -.09em;
+  text-transform: lowercase;
+}
+
+.geek-article__description,
+.geek-article__header time {
+  grid-column: 2;
+  max-width: 780px;
+  margin: 0;
+  font: 500 12px/1.8 var(--geek-mono);
+}
+
+.geek-article__header time { color: rgba(23, 32, 42, .62); font-size: 9px; text-transform: uppercase; }
+
+.geek-article__content {
+  max-width: 920px;
+  margin-left: min(230px, 16vw);
+  font: 500 13px/1.85 var(--geek-mono);
+}
+
+.geek-article__content h1,
+.geek-article__content h2,
+.geek-article__content h3 {
+  margin: 2.2em 0 .8em;
+  font-family: var(--geek-mono);
+  font-weight: 800;
+  letter-spacing: -.05em;
+}
+
+.geek-article__content h1 { font-size: 2.5rem; }
+.geek-article__content h2 { font-size: 1.8rem; }
+.geek-article__content h3 { font-size: 1.25rem; }
+.geek-article__content p,
+.geek-article__content ul,
+.geek-article__content ol { margin-block: 1.2em; }
+.geek-article__content a { color: var(--geek-blue); text-underline-offset: 3px; }
+.geek-article__content img { max-width: 100%; border: 2px solid var(--geek-ink); box-shadow: var(--geek-shadow); }
+.geek-article__content code { padding: .15em .35em; background: var(--geek-yellow); }
+.geek-article__content pre { overflow: auto; padding: 20px; color: var(--geek-paper); border: 2px solid var(--geek-ink); background: var(--geek-ink); }
+
+.geek-card-grid,
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.geek-index-card,
+.note-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+  padding: 52px 24px 24px;
+  color: var(--geek-ink) !important;
+  border: 2px solid var(--geek-ink);
+  border-radius: 5px;
+  background-color: var(--geek-paper);
+  background-image: radial-gradient(rgba(23, 32, 42, .16) .65px, transparent .65px);
+  background-size: 14px 14px;
+  box-shadow: var(--geek-shadow);
+  text-decoration: none;
+}
+
+.geek-index-card::before,
+.note-card::before {
+  content: attr(data-node);
+  position: absolute;
+  inset: 0 0 auto;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 2px solid var(--geek-ink);
+  background: rgba(255, 255, 255, .25);
+  font: 700 8px/1 var(--geek-mono);
+}
+
+.geek-index-card:nth-child(4n + 1), .note-card:nth-child(4n + 1) { background-color: var(--geek-pink); }
+.geek-index-card:nth-child(4n + 2), .note-card:nth-child(4n + 2) { background-color: var(--geek-yellow); }
+.geek-index-card:nth-child(4n + 3), .note-card:nth-child(4n + 3) { background-color: var(--geek-green); }
+.geek-index-card:nth-child(4n + 4), .note-card:nth-child(4n + 4) { color: white !important; background-color: var(--geek-blue); }
+
+.geek-index-card h2,
+.note-card h2 { margin: 0 0 20px; font: 800 clamp(24px, 3vw, 38px)/1.05 var(--geek-mono); letter-spacing: -.06em; }
+.geek-index-card p,
+.note-card p { margin: 0; font: 500 11px/1.7 var(--geek-mono); }
+.note-card time { margin-bottom: 18px; font: 700 8px/1 var(--geek-mono); text-transform: uppercase; }
+
+/* Bitcoin tool */
+.geek-body .bitcoin-section { margin-bottom: 34px; }
+.geek-body .bitcoin-card,
+.geek-body .btc-price-banner,
+.geek-body .sats-calculator .app-card {
+  border: 2px solid var(--geek-ink);
+  border-radius: 5px;
+  box-shadow: var(--geek-shadow);
+  font-family: var(--geek-mono);
+}
+
+.geek-body .bitcoin-card { background: var(--geek-yellow); }
+.geek-body .btc-price-banner { color: white; background: var(--geek-blue); }
+.geek-body .bitcoin-card__eyebrow,
+.geek-body .btc-price-banner__label,
+.geek-body .bitcoin-section__meta { font-family: var(--geek-mono); text-transform: lowercase; }
+.geek-body .bitcoin-card h2,
+.geek-body .bitcoin-section__heading h2,
+.geek-body .sats-calculator .app-header h3 { font-family: var(--geek-mono); font-weight: 800; letter-spacing: -.06em; }
+.geek-body .sats-calculator { font-family: var(--geek-mono); }
+.geek-body .sats-calculator .app-card { background: var(--geek-paper); }
+.geek-body .sats-calculator .coinguides-card,
+.geek-body .sats-calculator .cg-input-shell,
+.geek-body .sats-calculator .ghost-button,
+.geek-body .sats-calculator .theme-toggle { border-radius: 3px; font-family: var(--geek-mono); }
+
+@media (max-width: 900px) {
+  .geek-nav { grid-template-columns: 1fr auto; }
+  .geek-nav__links { display: none; }
+  .geek-body .projects-page__intro,
+  .geek-article__header { grid-template-columns: 1fr; }
+  .geek-body .projects-page__title,
+  .geek-body .projects-page__header-container,
+  .geek-article__description,
+  .geek-article__header time { grid-column: 1; }
+  .geek-article__content { margin-left: 0; }
+}
+
+@media (max-width: 680px) {
+  .geek-shell,
+  .geek-main--landing > * { width: calc(100% - 24px); }
+  .geek-nav { min-height: 68px; }
+  .geek-main--landing,
+  .geek-main--article { padding-block: 68px 90px; }
+  .geek-body .projects-grid,
+  .geek-card-grid,
+  .notes-grid { grid-template-columns: 1fr; }
+  .geek-body .project-card { min-height: 390px; }
+  .geek-footer__row { flex-direction: column; align-items: flex-start; }
+  .geek-footer__row > span { text-align: left; }
+  .geek-cursor { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

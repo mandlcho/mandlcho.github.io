@@ -1,9 +1,11 @@
 ---
 layout: page
-title: lab notes
+title: Lab notes
+description: "Short observations, experiments, and data snapshots from work in progress."
 permalink: /experiments/lab-notes/
+eyebrow: lab_notes
 ---
 
-# lab notes
+This is where I keep smaller observations that do not need a full project writeup yet.
 
-placeholder entries for experiment logs, daily observations, and data snapshots.
+The notes will cover experiment logs, daily observations, and useful data snapshots as they take shape.

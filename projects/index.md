@@ -2,7 +2,7 @@
 layout: landing
 title: Projects
 hero_title: Projects
-description: "Selected builds, kept in high signal snapshots."
+description: "Side projects I use to learn by doing, test ideas, and explore AI."
 permalink: /projects/
 page_class: projects-page-panels
 ---
@@ -10,7 +10,7 @@ page_class: projects-page-panels
 {% assign projects = site.data.projects | sort: 'last_updated' | reverse %}
 {% include work-section.html
   items=projects
-  eyebrow="latest cycles"
+  eyebrow="projects_index"
   title="projects"
   description=page.description
   empty_message="More builds coming soon."

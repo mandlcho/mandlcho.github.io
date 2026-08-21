@@ -1,21 +1,28 @@
 title: Mandl Cho
-description: Personal blog and project notes
+description: Technical animation, gameplay systems, shipped games, and side projects by Mandl Cho.
 url: "https://mandlcho.github.io"
 baseurl: "" # Leave empty for user/organization GitHub Pages
+image: /images/og-portfolio.png
 
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 brand: Mandl Cho
 
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/og-portfolio.png
+
 author:
   name: Mandl Cho
-  email: mandlcho@example.com
 
 social_links:
   - { platform: github,  user_url: "https://github.com/mandlcho" }
@@ -24,3 +31,27 @@ exclude:
   - AGENTS.md
   - README.md
   - scripts
+  - images/mh.ply
+  - assets/js/github-projects.js
+  - assets/js/card-parallax.js
+  - assets/js/splat-viewer.js
+  - assets/resume-placeholder.pdf
+  - images/mh.png
+  - images/valh.png
+  - images/ace.png
+  - images/sb.png
+  - images/profile.png
+  - images/profile_pic.png
+  - "images/Screenshot 2025-11-07 at 12.52.02 AM.png"
+  - "images/image (1).png"
+  - "images/image (2).png"
+  - "images/image (3).png"
+  - images/game-1a.png
+  - images/game-1b.png
+  - images/game-1c.png
+  - images/game-2a.png
+  - images/game-2b.png
+  - images/game-2c.png
+  - images/game-3a.png
+  - images/game-3b.png
+  - images/game-3c.png

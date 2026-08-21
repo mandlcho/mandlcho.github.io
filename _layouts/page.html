@@ -27,8 +27,17 @@ layout: null
         <div class="geek-article__content">
           {{ content }}
         </div>
+        {% if page.date %}
+          <nav class="post-navigation" aria-label="More notes">
+            <a href="{{ '/blog/' | relative_url }}">← all notes</a>
+            <div>
+              {% if page.previous and page.previous.title %}<a href="{{ page.previous.url | relative_url }}">previous</a>{% endif %}
+              {% if page.next and page.next.title %}<a href="{{ page.next.url | relative_url }}">next</a>{% endif %}
+            </div>
+          </nav>
+        {% endif %}
       </article>
     </main>
-    {% include geek-footer.html %}
+    {% include geek-footer.html compact=true %}
   </body>
 </html>

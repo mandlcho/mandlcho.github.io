@@ -1,13 +1,14 @@
-<footer class="geek-footer geek-shell">
-  <p class="geek-footer__title">I build systems for gameplay <span>and animation.</span></p>
+<footer class="geek-footer geek-shell{% if include.compact %} geek-footer--compact{% endif %}" id="contact">
+  <p class="geek-label">// contact</p>
+  <p class="geek-footer__title">Have a system problem worth <span>thinking through?</span></p>
+  <a class="geek-contact-link" href="https://www.linkedin.com/in/mandlcho/" target="_blank" rel="noopener">get in touch on LinkedIn <span aria-hidden="true">↗</span></a>
   <div class="geek-footer__row">
     <nav aria-label="Social links">
       <a href="https://github.com/mandlcho" target="_blank" rel="noopener">GitHub ↗</a>
       <a href="https://www.linkedin.com/in/mandlcho/" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="https://x.com/maaandl" target="_blank" rel="noopener">X ↗</a>
-      <a href="https://adplist.org/mentors/mandl-cho" target="_blank" rel="noopener">ADPList ↗</a>
     </nav>
-    <span>Mandl Cho © 2026<br />Made in Singapore</span>
+    <span>Mandl Cho © {{ site.time | date: "%Y" }}<br />Made in Singapore</span>
   </div>
 </footer>
 
@@ -16,6 +17,8 @@
 <script>
   (function () {
     const themeButton = document.getElementById("geekThemeButton");
+    const menuButton = document.getElementById("geekMenuButton");
+    const siteNav = document.querySelector("[data-site-nav]");
     const cursorReadout = document.getElementById("geekCursor");
 
     if (themeButton) {
@@ -23,6 +26,27 @@
         const active = document.body.classList.toggle("is-alt-palette");
         themeButton.setAttribute("aria-pressed", String(active));
         themeButton.textContent = active ? "reroll_again()" : "reroll_palette()";
+      });
+    }
+
+    if (menuButton && siteNav) {
+      const setMenuState = function (isOpen) {
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        document.body.classList.toggle("is-nav-open", isOpen);
+        const label = menuButton.querySelector(".sr-only");
+        if (label) label.textContent = isOpen ? "Close navigation" : "Open navigation";
+      };
+
+      menuButton.addEventListener("click", function () {
+        setMenuState(menuButton.getAttribute("aria-expanded") !== "true");
+      });
+
+      siteNav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) setMenuState(false);
+      });
+
+      window.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") setMenuState(false);
       });
     }
 

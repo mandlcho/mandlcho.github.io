@@ -6,6 +6,8 @@ permalink: /blog/
 eyebrow: notes_index
 ---
 
+<p class="notes-count">{{ site.posts | size }} published notes. These are build logs rather than polished tutorials, so they keep the decisions and unfinished edges visible.</p>
+
 <div class="notes-grid">
   {% for post in site.posts %}
     {% if post.title %}
@@ -15,6 +17,7 @@ eyebrow: notes_index
           <h2>{{ post.title }}</h2>
         </div>
         {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+        {% if post.tags %}<span class="note-card__tags">{{ post.tags | join: " / " }}</span>{% endif %}
       </a>
     {% endif %}
   {% endfor %}

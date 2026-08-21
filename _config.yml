@@ -19,3 +19,8 @@ author:
 
 social_links:
   - { platform: github,  user_url: "https://github.com/mandlcho" }
+
+exclude:
+  - AGENTS.md
+  - README.md
+  - scripts

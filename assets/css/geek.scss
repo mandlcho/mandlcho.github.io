@@ -52,7 +52,7 @@ body.geek-body.is-alt-palette {
   align-items: center;
   min-height: 76px;
   border-bottom: 2px solid var(--geek-ink);
-  background: rgba(247, 240, 222, .84);
+  background: rgba(247, 240, 222, .78);
   backdrop-filter: blur(8px);
 }
 
@@ -79,14 +79,14 @@ body.geek-body.is-alt-palette {
 
 .geek-nav__links {
   display: flex;
-  gap: 24px;
+  gap: 26px;
 }
 
 .geek-nav__links a,
 .geek-footer a {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: lowercase;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
   text-decoration: none;
 }
 
@@ -102,6 +102,7 @@ body.geek-body.is-alt-palette {
   background: var(--geek-yellow);
   box-shadow: 3px 3px 0 var(--geek-ink);
   font: 600 9px/1 var(--geek-mono);
+  text-transform: lowercase;
   cursor: pointer;
 }
 
@@ -123,15 +124,15 @@ body.geek-body.is-alt-palette {
 }
 
 .geek-footer {
-  padding: 80px 0 28px;
+  padding: 70px 0 28px;
   border-top: 2px solid var(--geek-ink);
 }
 
 .geek-footer__title {
-  max-width: 1100px;
-  margin: 0 0 80px;
-  font-size: clamp(42px, 6.2vw, 92px);
-  line-height: .95;
+  display: inline-block;
+  margin: 0 0 90px;
+  font-size: clamp(48px, 7.5vw, 112px);
+  line-height: .9;
   letter-spacing: -.075em;
   font-weight: 800;
 }
@@ -147,12 +148,10 @@ body.geek-body.is-alt-palette {
   justify-content: space-between;
   gap: 30px;
   align-items: flex-end;
-  padding-top: 22px;
-  border-top: 2px solid var(--geek-ink);
 }
 
 .geek-footer__row nav { display: flex; gap: 22px; flex-wrap: wrap; }
-.geek-footer__row > span { font-size: 9px; line-height: 1.6; text-align: right; text-transform: uppercase; }
+.geek-footer__row > span { font-size: 10px; line-height: 1.4; text-align: right; text-transform: uppercase; }
 
 .geek-cursor {
   position: fixed;
@@ -382,6 +381,98 @@ body.geek-body.is-alt-palette {
 .geek-article__content code { padding: .15em .35em; background: var(--geek-yellow); }
 .geek-article__content pre { overflow: auto; padding: 20px; color: var(--geek-paper); border: 2px solid var(--geek-ink); background: var(--geek-ink); }
 
+/* Individual project pages */
+.geek-project__meta {
+  grid-column: 2;
+  margin: 0;
+  color: rgba(23, 32, 42, .62);
+  font: 700 9px/1.5 var(--geek-mono);
+  text-transform: uppercase;
+}
+
+.geek-body .project-info {
+  position: relative;
+  display: grid;
+  gap: 22px;
+  padding: 58px 26px 26px;
+  border: 2px solid var(--geek-ink);
+  border-radius: 5px;
+  background-color: var(--geek-yellow);
+  background-image: radial-gradient(rgba(23, 32, 42, .16) .65px, transparent .65px);
+  background-size: 14px 14px;
+  box-shadow: var(--geek-shadow);
+}
+
+.geek-body .project-info::before {
+  content: "node::project_metadata";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 2px solid var(--geek-ink);
+  background: rgba(255, 255, 255, .22);
+  font: 700 8px/1 var(--geek-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.geek-body .project-info__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: baseline;
+}
+
+.geek-body .project-info__title {
+  margin: 0;
+  color: var(--geek-ink);
+  font: 800 13px/1 var(--geek-mono);
+  letter-spacing: -.02em;
+}
+
+.geek-body .project-info__lede {
+  margin: 0;
+  color: var(--geek-ink);
+  font: 700 clamp(20px, 3vw, 34px)/1.25 var(--geek-mono);
+  letter-spacing: -.05em;
+}
+
+.geek-body .project-meta,
+.geek-body .project-language {
+  color: var(--geek-ink);
+  font-family: var(--geek-mono);
+}
+
+.geek-body .project-languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.geek-body .project-language {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid var(--geek-ink);
+  border-radius: 2px;
+  background: rgba(255, 253, 247, .6);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.geek-body .project-language__swatch {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--geek-ink);
+  border-radius: 1px;
+}
+
 .geek-card-grid,
 .notes-grid {
   display: grid;
@@ -466,7 +557,8 @@ body.geek-body.is-alt-palette {
   .geek-body .projects-page__title,
   .geek-body .projects-page__header-container,
   .geek-article__description,
-  .geek-article__header time { grid-column: 1; }
+  .geek-article__header time,
+  .geek-project__meta { grid-column: 1; }
   .geek-article__content { margin-left: 0; }
 }
 

@@ -1,10 +1,10 @@
 ---
 layout: project
-title: the kanban
+title: The Kanban
+description: "A board-first workflow for keeping active experiments visible without drowning in docs."
 permalink: /projects/the-kanban/
+eyebrow: project_file
 ---
-
-# the kanban
 
 <section class="project-info">
   <div class="project-info__header">

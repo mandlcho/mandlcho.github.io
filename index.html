@@ -1,615 +1,252 @@
 ---
 layout: null
-title: "Mandl Cho"
+title: "Mandl Cho — Technical Animator"
+description: "Gameplay and animation systems, game projects, and side experiments by Mandl Cho."
 permalink: /
 ---
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mandl Cho</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #fafaf7;
-    --ink: #0d0d0f;
-    --dim: #8a8a86;
-    --rule: #e3e2dc;
-    --accent: #ff3b1f;
-  }
-
-  /* Tweaks panel */
-  #tweaks {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 999;
-    background: var(--bg);
-    border: 1px solid var(--ink);
-    padding: 14px 16px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    color: var(--ink);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    min-width: 240px;
-    display: none;
-    box-shadow: 4px 4px 0 var(--ink);
-  }
-  #tweaks.on { display: block; }
-  #tweaks h5 {
-    font-family: "Fraunces", serif;
-    font-size: 14px;
-    font-style: italic;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: -0.01em;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--rule);
-    display: flex;
-    justify-content: space-between;
-    color: var(--ink);
-  }
-  #tweaks h5 span { color: var(--accent); font-style: normal; font-family: "JetBrains Mono", monospace; font-size: 10px; }
-  #tweaks .group { margin: 10px 0; }
-  #tweaks label { display: block; color: var(--dim); font-size: 10px; margin-bottom: 5px; }
-  #tweaks .swatches { display: flex; gap: 6px; }
-  #tweaks .swatches button {
-    width: 22px; height: 22px;
-    border: 1px solid var(--rule);
-    background: var(--c);
-    cursor: pointer;
-    padding: 0;
-    transition: transform .15s;
-  }
-  #tweaks .swatches button:hover { transform: scale(1.12); }
-  #tweaks .swatches button.on { outline: 2px solid var(--ink); outline-offset: 2px; }
-  #tweaks input[type="text"] {
-    width: 100%;
-    font: inherit;
-    font-size: 11px;
-    text-transform: none;
-    background: transparent;
-    border: 1px solid var(--rule);
-    padding: 6px 8px;
-    color: var(--ink);
-  }
-  #tweaks input[type="text"]:focus { outline: none; border-color: var(--accent); }
-  #tweaks .seg {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border: 1px solid var(--ink);
-  }
-  #tweaks .seg button {
-    background: var(--bg);
-    border: none;
-    border-right: 1px solid var(--ink);
-    padding: 6px 0;
-    font: inherit;
-    font-size: 10px;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: var(--ink);
-  }
-  #tweaks .seg button:last-child { border-right: none; }
-  #tweaks .seg button.on { background: var(--ink); color: var(--bg); }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html, body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: "Fraunces", "Times New Roman", serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  body {
-    min-height: 100vh;
-    padding: 28px 40px;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    gap: 0;
-  }
-
-  a { color: inherit; text-decoration: none; }
-
-  ::selection { background: var(--ink); color: var(--bg); }
-
-  /* ============ HEADER ============ */
-  header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 24px;
-    align-items: baseline;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px;
-    color: var(--dim);
-    letter-spacing: 0.02em;
-  }
-  header .mark {
-    color: var(--ink);
-    font-weight: 500;
-  }
-  header .mark::before {
-    content: "";
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    margin-right: 10px;
-    transform: translateY(-1px);
-    border-radius: 50%;
-    animation: blip 3s ease-in-out infinite;
-  }
-  @keyframes blip {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-  header .loc { text-align: right; }
-
-  /* ============ MAIN ============ */
-  main {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    padding-top: 64px;
-  }
-
-  .hero {
-    align-self: center;
-    max-width: 1600px;
-  }
-
-  .hero-line {
-    font-family: "Fraunces", serif;
-    font-weight: 400;
-    font-size: clamp(64px, 12vw, 200px);
-    line-height: 0.92;
-    letter-spacing: -0.045em;
-    text-wrap: balance;
-  }
-  .hero-line em {
-    font-style: italic;
-    font-weight: 400;
-    font-variation-settings: "opsz" 144;
-  }
-  .hero-line .soft {
-    color: var(--dim);
-  }
-  .hero-line .swap {
-    display: inline-block;
-    position: relative;
-    padding: 0 0.04em;
-    color: var(--accent);
-    font-style: italic;
-    font-weight: 400;
-    min-width: 6ch;
-    text-align: left;
-  }
-  .hero-line .swap::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0.12em;
-    height: 1px;
-    background: var(--accent);
-    opacity: 0.4;
-  }
-
-  .hero-sub {
-    margin-top: 40px;
-    max-width: 640px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--dim);
-    letter-spacing: 0.01em;
-  }
-  .hero-sub strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  /* ============ CREDITS ============ */
-  .credits {
-    margin-top: 120px;
-    border-top: 1px solid var(--rule);
-  }
-
-  .credit-row {
-    display: grid;
-    grid-template-columns: 3fr 2fr 1fr auto;
-    gap: 24px;
-    align-items: baseline;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--rule);
-    cursor: pointer;
-    position: relative;
-    transition: padding 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  .credit-row .title {
-    font-family: "Fraunces", serif;
-    font-size: clamp(28px, 3.4vw, 48px);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  .credit-row .title em {
-    font-style: italic;
-    font-variation-settings: "opsz" 144;
-  }
-  .credit-row .role {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px;
-    color: var(--dim);
-    letter-spacing: 0.02em;
-  }
-  .credit-row .studio {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px;
-    color: var(--dim);
-    letter-spacing: 0.02em;
-    text-align: right;
-  }
-  .credit-row .arrow {
-    font-family: "Fraunces", serif;
-    font-size: 24px;
-    color: var(--dim);
-    transition: transform 0.3s ease, color 0.3s ease;
-    display: inline-block;
-  }
-  .credit-row:hover {
-    padding-left: 16px;
-  }
-  .credit-row:hover .title {
-    font-style: italic;
-  }
-  .credit-row:hover .arrow {
-    transform: translate(6px, -6px) rotate(-8deg);
-    color: var(--accent);
-  }
-  .credit-row:hover .role,
-  .credit-row:hover .studio {
-    color: var(--ink);
-  }
-
-  /* Hover preview — float a tiny image on the right */
-  .credit-row .preview {
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    transform: translate(40px, -50%) scale(0.9) rotate(2deg);
-    width: 200px;
-    height: 140px;
-    object-fit: cover;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    filter: grayscale(0.1) contrast(1.05);
-    border: 1px solid var(--rule);
-    z-index: 5;
-  }
-  .credit-row:hover .preview {
-    opacity: 1;
-    transform: translate(0, -50%) scale(1) rotate(-1deg);
-  }
-
-  /* ============ FOOTER ============ */
-  footer {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: end;
-    padding-top: 80px;
-    padding-bottom: 8px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 12px;
-    color: var(--dim);
-    letter-spacing: 0.02em;
-  }
-  footer .links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  footer .links a {
-    color: var(--ink);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease, color 0.2s ease;
-    padding-bottom: 2px;
-  }
-  footer .links a:hover {
-    border-bottom-color: var(--accent);
-    color: var(--accent);
-  }
-  footer .time {
-    text-align: right;
-  }
-
-  /* ============ CURSOR TYPE ============ */
-  .cursor {
-    display: inline-block;
-    width: 0.05em;
-    height: 0.85em;
-    background: var(--accent);
-    vertical-align: -0.05em;
-    margin-left: 0.04em;
-    animation: caret 0.9s steps(2) infinite;
-  }
-  @keyframes caret {
-    50% { opacity: 0; }
-  }
-
-  /* ============ RESPONSIVE ============ */
-  @media (max-width: 720px) {
-    body { padding: 20px 20px; }
-    header { grid-template-columns: 1fr 1fr; font-size: 11px; }
-    header .middle { display: none; }
-    main { padding-top: 40px; }
-    .hero-line { font-size: clamp(48px, 14vw, 96px); }
-    .credit-row {
-      grid-template-columns: 1fr auto;
-      row-gap: 6px;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Gameplay and animation systems, game projects, and side experiments by Mandl Cho." />
+  <meta name="theme-color" content="#f7f0de" />
+  <title>Mandl Cho — Technical Animator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f7f0de;
+      --ink: #17202a;
+      --blue: #3157f6;
+      --red: #f1513c;
+      --green: #3eaf79;
+      --yellow: #f3c843;
+      --pink: #f3a7bd;
+      --paper: #fffdf7;
+      --line: #17202a;
+      --sans: "JetBrains Mono", monospace;
+      --mono: "JetBrains Mono", monospace;
+      --shadow: 6px 6px 0 var(--ink);
     }
-    .credit-row .role { grid-column: 1; font-size: 11px; }
-    .credit-row .studio { grid-column: 1 / -1; text-align: left; font-size: 11px; }
-    .credit-row .arrow { grid-row: 1; grid-column: 2; }
-    .credit-row .preview { display: none; }
-    footer { grid-template-columns: 1fr; }
-    footer .time { text-align: left; }
-  }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; overflow-x: hidden; color: var(--ink); background-color: var(--cream); background-image: radial-gradient(rgba(23,32,42,.17) .75px, transparent .75px); background-size: 18px 18px; font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    body.blue { --blue: #e3523b; --red: #3157f6; --yellow: #8ed8a7; --pink: #ffd45c; }
+    a { color: inherit; }
+    button { color: inherit; font: inherit; }
+    ::selection { background: var(--yellow); }
+    .page { width: min(1460px, calc(100% - 40px)); margin: 0 auto; }
+    .micro { font: 600 10px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .micro::before { content: "// "; opacity: .52; }
+    .scribble { position: relative; display: inline-block; z-index: 1; }
+    .scribble::after { content: ""; position: absolute; left: -.04em; right: -.04em; bottom: .06em; z-index: -1; height: .28em; background: var(--yellow); transform: rotate(-1.5deg); }
 
-  /* ============ INITIAL REVEAL ============ */
-  .reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.8s ease, transform 0.8s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-</style>
+    .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 76px; border-bottom: 2px solid var(--ink); background: rgba(247,240,222,.78); backdrop-filter: blur(8px); }
+    .logo { font-size: 15px; font-weight: 800; letter-spacing: -.04em; text-decoration: none; }
+    .logo span { display: inline-grid; place-items: center; width: 29px; height: 29px; margin-right: 9px; color: var(--cream); background: var(--blue); border: 2px solid var(--ink); border-radius: 3px; font-size: 10px; box-shadow: 3px 3px 0 var(--ink); }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a { text-decoration: none; font: 500 11px/1 var(--mono); text-transform: uppercase; }
+    .nav-links a:hover { color: var(--blue); }
+    .theme-button { justify-self: end; padding: 10px 13px; border: 2px solid var(--ink); border-radius: 3px; background: var(--yellow); box-shadow: 3px 3px 0 var(--ink); cursor: pointer; font: 600 9px/1 var(--mono); text-transform: lowercase; }
+    .theme-button:active { box-shadow: 1px 1px 0 var(--ink); transform: translate(2px, 2px); }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(340px, .8fr); gap: clamp(50px, 7vw, 110px); align-items: center; min-height: calc(100svh - 82px); padding: 70px 0 85px; }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 9px; padding: 9px 12px; border: 2px solid var(--ink); border-radius: 3px; background: var(--paper); box-shadow: 3px 3px 0 var(--ink); }
+    .hero-kicker::before { content: ""; width: 8px; height: 8px; border-radius: 1px; background: var(--green); box-shadow: 0 0 0 3px rgba(62,175,121,.18); }
+    .hero h1 { max-width: 960px; margin: 32px 0 34px; font-size: clamp(50px, 6.8vw, 106px); line-height: .9; letter-spacing: -.075em; font-weight: 800; }
+    .hero h1 .hello { display: block; color: var(--blue); }
+    .hero h1 .name { display: block; }
+    .hero-copy { display: grid; grid-template-columns: 105px minmax(0, 500px); gap: 26px; align-items: start; }
+    .hero-copy p { margin: 0; font-size: 13px; line-height: 1.8; }
+    .hero-copy strong { font-weight: 800; background: var(--yellow); }
+    .hero-actions { display: flex; gap: 12px; margin-top: 38px; }
+    .button { display: inline-flex; align-items: center; gap: 11px; padding: 14px 18px; border: 2px solid var(--ink); border-radius: 3px; box-shadow: 4px 4px 0 var(--ink); text-decoration: none; font: 600 10px/1 var(--mono); text-transform: lowercase; transition: transform .15s ease, box-shadow .15s ease; }
+    .button--blue { color: white; background: var(--blue); }
+    .button--paper { background: var(--paper); }
+    .button:hover { box-shadow: 2px 2px 0 var(--ink); transform: translate(2px, 2px); }
+
+    .portrait-wrap { position: relative; min-height: 640px; }
+    .portrait-card { position: absolute; inset: 30px 20px 30px 30px; overflow: visible; border: 3px solid var(--ink); border-radius: 5px; background: var(--pink); box-shadow: 10px 10px 0 var(--ink); }
+    .portrait-card::before { content: "asset://profile-web.webp  [1000×1780]"; position: absolute; left: -3px; right: -3px; top: -34px; height: 31px; display: flex; align-items: center; padding: 0 10px; border: 3px solid var(--ink); border-bottom: 0; background: var(--paper); font: 600 9px/1 var(--mono); }
+    .portrait-card::after { content: ""; position: absolute; inset: -8px; z-index: 4; pointer-events: none; background: linear-gradient(var(--blue),var(--blue)) left top/10px 10px no-repeat, linear-gradient(var(--blue),var(--blue)) right top/10px 10px no-repeat, linear-gradient(var(--blue),var(--blue)) left bottom/10px 10px no-repeat, linear-gradient(var(--blue),var(--blue)) right bottom/10px 10px no-repeat; }
+    .portrait-card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; border-radius: 2px; filter: saturate(.82) contrast(1.06); }
+    .portrait-tape { display: none; }
+    .portrait-note { position: absolute; z-index: 6; right: -8px; bottom: 75px; width: 205px; padding: 16px; border: 2px solid var(--ink); background: var(--yellow); box-shadow: 5px 5px 0 var(--ink); font: 500 11px/1.6 var(--mono); }
+    .portrait-note strong { display: block; margin-bottom: 7px; font: 800 13px/1.2 var(--mono); text-transform: uppercase; }
+    .portrait-note strong::before { content: "> "; color: var(--blue); }
+    .orbit { position: absolute; z-index: 5; border: 2px solid var(--ink); border-radius: 3px; }
+    .orbit--one { left: 0; top: 90px; width: 66px; height: 66px; background: var(--red); }
+    .orbit--one::after { content: "{ }"; display: grid; place-items: center; width: 100%; height: 100%; color: white; font: 700 19px/1 var(--mono); }
+    .orbit--two { right: 0; top: 170px; width: 38px; height: 38px; background: var(--green); }
+    .orbit--two::after { content: "+"; display: grid; place-items: center; width: 100%; height: 100%; font: 700 18px/1 var(--mono); }
+
+    .marquee { overflow: hidden; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: var(--yellow); }
+    .marquee-track { display: flex; width: max-content; padding: 13px 0; animation: roll 25s linear infinite; font: 500 11px/1 var(--mono); text-transform: uppercase; }
+    .marquee span::after { content: "//"; margin: 0 28px; opacity: .55; }
+    @keyframes roll { to { transform: translateX(-50%); } }
+
+    .section { padding: 120px 0; }
+    .section-heading { display: grid; grid-template-columns: 190px 1fr; gap: 40px; margin-bottom: 55px; }
+    .section-heading h2 { max-width: 980px; margin: 0; font-size: clamp(42px, 5.2vw, 76px); line-height: .98; letter-spacing: -.06em; font-weight: 800; }
+    .section-heading h2 span { color: var(--blue); }
+
+    .work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+    .work-card { position: relative; min-height: 430px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding: 58px 24px 24px; border: 2px solid var(--ink); border-radius: 5px; box-shadow: var(--shadow); text-decoration: none; background-image: radial-gradient(rgba(23,32,42,.18) .65px, transparent .65px); background-size: 14px 14px; transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s ease; }
+    .work-card::before { content: "node::portfolio_item"; position: absolute; left: 0; right: 0; top: 0; height: 34px; z-index: 3; display: flex; align-items: center; padding: 0 12px; border-bottom: 2px solid currentColor; background: rgba(255,255,255,.18); font: 600 8px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .work-card:hover { transform: translate(-3px, -3px) rotate(-.5deg); box-shadow: 11px 11px 0 var(--ink); }
+    .work-card:nth-child(1) { grid-column: span 7; color: white; background-color: var(--blue); }
+    .work-card:nth-child(2) { grid-column: span 5; background-color: var(--pink); }
+    .work-card:nth-child(3) { grid-column: span 5; background-color: var(--green); }
+    .work-card:nth-child(4) { grid-column: span 7; background-color: var(--red); color: white; }
+    .card-top { position: relative; z-index: 2; display: flex; justify-content: space-between; gap: 20px; }
+    .card-chip { padding: 7px 10px; border: 2px solid currentColor; border-radius: 2px; font: 600 8px/1 var(--mono); text-transform: uppercase; }
+    .card-arrow { font-size: 25px; }
+    .work-card h3 { position: relative; z-index: 2; max-width: 590px; margin: auto 0 16px; font-size: clamp(34px, 4vw, 61px); line-height: .98; letter-spacing: -.06em; font-weight: 800; }
+    .work-card p { position: relative; z-index: 2; max-width: 530px; margin: 0; font-size: 11px; line-height: 1.75; }
+    .card-image { position: absolute; right: -8%; bottom: -12%; width: 63%; height: 76%; object-fit: cover; border: 2px solid var(--ink); border-radius: 4px; transform: rotate(5deg); opacity: .25; mix-blend-mode: multiply; transition: opacity .3s ease, transform .4s cubic-bezier(.16,1,.3,1); }
+    .work-card:nth-child(even) .card-image { left: -9%; right: auto; transform: rotate(-5deg); }
+    .work-card:hover .card-image { opacity: .42; transform: rotate(1deg) scale(1.03); }
+    .work-card:nth-child(even):hover .card-image { transform: rotate(-1deg) scale(1.03); }
+
+    .desk { display: grid; grid-template-columns: 1fr 1.15fr; min-height: 720px; border: 2px solid var(--ink); border-radius: 5px; overflow: hidden; box-shadow: var(--shadow); background: var(--paper); }
+    .desk-copy { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(35px, 6vw, 80px); background: var(--blue); color: white; }
+    .desk-copy h2 { margin: 30px 0; font-size: clamp(42px, 5.2vw, 76px); line-height: .94; letter-spacing: -.07em; font-weight: 800; }
+    .desk-copy p { max-width: 470px; font-size: 11px; line-height: 1.8; }
+    .desk-copy .button { align-self: flex-start; color: var(--ink); }
+    .desk-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--cream); }
+    .desk-link { display: flex; flex-direction: column; justify-content: space-between; min-height: 50%; padding: 35px; border-left: 2px solid var(--ink); border-bottom: 2px solid var(--ink); text-decoration: none; transition: background .2s ease; }
+    .desk-link:nth-child(even) { background: var(--yellow); }
+    .desk-link:nth-child(3) { background: var(--pink); border-bottom: 0; }
+    .desk-link:nth-child(4) { background: var(--green); border-bottom: 0; }
+    .desk-link:hover { background: white; }
+    .desk-link strong { max-width: 260px; font-size: clamp(24px, 2.6vw, 37px); line-height: 1.05; letter-spacing: -.05em; }
+    .desk-link span:last-child { align-self: flex-end; font-size: 24px; }
+
+    .now { display: grid; grid-template-columns: 1fr 2fr; gap: 70px; padding: 125px 0; }
+    .now-list { border-top: 2px solid var(--ink); }
+    .now-item { display: grid; grid-template-columns: 130px 1fr; gap: 25px; padding: 24px 0; border-bottom: 2px solid var(--ink); }
+    .now-item span { font: 500 10px/1.5 var(--mono); text-transform: uppercase; }
+    .now-item p { margin: 0; max-width: 700px; font-size: 13px; line-height: 1.7; }
+
+    .footer { padding: 70px 0 28px; border-top: 2px solid var(--ink); }
+    .footer-title { display: inline-block; margin: 0 0 90px; font-size: clamp(48px, 7.5vw, 112px); line-height: .9; letter-spacing: -.075em; font-weight: 800; }
+    .cursor-readout { position: fixed; left: 12px; bottom: 12px; z-index: 20; padding: 7px 9px; border: 1px solid rgba(23,32,42,.35); background: rgba(247,240,222,.85); backdrop-filter: blur(5px); font: 500 8px/1 var(--mono); letter-spacing: .05em; pointer-events: none; }
+    .footer-title span { display: block; padding-left: 12vw; color: var(--red); }
+    .footer-row { display: flex; justify-content: space-between; gap: 30px; align-items: flex-end; }
+    .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .footer-links a { font: 500 10px/1 var(--mono); text-transform: uppercase; text-decoration: none; }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-row > span { font: 500 10px/1.4 var(--mono); text-align: right; text-transform: uppercase; }
+
+    @media (max-width: 900px) {
+      .nav { grid-template-columns: 1fr auto; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 70px; }
+      .portrait-wrap { min-height: 620px; }
+      .section-heading { grid-template-columns: 1fr; }
+      .work-card:nth-child(n) { grid-column: span 12; }
+      .desk { grid-template-columns: 1fr; }
+      .desk-copy { min-height: 600px; }
+      .desk-link:nth-child(odd) { border-left: 0; }
+      .now { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .page { width: calc(100% - 24px); }
+      .nav { min-height: 68px; }
+      .hero { min-height: auto; padding: 55px 0 75px; }
+      .hero h1 { font-size: 14vw; }
+      .hero-copy { grid-template-columns: 1fr; gap: 10px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .portrait-wrap { min-height: 510px; }
+      .portrait-card { inset: 25px 9px 25px 16px; }
+      .portrait-note { right: -4px; bottom: 45px; width: 155px; padding: 13px; font-size: 10px; }
+      .section { padding: 85px 0; }
+      .work-card { min-height: 390px; padding: 55px 19px 19px; }
+      .card-image { width: 82%; }
+      .desk-copy { min-height: 520px; padding: 30px 22px; }
+      .desk-links { grid-template-columns: 1fr; }
+      .desk-link { min-height: 210px; border-left: 0; border-bottom: 2px solid var(--ink) !important; }
+      .desk-link:last-child { border-bottom: 0 !important; }
+      .now { padding: 90px 0; }
+      .now-item { grid-template-columns: 1fr; gap: 8px; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+      .footer-row > span { text-align: left; }
+      .cursor-readout { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
+  <header class="nav page">
+    <a class="logo" href="{{ '/' | relative_url }}"><span>MC</span>Mandl Cho</a>
+    <nav class="nav-links" aria-label="Primary navigation"><a href="#work">Work</a><a href="#desk">Workbench</a><a href="#now">Now</a><a href="{{ '/blog/' | relative_url }}">Notes</a></nav>
+    <button class="theme-button" id="themeButton" type="button" aria-pressed="false">reroll_palette()</button>
+  </header>
 
-<header>
-  <div class="mark">MANDL CHO</div>
-  <div class="middle"></div>
-  <div class="loc" id="loc">Singapore · <span id="clock">——:——</span></div>
-</header>
+  <main>
+    <section class="hero page" aria-labelledby="hero-title">
+      <div>
+        <span class="hero-kicker micro">status::online / singapore</span>
+        <h1 id="hero-title"><span class="hello">I make games.</span><span class="name">I build systems for <span class="scribble">movement.</span></span></h1>
+        <div class="hero-copy"><span class="micro">about_me.txt</span><p><strong>I’m a Senior Technical Animator at Tencent.</strong> I build systems for gameplay and animation, so anything you see on screen that moves, including character behaviors and transitions, can be part of my responsibility.</p></div>
+        <div class="hero-actions"><a class="button button--blue" href="#work">open(selected_work) <span>↓</span></a><a class="button button--paper" href="#desk">cd /workbench <span>↗</span></a></div>
+      </div>
+      <div class="portrait-wrap" aria-label="Portrait of Mandl Cho">
+        <div class="portrait-tape" aria-hidden="true"></div>
+        <div class="portrait-card"><img src="images/profile-web.webp" alt="Mandl Cho smiling" /></div>
+        <div class="orbit orbit--one" aria-hidden="true"></div><div class="orbit orbit--two" aria-hidden="true"></div>
+        <div class="portrait-note"><strong>current_focus</strong>Gameplay systems, animation, and the edge cases between them.</div>
+      </div>
+    </section>
 
-<!-- ========== TWEAKS PANEL ========== -->
-<div id="tweaks">
-  <h5>tweak <span>· live</span></h5>
-  <div class="group">
-    <label>accent</label>
-    <div class="swatches" id="sw-accent">
-      <button data-c="#ff3b1f" style="--c:#ff3b1f" title="Vermillion"></button>
-      <button data-c="#0d0d0f" style="--c:#0d0d0f" title="Ink"></button>
-      <button data-c="#1e5fff" style="--c:#1e5fff" title="Cobalt"></button>
-      <button data-c="#2d8f4e" style="--c:#2d8f4e" title="Moss"></button>
-      <button data-c="#c98a2b" style="--c:#c98a2b" title="Ochre"></button>
-      <button data-c="#8c2dcf" style="--c:#8c2dcf" title="Violet"></button>
-    </div>
-  </div>
-  <div class="group">
-    <label>theme</label>
-    <div class="seg" id="sw-theme">
-      <button data-t="light">light</button>
-      <button data-t="cream">cream</button>
-      <button data-t="dark">dark</button>
-    </div>
-  </div>
-  <div class="group">
-    <label>verb ( comma-separated )</label>
-    <input type="text" id="sw-verbs" value="moves, fights, listens, breathes, ships, plays" />
-  </div>
-  <div class="group">
-    <label>cycle speed</label>
-    <div class="seg" id="sw-speed">
-      <button data-s="2000">fast</button>
-      <button data-s="3400">med</button>
-      <button data-s="6000">slow</button>
-    </div>
-  </div>
-</div>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>locomotion_systems</span><span>combat_logic</span><span>animation_graphs</span><span>artist_tools</span><span>small_weird_experiments</span><span>locomotion_systems</span><span>combat_logic</span><span>animation_graphs</span><span>artist_tools</span><span>small_weird_experiments</span></div></div>
 
-<main>
-  <section class="hero">
-    <h1 class="hero-line reveal">
-      I make <em>things</em><br/>
-      <span class="soft">that</span> <span class="swap" id="swap">move</span><span class="cursor"></span>
-    </h1>
-    <p class="hero-sub reveal">
-      <strong>Sr. Technical Animator</strong> at Tencent, Singapore. Previously at Ubisoft<br/>
-      on Assassin's Creed Origins, Valhalla, and Skull &amp; Bones.<br/>
-      Currently building small, playful tools on the side.
-    </p>
-  </section>
+    <section class="section page" id="work" aria-labelledby="work-title">
+      <header class="section-heading"><span class="micro">[01] selected_work/</span><h2 id="work-title">I’ve worked on different kinds of gameplay and animation systems. <span>Here are a few that stand out.</span></h2></header>
+      <div class="work-grid">
+        <a class="work-card" href="https://www.monsterhunter.com/" target="_blank" rel="noopener"><div class="card-top"><span class="card-chip">status=unreleased</span><span class="card-arrow">↗</span></div><h3>Monster Hunter Outlanders</h3><p>At Tencent, I work on locomotion and combat systems for the Monster Hunter mobile game. The systems need to support different character behaviors while still feeling responsive to the player.</p><img class="card-image" src="images/mh.png" alt="" /></a>
+        <a class="work-card" href="https://www.ubisoft.com/en-us/game/assassins-creed/valhalla" target="_blank" rel="noopener"><div class="card-top"><span class="card-chip">status=shipped</span><span class="card-arrow">↗</span></div><h3>Assassin’s Creed Valhalla</h3><p>For Valhalla, I worked in a small group with one engineer and one animator. We built the system specifically for the project instead of copying it from the previous game.</p><img class="card-image" src="images/valh.png" alt="" /></a>
+        <a class="work-card" href="https://www.ubisoft.com/en-us/game/assassins-creed/origins" target="_blank" rel="noopener"><div class="card-top"><span class="card-chip">status=shipped</span><span class="card-arrow">↗</span></div><h3>Assassin’s Creed Origins</h3><p>I worked on cinematics and gameplay animation for Origins. This included the systems and character behaviors behind what the player sees moving on screen.</p><img class="card-image" src="images/ace.png" alt="" /></a>
+        <a class="work-card" href="https://www.ubisoft.com/en-us/game/skull-and-bones" target="_blank" rel="noopener"><div class="card-top"><span class="card-chip">status=shipped</span><span class="card-arrow">↗</span></div><h3>Skull &amp; Bones</h3><p>I worked on animation systems for crews and characters moving on ships. One of the main problems was supporting movement on a surface that was constantly shifting.</p><img class="card-image" src="images/sb.png" alt="" /></a>
+      </div>
+    </section>
 
-  <section class="credits">
-    <a class="credit-row reveal" href="https://www.ubisoft.com/en-us/game/assassins-creed/origins" target="_blank" rel="noopener">
-      <span class="title"><em>Assassin's Creed</em> Origins</span>
-      <span class="role">cinematics &amp; gameplay</span>
-      <span class="studio">Ubisoft · shipped</span>
-      <span class="arrow">↗</span>
-      <img class="preview" src="{{ "/images/ace.png" | relative_url }}" alt="" />
-    </a>
-    <a class="credit-row reveal" href="https://www.ubisoft.com/en-us/game/assassins-creed/valhalla" target="_blank" rel="noopener">
-      <span class="title"><em>Assassin's Creed</em> Valhalla</span>
-      <span class="role">longship gameplay &amp; combat</span>
-      <span class="studio">Ubisoft · shipped</span>
-      <span class="arrow">↗</span>
-      <img class="preview" src="{{ "/images/valh.png" | relative_url }}" alt="" />
-    </a>
-    <a class="credit-row reveal" href="https://www.ubisoft.com/en-us/game/skull-and-bones" target="_blank" rel="noopener">
-      <span class="title">Skull <em>&amp;</em> Bones</span>
-      <span class="role">animation systems design</span>
-      <span class="studio">Ubisoft · shipped</span>
-      <span class="arrow">↗</span>
-      <img class="preview" src="{{ "/images/sb.png" | relative_url }}" alt="" />
-    </a>
-    <a class="credit-row reveal" href="https://www.monsterhunter.com/" target="_blank" rel="noopener">
-      <span class="title"><em>Monster Hunter</em> Outlanders</span>
-      <span class="role">locomotion &amp; combat</span>
-      <span class="studio">Tencent · unreleased</span>
-      <span class="arrow">↗</span>
-      <img class="preview" src="{{ "/images/mh.png" | relative_url }}" alt="" />
-    </a>
-  </section>
-</main>
+    <section class="section page" id="desk" aria-label="Personal projects and experiments">
+      <div class="desk">
+        <div class="desk-copy"><span class="micro">[02] ~/workbench</span><h2>I build side projects as a way to <span class="scribble">learn by doing.</span></h2><p>Most of these projects are how I learn and immerse myself in AI. They give me a specific problem to work through, and they let me explore a more creative and playful side of what I do.</p><a class="button button--paper" href="{{ '/projects/' | relative_url }}">ls -la everything/ ↗</a></div>
+        <nav class="desk-links" aria-label="Workbench sections"><a class="desk-link" href="{{ '/projects/' | relative_url }}"><span class="micro">dir::projects</span><strong>Side projects</strong><span>↗</span></a><a class="desk-link" href="{{ '/experiments/' | relative_url }}"><span class="micro">dir::experiments</span><strong>Experiments</strong><span>↗</span></a><a class="desk-link" href="{{ '/blog/' | relative_url }}"><span class="micro">dir::notes</span><strong>Build notes</strong><span>↗</span></a><a class="desk-link" href="{{ '/bitcoin/' | relative_url }}"><span class="micro">dir::bitcoin</span><strong>Bitcoin guide</strong><span>↗</span></a></nav>
+      </div>
+    </section>
 
-<footer>
-  <div class="links reveal">
-    <a href="https://github.com/mandlcho" target="_blank" rel="noopener">github</a>
-    <a href="https://www.linkedin.com/in/mandlcho/" target="_blank" rel="noopener">linkedin</a>
-    <a href="https://x.com/maaandl" target="_blank" rel="noopener">x</a>
-    <a href="https://adplist.org/mentors/mandl-cho" target="_blank" rel="noopener">adplist</a>
-    <a href="mailto:mandlcho@example.com">email</a>
-  </div>
-  <div class="time">© 2026</div>
-</footer>
+    <section class="now page" id="now" aria-labelledby="now-title">
+      <header><span class="micro">[03] process_status</span><h2 id="now-title" style="font-size:clamp(42px,5.2vw,72px);line-height:.98;letter-spacing:-.06em;margin:25px 0 0;">Still becoming.</h2></header>
+      <div class="now-list"><div class="now-item"><span>Working on</span><p>Gameplay and animation systems for the Monster Hunter mobile game at Tencent in Singapore.</p></div><div class="now-item"><span>Thinking about</span><p>How movement systems can cater to different scenarios and edge cases without making transitions feel repetitive.</p></div><div class="now-item"><span>Learning by doing</span><p>Building side projects that give me a practical way to learn and immerse myself in AI.</p></div><div class="now-item"><span>Previously</span><p>Working on the Assassin’s Creed franchise and Skull &amp; Bones during my time at Ubisoft.</p></div></div>
+    </section>
+  </main>
 
-<script>
-  /* ========== TWEAK DEFAULTS (persisted) ========== */
-  const TWEAKS = /*EDITMODE-BEGIN*/{
-    "accent": "#ff3b1f",
-    "theme": "light",
-    "verbs": "moves, listens, breathes, ships, solves",
-    "speed": 2000
-  }/*EDITMODE-END*/;
+  <footer class="footer page">
+    <h2 class="footer-title">I build systems for gameplay<span>and animation.</span></h2>
+    <div class="footer-row"><nav class="footer-links" aria-label="Social links"><a href="https://github.com/mandlcho" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/mandlcho/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://x.com/maaandl" target="_blank" rel="noopener">X ↗</a><a href="https://adplist.org/mentors/mandl-cho" target="_blank" rel="noopener">ADPList ↗</a></nav><span>Mandl Cho © 2026<br />Made in Singapore</span></div>
+  </footer>
 
-  const THEMES = {
-    light: { bg: "#fafaf7", ink: "#0d0d0f", dim: "#8a8a86", rule: "#e3e2dc" },
-    cream: { bg: "#f1ede0", ink: "#1a1610", dim: "#8f866e", rule: "#ddd5c0" },
-    dark:  { bg: "#0d0d0f", ink: "#fafaf7", dim: "#6c6c68", rule: "#222224" }
-  };
+  <div class="cursor-readout" id="cursorReadout" aria-hidden="true">PTR_X:0000&nbsp;&nbsp;PTR_Y:0000</div>
 
-  function applyTheme(name) {
-    const t = THEMES[name] || THEMES.light;
-    const r = document.documentElement.style;
-    r.setProperty('--bg', t.bg);
-    r.setProperty('--ink', t.ink);
-    r.setProperty('--dim', t.dim);
-    r.setProperty('--rule', t.rule);
-  }
-  function applyAccent(c) {
-    document.documentElement.style.setProperty('--accent', c);
-  }
-
-  applyTheme(TWEAKS.theme);
-  applyAccent(TWEAKS.accent);
-
-  // Reveal stagger
-  const revs = document.querySelectorAll('.reveal');
-  revs.forEach((el, i) => {
-    setTimeout(() => el.classList.add('in'), 120 + i * 80);
-  });
-
-  // Verb cycle — subtle, slow
-  let verbs = TWEAKS.verbs.split(',').map(s => s.trim()).filter(Boolean);
-  let cycleSpeed = TWEAKS.speed;
-  const swap = document.getElementById('swap');
-  let vi = 0;
-  function typeSwap(next) {
-    const current = swap.textContent;
-    let step = current.length;
-    const del = setInterval(() => {
-      step--;
-      swap.textContent = current.slice(0, step);
-      if (step <= 0) {
-        clearInterval(del);
-        let t = 0;
-        const type = setInterval(() => {
-          t++;
-          swap.textContent = next.slice(0, t);
-          if (t >= next.length) clearInterval(type);
-        }, 55);
-      }
-    }, 35);
-  }
-  let cycleTimer;
-  function startCycle() {
-    clearInterval(cycleTimer);
-    cycleTimer = setInterval(() => {
-      vi = (vi + 1) % verbs.length;
-      typeSwap(verbs[vi]);
-    }, cycleSpeed);
-  }
-  startCycle();
-
-  // Clock — Singapore time
-  function tick() {
-    const now = new Date();
-    // SGT is UTC+8
-    const sgt = new Date(now.getTime() + (now.getTimezoneOffset() + 480) * 60000);
-    const hh = String(sgt.getHours()).padStart(2, '0');
-    const mm = String(sgt.getMinutes()).padStart(2, '0');
-    document.getElementById('clock').textContent = `${hh}:${mm}`;
-  }
-  tick();
-  setInterval(tick, 30000);
-
-  /* ========== TWEAKS WIRING ========== */
-  const panel = document.getElementById('tweaks');
-
-  function setKey(k, v) {
-    TWEAKS[k] = v;
-    try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [k]: v } }, '*'); } catch(e){}
-  }
-
-  // accent swatches
-  const swAccent = document.querySelectorAll('#sw-accent button');
-  function paintAccentOn(c) {
-    swAccent.forEach(b => b.classList.toggle('on', b.dataset.c === c));
-  }
-  swAccent.forEach(b => b.addEventListener('click', () => {
-    const c = b.dataset.c;
-    applyAccent(c); paintAccentOn(c); setKey('accent', c);
-  }));
-  paintAccentOn(TWEAKS.accent);
-
-  // theme segmented
-  const swTheme = document.querySelectorAll('#sw-theme button');
-  function paintThemeOn(t) {
-    swTheme.forEach(b => b.classList.toggle('on', b.dataset.t === t));
-  }
-  swTheme.forEach(b => b.addEventListener('click', () => {
-    const t = b.dataset.t;
-    applyTheme(t); paintThemeOn(t); setKey('theme', t);
-  }));
-  paintThemeOn(TWEAKS.theme);
-
-  // verbs input
-  const verbsInput = document.getElementById('sw-verbs');
-  verbsInput.value = TWEAKS.verbs;
-  verbsInput.addEventListener('input', () => {
-    const parsed = verbsInput.value.split(',').map(s => s.trim()).filter(Boolean);
-    if (parsed.length) {
-      verbs = parsed; vi = 0;
-      setKey('verbs', verbsInput.value);
-    }
-  });
-
-  // speed segmented
-  const swSpeed = document.querySelectorAll('#sw-speed button');
-  function paintSpeedOn(s) {
-    swSpeed.forEach(b => b.classList.toggle('on', String(b.dataset.s) === String(s)));
-  }
-  swSpeed.forEach(b => b.addEventListener('click', () => {
-    const s = parseInt(b.dataset.s, 10);
-    cycleSpeed = s; startCycle(); paintSpeedOn(s); setKey('speed', s);
-  }));
-  paintSpeedOn(TWEAKS.speed);
-
-  // host edit-mode bridge
-  window.addEventListener('message', (ev) => {
-    const d = ev.data || {};
-    if (d.type === '__activate_edit_mode') panel.classList.add('on');
-    if (d.type === '__deactivate_edit_mode') panel.classList.remove('on');
-  });
-  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e){}
-</script>
-
+  <script>
+    const themeButton = document.getElementById('themeButton');
+    const cursorReadout = document.getElementById('cursorReadout');
+    themeButton.addEventListener('click', () => {
+      const active = document.body.classList.toggle('blue');
+      themeButton.setAttribute('aria-pressed', String(active));
+      themeButton.textContent = active ? 'reroll_again()' : 'reroll_palette()';
+    });
+    window.addEventListener('pointermove', (event) => {
+      cursorReadout.textContent = `PTR_X:${String(event.clientX).padStart(4, '0')}  PTR_Y:${String(event.clientY).padStart(4, '0')}`;
+    }, { passive: true });
+  </script>
 </body>
 </html>

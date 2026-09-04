@@ -8,8 +8,6 @@ tags:
   - prototypes
 ---
 
-![Early HUD sketches for Beefbeater]({{ '/images/beefbeater-hud.png' | relative_url }})
-
 Beefbeater started as a weekend challenge: build a crunchy clicker loop that rewards over-the-top tap spam but still feels readable. I mapped the touch feedback first—juice before mechanics—so every press pushes a squishy waveform through the HUD.
 
 Key beats from this cycle:

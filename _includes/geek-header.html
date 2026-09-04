@@ -1,0 +1,21 @@
+<header class="geek-nav geek-shell">
+  <a class="geek-logo" href="{{ '/' | relative_url }}">
+    <span>MC</span>Mandl Cho
+  </a>
+  <nav class="geek-nav__links" id="primaryNavigation" aria-label="Primary navigation" data-site-nav>
+    <a href="{{ '/#work' | relative_url }}"{% if page.url contains '/work/' or page.url == '/games/' %} aria-current="page"{% endif %}>work</a>
+    <a href="{{ '/projects/' | relative_url }}"{% if page.url contains '/projects/' or page.url contains '/experiments/' or page.url contains '/bitcoin/' %} aria-current="page"{% endif %}>projects / lab</a>
+    <a href="{{ '/blog/' | relative_url }}"{% if page.url contains '/blog/' %} aria-current="page"{% endif %}>notes</a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>about</a>
+    <a href="#contact">contact</a>
+  </nav>
+  <div class="geek-nav__controls">
+    <button class="geek-menu" id="geekMenuButton" type="button" aria-expanded="false" aria-controls="primaryNavigation">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+      <span class="sr-only">Open navigation</span>
+    </button>
+    <button class="geek-theme" id="geekThemeButton" type="button" aria-pressed="false">
+      reroll_palette()
+    </button>
+  </div>
+</header>

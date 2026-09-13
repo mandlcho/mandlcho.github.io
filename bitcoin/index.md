@@ -1,10 +1,10 @@
 ---
-published: false
 layout: landing
 title: Bitcoin
 hero_title: Bitcoin
 description: "Notes, references, and the sats calculator I’m tinkering on."
 permalink: /bitcoin/
+page_class: bitcoin-page
 ---
 
 <section class="bitcoin-section bitcoin-section--intro">

@@ -1,0 +1,53 @@
+---
+layout: null
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f0de" />
+    <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/geek.css' | relative_url }}" />
+  </head>
+  <body class="geek-body case-study-page {{ page.page_class | default: '' }}">
+    {% include geek-header.html %}
+    <main class="case-study geek-shell">
+      <a class="case-study__back" href="{{ '/#work' | relative_url }}">← selected work</a>
+      <header class="case-study__hero">
+        <div class="case-study__heading">
+          <p class="geek-label">// {{ page.eyebrow | default: "case_study" }}</p>
+          <h1>{{ page.title }}</h1>
+          <p>{{ page.description }}</p>
+          <div class="case-study__actions">
+            {% if page.official_url %}<a class="geek-button geek-button--blue" href="{{ page.official_url }}" target="_blank" rel="noopener">official project ↗</a>{% endif %}
+            <a class="geek-button" href="{{ '/about/' | relative_url }}">about my work</a>
+          </div>
+        </div>
+        {% if page.image %}
+          <figure class="case-study__image" data-label="asset::{{ page.image_label | default: page.slug }}">
+            <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" width="1200" height="675" />
+          </figure>
+        {% endif %}
+      </header>
+      <dl class="case-study__facts">
+        <div><dt>role</dt><dd>{{ page.role }}</dd></div>
+        <div><dt>focus</dt><dd>{{ page.focus }}</dd></div>
+        <div><dt>status</dt><dd>{{ page.status }}</dd></div>
+      </dl>
+      <article class="case-study__content">
+        {{ content }}
+      </article>
+      <nav class="case-study__next" aria-label="More selected work">
+        <span>// next file</span>
+        <a href="{{ page.next_work_url | relative_url }}">{{ page.next_work_title }} →</a>
+      </nav>
+    </main>
+    {% include geek-footer.html compact=true %}
+  </body>
+</html>

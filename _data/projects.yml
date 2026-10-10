@@ -1,71 +1,95 @@
-- name: beefbeater
-  repo: mandlcho/beefbeater
-  summary: ''
+- name: DoWhat
+  repo: mandlcho/DoWhat
+  summary: "A real-time Kanban task board with list and card views, priorities, categories, drag-and-drop, and cross-device sync without a conventional account."
+  reason: "I wanted one place where the full state of my work stayed visible without turning task management into another project."
   language_label: JavaScript
-  url: https://github.com/mandlcho/beefbeater
-  date_added: 2024-02-10
-  last_updated: 2024-11-09
-- name: blog
-  repo: mandlcho/blog
-  summary: ''
-  language_label: ''
-  url: https://github.com/mandlcho/blog
-  date_added: 2023-03-22
-  last_updated: 2023-08-01
-- name: Covid19Tracker
-  repo: mandlcho/Covid19Tracker
-  summary: Simple Covid19 Tracker
-  language_label: JavaScript
-  url: https://github.com/mandlcho/Covid19Tracker
-  date_added: 2020-03-20
-  last_updated: 2020-04-25
-- name: findit
+  url: /projects/the-kanban/
+  source_url: https://github.com/mandlcho/DoWhat
+  live_url: https://mandlcho.github.io/DoWhat/
+  featured: true
+  visual_command: "$ sync --vault\nbacklog → active → done"
+  date_added: 2025-10-20
+  last_updated: 2026-02-05
+
+- name: FindIt
   repo: mandlcho/findit
-  summary: find toilets near you when nature calls
+  summary: "A map for finding nearby public toilets, with geolocation, amenity filters, natural-language queries, and OpenStreetMap data."
+  reason: "It started with a real moment in Singapore when I needed a public toilet and could not find a useful answer quickly."
   language_label: TypeScript
-  url: https://github.com/mandlcho/findit
+  url: https://mandlcho.github.io/findit/
+  source_url: https://github.com/mandlcho/findit
+  featured: true
+  visual_command: "> locate --near-me\n3 useful places found"
   date_added: 2023-09-05
-  last_updated: 2024-01-15
-- name: maya_skeletonExporter
+  last_updated: 2026-05-24
+
+- name: Beefbeater
+  repo: mandlcho/beefbeater
+  summary: "A small clicker-game experiment built around crunchy input feedback, readable HUD behavior, and the rhythm of a short interaction loop."
+  reason: "I used a weekend-sized game to explore how much feel can come from timing, feedback, and a deliberately narrow mechanic."
+  language_label: JavaScript
+  url: /blog/2025/11/09/beefbeater-loop/
+  source_url: https://github.com/mandlcho/beefbeater
+  featured: true
+  visual_command: "> tap tap tap\ncombo: 12  dps: rising"
+  date_added: 2024-02-10
+  last_updated: 2025-12-29
+
+- name: WhereToEat
+  repo: mandlcho/WhereToEat
+  summary: "A lightweight lunch decision assistant that turns a budget, or one surprise button, into a quick recommendation."
+  reason: "It takes a frequent low-stakes decision and reduces it to a five-second interaction."
+  language_label: Python
+  url: https://github.com/mandlcho/WhereToEat
+  featured: true
+  visual_command: "$ lunch --budget 12\ntry this place →"
+  date_added: 2025-11-08
+  last_updated: 2026-02-26
+
+- name: Maya Skeleton Exporter
   repo: mandlcho/maya_skeletonExporter
-  summary: namespace-based skeleton transform exporter
+  summary: "A namespace-based tool for exporting skeleton transforms from Maya."
   language_label: Python
   url: https://github.com/mandlcho/maya_skeletonExporter
   date_added: 2019-05-10
-  last_updated: 2019-06-15
-- name: MocapAssistantTool
+  last_updated: 2023-02-02
+
+- name: Mocap Assistant Tool
   repo: mandlcho/MocapAssistantTool
-  summary: lazy data entry tool
+  summary: "A small utility for reducing repetitive motion-capture data entry."
   language_label: Python
   url: https://github.com/mandlcho/MocapAssistantTool
   date_added: 2019-07-20
   last_updated: 2019-08-20
-- name: pyfbsdk_mConstraintToolbox
+
+- name: MotionBuilder Constraint Toolbox
   repo: mandlcho/pyfbsdk_mConstraintToolbox
-  summary: simple marker creation ; one-click send to story and export ; color-code
-    characters
+  summary: "Marker creation, one-click Story export, and character color-coding helpers for MotionBuilder."
   language_label: Python
   url: https://github.com/mandlcho/pyfbsdk_mConstraintToolbox
   date_added: 2019-09-15
   last_updated: 2019-10-20
-- name: the-kanban
-  repo: mandlcho/the-kanban
-  summary: ''
-  language_label: JavaScript
-  url: https://github.com/mandlcho/the-kanban
-  date_added: 2025-10-20
-  last_updated: 2025-10-31
-- name: unrealvibes
+
+- name: Unreal Vibes
   repo: mandlcho/unrealvibes
-  summary: ''
+  summary: "A public C++ repository for experiments in Unreal Engine."
   language_label: C++
   url: https://github.com/mandlcho/unrealvibes
   date_added: 2021-04-25
   last_updated: 2021-06-30
-- name: WhereToEat
-  repo: mandlcho/WhereToEat
-  summary: can't decide where to eat?
-  language_label: Python
-  url: https://github.com/mandlcho.github.io/
-  date_added: 2025-11-08
-  last_updated: 2025-11-08
+
+- name: Covid19 Tracker
+  repo: mandlcho/Covid19Tracker
+  summary: "A simple JavaScript tracker built during the early Covid-19 period."
+  language_label: JavaScript
+  url: https://github.com/mandlcho/Covid19Tracker
+  date_added: 2020-03-20
+  last_updated: 2020-04-25
+
+- name: Previous Blog
+  repo: mandlcho/blog
+  summary: "The repository for an earlier version of my personal blog."
+  language_label: HTML
+  url: https://github.com/mandlcho/blog
+  date_added: 2023-03-22
+  last_updated: 2023-08-01

@@ -1,47 +1,35 @@
 ---
 layout: null
 ---
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="theme-color" content="#f7f0de" />
+    <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <title>{{ page.title | default: site.brand | default: site.title | escape }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    {%- seo -%}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/geek.css' | relative_url }}" />
   </head>
-  <body>
-    <div class="project-page">
-      <header class="project-page__header">
-        <a
-          class="project-page__home"
-          href="{{ '/' | relative_url }}"
-          aria-label="Back to home"
-        >
-          <svg
-            class="project-page__home-icon"
-            aria-hidden="true"
-            focusable="false"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M12.5 4.5a.75.75 0 0 1 0 1.06L8.06 10l4.44 4.44a.75.75 0 1 1-1.06 1.06l-5-5a.75.75 0 0 1 0-1.06l5-5a.75.75 0 0 1 1.06 0Z"
-            />
-          </svg>
-          <span class="sr-only">Back to home</span>
-        </a>
-        {% if page.project_meta %}
-        <div class="project-page__meta">
-          {{ page.project_meta }}
+  <body class="geek-body {{ page.page_class | default: '' }}">
+    {% include geek-header.html %}
+    <main class="geek-main geek-main--article geek-shell">
+      <article class="geek-article geek-project">
+        <header class="geek-article__header">
+          <p class="geek-label">// {{ page.eyebrow | default: "project_file" }}</p>
+          <h1>{{ page.title }}</h1>
+          {% if page.description %}<p class="geek-article__description">{{ page.description }}</p>{% endif %}
+          {% if page.project_meta %}<p class="geek-project__meta">{{ page.project_meta }}</p>{% endif %}
+        </header>
+        <div class="geek-article__content geek-project__content">
+          {{ content }}
         </div>
-        {% endif %}
-      </header>
-      <main class="project-page__content">
-        {{ content }}
-      </main>
-    </div>
+      </article>
+    </main>
+    {% include geek-footer.html compact=true %}
   </body>
 </html>

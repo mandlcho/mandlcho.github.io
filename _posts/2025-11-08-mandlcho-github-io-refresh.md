@@ -8,8 +8,6 @@ tags:
   - mandlcho-github-io
 ---
 
-![Color palette exploration for the site refresh]({{ '/images/site-refresh-swatches.png' | relative_url }})
-
 This cycle focused on making the portfolio feel alive: live GitHub stats, theme toggles, and cards that surface the best builds. A few highlights:
 
 1. **Project data pipeline.** Replaced hard-coded cards with `_data/projects.yml` so the home page and `/projects/` stay in sync.

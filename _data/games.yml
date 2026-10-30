@@ -1,40 +1,43 @@
-- name: Monster Hunter (collab missions)
-  url: https://www.monsterhunter.com/
-  summary: "Designed limited-time crossover hunts with dynamic difficulty scaling for 1-4 player squads. Tuned monster behavior trees, balanced loot drop tables with weighted rarities, and streamlined matchmaking flows for seamless co-op onboarding."
-  status: Unreleased
-  language_label: Encounter Design
-  language_color: "#a855f7"
-  image: /images/mh.png
+- name: Monster Hunter Outlanders
+  url: /work/monster-hunter-outlanders/
+  official_url: https://www.monsterhunter.com/outlanders/
+  summary: "I work on locomotion and combat systems that support different character behaviors while staying responsive to the player."
+  status: In development
+  language_label: Technical Animation
+  language_color: "#3157f6"
+  image: /images/mh-card.webp
   image_alt: "Monster Hunter co-op hunt screenshot"
   video_url: https://www.youtube.com/watch?v=hPU7cZ288i8
-  splat_model: /images/mh.ply
 
 - name: Assassin's Creed Valhalla
-  url: https://www.ubisoft.com/en-us/game/assassins-creed/valhalla
-  summary: "Designed recurring settlement festivals with timed activities, mini-game integrations, and progression reward tracks. Polished combat feedback systems for melee hit reactions and implemented data-driven live ops content pipelines for seasonal drops."
+  url: /work/assassins-creed-valhalla/
+  official_url: https://www.ubisoft.com/en-us/game/assassins-creed/valhalla
+  summary: "I worked with one engineer and one animator to rebuild a system specifically for Valhalla instead of copying the previous solution."
   status: Shipped
-  language_label: Live Ops Design
-  language_color: "#0ea5e9"
-  image: /images/valh.png
+  language_label: Technical Animation
+  language_color: "#3157f6"
+  image: /images/valh-card.webp
   image_alt: "Assassin's Creed Valhalla festival scene"
   video_url: https://youtu.be/grhjsDwqECY?si=fEJ72SDTnC6icuvo
 
 - name: Assassin's Creed Origins
-  url: https://www.ubisoft.com/en-us/game/assassins-creed/origins
-  summary: "Owned Memphis region missions end-to-end: scripted branching quests with objective tracking, designed multi-phase boss encounters with telegraphed attack patterns, and built stealth sandboxes with AI patrol routes optimized for the hitbox-based combat system."
+  url: /work/assassins-creed-origins/
+  official_url: https://www.ubisoft.com/en-us/game/assassins-creed/origins
+  summary: "I worked on cinematics and gameplay animation, including the systems and character behaviors behind movement on screen."
   status: Shipped
-  language_label: Narrative Systems
-  language_color: "#f97316"
-  image: /images/ace.png
+  language_label: Gameplay Animation
+  language_color: "#3eaf79"
+  image: /images/ace-card.webp
   image_alt: "Assassin's Creed Origins gameplay screenshot"
   video_url: https://vimeo.com/241276055?share=copy
 
 - name: Skull and Bones
-  url: https://www.ubisoft.com/en-us/game/skull-and-bones
-  summary: "Prototyped ship upgrade progression with tiered unlock gates and resource sinks. Designed seasonal contract systems with dynamic objectives and risk-reward modifiers that balanced PvE grind pacing against open-world PvP threat zones."
+  url: /work/skull-and-bones/
+  official_url: https://www.ubisoft.com/en-us/game/skull-and-bones
+  summary: "I worked on animation systems for crews and characters moving on ships, where the surface beneath them was always shifting."
   status: Shipped
-  language_label: Systems Design
-  language_color: "#10b981"
-  image: /images/sb.png
+  language_label: Animation Systems
+  language_color: "#f1513c"
+  image: /images/sb-card.webp
   image_alt: "Skull and Bones naval combat moment"
   video_url: https://vimeo.com/406783404

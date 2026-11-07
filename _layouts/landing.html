@@ -1,45 +1,25 @@
 ---
 layout: null
 ---
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="theme-color" content="#f7f0de" />
+    <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     {%- seo -%}
-    <script>
-      (function () {
-        var pageTitle = {{ page.title | default: site.brand | default: site.title | jsonify }};
-        if (pageTitle) document.title = pageTitle;
-      })();
-    </script>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-    <script defer src="{{ '/assets/js/github-projects.js' | relative_url }}"></script>
-    <script defer src="{{ '/assets/js/card-parallax.js' | relative_url }}"></script>
-    <script defer src="{{ '/assets/js/splat-viewer.js' | relative_url }}"></script>
+    <link rel="stylesheet" href="{{ '/assets/css/geek.css' | relative_url }}" />
   </head>
-  <body>
-    <div class="landing">
-      <header class="landing__header">
-        <div class="landing__header-inner">
-          <h1 class="landing__brand">
-            {{ page.hero_title | default: page.title | default: site.brand | default: site.title }}
-          </h1>
-          <div class="landing__controls">
-            {% include site-nav.html %}
-          </div>
-        </div>
-      </header>
-
-      <main class="landing__content">
-        {{ content }}
-      </main>
-
-      <footer class="landing__footer"></footer>
-    </div>
+  <body class="geek-body {{ page.page_class | default: '' }}">
+    {% include geek-header.html %}
+    <main class="geek-main geek-main--landing">
+      {{ content }}
+    </main>
+    {% include geek-footer.html %}
   </body>
 </html>

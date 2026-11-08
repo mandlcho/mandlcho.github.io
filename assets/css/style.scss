@@ -2,9 +2,7 @@
 # Styling
 ---
 
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap");
-
-$base-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Helvetica Neue", Arial, sans-serif;
 $brand-color: #de0f66;
 
@@ -15,4 +13,5 @@ $brand-color: #de0f66;
 @import "02-typography";
 @import "03-layout";
 @import "04-components";
+@import "05-bitcoin";
 @import "06-responsive";
